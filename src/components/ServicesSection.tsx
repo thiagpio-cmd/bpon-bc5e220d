@@ -1,12 +1,12 @@
 import { CreditCard, TrendingUp, GitMerge, BarChart3, FileText, PieChart } from "lucide-react";
 
 const services = [
-  { icon: CreditCard, title: "Contas a pagar", description: "Organização de vencimentos, conferência, programação e controle para manter a rotina sob critério." },
-  { icon: TrendingUp, title: "Contas a receber", description: "Acompanhamento de recebimentos, baixa, cobrança e visibilidade para proteger caixa e giro." },
-  { icon: GitMerge, title: "Conciliação financeira", description: "Validação entre banco, operação e sistema para construir uma base confiável de dados." },
-  { icon: BarChart3, title: "Fluxo de caixa", description: "Leitura prática das entradas e saídas com previsibilidade e acompanhamento contínuo." },
-  { icon: FileText, title: "Fechamento gerencial", description: "Consolidação da rotina financeira para leitura mensal mais clara e acompanhamento da operação." },
-  { icon: PieChart, title: "Indicadores e relatórios", description: "Material executivo para acompanhar desempenho, pressão no caixa e pontos que pedem ajuste." },
+  { icon: CreditCard, title: "Contas a pagar", description: "Organização de vencimentos, conferência, programação e controle para manter a rotina sob critério.", accent: "from-blue-50 to-indigo-50" },
+  { icon: TrendingUp, title: "Contas a receber", description: "Acompanhamento de recebimentos, baixa, cobrança e visibilidade para proteger caixa e giro.", accent: "from-sky-50 to-blue-50" },
+  { icon: GitMerge, title: "Conciliação financeira", description: "Validação entre banco, operação e sistema para construir uma base confiável de dados.", accent: "from-indigo-50 to-blue-50" },
+  { icon: BarChart3, title: "Fluxo de caixa", description: "Leitura prática das entradas e saídas com previsibilidade e acompanhamento contínuo.", accent: "from-blue-50 to-sky-50" },
+  { icon: FileText, title: "Fechamento gerencial", description: "Consolidação da rotina financeira para leitura mensal mais clara e acompanhamento da operação.", accent: "from-sky-50 to-indigo-50" },
+  { icon: PieChart, title: "Indicadores e relatórios", description: "Material executivo para acompanhar desempenho, pressão no caixa e pontos que pedem ajuste.", accent: "from-indigo-50 to-sky-50" },
 ];
 
 const ServicesSection = () => {
@@ -32,16 +32,24 @@ const ServicesSection = () => {
             return (
               <div
                 key={service.title}
-                className={`reveal reveal-delay-${Math.min(i + 1, 6)} group flex flex-col gap-5 p-7 rounded-2xl border border-divider bg-surface card-hover`}
+                className={`reveal reveal-delay-${Math.min(i + 1, 6)} group flex flex-col gap-5 p-7 rounded-2xl border border-divider bg-surface card-hover relative overflow-hidden`}
               >
-                <div className="w-11 h-11 rounded-xl bg-primary/8 border border-primary/15 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/12 transition-colors">
-                  <Icon size={19} className="text-primary" strokeWidth={1.7} />
+                {/* Subtle colored bg on hover */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${service.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`} />
+
+                {/* Left accent stripe on hover */}
+                <div className="absolute left-0 top-4 bottom-4 w-0.5 bg-primary rounded-r-full opacity-0 group-hover:opacity-100 transition-all duration-300" />
+
+                <div className="relative">
+                  <div className="w-11 h-11 rounded-xl bg-primary/8 border border-primary/15 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/15 group-hover:border-primary/25 transition-all duration-200">
+                    <Icon size={19} className="text-primary" strokeWidth={1.7} />
+                  </div>
                 </div>
-                <div className="flex flex-col gap-2 flex-1">
+
+                <div className="flex flex-col gap-2 flex-1 relative">
                   <h3 className="font-display font-bold text-base text-headline">{service.title}</h3>
                   <p className="font-body text-sm text-body leading-relaxed">{service.description}</p>
                 </div>
-                <div className="h-0.5 w-0 group-hover:w-full transition-all duration-400 bg-gradient-to-r from-primary/60 to-primary/20 rounded-full" />
               </div>
             );
           })}

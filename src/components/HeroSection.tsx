@@ -16,10 +16,12 @@ const proofChips = [
 
 const HeroSection = () => {
   return (
-    <section className="gradient-hero overflow-hidden pb-24 lg:pb-32">
+    <section className="gradient-hero overflow-hidden pb-24 lg:pb-32 relative">
       {/* Decorative blobs */}
-      <div className="pointer-events-none absolute top-0 right-0 w-[600px] h-[600px] rounded-full opacity-[0.06]"
+      <div className="pointer-events-none absolute top-0 right-0 w-[700px] h-[700px] rounded-full opacity-[0.07]"
         style={{ background: "radial-gradient(circle, hsl(221,83%,53%) 0%, transparent 70%)", transform: "translate(30%, -30%)" }} />
+      <div className="pointer-events-none absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full opacity-[0.04]"
+        style={{ background: "radial-gradient(circle, hsl(213,100%,93%) 0%, transparent 70%)", transform: "translate(-30%, 30%)" }} />
 
       <div className="container mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center pt-16 lg:pt-24">
@@ -34,7 +36,7 @@ const HeroSection = () => {
             </div>
 
             {/* H1 */}
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-5">
               <h1 className="font-display font-black text-[2.6rem] lg:text-[3.2rem] xl:text-[3.6rem] leading-[1.05] text-headline tracking-tight">
                 Seu financeiro precisa{" "}
                 <em className="not-italic text-shimmer">sustentar</em>
@@ -50,7 +52,7 @@ const HeroSection = () => {
             <div className="flex flex-wrap gap-3">
               <a
                 href="#diagnostico"
-                className="group relative inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-primary text-primary-foreground font-body font-bold text-sm shadow-blue hover:shadow-blue hover:bg-primary/90 transition-all duration-200 overflow-hidden"
+                className="group relative inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-primary text-primary-foreground font-body font-bold text-sm shadow-blue hover:bg-primary/90 transition-all duration-200 overflow-hidden"
               >
                 <span className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
                 Solicitar diagnóstico
@@ -76,25 +78,32 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* ——— RIGHT — Dashboard card ——— */}
-          <div className="flex justify-center lg:justify-end animate-fade-in animate-float-slow">
-            <div className="w-full max-w-[400px] relative">
+          {/* ——— RIGHT — Dashboard panel + photo ——— */}
+          <div className="flex justify-center lg:justify-end animate-float-slow">
+            <div className="w-full max-w-[420px] relative">
 
-              {/* Glow ring */}
-              <div className="absolute inset-0 rounded-2xl bg-primary/10 blur-3xl scale-110 pointer-events-none" />
+              {/* Glow halo */}
+              <div className="absolute -inset-3 rounded-3xl bg-primary/8 blur-2xl pointer-events-none" />
 
-              <div className="relative rounded-2xl border border-primary/20 bg-surface shadow-elevated overflow-hidden">
+              {/* Main card */}
+              <div className="relative rounded-2xl border border-primary/18 bg-surface shadow-elevated overflow-hidden">
 
-                {/* Header */}
-                <div className="px-6 py-5 border-b border-divider bg-gradient-to-r from-deep to-deep/90">
-                  <div className="flex items-center justify-between">
+                {/* Card header with real photo */}
+                <div className="relative h-32 overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=700&q=80&auto=format&fit=crop"
+                    alt="Análise financeira executiva"
+                    className="w-full h-full object-cover"
+                    loading="eager"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-[hsl(218,82%,10%)]/70 via-[hsl(218,82%,10%)]/50 to-[hsl(218,82%,10%)]/80" />
+                  <div className="absolute inset-0 px-6 py-4 flex items-end justify-between">
                     <div>
                       <p className="font-display font-bold text-sm text-white">Rotina Financeira</p>
                       <p className="font-body text-xs text-white/50 mt-0.5">BPOn · Painel operacional</p>
                     </div>
-                    <div className="relative flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/15">
-                      <span className="absolute inset-0 rounded-full bg-emerald-400/20 animate-pulse-ring" />
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                    <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-emerald-500/20 border border-emerald-400/30">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                       <span className="font-body text-[11px] font-semibold text-emerald-300">Ativo</span>
                     </div>
                   </div>
@@ -103,10 +112,10 @@ const HeroSection = () => {
                 {/* Items with progress bars */}
                 <div className="px-6 py-2 divide-y divide-divider">
                   {pillars.map((pillar, i) => (
-                    <div key={pillar.label} className="py-4">
+                    <div key={pillar.label} className="py-3.5">
                       <div className="flex items-center justify-between mb-2">
                         <span className="font-body text-sm font-medium text-headline">{pillar.label}</span>
-                        <span className="font-body text-xs text-body bg-surface-elevated px-2.5 py-0.5 rounded-full border border-divider">
+                        <span className="font-body text-xs text-body bg-background px-2.5 py-0.5 rounded-full border border-divider">
                           {pillar.status}
                         </span>
                       </div>
@@ -124,16 +133,16 @@ const HeroSection = () => {
                 </div>
 
                 {/* Footer */}
-                <div className="px-6 py-4 bg-surface-elevated border-t border-divider flex items-center justify-between">
+                <div className="px-6 py-4 bg-background border-t border-divider flex items-center justify-between">
                   <p className="font-body text-xs text-body">Base estruturada para decisão gerencial</p>
-                  <span className="font-display font-bold text-xs text-primary">100%</span>
+                  <span className="font-display font-bold text-xs text-primary">✓ 100%</span>
                 </div>
               </div>
 
               {/* Floating badge */}
-              <div className="absolute -bottom-4 -left-4 bg-surface rounded-2xl shadow-elevated border border-divider px-4 py-3 flex items-center gap-3">
+              <div className="absolute -bottom-4 -left-4 glass-card rounded-2xl shadow-elevated border border-divider px-4 py-3 flex items-center gap-3 animate-float">
                 <div className="w-9 h-9 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center">
-                  <TrendingUp size={16} className="text-primary" />
+                  <TrendingUp size={15} className="text-primary" />
                 </div>
                 <div>
                   <p className="font-display font-bold text-xs text-headline">Empresa do Grupo</p>

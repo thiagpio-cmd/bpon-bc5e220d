@@ -4,49 +4,33 @@ const HumanSection = () => {
       <div className="container mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
 
-          {/* LEFT — visual editorial block */}
+          {/* LEFT — editorial photo block */}
           <div className="relative order-2 lg:order-1 reveal">
-            {/* Main visual */}
-            <div className="relative rounded-3xl overflow-hidden aspect-[4/3] bg-gradient-to-br from-[hsl(218,70%,12%)] to-[hsl(220,65%,22%)] shadow-elevated">
-              {/* Decorative pattern */}
-              <div className="absolute inset-0 opacity-10"
-                style={{
-                  backgroundImage: "radial-gradient(circle at 30% 70%, hsl(221,83%,53%) 0%, transparent 50%), radial-gradient(circle at 80% 20%, hsl(218,67%,40%) 0%, transparent 40%)"
-                }} />
+            <div className="relative rounded-3xl overflow-hidden aspect-[4/3] shadow-elevated">
+              {/* Real editorial photo — executive discussion */}
+              <img
+                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&q=85&auto=format&fit=crop"
+                alt="Reunião executiva de consultoria financeira"
+                className="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+              />
+              {/* Gradient overlay for text legibility */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[hsl(218,82%,10%)]/70 via-transparent to-transparent" />
 
-              {/* Content inside card */}
-              <div className="absolute inset-0 p-8 flex flex-col justify-between">
-                {/* Top — quote */}
-                <div>
-                  <p className="font-display font-black text-[1.8rem] lg:text-[2rem] text-white leading-[1.2]">
-                    "Financeiro<br/>estruturado é<br/>
-                    <span className="text-primary/80">decisão segura.</span>"
-                  </p>
-                  <p className="font-body text-xs text-white/40 mt-3">BPOn — Consultoria Financeira</p>
-                </div>
-
-                {/* Bottom — mini metrics */}
-                <div className="grid grid-cols-3 gap-3">
-                  {[
-                    { label: "Clareza", pct: 92 },
-                    { label: "Controle", pct: 85 },
-                    { label: "Previsib.", pct: 88 },
-                  ].map((m) => (
-                    <div key={m.label} className="bg-white/8 border border-white/10 rounded-xl p-3">
-                      <p className="font-body text-[10px] text-white/40 uppercase tracking-widest mb-2">{m.label}</p>
-                      <p className="font-display font-black text-xl text-white">{m.pct}%</p>
-                      <div className="mt-1.5 h-1 bg-white/10 rounded-full overflow-hidden">
-                        <div className="h-full bg-primary/70 rounded-full" style={{ width: `${m.pct}%` }} />
-                      </div>
-                    </div>
-                  ))}
-                </div>
+              {/* Bottom caption */}
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <p className="font-display font-black text-[1.6rem] text-white leading-[1.2]">
+                  "Quando o financeiro<br />
+                  <span className="text-primary/80">ganha método,</span><br />
+                  a decisão ganha base."
+                </p>
+                <p className="font-body text-xs text-white/50 mt-2">BPOn — Consultoria Financeira</p>
               </div>
             </div>
 
             {/* Floating card */}
-            <div className="absolute -bottom-5 -right-3 lg:-right-6 bg-surface rounded-2xl shadow-elevated border border-divider px-5 py-4 flex items-center gap-3 animate-float">
-              <div className="w-10 h-10 rounded-xl bg-surface-tint border border-primary/20 flex items-center justify-center">
+            <div className="absolute -bottom-5 -right-3 lg:-right-6 glass-card rounded-2xl shadow-elevated border border-divider px-5 py-4 flex items-center gap-3 animate-float">
+              <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center">
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                   <path d="M3 13L7 9L10 12L15 6" stroke="hsl(221,83%,53%)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
@@ -86,7 +70,7 @@ const HumanSection = () => {
                 { num: "03", text: "Menos dependência de improviso" },
                 { num: "04", text: "Leitura gerencial consistente" },
               ].map((item) => (
-                <div key={item.num} className="flex items-start gap-3 p-4 rounded-xl bg-surface-tint border border-primary/10">
+                <div key={item.num} className="flex items-start gap-3 p-4 rounded-xl bg-surface-tint border border-primary/12">
                   <span className="font-display font-black text-xs text-primary mt-0.5 flex-shrink-0">{item.num}</span>
                   <span className="font-body text-sm text-body leading-snug">{item.text}</span>
                 </div>

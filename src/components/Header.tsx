@@ -28,25 +28,26 @@ const Header = () => {
           <span className="font-semibold text-deep-foreground">BPOn</span>
           {" "}— Empresa do{" "}
           <span className="font-semibold text-deep-foreground">Grupo Ubercentral</span>
-          <span className="hidden sm:inline text-deep-foreground/50 mx-2">·</span>
-          <span className="hidden sm:inline">Base empresarial e contábil desde 2002</span>
+          <span className="hidden sm:inline text-deep-foreground/40 mx-2">·</span>
+          <span className="hidden sm:inline text-deep-foreground/60">Base empresarial e contábil desde 2002</span>
         </p>
       </div>
 
       <header
         className={`sticky top-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-surface/95 backdrop-blur-md border-b border-divider shadow-card"
-            : "bg-surface border-b border-divider"
+            ? "bg-white/95 backdrop-blur-md border-b border-divider shadow-card"
+            : "bg-white border-b border-divider"
         }`}
       >
         <div className="container mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-[68px]">
+
             {/* Logo */}
-            <a href="#" className="flex-shrink-0 flex items-center gap-3">
-              <BPOnLogo />
-              <span className="hidden lg:block font-body text-xs text-muted-foreground border-l border-divider pl-3">
-                Empresa do Grupo Ubercentral
+            <a href="#" className="flex-shrink-0 flex items-center gap-3.5">
+              <BPOnLogo height={34} />
+              <span className="hidden lg:block font-body text-xs text-muted-foreground border-l border-divider pl-3.5 leading-tight">
+                Empresa do<br />Grupo Ubercentral
               </span>
             </a>
 
@@ -67,7 +68,7 @@ const Header = () => {
             <div className="hidden md:flex items-center">
               <a
                 href="#diagnostico"
-                className="font-body text-sm font-semibold px-5 py-2.5 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 shadow-card"
+                className="font-body text-sm font-semibold px-5 py-2.5 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 shadow-blue"
               >
                 Solicitar diagnóstico
               </a>
@@ -99,7 +100,7 @@ const Header = () => {
                 ))}
                 <a
                   href="#diagnostico"
-                  className="font-body text-sm font-semibold px-5 py-3 rounded-lg bg-primary text-primary-foreground text-center mt-3"
+                  className="font-body text-sm font-semibold px-5 py-3 rounded-lg bg-primary text-primary-foreground text-center mt-3 shadow-blue"
                   onClick={() => setMobileOpen(false)}
                 >
                   Solicitar diagnóstico
