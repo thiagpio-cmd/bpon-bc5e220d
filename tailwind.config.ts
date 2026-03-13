@@ -26,9 +26,14 @@ export default {
         foreground: "hsl(var(--foreground))",
         surface: "hsl(var(--surface))",
         "surface-elevated": "hsl(var(--surface-elevated))",
+        "surface-tint": "hsl(var(--surface-tint))",
         headline: "hsl(var(--headline))",
         body: "hsl(var(--body))",
         divider: "hsl(var(--divider))",
+        deep: {
+          DEFAULT: "hsl(var(--deep))",
+          foreground: "hsl(var(--deep-foreground))",
+        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
