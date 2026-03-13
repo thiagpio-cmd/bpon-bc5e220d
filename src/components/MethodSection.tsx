@@ -1,83 +1,74 @@
 const steps = [
   {
     num: "01",
-    title: "Diagnóstico da operação atual",
-    what: "O que analisamos",
+    title: "Diagnóstico da operação",
     what_text: "Mapeamos como o financeiro funciona hoje — controles, responsáveis, fluxo de informações, ferramentas e onde estão os principais gargalos.",
-    after: "O cliente passa a enxergar",
     after_text: "Clareza sobre onde está a fragilidade e quais rotinas precisam de correção imediata.",
-    color: "from-primary/10 to-primary/5",
   },
   {
     num: "02",
-    title: "Estruturação da rotina e dos responsáveis",
-    what: "O que organizamos",
+    title: "Estruturação da rotina",
     what_text: "Definimos processo, cadência, critérios de conferência e organização da base — com responsabilidades claras e padrão operacional.",
-    after: "O cliente passa a enxergar",
     after_text: "Uma rotina financeira que funciona com método, não com esforço individual.",
-    color: "from-primary/15 to-primary/8",
   },
   {
     num: "03",
-    title: "Implantação dos controles e da cadência",
-    what: "O que operamos",
-    what_text: "A rotina financeira entra em funcionamento com acompanhamento — contas, conciliação, fluxo e fechamento rodando em cadência.",
-    after: "O cliente passa a enxergar",
+    title: "Implantação e controles",
+    what_text: "A rotina entra em funcionamento com acompanhamento — contas, conciliação, fluxo e fechamento rodando em cadência.",
     after_text: "Operação mais previsível, menos improviso e base de dados mais confiável.",
-    color: "from-primary/20 to-primary/10",
   },
   {
     num: "04",
-    title: "Acompanhamento contínuo e leitura gerencial",
-    what: "O que entregamos",
-    what_text: "Reportes periódicos com indicadores, fechamento gerencial e leitura de caixa — para que a liderança acompanhe o negócio com mais segurança.",
-    after: "O cliente passa a enxergar",
+    title: "Acompanhamento contínuo",
+    what_text: "Reportes periódicos com indicadores, fechamento gerencial e leitura de caixa para a liderança acompanhar o negócio.",
     after_text: "Base financeira que sustenta decisão com critério, não no feeling.",
-    color: "from-primary/25 to-primary/12",
   },
 ];
 
 const MethodSection = () => {
   return (
-    <section id="metodo" className="py-24 lg:py-32 bg-surface">
+    <section id="metodo" className="py-28 lg:py-36 bg-background relative overflow-hidden">
+
+      {/* Faint vertical rule */}
+      <div className="absolute left-1/2 top-0 bottom-0 w-px bg-divider opacity-50 hidden lg:block pointer-events-none" />
+
       <div className="container mx-auto px-6 lg:px-8">
-        <div className="mb-16 reveal">
-          <div className="label-pill w-fit mb-5">Método de trabalho</div>
-          <h2 className="font-display font-black text-3xl lg:text-4xl text-headline leading-[1.12] tracking-tight">
-            Como a BPOn trabalha
+
+        {/* Header */}
+        <div className="mb-16 lg:mb-20 reveal max-w-xl">
+          <span className="label-pill">Método</span>
+          <h2 className="font-display font-black text-[2.2rem] lg:text-[3rem] text-headline leading-[1.05] tracking-[-0.02em] mt-5">
+            Como a BPOn trabalha,<br />
+            <span className="text-gradient-primary">passo a passo.</span>
           </h2>
-          <p className="font-body text-base text-body leading-relaxed mt-4 max-w-xl">
-            Quatro etapas que transformam rotina financeira desorganizada em estruturada, previsível e gerenciável.
-          </p>
         </div>
 
-        <div className="flex flex-col gap-4">
+        {/* Steps */}
+        <div className="flex flex-col gap-0 border border-divider rounded-2xl overflow-hidden shadow-card">
           {steps.map((step, i) => (
             <div
               key={step.num}
-              className={`reveal reveal-delay-${i + 1} group grid lg:grid-cols-[80px_1fr] gap-0 rounded-2xl border border-divider bg-surface overflow-hidden card-hover`}
+              className={`reveal reveal-delay-${i + 1} group grid lg:grid-cols-[120px_1fr_1fr] gap-0 border-b border-divider last:border-b-0 hover:bg-surface-tint transition-colors duration-200`}
             >
-              {/* Number bar */}
-              <div className={`hidden lg:flex flex-col items-center justify-center bg-gradient-to-b ${step.color} border-r border-divider p-6`}>
-                <span className="font-display font-black text-2xl text-primary">{step.num}</span>
+              {/* Number column */}
+              <div className="hidden lg:flex flex-col items-center justify-center border-r border-divider bg-surface group-hover:bg-primary/5 transition-colors duration-200 py-10 px-4">
+                <span className="font-display font-black text-[2.2rem] text-gradient-primary leading-none">{step.num}</span>
               </div>
 
-              {/* Content */}
-              <div className="p-6 lg:p-8">
-                <div className="flex items-center gap-3 mb-5">
+              {/* What */}
+              <div className="p-7 lg:p-8 bg-surface group-hover:bg-transparent transition-colors duration-200 border-b lg:border-b-0 lg:border-r border-divider">
+                <div className="flex items-center gap-3 mb-4">
                   <span className="lg:hidden font-display font-black text-sm text-primary">{step.num}</span>
-                  <h3 className="font-display font-bold text-base lg:text-lg text-headline">{step.title}</h3>
+                  <h3 className="font-display font-bold text-base lg:text-[17px] text-headline">{step.title}</h3>
                 </div>
-                <div className="grid sm:grid-cols-2 gap-6">
-                  <div className="flex flex-col gap-2">
-                    <p className="font-body text-xs font-semibold text-body uppercase tracking-widest">{step.what}</p>
-                    <p className="font-body text-sm text-body leading-relaxed">{step.what_text}</p>
-                  </div>
-                  <div className="flex flex-col gap-2 sm:pl-6 sm:border-l border-divider">
-                    <p className="font-body text-xs font-semibold text-primary/70 uppercase tracking-widest">{step.after}</p>
-                    <p className="font-body text-sm text-body leading-relaxed">{step.after_text}</p>
-                  </div>
-                </div>
+                <p className="font-body text-xs font-semibold text-body/60 uppercase tracking-widest mb-2">O que analisamos</p>
+                <p className="font-body text-sm text-body leading-relaxed">{step.what_text}</p>
+              </div>
+
+              {/* After */}
+              <div className="p-7 lg:p-8 bg-surface-tint group-hover:bg-[hsl(213,100%,94%)] transition-colors duration-200">
+                <p className="font-body text-xs font-semibold text-primary/60 uppercase tracking-widest mb-2">O cliente passa a enxergar</p>
+                <p className="font-body text-sm text-body leading-relaxed">{step.after_text}</p>
               </div>
             </div>
           ))}
