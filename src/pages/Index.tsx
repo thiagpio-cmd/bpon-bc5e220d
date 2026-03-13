@@ -1,3 +1,4 @@
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import PositioningSection from "@/components/PositioningSection";
@@ -14,6 +15,8 @@ import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
+  useScrollReveal();
+
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Header />

@@ -1,39 +1,50 @@
 const PositioningSection = () => {
   return (
-    <section className="py-24 lg:py-32 gradient-section">
+    <section className="py-24 lg:py-32 gradient-section-tint overflow-hidden">
       <div className="container mx-auto px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto">
-          {/* Section label */}
-          <span className="font-body text-xs font-semibold tracking-[0.2em] text-primary uppercase">
-            Posicionamento
-          </span>
+        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
 
-          {/* Divider line */}
-          <div className="w-12 h-px bg-primary/40 mt-3 mb-8" />
+          {/* Left — big quote */}
+          <div className="reveal flex flex-col gap-6">
+            <div className="label-pill w-fit">Posicionamento</div>
+            <h2 className="font-display font-black text-3xl lg:text-4xl xl:text-[2.8rem] text-headline leading-[1.12] tracking-tight">
+              Consultoria para empresas que precisam de{" "}
+              <span className="text-gradient-primary">organização, caixa</span>{" "}
+              e critério de gestão.
+            </h2>
+            <p className="font-body text-base lg:text-lg text-body leading-relaxed max-w-lg">
+              A BPOn não executa apenas tarefas financeiras. Ela organiza a rotina, reduz risco operacional, melhora a leitura do caixa e cria base confiável para decisão.
+            </p>
+            <a href="#diagnostico" className="inline-flex w-fit items-center gap-2 px-6 py-3 rounded-xl bg-headline text-deep-foreground font-body font-semibold text-sm hover:bg-headline/90 transition-all duration-200">
+              Solicitar diagnóstico
+            </a>
+          </div>
 
-          {/* Headline */}
-          <h2 className="font-display font-bold text-3xl lg:text-4xl xl:text-[42px] text-headline leading-[1.15] mb-8">
-            Consultoria financeira para empresas que precisam organizar{" "}
-            <span className="text-gradient-primary">rotina, caixa</span> e critério de gestão.
-          </h2>
-
-          {/* Body */}
-          <p className="font-body text-base lg:text-lg text-body leading-relaxed">
-            A BPOn nasce com a mesma base operacional de BPO que sustenta empresas em crescimento. O trabalho não se limita a executar tarefas. Ele organiza a rotina financeira, reduz risco operacional, melhora a leitura do caixa e cria uma base confiável para acompanhar o negócio com mais segurança.
-          </p>
-
-          {/* Stat row */}
-          <div className="grid grid-cols-3 gap-8 mt-14 pt-10 border-t border-divider">
+          {/* Right — three highlight blocks */}
+          <div className="reveal reveal-delay-2 grid grid-cols-1 gap-4">
             {[
-              { number: "360°", label: "Cobertura da rotina financeira" },
-              { number: "Real", label: "Leitura do caixa e dos indicadores" },
-              { number: "Estrutura", label: "Como base para crescimento" },
+              {
+                num: "BPO",
+                title: "Rotina operacional completa",
+                text: "Contas a pagar, receber, conciliação, fluxo e fechamento rodando com método.",
+              },
+              {
+                num: "CFO",
+                title: "Leitura gerencial aplicada",
+                text: "Indicadores, relatórios e acompanhamento para a liderança decidir com base.",
+              },
+              {
+                num: "2002",
+                title: "Grupo Ubercentral",
+                text: "Base empresarial e contábil consolidada por mais de duas décadas.",
+              },
             ].map((item) => (
-              <div key={item.label} className="text-center">
-                <p className="font-display font-extrabold text-2xl lg:text-3xl text-gradient-primary mb-1">
-                  {item.number}
-                </p>
-                <p className="font-body text-xs text-muted-foreground leading-snug">{item.label}</p>
+              <div key={item.num} className="group flex items-start gap-5 p-5 rounded-2xl border border-divider bg-surface card-hover">
+                <span className="font-display font-black text-2xl text-primary/20 flex-shrink-0 leading-none mt-0.5 group-hover:text-primary/40 transition-colors">{item.num}</span>
+                <div>
+                  <h3 className="font-display font-bold text-sm text-headline mb-1">{item.title}</h3>
+                  <p className="font-body text-sm text-body leading-relaxed">{item.text}</p>
+                </div>
               </div>
             ))}
           </div>
