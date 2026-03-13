@@ -2,9 +2,14 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import PositioningSection from "@/components/PositioningSection";
 import PainPointsSection from "@/components/PainPointsSection";
+import ForWhomSection from "@/components/ForWhomSection";
 import ServicesSection from "@/components/ServicesSection";
+import CFOVisionSection from "@/components/CFOVisionSection";
 import MethodSection from "@/components/MethodSection";
-import InstagramSection from "@/components/InstagramSection";
+import BeforeAfterSection from "@/components/BeforeAfterSection";
+import AuthoritySection from "@/components/AuthoritySection";
+import TeamSection from "@/components/TeamSection";
+import FAQSection from "@/components/FAQSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 
@@ -16,9 +21,14 @@ const Index = () => {
         <HeroSection />
         <PositioningSection />
         <PainPointsSection />
+        <ForWhomSection />
         <ServicesSection />
+        <CFOVisionSection />
         <MethodSection />
-        <InstagramSection />
+        <BeforeAfterSection />
+        <AuthoritySection />
+        <TeamSection />
+        <FAQSection />
         <CTASection />
       </main>
       <Footer />
