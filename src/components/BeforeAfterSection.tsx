@@ -34,14 +34,14 @@ const BeforeAfterSection = () => {
           {/* Before */}
           <div className="rounded-2xl border border-divider bg-surface p-8">
             <div className="flex items-center gap-2.5 mb-6">
-              <div className="w-2 h-2 rounded-full bg-rose-400" />
+              <div className="w-2 h-2 rounded-full bg-muted-foreground/50" />
               <span className="font-display font-semibold text-sm text-body uppercase tracking-widest">Sem estrutura</span>
             </div>
             <div className="space-y-3">
               {before.map((item) => (
                 <div key={item} className="flex items-center gap-3 py-2.5 border-b border-divider last:border-0">
-                  <div className="w-5 h-5 rounded-full border border-rose-200 bg-rose-50 flex items-center justify-center flex-shrink-0">
-                    <span className="text-rose-400 text-xs font-bold leading-none">–</span>
+                  <div className="w-5 h-5 rounded-full border border-divider bg-muted flex items-center justify-center flex-shrink-0">
+                    <span className="text-muted-foreground text-xs font-bold leading-none">–</span>
                   </div>
                   <span className="font-body text-sm text-body">{item}</span>
                 </div>
