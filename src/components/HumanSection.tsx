@@ -1,81 +1,75 @@
 const HumanSection = () => {
   return (
-    <section className="py-24 lg:py-32 bg-surface overflow-hidden">
-      <div className="container mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+    <section className="relative py-0 overflow-hidden min-h-[80vh] flex items-center bg-deep">
 
-          {/* LEFT — editorial photo block */}
-          <div className="relative order-2 lg:order-1 reveal">
-            <div className="relative rounded-3xl overflow-hidden aspect-[4/3] shadow-elevated">
-              {/* Real editorial photo — executive discussion */}
-              <img
-                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&q=85&auto=format&fit=crop"
-                alt="Reunião executiva de consultoria financeira"
-                className="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
-              />
-              {/* Gradient overlay for text legibility */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[hsl(218,82%,10%)]/70 via-transparent to-transparent" />
+      {/* Full-bleed editorial background photo */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1400&q=85&auto=format&fit=crop"
+          alt="Reunião consultiva de liderança financeira"
+          className="w-full h-full object-cover object-center"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[hsl(218,82%,7%)]/95 via-[hsl(218,82%,9%)]/80 to-[hsl(218,82%,9%)]/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[hsl(218,82%,7%)]/60 via-transparent to-transparent" />
+      </div>
 
-              {/* Bottom caption */}
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <p className="font-display font-black text-[1.6rem] text-white leading-[1.2]">
-                  "Quando o financeiro<br />
-                  <span className="text-primary/80">ganha método,</span><br />
-                  a decisão ganha base."
-                </p>
-                <p className="font-body text-xs text-white/50 mt-2">BPOn — Consultoria Financeira</p>
-              </div>
-            </div>
+      <div className="relative z-10 container mx-auto px-6 lg:px-8 py-28 lg:py-36">
+        <div className="max-w-2xl">
 
-            {/* Floating card */}
-            <div className="absolute -bottom-5 -right-3 lg:-right-6 glass-card rounded-2xl shadow-elevated border border-divider px-5 py-4 flex items-center gap-3 animate-float">
-              <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center">
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                  <path d="M3 13L7 9L10 12L15 6" stroke="hsl(221,83%,53%)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
-              <div>
-                <p className="font-display font-bold text-sm text-headline">Operação estruturada</p>
-                <p className="font-body text-xs text-body">Base confiável para gestão</p>
-              </div>
-            </div>
+          <span className="label-pill-dark">Por trás da operação</span>
+
+          <h2 className="font-display font-black text-[2.4rem] lg:text-[3.4rem] xl:text-[4rem] text-white leading-[1.0] tracking-[-0.02em] mt-6">
+            Quando o financeiro<br />
+            ganha método,<br />
+            <span className="text-shimmer">a liderança ganha clareza.</span>
+          </h2>
+
+          <div className="mt-8 space-y-4 font-body text-base lg:text-lg text-white/60 leading-relaxed max-w-xl">
+            <p>
+              Há um empresário que acorda cedo, gerencia equipe, atende cliente, negocia com fornecedor — e ainda precisa saber se a empresa vai fechar o mês no positivo.
+            </p>
+            <p>
+              O problema não é esforço. É que o financeiro não tem estrutura para sustentar essa demanda com clareza.
+            </p>
           </div>
 
-          {/* RIGHT — copy */}
-          <div className="order-1 lg:order-2 flex flex-col gap-7 reveal reveal-delay-2">
+          <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-3">
+            {[
+              { num: "01", text: "Rotina com processo" },
+              { num: "02", text: "Caixa previsível" },
+              { num: "03", text: "Menos improviso" },
+              { num: "04", text: "Leitura gerencial" },
+            ].map((item) => (
+              <div key={item.num} className="flex flex-col gap-2 p-4 rounded-xl border border-white/10 bg-white/6 hover:bg-white/10 transition-colors">
+                <span className="font-display font-black text-xs text-primary">{item.num}</span>
+                <span className="font-body text-sm text-white/70 leading-snug">{item.text}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 flex items-center gap-4 pt-8 border-t border-white/12">
+            <div className="relative w-14 h-14 rounded-2xl overflow-hidden flex-shrink-0">
+              <img
+                src="https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?w=200&q=80&auto=format&fit=crop&crop=face"
+                alt="Especialista BPOn"
+                className="w-full h-full object-cover"
+              />
+            </div>
             <div>
-              <div className="label-pill w-fit mb-5">Por trás da operação</div>
-              <h2 className="font-display font-black text-3xl lg:text-4xl text-headline leading-[1.12] tracking-tight">
-                Quando o financeiro ganha método, a liderança ganha clareza.
-              </h2>
+              <p className="font-display font-bold text-sm text-white">Equipe BPOn</p>
+              <p className="font-body text-xs text-white/45 mt-0.5">Consultoria Financeira · Grupo Ubercentral</p>
+              <div className="flex items-center gap-1.5 mt-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="font-body text-[11px] text-emerald-400 font-medium">Disponível para diagnóstico</span>
+              </div>
             </div>
-
-            <div className="space-y-4 font-body text-base text-body leading-relaxed">
-              <p>
-                Há um empresário que acorda cedo, gerencia equipe, atende cliente, negocia com fornecedor — e ainda precisa entender se a empresa vai fechar o mês no positivo.
-              </p>
-              <p>
-                O problema não é esforço. É que o financeiro não tem estrutura suficiente para sustentar essa demanda com clareza.
-              </p>
-              <p>
-                A BPOn entra para organizar essa rotina com processo, cadência e acompanhamento — para que a liderança tenha base real, e não precise adivinhar o estado do caixa.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 gap-3 pt-2">
-              {[
-                { num: "01", text: "Rotina organizada com processo" },
-                { num: "02", text: "Caixa com mais previsibilidade" },
-                { num: "03", text: "Menos dependência de improviso" },
-                { num: "04", text: "Leitura gerencial consistente" },
-              ].map((item) => (
-                <div key={item.num} className="flex items-start gap-3 p-4 rounded-xl bg-surface-tint border border-primary/12">
-                  <span className="font-display font-black text-xs text-primary mt-0.5 flex-shrink-0">{item.num}</span>
-                  <span className="font-body text-sm text-body leading-snug">{item.text}</span>
-                </div>
-              ))}
-            </div>
+            <a
+              href="#diagnostico"
+              className="ml-auto hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-body font-bold text-sm hover:bg-primary/90 transition-all shadow-blue"
+            >
+              Conversar
+            </a>
           </div>
         </div>
       </div>
