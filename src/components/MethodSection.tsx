@@ -1,94 +1,93 @@
-import { CheckCircle2 } from "lucide-react";
-
-const strategicItems = [
-  "Padronização da rotina financeira",
-  "Organização de processos e responsáveis",
-  "Apoio ao faturamento e rotinas operacionais",
-  "Diagnóstico de gargalos financeiros",
-  "Acompanhamento da saúde do caixa",
-  "Base financeira para crescimento com critério",
-];
-
 const steps = [
   {
     num: "01",
-    title: "Leitura da operação",
-    text: "Mapeamos como o financeiro acontece hoje, onde estão os gargalos e quais rotinas precisam ser corrigidas.",
+    title: "Diagnóstico da operação atual",
+    what: "O que analisamos",
+    what_text: "Mapeamos como o financeiro funciona hoje — controles existentes, responsáveis, fluxo de informações, ferramentas em uso e onde estão os principais gargalos.",
+    after: "O que o cliente passa a enxergar",
+    after_text: "Clareza sobre onde está a fragilidade e quais rotinas precisam ser corrigidas com prioridade.",
   },
   {
     num: "02",
-    title: "Estruturação",
-    text: "Definimos processo, cadência, responsáveis, critérios de conferência e organização da base.",
+    title: "Estruturação da rotina e dos responsáveis",
+    what: "O que organizamos",
+    what_text: "Definimos processo, cadência, critérios de conferência e organização da base — com responsabilidades claras e padrão operacional estabelecido.",
+    after: "O que o cliente passa a enxergar",
+    after_text: "Uma rotina financeira que passa a funcionar com método, não com esforço individual.",
   },
   {
     num: "03",
-    title: "Execução contínua",
-    text: "A rotina financeira passa a rodar com método, acompanhamento e previsibilidade.",
+    title: "Implantação dos controles e da cadência",
+    what: "O que operamos",
+    what_text: "A rotina financeira entra em funcionamento com acompanhamento contínuo — contas, conciliação, fluxo e fechamento rodando em cadência.",
+    after: "O que o cliente passa a enxergar",
+    after_text: "Operação mais previsível, menos dependência de improviso e base de dados mais confiável.",
   },
   {
     num: "04",
-    title: "Visão gerencial",
-    text: "Os dados deixam de ser só operação e passam a sustentar leitura financeira do negócio.",
+    title: "Acompanhamento contínuo e leitura gerencial",
+    what: "O que entregamos",
+    what_text: "Reportes periódicos com indicadores, fechamento gerencial e leitura de caixa — para que a liderança acompanhe o negócio com mais segurança.",
+    after: "O que o cliente passa a enxergar",
+    after_text: "Uma base financeira que sustenta decisão com critério, não no feeling.",
   },
 ];
 
 const MethodSection = () => {
   return (
-    <section id="metodo" className="py-24 lg:py-32">
+    <section id="metodo" className="py-24 lg:py-32 bg-surface">
       <div className="container mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
-          {/* Left — Strategic layer */}
-          <div>
-            <span className="font-body text-xs font-semibold tracking-[0.2em] text-primary uppercase">
-              Camada estratégica
-            </span>
-            <div className="w-12 h-px bg-primary/40 mt-3 mb-6" />
-            <h2 className="font-display font-bold text-2xl lg:text-3xl text-headline leading-[1.2] mb-8">
-              O que sustenta a operação
-            </h2>
+        {/* Header */}
+        <div className="mb-16 max-w-2xl">
+          <span className="font-body text-xs font-semibold tracking-[0.18em] text-primary uppercase">
+            Método de trabalho
+          </span>
+          <div className="divider-primary mt-3 mb-6" />
+          <h2 className="font-display font-bold text-3xl lg:text-4xl text-headline leading-[1.15]">
+            Como a BPOn trabalha
+          </h2>
+          <p className="font-body text-base text-body leading-relaxed mt-4">
+            Um processo em quatro etapas que transforma a rotina financeira de desorganizada em estruturada, previsível e gerenciável.
+          </p>
+        </div>
 
-            <div className="flex flex-col gap-3">
-              {strategicItems.map((item) => (
-                <div
-                  key={item}
-                  className="flex items-start gap-3 py-3 border-b border-divider last:border-0"
-                >
-                  <CheckCircle2 size={16} className="text-accent flex-shrink-0 mt-0.5" />
-                  <span className="font-body text-sm text-foreground">{item}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+        {/* Timeline */}
+        <div className="relative">
+          {/* Connector */}
+          <div className="hidden lg:block absolute left-[52px] top-10 bottom-10 w-px bg-divider" />
 
-          {/* Right — Method */}
-          <div>
-            <span className="font-body text-xs font-semibold tracking-[0.2em] text-accent uppercase">
-              Método
-            </span>
-            <div className="w-12 h-px bg-accent/40 mt-3 mb-6" />
-            <h2 className="font-display font-bold text-2xl lg:text-3xl text-headline leading-[1.2] mb-8">
-              Como a BPOn trabalha
-            </h2>
-
-            <div className="flex flex-col gap-4 relative">
-              {/* Connector line */}
-              <div className="absolute left-5 top-10 bottom-10 w-px bg-divider" />
-
-              {steps.map((step) => (
-                <div
-                  key={step.num}
-                  className="group relative flex gap-4 p-5 rounded-xl border border-divider bg-card card-hover z-10"
-                >
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full border border-primary/40 bg-primary/10 flex items-center justify-center">
-                    <span className="font-display font-bold text-xs text-primary">{step.num}</span>
-                  </div>
-                  <div className="flex flex-col gap-1">
-                    <h4 className="font-display font-semibold text-sm text-headline">{step.title}</h4>
-                    <p className="font-body text-sm text-body leading-relaxed">{step.text}</p>
+          <div className="flex flex-col gap-5">
+            {steps.map((step, i) => (
+              <div key={step.num} className="group relative grid lg:grid-cols-[104px_1fr] gap-4 lg:gap-8">
+                {/* Step number */}
+                <div className="flex lg:flex-col items-center lg:items-start gap-3 lg:gap-0">
+                  <div className="w-[52px] h-[52px] rounded-full bg-surface border-2 border-divider group-hover:border-primary/40 flex items-center justify-center flex-shrink-0 transition-all duration-200 relative z-10">
+                    <span className="font-display font-bold text-sm text-primary">{step.num}</span>
                   </div>
                 </div>
-              ))}
-            </div>
+
+                {/* Content card */}
+                <div className="flex flex-col lg:flex-row gap-4 p-6 rounded-xl border border-divider bg-surface card-hover">
+                  {/* Title */}
+                  <div className="lg:w-1/3 flex flex-col gap-2">
+                    <h3 className="font-display font-bold text-base text-headline leading-snug">{step.title}</h3>
+                    <span className="font-body text-xs text-primary font-medium">Etapa {i + 1}</span>
+                  </div>
+
+                  {/* Details */}
+                  <div className="lg:w-2/3 grid sm:grid-cols-2 gap-5">
+                    <div className="flex flex-col gap-1.5">
+                      <p className="font-body text-xs font-semibold text-body uppercase tracking-wide">{step.what}</p>
+                      <p className="font-body text-sm text-body leading-relaxed">{step.what_text}</p>
+                    </div>
+                    <div className="flex flex-col gap-1.5 pl-0 sm:pl-5 sm:border-l border-divider">
+                      <p className="font-body text-xs font-semibold text-primary/70 uppercase tracking-wide">{step.after}</p>
+                      <p className="font-body text-sm text-body leading-relaxed">{step.after_text}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
