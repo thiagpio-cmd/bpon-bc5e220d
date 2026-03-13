@@ -1,10 +1,11 @@
-import { MessageCircle, Mail } from "lucide-react";
+import { MapPin, Phone, Clock, Mail } from "lucide-react";
 import BPOnLogo from "./BPOnLogo";
 
 const navLinks = [
-  { label: "Serviços", href: "#servicos" },
-  { label: "Método", href: "#metodo" },
-  { label: "Contato", href: "#contato" },
+  { label: "Solução", href: "#solucao" },
+  { label: "Como funciona", href: "#metodo" },
+  { label: "Para quem", href: "#para-quem" },
+  { label: "Diagnóstico", href: "#diagnostico" },
 ];
 
 const Footer = () => {
@@ -14,24 +15,27 @@ const Footer = () => {
     <footer className="border-t border-divider bg-surface">
       <div className="container mx-auto px-6 lg:px-8">
         {/* Main footer */}
-        <div className="py-12 grid md:grid-cols-3 gap-10 lg:gap-16">
+        <div className="py-14 grid md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* Brand */}
-          <div className="flex flex-col gap-4">
+          <div className="lg:col-span-1 flex flex-col gap-4">
             <BPOnLogo />
-            <p className="font-body text-sm text-body leading-relaxed max-w-xs">
-              Estruturação e condução da rotina financeira com processo, disciplina e clareza gerencial.
+            <p className="font-body text-xs text-body leading-relaxed max-w-xs">
+              Empresa do Grupo Ubercentral.
+            </p>
+            <p className="font-body text-xs text-body leading-relaxed max-w-xs">
+              BPO Financeiro com base operacional forte e leitura gerencial de alto nível.
             </p>
           </div>
 
           {/* Navigation */}
           <div>
-            <p className="font-display font-semibold text-sm text-headline mb-4">Navegação</p>
+            <p className="font-display font-semibold text-xs text-headline uppercase tracking-widest mb-5">Navegação</p>
             <nav className="flex flex-col gap-2.5">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="font-body text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="font-body text-sm text-body hover:text-headline transition-colors"
                 >
                   {link.label}
                 </a>
@@ -41,34 +45,72 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <p className="font-display font-semibold text-sm text-headline mb-4">Contato</p>
+            <p className="font-display font-semibold text-xs text-headline uppercase tracking-widest mb-5">Contato</p>
             <div className="flex flex-col gap-3">
               <a
-                href="https://wa.me/5500000000000"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 font-body text-sm text-muted-foreground hover:text-primary transition-colors"
+                href="tel:+553432292008"
+                className="inline-flex items-start gap-2 font-body text-sm text-body hover:text-headline transition-colors"
               >
-                <MessageCircle size={15} />
-                WhatsApp
+                <Phone size={13} className="flex-shrink-0 mt-0.5" />
+                (34) 3229-2008
               </a>
               <a
-                href="mailto:contato@bpon.com.br"
-                className="inline-flex items-center gap-2 font-body text-sm text-muted-foreground hover:text-primary transition-colors"
+                href="https://wa.me/5534992812444"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-start gap-2 font-body text-sm text-body hover:text-headline transition-colors"
               >
-                <Mail size={15} />
-                contato@bpon.com.br
+                <Phone size={13} className="flex-shrink-0 mt-0.5" />
+                (34) 99281-2444
               </a>
+              <a
+                href="mailto:comercial@ubercentral.com.br"
+                className="inline-flex items-start gap-2 font-body text-sm text-body hover:text-headline transition-colors"
+              >
+                <Mail size={13} className="flex-shrink-0 mt-0.5" />
+                comercial@ubercentral.com.br
+              </a>
+              <a
+                href="mailto:sac@ubercentral.com.br"
+                className="inline-flex items-start gap-2 font-body text-sm text-body hover:text-headline transition-colors"
+              >
+                <Mail size={13} className="flex-shrink-0 mt-0.5" />
+                sac@ubercentral.com.br
+              </a>
+            </div>
+          </div>
+
+          {/* Address & Hours */}
+          <div>
+            <p className="font-display font-semibold text-xs text-headline uppercase tracking-widest mb-5">Endereço</p>
+            <div className="flex flex-col gap-3">
+              <div className="flex items-start gap-2 font-body text-sm text-body">
+                <MapPin size={13} className="flex-shrink-0 mt-0.5" />
+                <span className="leading-relaxed">
+                  Av. dos Vinhedos, 71 – Sala 1001<br />
+                  Jardim Sul — Edifício Torre Sul<br />
+                  Uberlândia/MG, 38411-848
+                </span>
+              </div>
+              <div className="flex items-start gap-2 font-body text-sm text-body">
+                <Clock size={13} className="flex-shrink-0 mt-0.5" />
+                <span>Segunda a sexta, 8h às 17h</span>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="py-6 border-t border-divider flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="font-body text-xs text-muted-foreground">
-            © {year} BPOn Consultoria Financeira. Todos os direitos reservados.
-          </p>
-          <p className="font-body text-xs text-muted-foreground/60">
+        <div className="py-5 border-t border-divider flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div className="flex flex-col gap-0.5">
+            <p className="font-body text-xs text-body/70">
+              © {year} BPOn Consultoria Financeira — Empresa do Grupo Ubercentral
+            </p>
+            <p className="font-body text-xs text-body/50">
+              Ubercentral Contabilidade Ltda · CNPJ 09.281.566/0001-03 · CRC MG-012100/O
+            </p>
+          </div>
+          <p className="font-body text-xs text-body/40">
             Processo · Clareza · Controle
           </p>
         </div>
