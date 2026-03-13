@@ -5,101 +5,81 @@ const services = [
     icon: CreditCard,
     title: "Contas a pagar",
     description:
-      "Organização de vencimentos, conferência, programação e controle para reduzir atraso, erro e improviso.",
-    accent: "primary",
+      "Organização de vencimentos, conferência, programação e controle para manter a rotina sob critério.",
   },
   {
     icon: TrendingUp,
     title: "Contas a receber",
     description:
-      "Acompanhamento de recebimentos, cobrança, baixa e visibilidade sobre inadimplência e giro de caixa.",
-    accent: "accent",
+      "Acompanhamento de recebimentos, baixa, cobrança e visibilidade para proteger caixa e giro.",
   },
   {
     icon: GitMerge,
     title: "Conciliação financeira",
     description:
-      "Validação entre banco, sistema e operação para garantir base confiável e leitura financeira real.",
-    accent: "primary",
+      "Validação entre banco, operação e sistema para construir uma base confiável de dados.",
   },
   {
     icon: BarChart3,
     title: "Fluxo de caixa",
     description:
-      "Acompanhamento de entradas e saídas, projeção e leitura de caixa para aumentar previsibilidade.",
-    accent: "accent",
+      "Leitura prática das entradas e saídas com previsibilidade e acompanhamento contínuo.",
   },
   {
     icon: FileText,
     title: "Fechamento gerencial",
     description:
-      "Consolidação dos dados financeiros para leitura mensal mais clara e acompanhamento da operação.",
-    accent: "primary",
+      "Consolidação da rotina financeira para leitura mensal mais clara e acompanhamento da operação.",
   },
   {
     icon: PieChart,
     title: "Indicadores e relatórios",
     description:
-      "Visão prática sobre desempenho financeiro, rotina operacional e pontos que exigem ajuste.",
-    accent: "accent",
+      "Material executivo para acompanhar desempenho, pressão no caixa e pontos que pedem ajuste.",
   },
 ];
 
 const ServicesSection = () => {
   return (
-    <section id="servicos" className="py-24 lg:py-32 gradient-section">
+    <section id="solucao" className="py-24 lg:py-32 bg-background">
       <div className="container mx-auto px-6 lg:px-8">
         {/* Header */}
-        <div className="mb-14">
-          <span className="font-body text-xs font-semibold tracking-[0.2em] text-primary uppercase">
-            Estrutura de serviços
+        <div className="mb-14 max-w-2xl">
+          <span className="font-body text-xs font-semibold tracking-[0.18em] text-primary uppercase">
+            Entregas
           </span>
-          <div className="w-12 h-px bg-primary/40 mt-3 mb-6" />
+          <div className="divider-primary mt-3 mb-6" />
           <h2 className="font-display font-bold text-3xl lg:text-4xl text-headline leading-[1.15]">
             Frentes centrais do{" "}
             <span className="text-gradient-primary">BPO financeiro</span>
           </h2>
+          <p className="font-body text-base text-body leading-relaxed mt-4 max-w-xl">
+            A BPOn não se limita a executar tarefas. Ela organiza a rotina, reduz risco operacional e cria base para leitura gerencial consistente.
+          </p>
         </div>
 
         {/* Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
           {services.map((service) => {
             const Icon = service.icon;
             return (
               <div
                 key={service.title}
-                className="group flex flex-col gap-4 p-6 rounded-xl border border-divider bg-card card-hover"
+                className="group flex flex-col gap-5 p-6 rounded-xl border border-divider bg-surface card-hover"
               >
-                {/* Icon */}
-                <div
-                  className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${
-                    service.accent === "accent"
-                      ? "bg-accent/10"
-                      : "bg-primary/10"
-                  }`}
-                >
-                  <Icon
-                    size={19}
-                    className={service.accent === "accent" ? "text-accent" : "text-primary"}
-                  />
+                <div className="w-10 h-10 rounded-lg bg-surface-tint border border-primary/20 flex items-center justify-center flex-shrink-0">
+                  <Icon size={18} className="text-primary" strokeWidth={1.8} />
                 </div>
-
-                {/* Content */}
-                <div className="flex flex-col gap-2">
-                  <h3 className="font-display font-semibold text-base text-headline">
+                <div className="flex flex-col gap-2 flex-1">
+                  <h3 className="font-display font-semibold text-[15px] text-headline">
                     {service.title}
                   </h3>
                   <p className="font-body text-sm text-body leading-relaxed">
                     {service.description}
                   </p>
                 </div>
-
-                {/* Bottom accent line */}
-                <div
-                  className={`mt-auto h-px w-0 group-hover:w-full transition-all duration-300 ${
-                    service.accent === "accent" ? "bg-accent/40" : "bg-primary/40"
-                  }`}
-                />
+                {/* Bottom accent */}
+                <div className="h-px w-0 group-hover:w-full transition-all duration-300 bg-primary/20" />
               </div>
             );
           })}
