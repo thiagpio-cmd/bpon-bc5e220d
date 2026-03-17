@@ -1,75 +1,68 @@
+import { Calendar, Users, FileText, Link } from "lucide-react";
+
+const workingModel = [
+  { icon: Users, title: "Ponto de contato definido", text: "Equipe responsável com nome, agenda e responsabilidades claras — não atendimento rotativo ou sistema." },
+  { icon: Calendar, title: "Agenda financeira recorrente", text: "Cadência semanal e mensal com a liderança para acompanhar a rotina e antecipar pontos críticos." },
+  { icon: FileText, title: "Fechamento e reporte mensal", text: "Consolidação completa da operação com leitura executiva, apresentada para quem precisa decidir." },
+  { icon: Link, title: "Integração com contabilidade e operação", text: "Trabalha integrada com o contador, ERP e processos internos — sem sobreposição e sem lacuna." },
+];
+
 const HumanSection = () => {
   return (
-    <section className="relative py-0 overflow-hidden min-h-[80vh] flex items-center bg-deep">
+    <section id="relacao" className="py-24 lg:py-32 bg-surface">
+      <div className="container mx-auto px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
 
-      {/* Full-bleed editorial background photo */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1400&q=85&auto=format&fit=crop"
-          alt="Reunião consultiva de liderança financeira"
-          className="w-full h-full object-cover object-center"
-          loading="lazy"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[hsl(218,82%,7%)]/95 via-[hsl(218,82%,9%)]/80 to-[hsl(218,82%,9%)]/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[hsl(218,82%,7%)]/60 via-transparent to-transparent" />
-      </div>
-
-      <div className="relative z-10 container mx-auto px-6 lg:px-8 py-28 lg:py-36">
-        <div className="max-w-2xl">
-
-          <span className="label-pill-dark">Por trás da operação</span>
-
-          <h2 className="font-display font-black text-[2.4rem] lg:text-[3.4rem] xl:text-[4rem] text-white leading-[1.0] tracking-[-0.02em] mt-6">
-            Quando o financeiro<br />
-            ganha método,<br />
-            <span className="text-shimmer">a liderança ganha clareza.</span>
-          </h2>
-
-          <div className="mt-8 space-y-4 font-body text-base lg:text-lg text-white/60 leading-relaxed max-w-xl">
-            <p>
-              Há um empresário que acorda cedo, gerencia equipe, atende cliente, negocia com fornecedor — e ainda precisa saber se a empresa vai fechar o mês no positivo.
-            </p>
-            <p>
-              O problema não é esforço. É que o financeiro não tem estrutura para sustentar essa demanda com clareza.
-            </p>
-          </div>
-
-          <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-3">
-            {[
-              { num: "01", text: "Rotina com processo" },
-              { num: "02", text: "Caixa previsível" },
-              { num: "03", text: "Menos improviso" },
-              { num: "04", text: "Leitura gerencial" },
-            ].map((item) => (
-              <div key={item.num} className="flex flex-col gap-2 p-4 rounded-xl border border-white/10 bg-white/6 hover:bg-white/10 transition-colors">
-                <span className="font-display font-black text-xs text-primary">{item.num}</span>
-                <span className="font-body text-sm text-white/70 leading-snug">{item.text}</span>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-8 flex items-center gap-4 pt-8 border-t border-white/12">
-            <div className="relative w-14 h-14 rounded-2xl overflow-hidden flex-shrink-0">
-              <img
-                src="https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?w=200&q=80&auto=format&fit=crop&crop=face"
-                alt="Especialista BPOn"
-                className="w-full h-full object-cover"
-              />
-            </div>
+          {/* Left — copy */}
+          <div className="reveal flex flex-col gap-7 order-2 lg:order-1">
             <div>
-              <p className="font-display font-bold text-sm text-white">Equipe BPOn</p>
-              <p className="font-body text-xs text-white/45 mt-0.5">Consultoria Financeira · Grupo Ubercentral</p>
-              <div className="flex items-center gap-1.5 mt-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="font-body text-[11px] text-emerald-400 font-medium">Disponível para diagnóstico</span>
+              <div className="label-pill mb-5">Como a relação funciona</div>
+              <h2 className="font-display font-black text-[1.9rem] lg:text-[2.6rem] text-headline leading-[1.07] tracking-[-0.022em] mb-5 mt-3">
+                Você tem acesso à equipe,{" "}
+                <span className="text-gradient-primary">não a um sistema.</span>
+              </h2>
+              <p className="font-body text-[14px] text-body leading-relaxed">
+                A BPOn mantém a rotina financeira ativa e apresenta os resultados
+                diretamente para quem decide. Acompanhamento próximo, comunicação
+                clara, responsabilidades bem definidas.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 gap-3">
+              {workingModel.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <div key={item.title} className="group flex items-start gap-4 p-4 rounded-xl border border-divider bg-background hover:bg-surface-tint transition-colors card-hover">
+                    <div className="w-8 h-8 rounded-lg bg-primary/8 border border-primary/14 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/14 transition-colors">
+                      <Icon size={14} className="text-primary" strokeWidth={1.8} />
+                    </div>
+                    <div>
+                      <h3 className="font-display font-bold text-[13px] text-headline mb-0.5">{item.title}</h3>
+                      <p className="font-body text-[13px] text-body leading-relaxed">{item.text}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Right — foto editorial */}
+          <div className="reveal reveal-delay-2 relative order-1 lg:order-2">
+            <div className="relative rounded-2xl overflow-hidden shadow-elevated" style={{ aspectRatio: "3/4" }}>
+              <img
+                src="https://images.unsplash.com/photo-1664575602554-2087b04935a5?w=700&q=85&auto=format&fit=crop&crop=top"
+                alt="Parceria executiva BPOn — reunião de acompanhamento financeiro"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[hsl(220,38%,9%)]/35 via-transparent to-transparent" />
+            </div>
+            <div className="absolute -bottom-4 -left-4 lg:-left-6 z-10">
+              <div className="stat-chip">
+                <span className="font-display font-black text-[1.5rem] text-primary leading-none">+20</span>
+                <span className="font-body text-[11px] text-body mt-0.5 text-center leading-tight">anos de<br />base institucional</span>
               </div>
             </div>
-            <a
-              href="#diagnostico"
-              className="ml-auto hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-body font-bold text-sm hover:bg-primary/90 transition-all shadow-blue"
-            >
-              Conversar
-            </a>
           </div>
         </div>
       </div>
