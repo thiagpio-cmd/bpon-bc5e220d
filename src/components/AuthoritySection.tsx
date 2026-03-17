@@ -1,79 +1,73 @@
-import { Shield, Calendar, BookOpen, Users } from "lucide-react";
+import { Building2, Users2, Award, TrendingUp } from "lucide-react";
 
-const points = [
-  { icon: Shield, title: "Grupo Ubercentral", text: "A BPOn integra um grupo com base contábil e empresarial consolidada. Não é empresa nascente — é especialização com histórico." },
-  { icon: Calendar, title: "Desde 2002", text: "Mais de duas décadas com empresas reais, operações complexas e necessidade concreta de organização financeira." },
-  { icon: BookOpen, title: "Base contábil e empresarial", text: "Formação que une conhecimento contábil com visão de operação — dando profundidade técnica ao trabalho da BPOn." },
-  { icon: Users, title: "Atuação consultiva e técnica", text: "Atendimento próximo da liderança, com equipe que entende de rotina financeira e critério de acompanhamento." },
+const metrics = [
+  { icon: Building2, value: "+20 anos", label: "Base institucional", detail: "Grupo Ubercentral atuando desde 2002 em Uberlândia" },
+  { icon: Users2, value: "Equipe especializada", label: "Financeiro e gerencial", detail: "Profissionais dedicados à operação do cliente" },
+  { icon: Award, value: "Base contábil integrada", label: "Contador + BPO", detail: "Estrutura que cobre operação e obrigações fiscais" },
+  { icon: TrendingUp, value: "Atuação consultiva", label: "Além da execução", detail: "Leitura gerencial e apoio à decisão da liderança" },
 ];
 
 const AuthoritySection = () => {
   return (
-    <section className="py-28 lg:py-36 bg-surface relative overflow-hidden">
+    <section id="autoridade" className="py-24 lg:py-32 bg-deep relative overflow-hidden">
+      <div className="absolute inset-0 opacity-[0.035] pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, hsl(210 80% 72% / 1) 1px, transparent 0)", backgroundSize: "44px 44px" }} />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[350px] pointer-events-none" style={{ background: "radial-gradient(ellipse, hsl(220 79% 46% / 0.07) 0%, transparent 70%)" }} />
 
-      <div className="container mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+      <div className="container mx-auto px-6 lg:px-8 relative z-10">
 
-          {/* Left — editorial photo block */}
-          <div className="reveal relative">
-            <div className="rounded-3xl overflow-hidden shadow-elevated aspect-[3/4] max-w-[420px] mx-auto lg:mx-0">
-              <img
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=85&auto=format&fit=crop"
-                alt="Escritório Grupo Ubercentral — Uberlândia MG"
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[hsl(218,82%,9%)]/70 via-transparent to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-7">
-                <p className="font-display font-black text-2xl text-white leading-snug">
-                  Estrutura, critério<br />e acompanhamento.
-                </p>
-                <p className="font-body text-sm text-white/50 mt-2">Grupo Ubercentral · desde 2002</p>
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-14 lg:mb-16">
+          <div className="reveal">
+            <span className="label-pill-dark mb-5 inline-block">Credibilidade</span>
+            <h2 className="font-display font-black text-[2rem] lg:text-[2.8rem] text-white leading-[1.07] tracking-[-0.025em] mb-5 mt-1">
+              Estrutura de quem já{" "}
+              <span className="text-gradient-primary">opera há décadas.</span>
+            </h2>
+            <p className="font-body text-[14px] text-white/50 leading-relaxed max-w-md">
+              A BPOn não nasceu como startup. É parte de um grupo com base contábil e empresarial construída ao longo de mais de 20 anos em Uberlândia, com CRC registrado e estrutura que sustenta operação real.
+            </p>
+          </div>
+          <div className="reveal reveal-delay-2 relative">
+            <div className="relative rounded-2xl overflow-hidden shadow-elevated" style={{ aspectRatio: "16/9" }}>
+              <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=85&auto=format&fit=crop&crop=center" alt="Sede Grupo Ubercentral — Uberlândia MG" className="w-full h-full object-cover opacity-75" loading="lazy" />
+              <div className="absolute inset-0 bg-gradient-to-t from-deep/60 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/8 border border-white/12 backdrop-blur-sm">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  <span className="font-body text-[11px] text-white/70 font-medium">Grupo Ubercentral · Uberlândia, MG</span>
+                </div>
               </div>
             </div>
-
-            {/* Floating stats */}
-            <div className="absolute -right-4 lg:-right-8 top-12 glass-card rounded-2xl shadow-elevated border border-divider px-5 py-4 animate-float">
-              <p className="font-display font-black text-3xl text-headline">+20</p>
-              <p className="font-body text-xs text-body mt-0.5">anos de base</p>
-              <p className="font-body text-xs text-body">empresarial</p>
-            </div>
           </div>
+        </div>
 
-          {/* Right */}
-          <div className="flex flex-col gap-8 reveal reveal-delay-2">
-            <div>
-              <span className="label-pill">Credibilidade institucional</span>
-              <h2 className="font-display font-black text-[2.2rem] lg:text-[2.8rem] text-headline leading-[1.05] tracking-[-0.015em] mt-5">
-                Uma base sólida<br />
-                <span className="text-gradient-primary">por trás do serviço.</span>
-              </h2>
-              <p className="font-body text-base text-body leading-relaxed mt-4 max-w-md">
-                A BPOn integra o Grupo Ubercentral com estrutura, critério e acompanhamento respaldados por anos de atuação real.
-              </p>
-            </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-10">
+          {metrics.map((metric, i) => {
+            const Icon = metric.icon;
+            return (
+              <div key={metric.label} className={`reveal reveal-delay-${i + 1} group p-5 rounded-xl border border-white/7 bg-white/[0.03] hover:bg-white/[0.055] hover:border-primary/22 transition-all duration-250`}>
+                <div className="w-8 h-8 rounded-lg bg-primary/12 border border-primary/20 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                  <Icon size={14} className="text-primary" strokeWidth={1.8} />
+                </div>
+                <p className="font-display font-bold text-[14px] text-white/88 mb-0.5">{metric.value}</p>
+                <p className="font-display font-semibold text-[11px] text-primary/65 mb-2">{metric.label}</p>
+                <p className="font-body text-[12px] text-white/38 leading-relaxed">{metric.detail}</p>
+              </div>
+            );
+          })}
+        </div>
 
-            <div className="grid grid-cols-1 gap-3">
-              {points.map((point, i) => {
-                const Icon = point.icon;
-                return (
-                  <div key={point.title} className={`reveal reveal-delay-${i + 1} group flex items-start gap-4 p-5 rounded-2xl border border-divider bg-surface card-hover`}>
-                    <div className="w-10 h-10 rounded-xl bg-primary/8 border border-primary/15 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/15 transition-colors">
-                      <Icon size={17} className="text-primary" strokeWidth={1.7} />
-                    </div>
-                    <div>
-                      <h3 className="font-display font-bold text-sm text-headline">{point.title}</h3>
-                      <p className="font-body text-sm text-body leading-relaxed mt-1">{point.text}</p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            <div className="p-5 rounded-2xl border border-dashed border-divider bg-background text-center">
-              <p className="font-body text-xs text-body/50">Espaço para depoimentos e prova social</p>
-            </div>
+        <div className="reveal reveal-delay-5 pt-5 border-t border-white/8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5">
+            {["Grupo Ubercentral", "Uberlândia — MG", "CNPJ 09.281.566/0001-03", "CRC MG-012100/O"].map((item, i, arr) => (
+              <span key={item} className="flex items-center gap-4">
+                <span className="font-body text-[11px] text-white/32">{item}</span>
+                {i < arr.length - 1 && <span className="font-body text-[11px] text-white/15 ml-4">·</span>}
+              </span>
+            ))}
           </div>
+          <a href="#diagnostico" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-primary-foreground font-display font-semibold text-[13px] tracking-wide hover:bg-primary/90 transition-all duration-200 shadow-blue w-fit flex-shrink-0">
+            Solicitar diagnóstico
+          </a>
         </div>
       </div>
     </section>
