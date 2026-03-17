@@ -4,27 +4,35 @@ import { ChevronDown } from "lucide-react";
 const faqs = [
   {
     q: "Já tenho contador. Onde a BPOn entra?",
-    a: "Contador e BPO financeiro são funções diferentes. O contador cuida do fiscal, tributário e obrigações acessórias. A BPOn cuida da rotina operacional financeira — contas a pagar, receber, conciliação, fluxo de caixa e fechamento gerencial. Os dois trabalham juntos, sem sobreposição.",
+    a: "Contador e BPO financeiro são funções distintas. O contador cuida do fiscal, tributário e obrigações acessórias. A BPOn cuida da rotina operacional financeira: contas a pagar e receber, conciliação, fluxo de caixa e fechamento gerencial. As duas frentes se complementam — sem sobreposição e sem lacuna.",
   },
   {
     q: "Já uso ERP. Ainda faz sentido contratar a BPOn?",
-    a: "Sim. ERP é ferramenta. Rotina estruturada é processo. Muitas empresas têm sistema e continuam com financeiro desorganizado porque falta quem opere com critério. A BPOn trabalha com o ERP existente ou indica adaptações quando necessário.",
+    a: "Sim. ERP é ferramenta. Processo é outra coisa. A maioria das empresas tem sistema e continua com financeiro desorganizado porque falta quem opere com critério e cadência. A BPOn trabalha com o ERP que você já usa — ou indica adaptações quando necessário.",
   },
   {
-    q: "Minha empresa tem financeiro interno. A BPOn substitui?",
-    a: "Não necessariamente. A BPOn pode complementar o time interno, assumir partes específicas da operação ou ser o principal apoio no financeiro. A definição depende do diagnóstico da situação atual.",
+    q: "Vocês atendem empresas do meu porte?",
+    a: "A BPOn é voltada para empresas com operação ativa, algum volume financeiro e necessidade real de estrutura. Não trabalhamos com demandas pré-receita, pontuais ou de muito baixo volume. O diagnóstico é o momento certo para avaliar se há aderência.",
   },
   {
-    q: "Em quanto tempo começo a ter mais clareza?",
-    a: "As primeiras percepções chegam rapidamente — rotina organizada, controles funcionando e base mais confiável aparecem nas primeiras semanas. A leitura gerencial consistente se consolida ao longo dos primeiros meses.",
+    q: "Como funciona a implantação na prática?",
+    a: "A implantação começa com um diagnóstico da operação atual: como o financeiro funciona hoje, quais controles existem, quem é responsável por cada frente e onde estão os gargalos. A partir daí, estruturamos a rotina, definimos a cadência e iniciamos a operação de forma assistida — sem ruptura brusca.",
   },
   {
-    q: "O diagnóstico inicial analisa o quê?",
-    a: "Mapeamos como o financeiro funciona hoje: controles existentes, responsáveis, ferramentas, cadência, gargalos e nível de visibilidade que a liderança tem sobre a operação. É uma leitura técnica e honesta, sem compromisso de contratação imediata.",
+    q: "Em quanto tempo a operação começa a rodar?",
+    a: "As primeiras semanas já entregam rotina organizada, controles funcionando e base mais confiável de dados. O fechamento gerencial consistente e os indicadores se consolidam ao longo dos primeiros meses, conforme a operação amadurece.",
   },
   {
-    q: "Como funciona o acompanhamento após a implantação?",
-    a: "A BPOn mantém a rotina financeira ativa com cadência definida — reuniões de acompanhamento, reportes periódicos, fechamento gerencial e leitura de indicadores. O acompanhamento é contínuo, não pontual.",
+    q: "Vocês trabalham com o sistema que já uso?",
+    a: "Sim. A BPOn trabalha com o ERP, plataforma ou planilha já em uso. Não exigimos troca de ferramenta. Se houver necessidade de ajuste ou migração, isso é avaliado e discutido no diagnóstico, com transparência sobre o que muda e por quê.",
+  },
+  {
+    q: "A BPOn substitui um financeiro interno?",
+    a: "Depende da situação. A BPOn pode substituir completamente uma estrutura interna frágil ou individual, complementar um time existente assumindo partes específicas da operação, ou atuar como principal referência do financeiro. A definição é feita com base no diagnóstico da situação atual.",
+  },
+  {
+    q: "Há acompanhamento gerencial além da operação?",
+    a: "Sim. A operação financeira é executada com critério, mas o resultado é apresentado de forma gerencial — indicadores, fechamento mensal e análise de desempenho diretamente para a liderança. O objetivo não é só executar: é fazer com que os dados gerem clareza para quem decide.",
   },
 ];
 
@@ -32,21 +40,26 @@ const FAQSection = () => {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section className="py-24 lg:py-32 bg-surface">
+    <section id="faq" className="py-24 lg:py-32 bg-surface">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
+
           {/* Left */}
           <div className="lg:col-span-2 flex flex-col gap-6 reveal">
             <div>
               <div className="label-pill w-fit mb-5">Perguntas frequentes</div>
-              <h2 className="font-display font-black text-3xl lg:text-[2rem] text-headline leading-[1.12] tracking-tight">
+              <h2 className="font-display font-black text-3xl lg:text-[2.2rem] text-headline leading-[1.1] tracking-tight">
                 Respostas para quem está avaliando a BPOn.
               </h2>
             </div>
             <p className="font-body text-base text-body leading-relaxed">
-              Dúvidas comuns antes de avançar. Se a sua não está aqui, o diagnóstico é o melhor caminho.
+              Dúvidas comuns antes de avançar. Se a sua não está aqui,
+              o diagnóstico é o melhor caminho para uma resposta precisa.
             </p>
-            <a href="#diagnostico" className="inline-flex w-fit items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-body font-semibold text-sm hover:bg-primary/90 transition-all duration-200 shadow-blue">
+            <a
+              href="#diagnostico"
+              className="inline-flex w-fit items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-body font-semibold text-sm hover:bg-primary/90 transition-all duration-200 shadow-blue"
+            >
               Solicitar diagnóstico
             </a>
           </div>
@@ -64,7 +77,9 @@ const FAQSection = () => {
                   </span>
                   <ChevronDown
                     size={16}
-                    className={`text-body flex-shrink-0 mt-0.5 transition-transform duration-200 ${open === i ? "rotate-180 text-primary" : ""}`}
+                    className={`text-body flex-shrink-0 mt-0.5 transition-transform duration-200 ${
+                      open === i ? "rotate-180 text-primary" : ""
+                    }`}
                   />
                 </button>
                 {open === i && (
