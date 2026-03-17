@@ -27,48 +27,62 @@ const steps = [
 
 const MethodSection = () => {
   return (
-    <section id="metodo" className="py-28 lg:py-36 bg-background relative overflow-hidden">
+    <section id="metodo" className="py-24 lg:py-32 bg-deep relative overflow-hidden">
 
-      {/* Faint vertical rule */}
-      <div className="absolute left-1/2 top-0 bottom-0 w-px bg-divider opacity-50 hidden lg:block pointer-events-none" />
+      {/* Grid texture */}
+      <div
+        className="absolute inset-0 opacity-[0.025] pointer-events-none"
+        style={{
+          backgroundImage:
+            "linear-gradient(hsl(210 80% 72% / 1) 1px, transparent 1px), linear-gradient(90deg, hsl(210 80% 72% / 1) 1px, transparent 1px)",
+          backgroundSize: "80px 80px",
+        }}
+      />
 
-      <div className="container mx-auto px-6 lg:px-8">
+      <div className="container mx-auto px-6 lg:px-8 relative">
 
         {/* Header */}
-        <div className="mb-16 lg:mb-20 reveal max-w-xl">
-          <span className="label-pill">Método</span>
-          <h2 className="font-display font-black text-[2.2rem] lg:text-[3rem] text-headline leading-[1.05] tracking-[-0.02em] mt-5">
-            Como a BPOn trabalha,<br />
-            <span className="text-gradient-primary">passo a passo.</span>
-          </h2>
+        <div className="mb-14 lg:mb-16 reveal flex flex-col lg:flex-row lg:items-end gap-8 justify-between">
+          <div>
+            <span className="label-pill-dark mb-5 inline-block">Método</span>
+            <h2 className="font-display font-black text-[2rem] lg:text-[2.8rem] text-white leading-[1.05] tracking-[-0.025em]">
+              Como a BPOn trabalha,<br />
+              <span className="text-shimmer">passo a passo.</span>
+            </h2>
+          </div>
+          <p className="font-body text-[14px] text-white/45 max-w-xs leading-relaxed lg:text-right lg:self-end">
+            Onboarding estruturado, sem ruptura — da análise inicial ao acompanhamento contínuo.
+          </p>
         </div>
 
-        {/* Steps */}
-        <div className="flex flex-col gap-0 border border-divider rounded-2xl overflow-hidden shadow-card">
+        {/* Steps — lista vertical em dark */}
+        <div className="flex flex-col gap-0 border border-white/8 rounded-2xl overflow-hidden">
           {steps.map((step, i) => (
             <div
               key={step.num}
-              className={`reveal reveal-delay-${i + 1} group grid lg:grid-cols-[120px_1fr_1fr] gap-0 border-b border-divider last:border-b-0 hover:bg-surface-tint transition-colors duration-200`}
+              className={`reveal reveal-delay-${i + 1} group grid lg:grid-cols-[96px_1fr_1fr] border-b border-white/6 last:border-b-0 hover:bg-white/[0.025] transition-colors duration-200`}
             >
               {/* Number column */}
-              <div className="hidden lg:flex flex-col items-center justify-center border-r border-divider bg-surface group-hover:bg-primary/5 transition-colors duration-200 py-10 px-4">
-                <span className="font-display font-black text-[2.2rem] text-gradient-primary leading-none">{step.num}</span>
+              <div className="hidden lg:flex flex-col items-center justify-center border-r border-white/6 py-10 px-3 group-hover:border-primary/20 transition-colors">
+                <span className="font-display font-black text-[2rem] text-primary/70 group-hover:text-primary transition-colors leading-none">
+                  {step.num}
+                </span>
               </div>
 
               {/* What */}
-              <div className="p-7 lg:p-8 bg-surface group-hover:bg-transparent transition-colors duration-200 border-b lg:border-b-0 lg:border-r border-divider">
+              <div className="p-7 lg:p-8 border-b lg:border-b-0 lg:border-r border-white/6 group-hover:border-primary/10 transition-colors">
                 <div className="flex items-center gap-3 mb-4">
                   <span className="lg:hidden font-display font-black text-sm text-primary">{step.num}</span>
-                  <h3 className="font-display font-bold text-base lg:text-[17px] text-headline">{step.title}</h3>
+                  <h3 className="font-display font-bold text-[15px] text-white/88 leading-snug">{step.title}</h3>
                 </div>
-                <p className="font-body text-xs font-semibold text-body/60 uppercase tracking-widest mb-2">O que analisamos</p>
-                <p className="font-body text-sm text-body leading-relaxed">{step.what_text}</p>
+                <p className="font-body text-[11px] font-semibold text-white/30 uppercase tracking-[0.10em] mb-2">O que fazemos</p>
+                <p className="font-body text-[13px] text-white/50 leading-relaxed">{step.what_text}</p>
               </div>
 
               {/* After */}
-              <div className="p-7 lg:p-8 bg-surface-tint group-hover:bg-[hsl(213,100%,94%)] transition-colors duration-200">
-                <p className="font-body text-xs font-semibold text-primary/60 uppercase tracking-widest mb-2">O cliente passa a enxergar</p>
-                <p className="font-body text-sm text-body leading-relaxed">{step.after_text}</p>
+              <div className="p-7 lg:p-8 bg-white/[0.02] group-hover:bg-primary/[0.04] transition-colors">
+                <p className="font-body text-[11px] font-semibold text-primary/60 uppercase tracking-[0.10em] mb-2">O cliente passa a ter</p>
+                <p className="font-body text-[13px] text-white/50 leading-relaxed">{step.after_text}</p>
               </div>
             </div>
           ))}
