@@ -25,7 +25,7 @@ const profiles = [
 
 const ForWhomSection = () => {
   return (
-    <section id="para-quem" className="py-20 lg:py-28 bg-background">
+    <section id="para-quem" className="py-20 lg:py-28 section-alt section-divide-top">
       <div className="container mx-auto px-6 lg:px-8">
 
         {/* Header */}

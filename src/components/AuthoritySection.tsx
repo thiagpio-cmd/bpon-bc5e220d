@@ -45,7 +45,7 @@ const CountUpMetric = ({ target, suffix, unit }: { target: number; suffix?: stri
 
 const AuthoritySection = () => {
   return (
-    <section id="autoridade" className="py-20 lg:py-28 relative overflow-hidden bg-background">
+    <section id="autoridade" className="py-20 lg:py-28 relative overflow-hidden section-alt section-divide-top">
 
       <div className="absolute top-0 left-0 w-[480px] h-[360px] pointer-events-none"
         style={{ background: "radial-gradient(ellipse, hsl(var(--primary) / 0.04) 0%, transparent 70%)" }} />

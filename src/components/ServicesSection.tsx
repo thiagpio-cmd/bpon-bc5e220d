@@ -41,7 +41,7 @@ const ServicesSection = () => {
   const [hoveredBlock, setHoveredBlock] = useState<number | null>(null);
 
   return (
-    <section id="servicos" className="py-20 lg:py-28 bg-background">
+    <section id="servicos" className="py-20 lg:py-28 section-alt-2 section-divide-top">
       <div className="container mx-auto px-6 lg:px-8">
 
         {/* Header */}
