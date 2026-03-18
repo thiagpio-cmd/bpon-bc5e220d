@@ -6,8 +6,8 @@ const steps = [
   num: "01",
   icon: FileText,
   title: "Diagnóstico da operação",
-  time: "Semana 1–2",
-  what_text: "Mapeamos como o financeiro funciona hoje — controles, responsáveis, fluxo de informações, ferramentas e onde estão os principais gargalos.",
+  time: "Semana 1",
+  what_text: "Mapeamos como o financeiro funciona hoje: controles, responsáveis, fluxo de informações, ferramentas e onde estão os principais gargalos.",
   deliverable: "Relatório de diagnóstico com prioridades mapeadas",
   after_text: "Clareza sobre onde está a fragilidade e quais rotinas precisam de correção imediata."
 },
