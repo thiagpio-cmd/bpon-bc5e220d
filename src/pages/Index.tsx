@@ -23,6 +23,7 @@ const Index = () => {
       <main>
         {/* ── Bloco 1: Âncora escura — proposta de valor ── */}
         <HeroSection />
+        <TrustBar />
 
         {/* ── Bloco 2: Jornada de descoberta — seções claras alternadas ── */}
         <div className="relative">
