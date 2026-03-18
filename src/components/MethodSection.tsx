@@ -75,10 +75,7 @@ const MethodSection = () => {
               </div>
 
               {/* What */}
-              <div className="p-7 lg:p-8"
-                style={{ borderBottom: "1px solid hsl(210 30% 18%)", borderRight: "none" }}
-                className="p-7 lg:p-8 border-b lg:border-b-0 lg:border-r"
-              >
+              <div className="p-7 lg:p-8 border-b lg:border-b-0 lg:border-r" style={{ borderColor: "hsl(210 30% 18%)" }}>
                 <div className="flex items-center gap-3 mb-4">
                   <span className="lg:hidden font-display font-black text-sm" style={{ color: "hsl(220 79% 52%)" }}>{step.num}</span>
                   {/* Step title — visível e forte */}
