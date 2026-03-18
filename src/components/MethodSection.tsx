@@ -6,8 +6,8 @@ const steps = [
   num: "01",
   icon: FileText,
   title: "Diagnóstico da operação",
-  time: "Semana 1–2",
-  what_text: "Mapeamos como o financeiro funciona hoje — controles, responsáveis, fluxo de informações, ferramentas e onde estão os principais gargalos.",
+  time: "Semana 1",
+  what_text: "Mapeamos como o financeiro funciona hoje: controles, responsáveis, fluxo de informações, ferramentas e onde estão os principais gargalos.",
   deliverable: "Relatório de diagnóstico com prioridades mapeadas",
   after_text: "Clareza sobre onde está a fragilidade e quais rotinas precisam de correção imediata."
 },
@@ -15,8 +15,8 @@ const steps = [
   num: "02",
   icon: Settings,
   title: "Estruturação da rotina",
-  time: "Semana 3–4",
-  what_text: "Definimos processo, cadência, critérios de conferência e organização da base — com responsabilidades claras e padrão operacional documentado.",
+  time: "Semana 2-4",
+  what_text: "Definimos processo, cadência, critérios de conferência e organização da base: com responsabilidades claras e padrão operacional documentado.",
   deliverable: "Manual de rotina financeira e agenda recorrente",
   after_text: "Uma rotina financeira que funciona com método, não com esforço individual."
 },
@@ -25,7 +25,7 @@ const steps = [
   icon: Play,
   title: "Implantação e controles",
   time: "Mês 2",
-  what_text: "A rotina entra em funcionamento com acompanhamento — contas, conciliação, fluxo e fechamento rodando em cadência real.",
+  what_text: "A rotina entra em funcionamento com acompanhamento: contas, conciliação, fluxo e fechamento rodando em cadência real.",
   deliverable: "Primeiro fechamento gerencial completo",
   after_text: "Operação mais previsível, menos improviso e base de dados mais confiável."
 },

@@ -45,7 +45,7 @@ const ForWhomSection = () => {
               style={{ border: "1px solid hsl(var(--primary) / 0.12)", background: "hsl(var(--surface-tint))" }}>
               <p className="font-body text-[12.5px] text-body leading-relaxed">
                 <span className="font-semibold text-headline">Fit ideal:</span>{" "}
-                empresa ativa, volume financeiro real e necessidade de processo contínuo — não demandas pontuais.
+                empresa ativa, volume financeiro real e necessidade de processo contínuo: não demandas pontuais.
               </p>
             </div>
           </div>

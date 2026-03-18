@@ -41,7 +41,7 @@ const testimonials = [
     initials: "DF",
   },
   {
-    quote: "A BPOn organizou o que a gente nunca conseguiu fazer internamente. Processo, cadência, controles — tudo funcionando sem depender de uma única pessoa.",
+    quote: "A BPOn organizou o que a gente nunca conseguiu fazer internamente. Processo, cadência, controles. Agora tudo está funcionando sem depender de uma única pessoa.",
     name: "Sócio-Gestor",
     role: "Empresa Comercial · Triângulo Mineiro",
     initials: "SG",
