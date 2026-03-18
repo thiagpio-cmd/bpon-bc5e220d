@@ -6,8 +6,8 @@
 
 @layer base {
   :root {
-    /* ─── Base surfaces ─── */
-    --background:    210 20% 97%;      /* #F6F8FA — frio, limpo, papel premium */
+    /* ─── Base surfaces — quente, limpo, respirável ─── */
+    --background:    210 22% 98%;      /* Quase branco, levemente azulado */
     --foreground:    218 55% 9%;
 
     --card:          0 0% 100%;
@@ -16,42 +16,42 @@
     --popover:       0 0% 100%;
     --popover-foreground: 218 55% 9%;
 
-    /* ─── Brand blue — mais escuro, mais sério ─── */
-    --primary:       220 79% 46%;      /* #1A56DB — confiança, institucional */
+    /* ─── Brand blue — confiante mas acessível ─── */
+    --primary:       220 72% 44%;      /* Azul institucional, não agressivo */
     --primary-foreground: 0 0% 100%;
 
-    --secondary:     218 67% 17%;
+    --secondary:     218 55% 18%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted:         210 18% 93%;
-    --muted-foreground: 215 14% 52%;
+    --muted:         210 18% 94%;
+    --muted-foreground: 215 14% 54%;
 
-    --accent:        220 79% 46%;
+    --accent:        220 72% 44%;
     --accent-foreground: 0 0% 100%;
 
     --destructive:   0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border:        212 18% 88%;
-    --input:         212 18% 88%;
-    --ring:          220 79% 46%;
+    --border:        212 20% 90%;
+    --input:         212 20% 90%;
+    --ring:          220 72% 44%;
     --radius: 0.75rem;
 
     /* ─── Semantic surfaces ─── */
     --surface:           0 0% 100%;
-    --surface-elevated:  210 20% 97%;
-    --surface-tint:      214 80% 97%;  /* levíssimo azul */
+    --surface-elevated:  210 22% 98%;
+    --surface-tint:      214 75% 97%;  /* levíssimo azul — agradável */
 
     /* ─── Typography ─── */
-    --headline:      218 82% 8%;       /* quase preto — máxima hierarquia */
-    --body:          215 18% 44%;
-    --divider:       212 18% 90%;
+    --headline:      218 75% 10%;      /* Quase preto, mas não negro puro */
+    --body:          215 16% 46%;      /* Cinza-azulado legível */
+    --divider:       212 20% 91%;
 
-    /* ─── Dark sections ─── */
-    --deep:          220 38% 10%;      /* #111827 — mais neutro/quente que antes */
-    --deep-foreground: 210 30% 92%;
+    /* ─── Dark sections — azul médio, não abismo ─── */
+    --deep:          222 38% 14%;      /* Azul escuro confortável */
+    --deep-foreground: 210 35% 88%;
 
-    /* ─── Accent gold — para detalhe de autoridade ─── */
+    /* ─── Accent gold — detalhe de autoridade ─── */
     --gold:          38 72% 52%;
     --gold-foreground: 38 60% 18%;
   }
