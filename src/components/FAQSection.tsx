@@ -40,56 +40,57 @@ const FAQSection = () => {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-24 lg:py-32 bg-surface">
+    <section id="faq" className="py-20 lg:py-28 bg-surface">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
 
           {/* Left */}
-          <div className="lg:col-span-2 flex flex-col gap-6 reveal">
+          <div className="lg:col-span-2 flex flex-col gap-5 reveal">
             <div>
-              <div className="label-pill w-fit mb-5">Perguntas frequentes</div>
-              <h2 className="font-display font-black text-3xl lg:text-[2.2rem] text-headline leading-[1.1] tracking-tight">
+              <div className="label-pill w-fit mb-4">Perguntas frequentes</div>
+              <h2 className="font-display font-black text-[1.9rem] lg:text-[2.2rem] text-headline leading-[1.08] tracking-[-0.022em] mt-3">
                 Respostas para quem está avaliando a BPOn.
               </h2>
             </div>
-            <p className="font-body text-base text-body leading-relaxed">
+            <p className="font-body text-[13.5px] text-body leading-relaxed">
               Dúvidas comuns antes de avançar. Se a sua não está aqui,
               o diagnóstico é o melhor caminho para uma resposta precisa.
             </p>
             <a
               href="#diagnostico"
-              className="inline-flex w-fit items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-body font-semibold text-sm hover:bg-primary/90 transition-all duration-200 shadow-blue"
+              className="inline-flex w-fit items-center gap-2 px-6 py-2.5 rounded-lg bg-primary text-primary-foreground font-body font-semibold text-[13px] hover:bg-primary/90 transition-all duration-200 shadow-blue"
             >
               Solicitar diagnóstico
             </a>
           </div>
 
-          {/* Right */}
-          <div className="lg:col-span-3 space-y-2 reveal reveal-delay-2">
+          {/* Right — accordion */}
+          <div className="lg:col-span-3 flex flex-col gap-2 reveal reveal-delay-2">
             {faqs.map((faq, i) => (
-              <div key={i} className="border border-divider rounded-2xl bg-surface overflow-hidden">
+              <div key={i} className="border border-divider rounded-xl bg-surface overflow-hidden">
                 <button
-                  className="w-full flex items-start justify-between gap-4 px-6 py-5 text-left hover:bg-surface-elevated transition-colors"
+                  className="w-full flex items-start justify-between gap-4 px-5 py-4 text-left hover:bg-surface-tint transition-colors duration-150"
                   onClick={() => setOpen(open === i ? null : i)}
                 >
-                  <span className="font-display font-semibold text-sm text-headline leading-snug">
+                  <span className="font-display font-semibold text-[13.5px] text-headline leading-snug">
                     {faq.q}
                   </span>
                   <ChevronDown
-                    size={16}
-                    className={`text-body flex-shrink-0 mt-0.5 transition-transform duration-200 ${
-                      open === i ? "rotate-180 text-primary" : ""
+                    size={15}
+                    className={`flex-shrink-0 mt-0.5 transition-transform duration-200 ${
+                      open === i ? "rotate-180 text-primary" : "text-body"
                     }`}
                   />
                 </button>
                 {open === i && (
-                  <div className="px-6 pb-5 border-t border-divider">
-                    <p className="font-body text-sm text-body leading-relaxed pt-4">{faq.a}</p>
+                  <div className="px-5 pb-4 border-t border-divider">
+                    <p className="font-body text-[13px] text-body leading-relaxed pt-3">{faq.a}</p>
                   </div>
                 )}
               </div>
             ))}
           </div>
+
         </div>
       </div>
     </section>

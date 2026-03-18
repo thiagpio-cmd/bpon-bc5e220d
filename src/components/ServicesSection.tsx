@@ -41,19 +41,19 @@ const ServicesSection = () => {
   const [hoveredBlock, setHoveredBlock] = useState<number | null>(null);
 
   return (
-    <section id="servicos" className="py-24 lg:py-32 bg-background">
+    <section id="servicos" className="py-20 lg:py-28 bg-background">
       <div className="container mx-auto px-6 lg:px-8">
 
         {/* Header */}
-        <div className="mb-14 lg:mb-16 reveal grid lg:grid-cols-2 gap-8 items-end">
+        <div className="mb-12 lg:mb-14 reveal grid lg:grid-cols-2 gap-8 items-end">
           <div>
-            <span className="label-pill mb-5 inline-block">O que a BPOn entrega</span>
-            <h2 className="font-display font-black text-[2rem] lg:text-[2.8rem] text-headline leading-[1.05] tracking-[-0.025em]">
+            <span className="label-pill mb-4 inline-block">O que a BPOn entrega</span>
+            <h2 className="font-display font-black text-[2rem] lg:text-[2.7rem] text-headline leading-[1.05] tracking-[-0.024em] mt-3">
               Três frentes integradas.<br />
               <span className="text-gradient-primary">Uma operação completa.</span>
             </h2>
           </div>
-          <p className="font-body text-[14px] text-body leading-relaxed lg:max-w-sm lg:text-right lg:self-end">
+          <p className="font-body text-[13.5px] text-body leading-relaxed lg:max-w-sm lg:text-right lg:self-end">
             Não é uma lista de tarefas. É uma estrutura integrada — da operação
             diária ao fechamento que orienta a gestão.
           </p>
@@ -64,58 +64,58 @@ const ServicesSection = () => {
           {blocks.map((block, i) => (
             <div
               key={block.number}
-              className={`reveal reveal-delay-${i + 1} group flex flex-col p-8 lg:p-9 bg-surface relative
+              className={`reveal reveal-delay-${i + 1} flex flex-col p-7 lg:p-8 bg-surface relative
                 ${i < blocks.length - 1 ? "border-b lg:border-b-0 lg:border-r border-divider" : ""}
               `}
               style={{
                 background: hoveredBlock === i ? "hsl(var(--surface-tint))" : undefined,
-                transition: "background 0.3s ease",
+                transition: "background 0.25s ease",
               }}
               onMouseEnter={() => setHoveredBlock(i)}
               onMouseLeave={() => setHoveredBlock(null)}
             >
               {/* Top accent */}
-              <div className="absolute top-0 left-0 right-0 h-[2px] bg-primary transition-transform duration-500 origin-left"
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-primary transition-transform duration-400 origin-left"
                 style={{ transform: hoveredBlock === i ? "scaleX(1)" : "scaleX(0)" }} />
 
-              {/* Number watermark */}
-              <span className="font-display font-black text-[4rem] leading-none select-none mb-5 transition-all duration-500"
+              {/* Number */}
+              <span className="font-display font-black text-[3.5rem] leading-none select-none mb-4 transition-all duration-400"
                 style={{
-                  color: hoveredBlock === i ? "hsl(var(--primary) / 0.12)" : "hsl(var(--primary) / 0.06)",
-                  transform: hoveredBlock === i ? "translateX(4px)" : "translateX(0)",
+                  color: hoveredBlock === i ? "hsl(var(--primary) / 0.11)" : "hsl(var(--primary) / 0.06)",
+                  transform: hoveredBlock === i ? "translateX(3px)" : "translateX(0)",
                 }}>
                 {block.number}
               </span>
 
-              <h3 className="font-display font-bold text-[16px] text-headline mb-2.5 leading-snug">
+              <h3 className="font-display font-bold text-[15px] text-headline mb-2 leading-snug">
                 {block.title}
               </h3>
-              <p className="font-body text-[13px] text-body leading-relaxed mb-5">
+              <p className="font-body text-[12.5px] text-body leading-relaxed mb-5">
                 {block.description}
               </p>
 
               {/* Progress bar */}
-              <div className="w-full h-[3px] rounded-full mb-6 overflow-hidden" style={{ background: "hsl(var(--divider))" }}>
+              <div className="w-full h-[3px] rounded-full mb-5 overflow-hidden" style={{ background: "hsl(var(--divider))" }}>
                 <div className="h-full bg-primary rounded-full transition-all duration-700 ease-out"
                   style={{ width: hoveredBlock === i ? `${block.completion}%` : "0%" }} />
               </div>
 
-              <ul className="mt-auto flex flex-col gap-3 pt-5 border-t border-divider">
+              <ul className="mt-auto flex flex-col gap-2.5 pt-5 border-t border-divider">
                 {block.items.map((item, j) => (
                   <li key={item} className="flex items-start gap-2.5"
                     style={{
-                      opacity: hoveredBlock === i ? 1 : 0.8,
-                      transform: hoveredBlock === i ? "translateX(4px)" : "translateX(0)",
-                      transition: `all 0.3s ease ${j * 0.05}s`,
+                      opacity: hoveredBlock === i ? 1 : 0.75,
+                      transform: hoveredBlock === i ? "translateX(3px)" : "translateX(0)",
+                      transition: `all 0.25s ease ${j * 0.05}s`,
                     }}>
-                    <span className="w-4 h-4 rounded-md flex items-center justify-center flex-shrink-0 mt-[1px] transition-colors duration-300"
+                    <span className="w-[18px] h-[18px] rounded-md flex items-center justify-center flex-shrink-0 mt-[1px]"
                       style={{
-                        background: hoveredBlock === i ? "hsl(var(--primary) / 0.14)" : "hsl(var(--primary) / 0.08)",
-                        border: "1px solid hsl(var(--primary) / 0.18)",
+                        background: hoveredBlock === i ? "hsl(var(--primary) / 0.13)" : "hsl(var(--primary) / 0.07)",
+                        border: "1px solid hsl(var(--primary) / 0.16)",
                       }}>
                       <Check size={9} className="text-primary" strokeWidth={3} />
                     </span>
-                    <span className="font-body text-[13px] text-body leading-snug">{item}</span>
+                    <span className="font-body text-[12.5px] text-body leading-snug">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -124,7 +124,7 @@ const ServicesSection = () => {
         </div>
 
         {/* CTA strip */}
-        <div className="mt-8 reveal reveal-delay-4 flex flex-col sm:flex-row items-center justify-between gap-4 px-6 py-5 rounded-xl border border-divider bg-surface">
+        <div className="mt-5 reveal reveal-delay-4 cta-strip">
           <p className="font-body text-[13px] text-body text-center sm:text-left">
             A BPOn atua de forma integrada com a contabilidade, o ERP e a liderança da empresa.
           </p>
@@ -133,7 +133,7 @@ const ServicesSection = () => {
             className="group inline-flex items-center gap-2 px-6 py-2.5 rounded-lg bg-primary text-primary-foreground font-body font-semibold text-[13px] shadow-blue hover:opacity-90 hover:scale-[1.02] transition-all duration-300 whitespace-nowrap flex-shrink-0"
           >
             Quero estruturar meu financeiro
-            <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-300" />
+            <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform duration-300" />
           </a>
         </div>
 
