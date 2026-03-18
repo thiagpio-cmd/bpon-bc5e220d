@@ -3,19 +3,31 @@ import DiagnosticForm from "./DiagnosticForm";
 
 const CTASection = () => {
   return (
-    <section id="diagnostico" className="py-28 lg:py-36 bg-deep relative overflow-hidden">
+    <section id="diagnostico" className="py-28 lg:py-36 relative overflow-hidden">
 
-      {/* Background */}
+      {/* Background — deep gradient, sem foto */}
       <div className="absolute inset-0 z-0">
-        <img
-          src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1400&q=75&auto=format&fit=crop"
-          alt="Planejamento financeiro executivo"
-          className="w-full h-full object-cover opacity-15"
-          loading="lazy"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-[hsl(218,82%,7%)]/98 via-[hsl(218,82%,9%)]/95 to-[hsl(220,70%,14%)]/90" />
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] opacity-15 pointer-events-none"
-          style={{ background: "radial-gradient(circle, hsl(221,83%,53%) 0%, transparent 65%)", transform: "translate(20%,-20%)" }} />
+        {/* Base */}
+        <div className="absolute inset-0"
+          style={{ background: "linear-gradient(145deg, hsl(222,65%,7%) 0%, hsl(218,75%,10%) 50%, hsl(220,70%,8%) 100%)" }} />
+        {/* Left blue bleed */}
+        <div className="absolute inset-y-0 left-0 w-[55%] pointer-events-none"
+          style={{ background: "linear-gradient(to right, hsl(220,79%,12%) 0%, transparent 100%)" }} />
+        {/* Top glow */}
+        <div className="absolute -top-32 left-0 w-[700px] h-[600px] pointer-events-none"
+          style={{ background: "radial-gradient(ellipse at 30% 30%, hsl(220 79% 46% / 0.15) 0%, transparent 60%)" }} />
+        {/* Bottom right accent */}
+        <div className="absolute -bottom-20 right-0 w-[500px] h-[500px] pointer-events-none"
+          style={{ background: "radial-gradient(ellipse, hsl(220 79% 46% / 0.08) 0%, transparent 65%)" }} />
+        {/* Grid */}
+        <div className="absolute inset-0 opacity-[0.025] pointer-events-none"
+          style={{
+            backgroundImage: "linear-gradient(hsl(210 80% 72% / 1) 1px, transparent 1px), linear-gradient(90deg, hsl(210 80% 72% / 1) 1px, transparent 1px)",
+            backgroundSize: "72px 72px",
+          }} />
+        {/* Vertical line accent */}
+        <div className="absolute top-0 left-[52%] w-px h-full opacity-[0.06] pointer-events-none hidden lg:block"
+          style={{ background: "linear-gradient(to bottom, transparent, hsl(220 79% 55%), transparent)" }} />
       </div>
 
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
@@ -32,7 +44,7 @@ const CTASection = () => {
               </h2>
             </div>
 
-            <p className="font-body text-base lg:text-lg text-white/60 leading-relaxed max-w-md">
+            <p className="font-body text-[15px] leading-relaxed max-w-md" style={{ color: "hsl(210 20% 55%)" }}>
               O primeiro passo é entender a operação atual — gargalos, estrutura existente e o nível de visibilidade que a liderança tem hoje. A partir daí, a BPOn organiza o que precisa ser estruturado.
             </p>
 
@@ -45,38 +57,41 @@ const CTASection = () => {
                 "Sem compromisso de contratação imediata",
               ].map((item) => (
                 <div key={item} className="flex items-center gap-3">
-                  <div className="w-5 h-5 rounded-full bg-primary/15 border border-primary/30 flex items-center justify-center flex-shrink-0">
+                  <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
+                    style={{ background: "hsl(220 79% 46% / 0.14)", border: "1px solid hsl(220 79% 46% / 0.30)" }}>
                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
                       <path d="M2 5l2.5 2.5L8 3" stroke="hsl(221,83%,65%)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </div>
-                  <span className="font-body text-sm text-white/65">{item}</span>
+                  <span className="font-body text-sm" style={{ color: "hsl(210 20% 65%)" }}>{item}</span>
                 </div>
               ))}
             </div>
 
-            <div className="pt-4 border-t border-white/10 flex items-center gap-4">
+            <div className="pt-4 flex items-center gap-4" style={{ borderTop: "1px solid hsl(210 30% 18%)" }}>
               <a
                 href="https://wa.me/5534992812444"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-white/15 bg-white/8 text-white font-body font-semibold text-sm hover:bg-white/14 transition-all"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl font-body font-semibold text-sm hover:bg-white/[0.08] transition-all"
+                style={{ border: "1px solid hsl(210 30% 22%)", background: "hsl(220 50% 10% / 0.5)", color: "hsl(210 30% 72%)" }}
               >
                 <MessageCircle size={15} />
                 Falar no WhatsApp
               </a>
-              <span className="font-body text-xs text-white/30">(34) 99281-2444</span>
+              <span className="font-body text-xs" style={{ color: "hsl(210 15% 38%)" }}>(34) 99281-2444</span>
             </div>
           </div>
 
           {/* Right — form card */}
           <div className="reveal reveal-delay-2">
-            <div className="rounded-2xl border border-white/10 bg-white shadow-deep overflow-hidden">
-              <div className="px-7 py-5 border-b border-divider bg-background">
+            <div className="rounded-2xl overflow-hidden shadow-deep"
+              style={{ border: "1px solid hsl(210 30% 20%)", background: "hsl(0 0% 100%)" }}>
+              <div className="px-7 py-5 bg-background" style={{ borderBottom: "1px solid hsl(var(--divider))" }}>
                 <p className="font-display font-bold text-base text-headline">Solicitar diagnóstico financeiro</p>
                 <p className="font-body text-xs text-body mt-0.5">Resposta em até 1 dia útil</p>
               </div>
-              <div className="p-7">
+              <div className="p-7 bg-white">
                 <DiagnosticForm />
               </div>
             </div>

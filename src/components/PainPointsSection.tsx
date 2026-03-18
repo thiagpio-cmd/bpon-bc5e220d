@@ -27,63 +27,65 @@ const painPoints = [
 
 const PainPointsSection = () => {
   return (
-    <section id="solucao" className="py-24 lg:py-32 bg-deep relative overflow-hidden">
+    <section id="solucao" className="py-24 lg:py-32 relative overflow-hidden" style={{ background: "linear-gradient(180deg, hsl(222,60%,7%) 0%, hsl(218,70%,9%) 100%)" }}>
 
-      {/* Subtle grid lines */}
+      {/* Grid texture */}
       <div
-        className="absolute inset-0 opacity-[0.028] pointer-events-none"
+        className="absolute inset-0 opacity-[0.03] pointer-events-none"
         style={{
-          backgroundImage:
-            "linear-gradient(hsl(210 80% 72% / 1) 1px, transparent 1px), linear-gradient(90deg, hsl(210 80% 72% / 1) 1px, transparent 1px)",
+          backgroundImage: "linear-gradient(hsl(210 80% 72% / 1) 1px, transparent 1px), linear-gradient(90deg, hsl(210 80% 72% / 1) 1px, transparent 1px)",
           backgroundSize: "72px 72px",
         }}
       />
-      {/* Glow top-right */}
-      <div
-        className="absolute -top-32 right-0 w-[500px] h-[500px] rounded-full pointer-events-none"
-        style={{
-          background: "radial-gradient(circle, hsl(220 79% 46% / 0.10) 0%, transparent 70%)",
-        }}
-      />
+      {/* Top glow */}
+      <div className="absolute -top-40 right-0 w-[600px] h-[500px] pointer-events-none"
+        style={{ background: "radial-gradient(ellipse, hsl(220 79% 46% / 0.08) 0%, transparent 65%)" }} />
 
       <div className="container mx-auto px-6 lg:px-8 relative">
 
         {/* Header */}
         <div className="mb-14 lg:mb-16 reveal max-w-xl">
           <span className="label-pill-dark mb-5 inline-block">Diagnóstico</span>
-          <h2 className="font-display font-black text-[2.2rem] lg:text-[3rem] text-white leading-[1.05] tracking-[-0.025em]">
+          <h2 className="font-display font-black text-[2.2rem] lg:text-[3rem] text-white leading-[1.05] tracking-[-0.025em] mt-3">
             Esses sintomas<br />
             <span className="text-shimmer">são familiares?</span>
           </h2>
-          <p className="font-body text-[15px] text-white/45 leading-relaxed mt-5">
+          <p className="font-body text-[14px] leading-relaxed mt-5" style={{ color: "hsl(210 25% 55%)" }}>
             São os mais comuns que a BPOn encontra antes de estruturar uma operação.
           </p>
         </div>
 
-        {/* Grid — bordas explícitas, sem gap visual poluído */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 border border-white/8 rounded-2xl overflow-hidden">
+        {/* Grid — bordered cells */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 rounded-2xl overflow-hidden" style={{ border: "1px solid hsl(210 30% 22%)" }}>
           {painPoints.map((pain, i) => (
             <div
               key={pain.title}
               className={`reveal reveal-delay-${Math.min(i + 1, 6)} group flex flex-col gap-4 p-7 lg:p-8 relative overflow-hidden
-                border-white/8
                 ${i < 3 ? "border-b" : ""}
                 ${i % 3 !== 2 ? "lg:border-r" : ""}
                 ${i % 2 === 0 ? "sm:border-r" : ""}
                 hover:bg-white/[0.03] transition-colors duration-250`}
+              style={{
+                borderColor: "hsl(210 30% 20%)",
+              }}
             >
-              {/* Hover glow spot */}
+              {/* Hover glow */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                style={{ background: "radial-gradient(ellipse 60% 50% at 50% 0%, hsl(220 79% 46% / 0.07) 0%, transparent 100%)" }}
-              />
+                style={{ background: "radial-gradient(ellipse 60% 50% at 50% 0%, hsl(220 79% 46% / 0.07) 0%, transparent 100%)" }} />
 
               {/* Accent line */}
-              <div className="w-6 h-[2px] bg-primary/40 rounded-full group-hover:w-10 group-hover:bg-primary/70 transition-all duration-300" />
+              <div className="w-5 h-[2px] rounded-full group-hover:w-8 transition-all duration-300"
+                style={{ background: "hsl(220 79% 50% / 0.55)" }} />
 
-              <h3 className="font-display font-bold text-[15px] text-white/88 leading-snug relative">
+              {/* Title — visível e forte */}
+              <h3 className="font-display font-bold text-[14px] leading-snug relative"
+                style={{ color: "hsl(210 40% 88%)" }}>
                 {pain.title}
               </h3>
-              <p className="font-body text-[13px] text-white/40 leading-relaxed relative">
+
+              {/* Text */}
+              <p className="font-body text-[13px] leading-relaxed relative"
+                style={{ color: "hsl(210 20% 52%)" }}>
                 {pain.text}
               </p>
             </div>
@@ -91,8 +93,9 @@ const PainPointsSection = () => {
         </div>
 
         {/* CTA strip */}
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-5 p-5 lg:p-6 rounded-xl border border-white/8 bg-white/[0.03] reveal">
-          <p className="font-display font-semibold text-[14px] text-white/70 leading-snug">
+        <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-5 p-5 lg:p-6 rounded-xl reveal"
+          style={{ border: "1px solid hsl(210 30% 18%)", background: "hsl(220 50% 9% / 0.6)" }}>
+          <p className="font-display font-semibold text-[14px] leading-snug" style={{ color: "hsl(210 30% 65%)" }}>
             Se mais de um desses soa verdadeiro, a BPOn pode ajudar.
           </p>
           <a
