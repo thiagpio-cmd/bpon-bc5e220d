@@ -27,70 +27,70 @@ const steps = [
 
 const MethodSection = () => {
   return (
-    <section id="metodo" className="py-24 lg:py-32 relative overflow-hidden" style={{ background: "linear-gradient(180deg, hsl(218,70%,9%) 0%, hsl(220,65%,8%) 100%)" }}>
+    <section id="metodo" className="py-24 lg:py-32 relative overflow-hidden"
+      style={{ background: "hsl(220 50% 7%)" }}>
 
-      {/* Grid texture */}
-      <div
-        className="absolute inset-0 opacity-[0.025] pointer-events-none"
-        style={{
-          backgroundImage: "linear-gradient(hsl(210 80% 72% / 1) 1px, transparent 1px), linear-gradient(90deg, hsl(210 80% 72% / 1) 1px, transparent 1px)",
-          backgroundSize: "80px 80px",
-        }}
-      />
-      {/* Blue glow bottom-right */}
+      {/* Acento de fundo */}
       <div className="absolute bottom-0 right-0 w-[500px] h-[400px] pointer-events-none"
-        style={{ background: "radial-gradient(ellipse, hsl(220 79% 46% / 0.07) 0%, transparent 65%)" }} />
+        style={{ background: "radial-gradient(ellipse, hsl(220 79% 46% / 0.06) 0%, transparent 68%)" }} />
 
-      <div className="container mx-auto px-6 lg:px-8 relative">
+      <div className="container mx-auto px-6 lg:px-8 relative z-10">
 
         {/* Header */}
-        <div className="mb-14 lg:mb-16 reveal flex flex-col lg:flex-row lg:items-end gap-8 justify-between">
+        <div className="mb-12 lg:mb-14 reveal flex flex-col lg:flex-row lg:items-end gap-6 justify-between">
           <div>
             <span className="label-pill-dark mb-5 inline-block">Método</span>
-            <h2 className="font-display font-black text-[2rem] lg:text-[2.8rem] text-white leading-[1.05] tracking-[-0.025em] mt-3">
+            <h2 className="font-display font-black text-[2rem] lg:text-[2.8rem] leading-[1.05] tracking-[-0.025em] mt-3"
+              style={{ color: "hsl(0 0% 96%)" }}>
               Como a BPOn trabalha,<br />
               <span className="text-shimmer">passo a passo.</span>
             </h2>
           </div>
-          <p className="font-body text-[13px] max-w-xs leading-relaxed lg:text-right lg:self-end" style={{ color: "hsl(210 20% 50%)" }}>
+          <p className="font-body text-[13px] max-w-xs leading-relaxed lg:text-right lg:self-end"
+            style={{ color: "hsl(210 18% 52%)" }}>
             Onboarding estruturado, sem ruptura — da análise inicial ao acompanhamento contínuo.
           </p>
         </div>
 
         {/* Steps */}
-        <div className="flex flex-col gap-0 rounded-2xl overflow-hidden" style={{ border: "1px solid hsl(210 30% 20%)" }}>
+        <div className="rounded-2xl overflow-hidden" style={{ border: "1px solid hsl(218 35% 16%)" }}>
           {steps.map((step, i) => (
             <div
               key={step.num}
-              className={`reveal reveal-delay-${i + 1} group grid lg:grid-cols-[96px_1fr_1fr] last:border-b-0`}
-              style={{ borderBottom: i < steps.length - 1 ? "1px solid hsl(210 30% 18%)" : "none" }}
+              className={`reveal reveal-delay-${i + 1} group grid lg:grid-cols-[80px_1fr_1fr]`}
+              style={{ borderBottom: i < steps.length - 1 ? "1px solid hsl(218 35% 14%)" : "none" }}
             >
-              {/* Number column */}
-              <div className="hidden lg:flex flex-col items-center justify-center py-10 px-3"
-                style={{ borderRight: "1px solid hsl(210 30% 18%)" }}>
-                <span className="font-display font-black text-[2.2rem] leading-none transition-colors"
-                  style={{ color: "hsl(220 79% 52%)" }}>
+              {/* Número */}
+              <div className="hidden lg:flex flex-col items-center justify-center py-9 px-2"
+                style={{ borderRight: "1px solid hsl(218 35% 14%)" }}>
+                <span className="font-display font-black text-[2rem] leading-none"
+                  style={{ color: "hsl(220 79% 55%)" }}>
                   {step.num}
                 </span>
               </div>
 
-              {/* What */}
-              <div className="p-7 lg:p-8 border-b lg:border-b-0 lg:border-r" style={{ borderColor: "hsl(210 30% 18%)" }}>
+              {/* O que fazemos */}
+              <div className="p-7 lg:p-8" style={{ borderRight: "1px solid hsl(218 35% 14%)" }}>
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="lg:hidden font-display font-black text-sm" style={{ color: "hsl(220 79% 52%)" }}>{step.num}</span>
-                  {/* Step title — visível e forte */}
-                  <h3 className="font-display font-bold text-[15px] leading-snug" style={{ color: "hsl(210 40% 90%)" }}>
+                  <span className="lg:hidden font-display font-black text-sm"
+                    style={{ color: "hsl(220 79% 55%)" }}>{step.num}</span>
+                  <h3 className="font-display font-bold text-[15px] leading-snug"
+                    style={{ color: "hsl(210 50% 92%)" }}>
                     {step.title}
                   </h3>
                 </div>
-                <p className="font-body text-[10px] font-semibold uppercase tracking-[0.12em] mb-2.5" style={{ color: "hsl(210 30% 42%)" }}>O que fazemos</p>
-                <p className="font-body text-[13px] leading-relaxed" style={{ color: "hsl(210 20% 56%)" }}>{step.what_text}</p>
+                <p className="font-body text-[10px] font-semibold uppercase tracking-[0.12em] mb-2"
+                  style={{ color: "hsl(210 20% 40%)" }}>O que fazemos</p>
+                <p className="font-body text-[13px] leading-relaxed"
+                  style={{ color: "hsl(210 18% 58%)" }}>{step.what_text}</p>
               </div>
 
-              {/* After */}
-              <div className="p-7 lg:p-8" style={{ background: "hsl(220 60% 7% / 0.5)" }}>
-                <p className="font-body text-[10px] font-semibold uppercase tracking-[0.12em] mb-2.5" style={{ color: "hsl(220 79% 55% / 0.8)" }}>O cliente passa a ter</p>
-                <p className="font-body text-[13px] leading-relaxed" style={{ color: "hsl(210 25% 60%)" }}>{step.after_text}</p>
+              {/* O cliente passa a ter */}
+              <div className="p-7 lg:p-8" style={{ background: "hsl(220 55% 6% / 0.6)" }}>
+                <p className="font-body text-[10px] font-semibold uppercase tracking-[0.12em] mb-2"
+                  style={{ color: "hsl(220 79% 58% / 0.75)" }}>O cliente passa a ter</p>
+                <p className="font-body text-[13px] leading-relaxed"
+                  style={{ color: "hsl(210 22% 62%)" }}>{step.after_text}</p>
               </div>
             </div>
           ))}
