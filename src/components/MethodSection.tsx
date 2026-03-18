@@ -25,7 +25,7 @@ const steps = [
   icon: Play,
   title: "Implantação e controles",
   time: "Mês 2",
-  what_text: "A rotina entra em funcionamento com acompanhamento — contas, conciliação, fluxo e fechamento rodando em cadência real.",
+  what_text: "A rotina entra em funcionamento com acompanhamento: contas, conciliação, fluxo e fechamento rodando em cadência real.",
   deliverable: "Primeiro fechamento gerencial completo",
   after_text: "Operação mais previsível, menos improviso e base de dados mais confiável."
 },
