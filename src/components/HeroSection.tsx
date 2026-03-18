@@ -63,9 +63,9 @@ const DashboardMockup = () =>
           height: `${b.h}px`,
           maxHeight: `${b.h}px`,
           minHeight: `${b.h}px`,
-          background: b.active
-            ? "linear-gradient(to top, hsl(var(--primary)), hsl(214 80% 65%))"
-            : "hsl(214 40% 20%)",
+          background: b.active ?
+          "linear-gradient(to top, hsl(var(--primary)), hsl(214 80% 65%))" :
+          "hsl(214 40% 20%)",
           boxShadow: b.active ? "0 0 16px hsl(var(--primary) / 0.45)" : "none"
         }} />
             <span className="font-body text-[9px] shrink-0" style={{ color: b.active ? "hsl(214 75% 62%)" : "hsl(210 18% 36%)" }}>{b.month}</span>
@@ -167,7 +167,7 @@ const HeroSection = () => {
             {/* Sub */}
             <p className="font-body leading-[1.78] max-w-[500px] mt-6 animate-fade-up"
             style={{ fontSize: "clamp(13px, 1.4vw, 15px)", color: "hsl(210 30% 65%)", animationDelay: "0.25s" }}>
-              Organizamos o financeiro da sua empresa com processo, cadência operacional, visibilidade de caixa e fechamento gerencial — para apoiar decisões com segurança.
+              Organizamos o financeiro da sua empresa com processo, cadência operacional, visibilidade de caixa e fechamento gerencial: tudo isso para apoiar decisões com segurança!
             </p>
 
             {/* Chips */}
