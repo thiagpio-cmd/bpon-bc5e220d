@@ -28,7 +28,7 @@ const HumanSection = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   return (
-    <section id="relacao" className="py-24 lg:py-32 bg-surface">
+    <section id="relacao" className="py-24 lg:py-32 bg-background">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
 
@@ -52,28 +52,29 @@ const HumanSection = () => {
                 const Icon = item.icon;
                 return (
                   <div key={item.title}
-                    className="group flex items-start gap-4 p-4 rounded-xl border border-divider bg-background relative overflow-hidden cursor-default"
+                    className="group flex items-start gap-4 p-4 rounded-xl border border-divider bg-surface relative overflow-hidden cursor-default"
                     style={{
                       background: hoveredCard === i ? "hsl(var(--surface-tint))" : undefined,
-                      transition: "all 0.3s ease",
-                      transform: hoveredCard === i ? "translateX(4px)" : "translateX(0)",
+                      transition: "all 0.25s ease",
+                      transform: hoveredCard === i ? "translateX(5px)" : "translateX(0)",
+                      boxShadow: hoveredCard === i ? "0 4px 16px hsl(var(--primary) / 0.07)" : "none",
                     }}
                     onMouseEnter={() => setHoveredCard(i)}
                     onMouseLeave={() => setHoveredCard(null)}
                   >
                     {/* Left accent */}
-                    <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-primary transition-all duration-400"
+                    <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-primary rounded-r-full transition-all duration-300"
                       style={{
                         opacity: hoveredCard === i ? 1 : 0,
                         transform: hoveredCard === i ? "scaleY(1)" : "scaleY(0)",
-                        transformOrigin: "top",
+                        transformOrigin: "center",
                       }} />
 
                     <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-300"
                       style={{
                         background: hoveredCard === i ? "hsl(var(--primary) / 0.14)" : "hsl(var(--primary) / 0.07)",
                         border: "1px solid hsl(var(--primary) / 0.14)",
-                        transform: hoveredCard === i ? "scale(1.1)" : "scale(1)",
+                        transform: hoveredCard === i ? "scale(1.1) rotate(-3deg)" : "scale(1)",
                       }}>
                       <Icon size={14} className="text-primary" strokeWidth={1.8} />
                     </div>
@@ -87,71 +88,74 @@ const HumanSection = () => {
             </div>
           </div>
 
-          {/* Direita — bloco institucional */}
+          {/* Direita — bloco de destaque claro */}
           <div className="reveal reveal-delay-2">
-            <div className="relative rounded-2xl p-10 lg:p-12 overflow-hidden shadow-elevated flex flex-col justify-between min-h-[440px]"
+            <div className="relative rounded-2xl overflow-hidden shadow-elevated"
               style={{
-                background: "linear-gradient(145deg, hsl(220 55% 8%) 0%, hsl(218 65% 11%) 100%)",
-                border: "1px solid hsl(218 35% 18%)",
+                background: "hsl(var(--surface-tint))",
+                border: "1px solid hsl(var(--primary) / 0.12)",
               }}>
 
-              {/* Textura de fundo */}
-              <div className="absolute inset-0 pointer-events-none opacity-[0.04]"
-                style={{
-                  backgroundImage: "radial-gradient(circle, hsl(210 80% 72% / 1) 1px, transparent 0)",
-                  backgroundSize: "32px 32px",
-                }} />
+              {/* Linha de acento topo */}
+              <div className="h-1 w-full"
+                style={{ background: "linear-gradient(to right, hsl(var(--primary)), hsl(214 80% 65%), transparent)" }} />
 
-              {/* Floating shapes */}
-              <div className="absolute top-8 right-8 w-12 h-12 border border-primary/15 rounded-lg rotate-12 animate-float pointer-events-none" />
-              <div className="absolute bottom-12 right-16 w-6 h-6 border border-primary/10 rounded-md -rotate-6 animate-float-slow pointer-events-none" />
-              <div className="absolute top-[40%] right-[15%] w-2 h-2 rounded-full bg-primary/30 animate-pulse pointer-events-none" />
+              <div className="p-10 lg:p-12 flex flex-col gap-8">
 
-              {/* Brilho azul superior */}
-              <div className="absolute -top-20 -right-20 w-64 h-64 pointer-events-none"
-                style={{ background: "radial-gradient(ellipse, hsl(220 79% 46% / 0.18) 0%, transparent 65%)" }} />
-              {/* Linha de acento */}
-              <div className="absolute top-0 left-0 right-0 h-[2px] rounded-t-2xl"
-                style={{ background: "linear-gradient(to right, hsl(220 79% 46%), transparent)" }} />
-
-              {/* Conteúdo */}
-              <div className="relative z-10 flex flex-col gap-8">
-                {/* Stat principal com counter */}
-                <div>
-                  <p className="font-display font-black leading-none mb-1"
-                    style={{ fontSize: "clamp(3rem, 6vw, 4.5rem)", color: "hsl(220 79% 62%)" }}>
-                    +20
-                  </p>
-                  <p className="font-body text-[13px]" style={{ color: "hsl(210 20% 55%)" }}>
-                    anos de base institucional
-                  </p>
+                {/* Stat principal */}
+                <div className="flex items-end gap-4">
+                  <div>
+                    <p className="font-display font-black leading-none text-gradient-primary mb-1"
+                      style={{ fontSize: "clamp(3rem, 6vw, 4.5rem)" }}>
+                      +20
+                    </p>
+                    <p className="font-body text-[13px] text-body">
+                      anos de base institucional
+                    </p>
+                  </div>
+                  {/* Decoração */}
+                  <div className="mb-2 flex flex-col gap-1.5 opacity-20">
+                    {[0, 1, 2, 3].map((r) => (
+                      <div key={r} className="flex gap-1.5">
+                        {[0, 1, 2, 3].map((c) => (
+                          <div key={c} className="w-1.5 h-1.5 rounded-full bg-primary" />
+                        ))}
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
-                <div className="w-full h-px" style={{ background: "hsl(218 35% 18%)" }} />
+                <div className="w-full h-px bg-divider" />
 
-                <blockquote>
-                  <p className="font-display font-semibold text-[16px] leading-[1.5]"
-                    style={{ color: "hsl(210 40% 85%)" }}>
+                {/* Quote */}
+                <blockquote className="relative pl-5"
+                  style={{ borderLeft: "3px solid hsl(var(--primary) / 0.35)" }}>
+                  <p className="font-display font-semibold text-[15px] leading-[1.55] text-headline">
                     "A BPOn mantém a rotina ativa e apresenta os resultados para quem decide — sem intermediários e sem ruído."
                   </p>
                 </blockquote>
 
-                <div className="w-full h-px" style={{ background: "hsl(218 35% 18%)" }} />
+                <div className="w-full h-px bg-divider" />
 
-                <div className="flex flex-col gap-1.5">
+                {/* Bullets */}
+                <div className="flex flex-col gap-2">
                   {[
                     "Grupo Ubercentral · Uberlândia, MG",
-                    "Base contábil integrada",
+                    "Base contábil integrada ao BPO",
                     "Operação financeira recorrente",
                   ].map((item) => (
-                    <div key={item} className="flex items-center gap-2 group cursor-default">
-                      <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 transition-all duration-300 group-hover:scale-150"
-                        style={{ background: "hsl(220 79% 52%)" }} />
-                      <span className="font-body text-[12px] transition-colors duration-300 group-hover:text-primary/80"
-                        style={{ color: "hsl(210 15% 48%)" }}>{item}</span>
+                    <div key={item} className="flex items-center gap-2.5 group cursor-default">
+                      <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 bg-primary/50 group-hover:bg-primary group-hover:scale-125 transition-all duration-300" />
+                      <span className="font-body text-[12px] text-body group-hover:text-headline transition-colors duration-300">{item}</span>
                     </div>
                   ))}
                 </div>
+
+                {/* CTA */}
+                <a href="#diagnostico"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-display font-semibold text-[13px] hover:opacity-90 hover:scale-[1.02] transition-all duration-300 shadow-blue">
+                  Solicitar diagnóstico
+                </a>
               </div>
             </div>
           </div>
