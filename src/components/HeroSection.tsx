@@ -11,82 +11,92 @@ const barData = [
 
 const DashboardMockup = () => (
   <div
-    className="relative w-full max-w-[400px] rounded-2xl overflow-hidden select-none"
+    className="relative w-full max-w-[480px] rounded-2xl overflow-hidden select-none"
     style={{
       background: "hsl(222 42% 11%)",
       border: "1px solid hsl(214 30% 22%)",
-      boxShadow: "0 32px 80px hsl(214 80% 10% / 0.7), 0 0 0 1px hsl(214 50% 30% / 0.1)",
+      boxShadow: "0 40px 100px hsl(214 80% 8% / 0.75), 0 0 0 1px hsl(214 50% 30% / 0.12), inset 0 1px 0 hsl(214 60% 32% / 0.15)",
     }}
   >
+    {/* Top accent bar */}
     <div className="h-[3px] w-full" style={{ background: "linear-gradient(to right, hsl(var(--primary)), hsl(214 80% 65%), transparent)" }} />
-    <div className="flex items-center justify-between px-5 py-4" style={{ borderBottom: "1px solid hsl(214 28% 16%)" }}>
+
+    {/* Header */}
+    <div className="flex items-center justify-between px-6 py-5" style={{ borderBottom: "1px solid hsl(214 28% 16%)" }}>
       <div>
-        <p className="font-display font-bold text-[11px] tracking-[0.08em] uppercase" style={{ color: "hsl(210 22% 50%)" }}>Relatório Gerencial</p>
-        <p className="font-display font-black text-[13px]" style={{ color: "hsl(210 50% 92%)" }}>Março / 2025</p>
+        <p className="font-display font-bold text-[11px] tracking-[0.09em] uppercase mb-0.5" style={{ color: "hsl(210 22% 46%)" }}>Relatório Gerencial</p>
+        <p className="font-display font-black text-[15px]" style={{ color: "hsl(210 50% 93%)" }}>Março / 2025</p>
       </div>
-      <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-semibold font-body"
+      <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] font-semibold font-body"
         style={{ background: "hsl(142 60% 40% / 0.15)", border: "1px solid hsl(142 60% 40% / 0.25)", color: "hsl(142 65% 55%)" }}>
         <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
         Fechado
       </span>
     </div>
+
+    {/* KPI row */}
     <div className="grid grid-cols-3 divide-x" style={{ borderBottom: "1px solid hsl(214 28% 16%)", borderColor: "hsl(214 28% 16%)" }}>
       {[
         { label: "Receita", value: "R$ 847k", up: true },
         { label: "Despesa", value: "R$ 612k", up: false },
         { label: "Resultado", value: "R$ 235k", up: true },
       ].map((kpi) => (
-        <div key={kpi.label} className="flex flex-col items-center justify-center py-4 px-2 gap-1">
-          <p className="font-body text-[9px] uppercase tracking-[0.1em]" style={{ color: "hsl(210 18% 42%)" }}>{kpi.label}</p>
-          <p className="font-display font-black text-[13px]" style={{ color: kpi.up ? "hsl(210 50% 88%)" : "hsl(210 35% 72%)" }}>{kpi.value}</p>
-          <span className="flex items-center gap-0.5 text-[9px] font-semibold font-body" style={{ color: kpi.up ? "hsl(142 65% 52%)" : "hsl(0 65% 60%)" }}>
-            <TrendingUp size={8} />
+        <div key={kpi.label} className="flex flex-col items-center justify-center py-5 px-3 gap-1.5">
+          <p className="font-body text-[10px] uppercase tracking-[0.1em]" style={{ color: "hsl(210 18% 40%)" }}>{kpi.label}</p>
+          <p className="font-display font-black text-[15px]" style={{ color: kpi.up ? "hsl(210 50% 90%)" : "hsl(210 35% 72%)" }}>{kpi.value}</p>
+          <span className="flex items-center gap-0.5 text-[10px] font-semibold font-body" style={{ color: kpi.up ? "hsl(142 65% 52%)" : "hsl(0 65% 60%)" }}>
+            <TrendingUp size={9} />
             {kpi.up ? "+12%" : "-3%"}
           </span>
         </div>
       ))}
     </div>
-    <div className="px-5 pt-5 pb-4">
-      <p className="font-body text-[9px] uppercase tracking-[0.1em] mb-3" style={{ color: "hsl(210 18% 38%)" }}>Receita — últimos 6 meses</p>
-      <div className="flex items-end gap-2 h-[68px]">
+
+    {/* Bar chart */}
+    <div className="px-6 pt-5 pb-5">
+      <p className="font-body text-[10px] uppercase tracking-[0.1em] mb-4" style={{ color: "hsl(210 18% 38%)" }}>Receita — últimos 6 meses</p>
+      <div className="flex items-end gap-2.5 h-[80px]">
         {barData.map((b) => (
-          <div key={b.month} className="flex flex-col items-center gap-1.5 flex-1">
-            <div className="w-full rounded-t-sm transition-all duration-700"
+          <div key={b.month} className="flex flex-col items-center gap-2 flex-1">
+            <div className="w-full rounded-t-[3px] transition-all duration-700"
               style={{
                 height: `${b.h}%`,
-                background: b.active ? "linear-gradient(to top, hsl(var(--primary)), hsl(214 80% 65%))" : "hsl(214 40% 22%)",
-                boxShadow: b.active ? "0 0 12px hsl(var(--primary) / 0.35)" : "none",
+                background: b.active ? "linear-gradient(to top, hsl(var(--primary)), hsl(214 80% 65%))" : "hsl(214 40% 20%)",
+                boxShadow: b.active ? "0 0 14px hsl(var(--primary) / 0.40)" : "none",
               }} />
-            <span className="font-body text-[8px]" style={{ color: b.active ? "hsl(214 75% 62%)" : "hsl(210 18% 38%)" }}>{b.month}</span>
+            <span className="font-body text-[9px]" style={{ color: b.active ? "hsl(214 75% 62%)" : "hsl(210 18% 36%)" }}>{b.month}</span>
           </div>
         ))}
       </div>
     </div>
-    <div className="flex flex-col gap-2 px-5 pb-5" style={{ borderTop: "1px solid hsl(214 28% 14%)", paddingTop: "14px" }}>
+
+    {/* Status checks */}
+    <div className="flex flex-col gap-2.5 px-6 pb-5" style={{ borderTop: "1px solid hsl(214 28% 14%)", paddingTop: "16px" }}>
       {[
         { label: "Conciliação bancária", ok: true },
         { label: "Fluxo de caixa atualizado", ok: true },
         { label: "Indicadores de desempenho", ok: true },
       ].map((s) => (
-        <div key={s.label} className="flex items-center gap-2">
-          {s.ok
-            ? <CheckCircle2 size={11} style={{ color: "hsl(142 65% 52%)" }} />
-            : <AlertCircle size={11} style={{ color: "hsl(38 90% 55%)" }} />
-          }
-          <span className="font-body text-[11px]" style={{ color: "hsl(210 22% 55%)" }}>{s.label}</span>
+        <div key={s.label} className="flex items-center gap-2.5">
+          <CheckCircle2 size={13} style={{ color: "hsl(142 65% 52%)" }} />
+          <span className="font-body text-[12px]" style={{ color: "hsl(210 22% 56%)" }}>{s.label}</span>
         </div>
       ))}
     </div>
-    <div className="px-5 pb-5">
+
+    {/* CTA */}
+    <div className="px-6 pb-6">
       <a href="#diagnostico"
-        className="group flex items-center justify-center gap-2 w-full py-2.5 rounded-lg font-body font-semibold text-[12px] transition-all duration-300 hover:opacity-90"
+        className="group flex items-center justify-center gap-2 w-full py-3 rounded-xl font-body font-semibold text-[13px] transition-all duration-300 hover:opacity-90"
         style={{ background: "hsl(var(--primary) / 0.15)", border: "1px solid hsl(var(--primary) / 0.3)", color: "hsl(214 75% 68%)" }}>
         Quero um relatório assim
-        <ArrowRight size={11} className="group-hover:translate-x-1 transition-transform duration-300" />
+        <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-300" />
       </a>
     </div>
-    <div className="absolute -top-3 -right-3 px-3 py-1.5 rounded-full text-[10px] font-semibold font-body animate-float"
-      style={{ background: "hsl(222 42% 14%)", border: "1px solid hsl(214 40% 26%)", color: "hsl(210 40% 68%)", boxShadow: "0 4px 16px hsl(214 80% 10% / 0.5)" }}>
+
+    {/* Floating badge */}
+    <div className="absolute -top-3.5 -right-3.5 px-3.5 py-1.5 rounded-full text-[10px] font-semibold font-body animate-float"
+      style={{ background: "hsl(222 42% 14%)", border: "1px solid hsl(214 40% 26%)", color: "hsl(210 40% 68%)", boxShadow: "0 4px 20px hsl(214 80% 10% / 0.55)" }}>
       BPOn · Operação recorrente
     </div>
   </div>
