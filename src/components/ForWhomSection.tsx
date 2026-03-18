@@ -4,12 +4,12 @@ const profiles = [
   {
     num: "01",
     title: "Empresa em crescimento com financeiro desorganizado",
-    text: "Receita crescendo, controles fragmentados, falta de previsibilidade e rotina operada no improviso.",
+    text: "Receita crescendo, controles fragmentados e rotina operada no improviso. A estrutura não acompanhou o volume.",
   },
   {
     num: "02",
     title: "Gestão que precisa de caixa legível e previsível",
-    text: "Liderança tomando decisão sem base financeira consolidada — sem fluxo confiável, sem fechamento mensal.",
+    text: "Liderança decidindo sem base financeira consolidada. Sem fluxo confiável, sem fechamento mensal, sem visão do resultado.",
   },
   {
     num: "03",
@@ -19,7 +19,7 @@ const profiles = [
   {
     num: "04",
     title: "ERP ou planilha sem processo real por trás",
-    text: "Ferramentas existem, mas falta quem opere com critério, cadência e responsabilidade sobre os dados.",
+    text: "Ferramenta existe, mas falta quem opere com critério, cadência e responsabilidade sobre os dados gerados.",
   },
 ];
 
@@ -33,21 +33,19 @@ const ForWhomSection = () => {
           <div>
             <div className="label-pill mb-4">Para quem é</div>
             <h2 className="font-display font-black text-[2rem] lg:text-[2.7rem] text-headline leading-[1.06] tracking-[-0.024em] mt-3">
-              A BPOn é para empresas<br />
-              <span className="text-gradient-primary">que precisam de estrutura.</span>
+              A BPOn funciona melhor<br />
+              <span className="text-gradient-primary">para quem já opera.</span>
             </h2>
           </div>
           <div className="flex flex-col gap-4 lg:self-end">
             <p className="font-body text-[13.5px] text-body leading-relaxed">
-              Não atendemos startups pré-receita nem demandas pontuais.
-              Atuamos onde existe operação rodando e necessidade concreta de
-              processo, acompanhamento e leitura gerencial.
+              A BPOn funciona melhor para empresas com operação em andamento, volume financeiro real e necessidade concreta de organizar rotina, caixa e gestão.
             </p>
             <div className="p-4 rounded-xl"
               style={{ border: "1px solid hsl(var(--primary) / 0.12)", background: "hsl(var(--surface-tint))" }}>
               <p className="font-body text-[12.5px] text-body leading-relaxed">
-                <span className="font-semibold text-headline">Filtro:</span>{" "}
-                A BPOn opera melhor quando existe empresa real, volume financeiro real e necessidade concreta de organização contínua.
+                <span className="font-semibold text-headline">Fit ideal:</span>{" "}
+                empresa ativa, volume financeiro real e necessidade de processo contínuo — não demandas pontuais.
               </p>
             </div>
           </div>
@@ -60,7 +58,7 @@ const ForWhomSection = () => {
               key={profile.num}
               className={`reveal reveal-delay-${Math.min(i + 1, 4)} flex gap-4 p-6 rounded-xl border border-divider bg-surface card-hover`}
             >
-              <span className="font-display font-black text-[2.2rem] leading-none select-none flex-shrink-0 self-start mt-0.5"
+              <span className="font-display font-black text-[2rem] leading-none select-none flex-shrink-0 self-start mt-0.5"
                 style={{ color: "hsl(var(--primary) / 0.11)" }}>
                 {profile.num}
               </span>

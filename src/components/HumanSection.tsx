@@ -15,7 +15,7 @@ const workingModel = [
   {
     icon: FileText,
     title: "Fechamento e reporte mensal",
-    text: "Consolidação completa com leitura executiva — apresentada para quem precisa decidir.",
+    text: "Consolidação completa com leitura executiva — apresentada para quem precisa decidir com clareza.",
   },
   {
     icon: Link,
@@ -38,25 +38,14 @@ const RoutineMockup = () => {
   const pct = Math.round((done / total) * 100);
 
   return (
-    <div
-      className="relative rounded-2xl overflow-hidden shadow-elevated select-none"
-      style={{
-        background: "hsl(var(--surface-tint))",
-        border: "1px solid hsl(var(--primary) / 0.12)",
-      }}
-    >
-      {/* Top accent */}
+    <div className="relative rounded-2xl overflow-hidden shadow-elevated select-none"
+      style={{ background: "hsl(var(--surface-tint))", border: "1px solid hsl(var(--primary) / 0.12)" }}>
       <div className="h-[3px] w-full"
         style={{ background: "linear-gradient(to right, hsl(var(--primary)), hsl(214 80% 65%), transparent)" }} />
-
       <div className="p-8 lg:p-10 flex flex-col gap-6">
-
-        {/* Header */}
         <div className="flex items-start justify-between gap-4">
           <div>
-            <p className="font-body text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground mb-1">
-              Agenda Mensal
-            </p>
+            <p className="font-body text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground mb-1">Agenda Mensal</p>
             <h3 className="font-display font-black text-[17px] text-headline leading-snug">
               Rotina Financeira<br />
               <span className="text-gradient-primary">Março / 2025</span>
@@ -68,34 +57,18 @@ const RoutineMockup = () => {
             <span className="font-body text-[8px] text-muted-foreground uppercase tracking-wide mt-0.5">Concluído</span>
           </div>
         </div>
-
-        {/* Progress bar */}
         <div className="w-full h-[6px] rounded-full overflow-hidden" style={{ background: "hsl(var(--divider))" }}>
-          <div
-            className="h-full rounded-full transition-all duration-1000"
-            style={{
-              width: `${pct}%`,
-              background: "linear-gradient(to right, hsl(var(--primary)), hsl(214 80% 65%))",
-              boxShadow: "0 0 10px hsl(var(--primary) / 0.4)",
-            }}
-          />
+          <div className="h-full rounded-full transition-all duration-1000"
+            style={{ width: `${pct}%`, background: "linear-gradient(to right, hsl(var(--primary)), hsl(214 80% 65%))", boxShadow: "0 0 10px hsl(var(--primary) / 0.4)" }} />
         </div>
-
-        {/* Checklist */}
         <div className="flex flex-col gap-2.5">
           {checklistItems.map((item, i) => (
-            <div
-              key={item.label}
-              className="flex items-center gap-3 group cursor-default"
-              style={{ opacity: item.done ? 1 : 0.6 }}
-            >
-              <div
-                className="w-5 h-5 rounded-md flex items-center justify-center flex-shrink-0 transition-all duration-300"
+            <div key={item.label} className="flex items-center gap-3 group cursor-default" style={{ opacity: item.done ? 1 : 0.6 }}>
+              <div className="w-5 h-5 rounded-md flex items-center justify-center flex-shrink-0 transition-all duration-300"
                 style={{
                   background: item.done ? "hsl(var(--primary) / 0.15)" : "hsl(var(--surface))",
                   border: `1px solid ${item.done ? "hsl(var(--primary) / 0.35)" : "hsl(var(--divider))"}`,
-                }}
-              >
+                }}>
                 {item.done && <Check size={10} className="text-primary" strokeWidth={3} />}
               </div>
               <span className={`font-body text-[13px] leading-snug ${item.done ? "text-body" : "text-muted-foreground"}`}>
@@ -110,10 +83,7 @@ const RoutineMockup = () => {
             </div>
           ))}
         </div>
-
         <div className="w-full h-px bg-divider" />
-
-        {/* Badge institucional */}
         <div className="flex items-center gap-3 p-3 rounded-xl"
           style={{ background: "hsl(var(--primary) / 0.05)", border: "1px solid hsl(var(--primary) / 0.1)" }}>
           <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
@@ -125,12 +95,8 @@ const RoutineMockup = () => {
             <p className="font-body text-[11px] text-muted-foreground">Anos de base institucional · Uberlândia, MG</p>
           </div>
         </div>
-
-        {/* CTA */}
-        <a
-          href="#diagnostico"
-          className="group flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-primary text-primary-foreground font-display font-semibold text-[13px] hover:opacity-90 hover:scale-[1.02] transition-all duration-300 shadow-blue"
-        >
+        <a href="#diagnostico"
+          className="group flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-primary text-primary-foreground font-display font-semibold text-[13px] hover:opacity-90 hover:scale-[1.02] transition-all duration-300 shadow-blue">
           Solicitar diagnóstico
           <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-300" />
         </a>
@@ -152,8 +118,9 @@ const HumanSection = () => {
             <div>
               <div className="label-pill mb-5">Como a relação funciona</div>
               <h2 className="font-display font-black text-[2rem] lg:text-[2.6rem] text-headline leading-[1.07] tracking-[-0.022em] mb-4 mt-3">
-                Você tem acesso à equipe,{" "}
-                <span className="text-gradient-primary">não a um sistema.</span>
+                Você conta com uma equipe dedicada,{" "}
+                <span className="text-gradient-primary">processos claros</span>{" "}
+                e acompanhamento recorrente.
               </h2>
               <p className="font-body text-[14px] text-body leading-relaxed">
                 A BPOn mantém a rotina financeira ativa e apresenta os resultados
@@ -193,7 +160,7 @@ const HumanSection = () => {
                     </div>
                     <div>
                       <h3 className="font-display font-bold text-[13px] text-headline mb-0.5">{item.title}</h3>
-                      <p className="font-body text-[13px] text-body leading-relaxed">{item.text}</p>
+                      <p className="font-body text-[12.5px] text-body leading-relaxed">{item.text}</p>
                     </div>
                   </div>
                 );

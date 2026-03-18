@@ -1,4 +1,4 @@
-import { Building2, Users2, Award, TrendingUp } from "lucide-react";
+import { Building2, Users2, Award, TrendingUp, Star, MessageSquare } from "lucide-react";
 import { useCountUp } from "@/hooks/use-count-up";
 
 const metrics = [
@@ -22,7 +22,7 @@ const metrics = [
     value: 0,
     displayText: "Base contábil integrada",
     label: "Contador + BPO",
-    detail: "Estrutura que cobre operação e obrigações fiscais",
+    detail: "Estrutura que cobre operação financeira e obrigações fiscais",
   },
   {
     icon: TrendingUp,
@@ -30,6 +30,21 @@ const metrics = [
     displayText: "Atuação consultiva",
     label: "Além da execução",
     detail: "Leitura gerencial e apoio à decisão da liderança",
+  },
+];
+
+const testimonials = [
+  {
+    quote: "Antes das reuniões mensais não sabíamos com precisão nem o que tinha entrado no mês. Hoje temos fechamento, fluxo e indicadores prontos no início de cada mês.",
+    name: "Diretor Financeiro",
+    role: "Empresa de Serviços · Uberlândia, MG",
+    initials: "DF",
+  },
+  {
+    quote: "A BPOn organizou o que a gente nunca conseguiu fazer internamente. Processo, cadência, controles — tudo funcionando sem depender de uma única pessoa.",
+    name: "Sócio-Gestor",
+    role: "Empresa Comercial · Triângulo Mineiro",
+    initials: "SG",
   },
 ];
 
@@ -49,7 +64,6 @@ const AuthoritySection = () => {
 
       <div className="absolute top-0 left-0 w-[480px] h-[360px] pointer-events-none"
         style={{ background: "radial-gradient(ellipse, hsl(var(--primary) / 0.04) 0%, transparent 70%)" }} />
-      <div className="absolute top-16 right-12 w-14 h-14 border border-primary/8 rounded-xl rotate-12 animate-float-slow pointer-events-none hidden lg:block" />
 
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
 
@@ -67,8 +81,8 @@ const AuthoritySection = () => {
           </p>
         </div>
 
-        {/* 4 cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 mb-8">
+        {/* 4 cards — prova institucional */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 mb-10">
           {metrics.map((metric, i) => {
             const Icon = metric.icon;
             return (
@@ -77,11 +91,9 @@ const AuthoritySection = () => {
                 className={`reveal reveal-delay-${i + 1} group p-6 flex flex-col gap-4 relative overflow-hidden cursor-default rounded-xl border border-divider bg-surface card-hover`}
               >
                 <div className="absolute top-0 left-0 right-0 h-[2px] rounded-t-xl bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
                 <div className="icon-sm icon-bg transition-all duration-300 group-hover:scale-105">
                   <Icon size={15} strokeWidth={1.8} className="text-primary" />
                 </div>
-
                 <div>
                   {metric.value > 0 ? (
                     <CountUpMetric target={metric.value} suffix={metric.suffix} unit={metric.unit} />
@@ -96,13 +108,43 @@ const AuthoritySection = () => {
           })}
         </div>
 
+        {/* Depoimentos */}
+        <div className="reveal reveal-delay-5 mb-10">
+          <div className="flex items-center gap-3 mb-5">
+            <MessageSquare size={14} className="text-primary" />
+            <p className="font-body text-[11px] font-semibold uppercase tracking-[0.1em] text-primary/70">O que dizem os clientes</p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-3.5">
+            {testimonials.map((t) => (
+              <div key={t.name} className="p-6 rounded-xl border border-divider bg-surface card-hover flex flex-col gap-4">
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={12} className="text-amber-400 fill-amber-400" />
+                  ))}
+                </div>
+                <p className="font-body text-[13px] text-body leading-relaxed flex-1">"{t.quote}"</p>
+                <div className="flex items-center gap-3 pt-2 border-t border-divider">
+                  <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-display font-black text-[11px] text-primary-foreground"
+                    style={{ background: "hsl(var(--primary))" }}>
+                    {t.initials}
+                  </div>
+                  <div>
+                    <p className="font-display font-bold text-[12px] text-headline">{t.name}</p>
+                    <p className="font-body text-[11px] text-muted-foreground">{t.role}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Rodapé institucional */}
-        <div className="reveal reveal-delay-5 pt-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-divider">
+        <div className="reveal reveal-delay-6 pt-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-divider">
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
             {["Grupo Ubercentral", "Uberlândia — MG", "CNPJ 09.281.566/0001-03", "CRC MG-012100/O"].map((item, i, arr) => (
               <span key={item} className="flex items-center gap-3">
-                <span className="font-body text-[11px] text-body/55">{item}</span>
-                {i < arr.length - 1 && <span className="font-body text-[11px] text-body/20">·</span>}
+                <span className="font-body text-[11px]" style={{ color: "hsl(var(--body) / 0.55)" }}>{item}</span>
+                {i < arr.length - 1 && <span className="font-body text-[11px]" style={{ color: "hsl(var(--body) / 0.2)" }}>·</span>}
               </span>
             ))}
           </div>
