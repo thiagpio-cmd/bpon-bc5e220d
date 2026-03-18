@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ArrowRight } from "lucide-react";
 
 const painPoints = [
   {
@@ -35,7 +36,6 @@ const PainPointsSection = () => {
 
       <div className="absolute top-0 right-0 w-[480px] h-[380px] pointer-events-none"
         style={{ background: "radial-gradient(ellipse, hsl(var(--primary) / 0.04) 0%, transparent 70%)" }} />
-      <div className="absolute bottom-16 left-8 w-16 h-16 border border-primary/8 rounded-2xl rotate-12 animate-float-slow pointer-events-none hidden lg:block" />
 
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
 
@@ -56,10 +56,10 @@ const PainPointsSection = () => {
           {painPoints.map((pain, i) => (
             <div
               key={pain.title}
-              className={`reveal reveal-delay-${Math.min(i + 1, 6)} flex flex-col gap-3.5 p-6 relative rounded-xl border cursor-default transition-all duration-300`}
+              className={`reveal reveal-delay-${Math.min(i + 1, 6)} flex flex-col gap-3 p-6 relative rounded-xl border cursor-default transition-all duration-300`}
               style={{
                 background: activeCard === i ? "hsl(var(--surface-tint))" : "hsl(var(--surface))",
-                borderColor: activeCard === i ? "hsl(var(--primary) / 0.20)" : "hsl(var(--border))",
+                borderColor: activeCard === i ? "hsl(var(--primary) / 0.22)" : "hsl(var(--divider))",
                 transform: activeCard === i ? "translateY(-3px)" : "translateY(0)",
                 boxShadow: activeCard === i
                   ? "0 8px 28px hsl(var(--primary) / 0.09), 0 2px 8px hsl(218 55% 9% / 0.04)"
@@ -68,7 +68,6 @@ const PainPointsSection = () => {
               onMouseEnter={() => setActiveCard(i)}
               onMouseLeave={() => setActiveCard(null)}
             >
-              {/* Top accent */}
               <div className="absolute top-0 left-4 right-4 h-[2px] rounded-b-full transition-all duration-500"
                 style={{
                   background: "hsl(var(--primary))",
@@ -76,15 +75,11 @@ const PainPointsSection = () => {
                   transformOrigin: "left",
                 }} />
 
-              {/* Número watermark */}
-              <span className="font-display font-black text-[2.6rem] leading-none select-none absolute top-3.5 right-4 tabular-nums transition-all duration-300"
-                style={{
-                  color: activeCard === i ? "hsl(var(--primary) / 0.09)" : "hsl(var(--primary) / 0.05)",
-                }}>
+              <span className="font-display font-black text-[2.4rem] leading-none select-none absolute top-3.5 right-4 tabular-nums transition-all duration-300"
+                style={{ color: activeCard === i ? "hsl(var(--primary) / 0.09)" : "hsl(var(--primary) / 0.05)" }}>
                 {String(i + 1).padStart(2, "0")}
               </span>
 
-              {/* Acento */}
               <div className="h-[2px] rounded-full transition-all duration-300 mt-1"
                 style={{
                   background: "hsl(var(--primary))",
@@ -95,7 +90,7 @@ const PainPointsSection = () => {
               <h3 className="font-display font-bold text-[13.5px] leading-snug pr-10 text-headline">
                 {pain.title}
               </h3>
-              <p className="font-body text-[12.5px] leading-relaxed text-body">
+              <p className="font-body text-[12.5px] leading-relaxed" style={{ color: "hsl(var(--body))" }}>
                 {pain.text}
               </p>
             </div>
@@ -105,14 +100,15 @@ const PainPointsSection = () => {
         {/* Strip CTA */}
         <div className="mt-5 cta-strip reveal">
           <p className="font-body text-[13px] leading-snug text-body">
-            Se mais de um desses soa verdadeiro, a BPOn pode ajudar.
+            Esses sintomas existem na sua operação?{" "}
+            <span className="text-headline font-medium">Solicite um diagnóstico.</span>
           </p>
           <a href="#diagnostico"
-            className="flex-shrink-0 inline-flex items-center gap-2 px-6 py-2.5 rounded-lg bg-primary text-primary-foreground font-body font-semibold text-[13px] hover:opacity-90 hover:scale-[1.02] transition-all duration-300 shadow-blue whitespace-nowrap">
+            className="group flex-shrink-0 inline-flex items-center gap-2 px-6 py-2.5 rounded-lg bg-primary text-primary-foreground font-body font-semibold text-[13px] hover:opacity-90 hover:scale-[1.02] transition-all duration-300 shadow-blue whitespace-nowrap">
             Solicitar diagnóstico
+            <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform duration-200" />
           </a>
         </div>
-
       </div>
     </section>
   );

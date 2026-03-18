@@ -1,6 +1,7 @@
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
+import TrustBar from "@/components/TrustBar";
 import PainPointsSection from "@/components/PainPointsSection";
 import ServicesSection from "@/components/ServicesSection";
 import MethodSection from "@/components/MethodSection";
@@ -22,6 +23,7 @@ const Index = () => {
       <main>
         {/* ── Bloco 1: Âncora escura — proposta de valor ── */}
         <HeroSection />
+        <TrustBar />
 
         {/* ── Bloco 2: Jornada de descoberta — seções claras alternadas ── */}
         <div className="relative">

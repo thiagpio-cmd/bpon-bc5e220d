@@ -7,9 +7,10 @@ const blocks = [
     title: "Estruturação da rotina financeira",
     description: "O ponto de partida. Sem processo definido, qualquer operação é frágil.",
     items: [
-      "Organização de processos e controles financeiros",
-      "Definição de cadência, agenda e responsabilidades",
-      "Estruturação do fluxo de informações e aprovações",
+      "Desenho e documentação do processo financeiro",
+      "Definição de agenda operacional e responsabilidades",
+      "Organização do fluxo de aprovações e conferências",
+      "Padronização de controles e critérios de lançamento",
     ],
     completion: 33,
   },
@@ -19,8 +20,9 @@ const blocks = [
     description: "Rotina financeira executada com critério, cadência e rastreabilidade.",
     items: [
       "Contas a pagar e receber com controle de vencimentos",
-      "Conciliação financeira entre banco, operação e sistema",
-      "Acompanhamento de caixa, cobrança e execução",
+      "Conciliação bancária entre banco, sistema e operação",
+      "Atualização de fluxo de caixa e posição disponível",
+      "Acompanhamento de cobrança e execução financeira",
     ],
     completion: 66,
   },
@@ -31,7 +33,8 @@ const blocks = [
     items: [
       "Fechamento gerencial mensal consolidado",
       "Indicadores financeiros e análise de desempenho",
-      "Apoio direto à liderança na tomada de decisão",
+      "Análise de resultado e variações relevantes",
+      "Reporte executivo direto para a liderança decidir",
     ],
     completion: 100,
   },
@@ -54,7 +57,7 @@ const ServicesSection = () => {
             </h2>
           </div>
           <p className="font-body text-[13.5px] text-body leading-relaxed lg:max-w-sm lg:text-right lg:self-end">
-            Não é uma lista de tarefas. É uma estrutura integrada — da operação
+            Não é uma lista de tarefas avulsas. É uma estrutura integrada — da operação
             diária ao fechamento que orienta a gestão.
           </p>
         </div>
@@ -68,7 +71,7 @@ const ServicesSection = () => {
                 ${i < blocks.length - 1 ? "border-b lg:border-b-0 lg:border-r border-divider" : ""}
               `}
               style={{
-                background: hoveredBlock === i ? "hsl(var(--surface-tint))" : undefined,
+                background: hoveredBlock === i ? "hsl(var(--surface-tint))" : "hsl(var(--surface))",
                 transition: "background 0.25s ease",
               }}
               onMouseEnter={() => setHoveredBlock(i)}
@@ -79,7 +82,7 @@ const ServicesSection = () => {
                 style={{ transform: hoveredBlock === i ? "scaleX(1)" : "scaleX(0)" }} />
 
               {/* Number */}
-              <span className="font-display font-black text-[3.5rem] leading-none select-none mb-4 transition-all duration-400"
+              <span className="font-display font-black text-[3.2rem] leading-none select-none mb-4 transition-all duration-300"
                 style={{
                   color: hoveredBlock === i ? "hsl(var(--primary) / 0.11)" : "hsl(var(--primary) / 0.06)",
                   transform: hoveredBlock === i ? "translateX(3px)" : "translateX(0)",
@@ -108,7 +111,7 @@ const ServicesSection = () => {
                       transform: hoveredBlock === i ? "translateX(3px)" : "translateX(0)",
                       transition: `all 0.25s ease ${j * 0.05}s`,
                     }}>
-                    <span className="w-[18px] h-[18px] rounded-md flex items-center justify-center flex-shrink-0 mt-[1px]"
+                    <span className="w-[17px] h-[17px] rounded-md flex items-center justify-center flex-shrink-0 mt-[1px]"
                       style={{
                         background: hoveredBlock === i ? "hsl(var(--primary) / 0.13)" : "hsl(var(--primary) / 0.07)",
                         border: "1px solid hsl(var(--primary) / 0.16)",
@@ -126,12 +129,10 @@ const ServicesSection = () => {
         {/* CTA strip */}
         <div className="mt-5 reveal reveal-delay-4 cta-strip">
           <p className="font-body text-[13px] text-body text-center sm:text-left">
-            A BPOn atua de forma integrada com a contabilidade, o ERP e a liderança da empresa.
+            A BPOn atua integrada com a contabilidade, ERP e a liderança da empresa.
           </p>
-          <a
-            href="#diagnostico"
-            className="group inline-flex items-center gap-2 px-6 py-2.5 rounded-lg bg-primary text-primary-foreground font-body font-semibold text-[13px] shadow-blue hover:opacity-90 hover:scale-[1.02] transition-all duration-300 whitespace-nowrap flex-shrink-0"
-          >
+          <a href="#diagnostico"
+            className="group inline-flex items-center gap-2 px-6 py-2.5 rounded-lg bg-primary text-primary-foreground font-body font-semibold text-[13px] shadow-blue hover:opacity-90 hover:scale-[1.02] transition-all duration-300 whitespace-nowrap flex-shrink-0">
             Quero estruturar meu financeiro
             <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform duration-300" />
           </a>
