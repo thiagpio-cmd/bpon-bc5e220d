@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ArrowRight } from "lucide-react";
 
 const steps = [
   {
@@ -34,7 +35,7 @@ const MethodSection = () => {
     <section id="metodo" className="py-24 lg:py-32 relative overflow-hidden"
       style={{ background: "hsl(222 38% 14%)" }}>
 
-      {/* Background accents — menos pesados */}
+      {/* Background accents */}
       <div className="absolute inset-0 pointer-events-none"
         style={{ background: "radial-gradient(ellipse 70% 60% at 85% 80%, hsl(214 79% 46% / 0.07) 0%, transparent 65%)" }} />
       <div className="absolute top-0 left-0 right-0 h-px"
@@ -42,7 +43,7 @@ const MethodSection = () => {
       <div className="absolute bottom-0 left-0 right-0 h-px"
         style={{ background: "linear-gradient(to right, transparent, hsl(214 60% 55% / 0.15), transparent)" }} />
 
-      {/* Floating shapes mais suaves */}
+      {/* Floating shapes */}
       <div className="absolute top-28 right-20 w-20 h-20 border border-blue-400/10 rounded-2xl rotate-45 animate-float-slow pointer-events-none hidden lg:block" />
       <div className="absolute bottom-36 left-14 w-4 h-4 rounded-full bg-blue-400/15 animate-pulse pointer-events-none hidden lg:block" />
 
@@ -134,6 +135,27 @@ const MethodSection = () => {
             </div>
           ))}
         </div>
+
+        {/* CTA block */}
+        <div className="mt-10 reveal reveal-delay-5 flex flex-col sm:flex-row items-center justify-between gap-5 px-7 py-6 rounded-2xl"
+          style={{ background: "hsl(222 42% 11%)", border: "1px solid hsl(214 30% 22%)" }}>
+          <div>
+            <p className="font-display font-bold text-[15px]" style={{ color: "hsl(210 50% 92%)" }}>
+              Pronto para começar com um diagnóstico?
+            </p>
+            <p className="font-body text-[13px] mt-1" style={{ color: "hsl(210 18% 52%)" }}>
+              Sem compromisso. A equipe analisa e retorna em até 1 dia útil.
+            </p>
+          </div>
+          <a
+            href="#diagnostico"
+            className="group inline-flex items-center gap-2.5 px-7 py-3 rounded-lg bg-primary text-primary-foreground font-body font-semibold text-[13px] shadow-blue hover:opacity-90 hover:scale-[1.02] transition-all duration-300 whitespace-nowrap flex-shrink-0"
+          >
+            Solicitar diagnóstico gratuito
+            <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-300" />
+          </a>
+        </div>
+
       </div>
     </section>
   );
