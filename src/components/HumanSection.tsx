@@ -143,7 +143,7 @@ const HumanSection = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   return (
-    <section id="relacao" className="py-24 lg:py-32 bg-background">
+    <section id="relacao" className="py-24 lg:py-32 section-alt-2 section-divide-top">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
 

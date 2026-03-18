@@ -4,7 +4,7 @@ import DiagnosticForm from "./DiagnosticForm";
 const CTASection = () => {
   return (
     <section id="diagnostico" className="py-24 lg:py-32 relative overflow-hidden"
-      style={{ background: "hsl(222 38% 14%)" }}>
+      style={{ background: "hsl(222 38% 14%)", borderTop: "1px solid hsl(214 50% 20% / 0.5)" }}>
 
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none">

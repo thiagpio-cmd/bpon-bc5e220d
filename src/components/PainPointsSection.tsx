@@ -31,7 +31,7 @@ const PainPointsSection = () => {
   const [activeCard, setActiveCard] = useState<number | null>(null);
 
   return (
-    <section id="solucao" className="py-20 lg:py-28 relative overflow-hidden bg-background">
+    <section id="solucao" className="py-20 lg:py-28 relative overflow-hidden section-alt section-edge-light section-from-dark">
 
       <div className="absolute top-0 right-0 w-[480px] h-[380px] pointer-events-none"
         style={{ background: "radial-gradient(ellipse, hsl(var(--primary) / 0.04) 0%, transparent 70%)" }} />

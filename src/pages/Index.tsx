@@ -20,15 +20,25 @@ const Index = () => {
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Header />
       <main>
+        {/* ── Bloco 1: Âncora escura — proposta de valor ── */}
         <HeroSection />
-        <PainPointsSection />
-        <ServicesSection />
-        <MethodSection />
-        <ForWhomSection />
-        <HumanSection />
-        <AuthoritySection />
-        <CasesSection />
-        <FAQSection />
+
+        {/* ── Bloco 2: Jornada de descoberta — seções claras alternadas ── */}
+        <div className="relative">
+          <PainPointsSection />
+          <ServicesSection />
+
+          {/* ── Bloco 3: Âncora escura — método ── */}
+          <MethodSection />
+
+          <ForWhomSection />
+          <HumanSection />
+          <AuthoritySection />
+          <CasesSection />
+          <FAQSection />
+        </div>
+
+        {/* ── Bloco 4: Âncora escura — conversão ── */}
         <CTASection />
       </main>
       <Footer />
