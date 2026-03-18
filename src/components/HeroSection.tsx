@@ -55,16 +55,20 @@ const DashboardMockup = () =>
     {/* Bar chart */}
     <div className="px-6 pt-5 pb-5">
       <p className="font-body text-[10px] uppercase tracking-[0.1em] mb-4" style={{ color: "hsl(210 18% 38%)" }}>Receita — últimos 6 meses</p>
-      <div className="flex items-end gap-2.5 h-[80px]">
+      <div className="flex items-end gap-2.5" style={{ height: "96px" }}>
         {barData.map((b) =>
-      <div key={b.month} className="flex flex-col items-center gap-2 flex-1">
-            <div className="w-full rounded-t-[3px] transition-all duration-700"
+      <div key={b.month} className="flex flex-col items-center gap-1.5 flex-1" style={{ height: "100%" }}>
+            <div className="w-full rounded-t-[4px] transition-all duration-700 flex-1"
         style={{
-          height: `${b.h}%`,
-          background: b.active ? "linear-gradient(to top, hsl(var(--primary)), hsl(214 80% 65%))" : "hsl(214 40% 20%)",
-          boxShadow: b.active ? "0 0 14px hsl(var(--primary) / 0.40)" : "none"
+          height: `${b.h}px`,
+          maxHeight: `${b.h}px`,
+          minHeight: `${b.h}px`,
+          background: b.active
+            ? "linear-gradient(to top, hsl(var(--primary)), hsl(214 80% 65%))"
+            : "hsl(214 40% 20%)",
+          boxShadow: b.active ? "0 0 16px hsl(var(--primary) / 0.45)" : "none"
         }} />
-            <span className="font-body text-[9px]" style={{ color: b.active ? "hsl(214 75% 62%)" : "hsl(210 18% 36%)" }}>{b.month}</span>
+            <span className="font-body text-[9px] shrink-0" style={{ color: b.active ? "hsl(214 75% 62%)" : "hsl(210 18% 36%)" }}>{b.month}</span>
           </div>
       )}
       </div>
