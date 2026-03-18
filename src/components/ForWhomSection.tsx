@@ -25,29 +25,12 @@ const ForWhomSection = () => {
       <div className="container mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-start">
 
-          {/* Left */}
+          {/* Left — texto e filtro */}
           <div className="lg:col-span-2 flex flex-col gap-6 reveal">
-
-            {/* Foto editorial — sala de reunião executiva */}
-            <div className="relative rounded-2xl overflow-hidden shadow-elevated" style={{ aspectRatio: "4/3" }}>
-              <img
-                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&q=85&auto=format&fit=crop&crop=center"
-                alt="Reunião executiva de liderança empresarial"
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[hsl(220,38%,9%)]/50 via-transparent to-transparent" />
-              <div className="absolute bottom-4 left-4">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-sm text-[11px] font-semibold text-headline border border-divider shadow-card">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                  Para empresas com operação real
-                </span>
-              </div>
-            </div>
 
             <div>
               <div className="label-pill mb-4">Para quem é</div>
-              <h2 className="font-display font-black text-[1.8rem] lg:text-[2.2rem] text-headline leading-[1.1] tracking-[-0.02em] mt-3">
+              <h2 className="font-display font-black text-[1.9rem] lg:text-[2.4rem] text-headline leading-[1.07] tracking-[-0.022em] mt-3">
                 A BPOn é para empresas que precisam de estrutura — não de improviso.
               </h2>
             </div>
@@ -58,7 +41,8 @@ const ForWhomSection = () => {
               de processo, acompanhamento e leitura gerencial.
             </p>
 
-            <div className="p-4 rounded-xl border border-primary/14 bg-surface-tint">
+            {/* Filtro comercial */}
+            <div className="p-4 rounded-xl" style={{ border: "1px solid hsl(var(--primary) / 0.14)", background: "hsl(var(--surface-tint))" }}>
               <p className="font-body text-[13px] text-body leading-relaxed">
                 <span className="font-semibold text-headline">Filtro:</span>{" "}
                 A BPOn opera melhor quando existe empresa real, volume financeiro
@@ -75,14 +59,15 @@ const ForWhomSection = () => {
             </a>
           </div>
 
-          {/* Right */}
+          {/* Right — 2x2 grid de perfis */}
           <div className="lg:col-span-3 grid sm:grid-cols-2 gap-3.5">
             {profiles.map((profile, i) => (
               <div
                 key={profile.title}
                 className={`reveal reveal-delay-${Math.min(i + 1, 4)} group flex flex-col gap-3 p-5 rounded-xl border border-divider bg-surface card-hover`}
               >
-                <div className="w-7 h-7 rounded-lg bg-primary/8 border border-primary/18 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/14 transition-colors">
+                <div className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-primary/14 transition-colors"
+                  style={{ background: "hsl(var(--primary) / 0.07)", border: "1px solid hsl(var(--primary) / 0.16)" }}>
                   <Check size={12} className="text-primary" strokeWidth={3} />
                 </div>
                 <div>

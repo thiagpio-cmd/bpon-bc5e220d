@@ -27,17 +27,19 @@ const steps = [
 
 const MethodSection = () => {
   return (
-    <section id="metodo" className="py-24 lg:py-32 bg-deep relative overflow-hidden">
+    <section id="metodo" className="py-24 lg:py-32 relative overflow-hidden" style={{ background: "linear-gradient(180deg, hsl(218,70%,9%) 0%, hsl(220,65%,8%) 100%)" }}>
 
       {/* Grid texture */}
       <div
         className="absolute inset-0 opacity-[0.025] pointer-events-none"
         style={{
-          backgroundImage:
-            "linear-gradient(hsl(210 80% 72% / 1) 1px, transparent 1px), linear-gradient(90deg, hsl(210 80% 72% / 1) 1px, transparent 1px)",
+          backgroundImage: "linear-gradient(hsl(210 80% 72% / 1) 1px, transparent 1px), linear-gradient(90deg, hsl(210 80% 72% / 1) 1px, transparent 1px)",
           backgroundSize: "80px 80px",
         }}
       />
+      {/* Blue glow bottom-right */}
+      <div className="absolute bottom-0 right-0 w-[500px] h-[400px] pointer-events-none"
+        style={{ background: "radial-gradient(ellipse, hsl(220 79% 46% / 0.07) 0%, transparent 65%)" }} />
 
       <div className="container mx-auto px-6 lg:px-8 relative">
 
@@ -45,44 +47,50 @@ const MethodSection = () => {
         <div className="mb-14 lg:mb-16 reveal flex flex-col lg:flex-row lg:items-end gap-8 justify-between">
           <div>
             <span className="label-pill-dark mb-5 inline-block">Método</span>
-            <h2 className="font-display font-black text-[2rem] lg:text-[2.8rem] text-white leading-[1.05] tracking-[-0.025em]">
+            <h2 className="font-display font-black text-[2rem] lg:text-[2.8rem] text-white leading-[1.05] tracking-[-0.025em] mt-3">
               Como a BPOn trabalha,<br />
               <span className="text-shimmer">passo a passo.</span>
             </h2>
           </div>
-          <p className="font-body text-[14px] text-white/45 max-w-xs leading-relaxed lg:text-right lg:self-end">
+          <p className="font-body text-[13px] max-w-xs leading-relaxed lg:text-right lg:self-end" style={{ color: "hsl(210 20% 50%)" }}>
             Onboarding estruturado, sem ruptura — da análise inicial ao acompanhamento contínuo.
           </p>
         </div>
 
-        {/* Steps — lista vertical em dark */}
-        <div className="flex flex-col gap-0 border border-white/8 rounded-2xl overflow-hidden">
+        {/* Steps */}
+        <div className="flex flex-col gap-0 rounded-2xl overflow-hidden" style={{ border: "1px solid hsl(210 30% 20%)" }}>
           {steps.map((step, i) => (
             <div
               key={step.num}
-              className={`reveal reveal-delay-${i + 1} group grid lg:grid-cols-[96px_1fr_1fr] border-b border-white/6 last:border-b-0 hover:bg-white/[0.025] transition-colors duration-200`}
+              className={`reveal reveal-delay-${i + 1} group grid lg:grid-cols-[96px_1fr_1fr] last:border-b-0`}
+              style={{ borderBottom: i < steps.length - 1 ? "1px solid hsl(210 30% 18%)" : "none" }}
             >
               {/* Number column */}
-              <div className="hidden lg:flex flex-col items-center justify-center border-r border-white/6 py-10 px-3 group-hover:border-primary/20 transition-colors">
-                <span className="font-display font-black text-[2rem] text-primary/70 group-hover:text-primary transition-colors leading-none">
+              <div className="hidden lg:flex flex-col items-center justify-center py-10 px-3"
+                style={{ borderRight: "1px solid hsl(210 30% 18%)" }}>
+                <span className="font-display font-black text-[2.2rem] leading-none transition-colors"
+                  style={{ color: "hsl(220 79% 52%)" }}>
                   {step.num}
                 </span>
               </div>
 
               {/* What */}
-              <div className="p-7 lg:p-8 border-b lg:border-b-0 lg:border-r border-white/6 group-hover:border-primary/10 transition-colors">
+              <div className="p-7 lg:p-8 border-b lg:border-b-0 lg:border-r" style={{ borderColor: "hsl(210 30% 18%)" }}>
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="lg:hidden font-display font-black text-sm text-primary">{step.num}</span>
-                  <h3 className="font-display font-bold text-[15px] text-white/88 leading-snug">{step.title}</h3>
+                  <span className="lg:hidden font-display font-black text-sm" style={{ color: "hsl(220 79% 52%)" }}>{step.num}</span>
+                  {/* Step title — visível e forte */}
+                  <h3 className="font-display font-bold text-[15px] leading-snug" style={{ color: "hsl(210 40% 90%)" }}>
+                    {step.title}
+                  </h3>
                 </div>
-                <p className="font-body text-[11px] font-semibold text-white/30 uppercase tracking-[0.10em] mb-2">O que fazemos</p>
-                <p className="font-body text-[13px] text-white/50 leading-relaxed">{step.what_text}</p>
+                <p className="font-body text-[10px] font-semibold uppercase tracking-[0.12em] mb-2.5" style={{ color: "hsl(210 30% 42%)" }}>O que fazemos</p>
+                <p className="font-body text-[13px] leading-relaxed" style={{ color: "hsl(210 20% 56%)" }}>{step.what_text}</p>
               </div>
 
               {/* After */}
-              <div className="p-7 lg:p-8 bg-white/[0.02] group-hover:bg-primary/[0.04] transition-colors">
-                <p className="font-body text-[11px] font-semibold text-primary/60 uppercase tracking-[0.10em] mb-2">O cliente passa a ter</p>
-                <p className="font-body text-[13px] text-white/50 leading-relaxed">{step.after_text}</p>
+              <div className="p-7 lg:p-8" style={{ background: "hsl(220 60% 7% / 0.5)" }}>
+                <p className="font-body text-[10px] font-semibold uppercase tracking-[0.12em] mb-2.5" style={{ color: "hsl(220 79% 55% / 0.8)" }}>O cliente passa a ter</p>
+                <p className="font-body text-[13px] leading-relaxed" style={{ color: "hsl(210 25% 60%)" }}>{step.after_text}</p>
               </div>
             </div>
           ))}
