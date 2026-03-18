@@ -215,7 +215,7 @@ const HeroSection = () => {
           </div>
 
           {/* Right — Dashboard mockup */}
-          <div className="hidden lg:flex flex-col items-center justify-center flex-shrink-0 animate-fade-up" style={{ animationDelay: "0.4s" }}>
+          <div className="hidden lg:flex flex-col items-center justify-center w-[480px] flex-shrink-0 animate-fade-up" style={{ animationDelay: "0.4s" }}>
             <DashboardMockup />
           </div>
         </div>
