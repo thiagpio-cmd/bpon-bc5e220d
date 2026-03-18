@@ -31,96 +31,83 @@ const PainPointsSection = () => {
   const [activeCard, setActiveCard] = useState<number | null>(null);
 
   return (
-    <section id="solucao" className="py-24 lg:py-32 relative overflow-hidden"
-      style={{ background: "hsl(218 55% 8%)" }}>
+    <section id="solucao" className="py-24 lg:py-32 relative overflow-hidden bg-background">
 
-      {/* Fundo */}
-      <div className="absolute inset-0 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse 70% 60% at 80% 20%, hsl(220 79% 46% / 0.06) 0%, transparent 65%)" }} />
-
-      {/* Animated floating accent */}
-      <div className="absolute top-20 right-16 w-16 h-16 border border-primary/10 rounded-xl rotate-45 animate-float-slow pointer-events-none hidden lg:block" />
-      <div className="absolute bottom-32 left-12 w-8 h-8 border border-primary/15 rounded-lg -rotate-12 animate-float pointer-events-none hidden lg:block" />
+      {/* Decoração sutil de fundo */}
+      <div className="absolute top-0 right-0 w-[500px] h-[400px] pointer-events-none"
+        style={{ background: "radial-gradient(ellipse, hsl(var(--primary) / 0.04) 0%, transparent 70%)" }} />
+      <div className="absolute bottom-20 left-10 w-20 h-20 border border-primary/8 rounded-2xl rotate-12 animate-float-slow pointer-events-none hidden lg:block" />
 
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
 
         {/* Header */}
-        <div className="mb-12 lg:mb-14 reveal max-w-lg">
-          <span className="label-pill-dark mb-5 inline-block">Diagnóstico</span>
-          <h2 className="font-display font-black text-[2.1rem] lg:text-[2.8rem] leading-[1.05] tracking-[-0.025em] mt-3"
-            style={{ color: "hsl(0 0% 96%)" }}>
+        <div className="mb-12 lg:mb-14 reveal max-w-xl">
+          <span className="label-pill mb-5 inline-block">Diagnóstico</span>
+          <h2 className="font-display font-black text-[2.1rem] lg:text-[2.8rem] leading-[1.05] tracking-[-0.025em] mt-3 text-headline">
             Esses sintomas<br />
-            <span className="text-shimmer">são familiares?</span>
+            <span className="text-gradient-primary">são familiares?</span>
           </h2>
-          <p className="font-body text-[14px] leading-relaxed mt-4"
-            style={{ color: "hsl(210 20% 58%)" }}>
+          <p className="font-body text-[14px] leading-relaxed mt-4 text-body">
             São os mais comuns que a BPOn encontra antes de estruturar uma operação.
           </p>
         </div>
 
-        {/* Grid de cards com hover interativo */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px rounded-2xl overflow-hidden"
-          style={{ background: "hsl(218 40% 14%)" }}>
+        {/* Grid de cards */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {painPoints.map((pain, i) => (
             <div
               key={pain.title}
-              className={`reveal reveal-delay-${Math.min(i + 1, 6)} group flex flex-col gap-3.5 p-7 lg:p-8 relative cursor-default`}
+              className={`reveal reveal-delay-${Math.min(i + 1, 6)} group flex flex-col gap-4 p-7 lg:p-8 relative rounded-xl border cursor-default transition-all duration-300`}
               style={{
-                background: activeCard === i ? "hsl(220 55% 11%)" : "hsl(218 55% 8%)",
-                transition: "background 0.3s ease, transform 0.3s ease",
+                background: activeCard === i ? "hsl(var(--surface-tint))" : "hsl(var(--surface))",
+                borderColor: activeCard === i ? "hsl(var(--primary) / 0.22)" : "hsl(var(--border))",
+                transform: activeCard === i ? "translateY(-3px)" : "translateY(0)",
+                boxShadow: activeCard === i
+                  ? "0 8px 28px hsl(var(--primary) / 0.10), 0 2px 8px hsl(218 55% 9% / 0.04)"
+                  : "0 1px 3px hsl(218 55% 9% / 0.05)",
               }}
               onMouseEnter={() => setActiveCard(i)}
               onMouseLeave={() => setActiveCard(null)}
             >
               {/* Top accent bar — grows on hover */}
-              <div className="absolute top-0 left-0 right-0 h-[2px] transition-all duration-500"
+              <div className="absolute top-0 left-4 right-4 h-[2px] rounded-b-full transition-all duration-500"
                 style={{
-                  background: "hsl(220 79% 52%)",
+                  background: "hsl(var(--primary))",
                   transform: activeCard === i ? "scaleX(1)" : "scaleX(0)",
                   transformOrigin: "left",
                 }} />
 
-              {/* Número discreto com glow on hover */}
-              <span className="font-display font-black text-[2.8rem] leading-none select-none absolute top-5 right-6 tabular-nums transition-all duration-500"
+              {/* Número discreto */}
+              <span className="font-display font-black text-[3rem] leading-none select-none absolute top-4 right-5 tabular-nums transition-all duration-400"
                 style={{
-                  color: activeCard === i ? "hsl(220 79% 46% / 0.15)" : "hsl(220 79% 46% / 0.07)",
-                  transform: activeCard === i ? "scale(1.1)" : "scale(1)",
+                  color: activeCard === i ? "hsl(var(--primary) / 0.10)" : "hsl(var(--primary) / 0.05)",
+                  transform: activeCard === i ? "scale(1.08)" : "scale(1)",
                 }}>
                 {String(i + 1).padStart(2, "0")}
               </span>
 
               {/* Acento animado */}
-              <div className="h-[2px] rounded-full transition-all duration-500"
+              <div className="h-[2px] rounded-full transition-all duration-400"
                 style={{
-                  background: "hsl(220 79% 52%)",
-                  width: activeCard === i ? "40px" : "24px",
+                  background: "hsl(var(--primary))",
+                  width: activeCard === i ? "40px" : "20px",
+                  opacity: activeCard === i ? 1 : 0.4,
                 }} />
 
-              <h3 className="font-display font-bold text-[14px] leading-snug pr-8 transition-colors duration-300"
-                style={{ color: activeCard === i ? "hsl(210 60% 95%)" : "hsl(210 50% 92%)" }}>
+              <h3 className="font-display font-bold text-[14px] leading-snug pr-8 transition-colors duration-300 text-headline">
                 {pain.title}
               </h3>
 
-              <p className="font-body text-[13px] leading-relaxed transition-colors duration-300"
-                style={{ color: activeCard === i ? "hsl(210 18% 66%)" : "hsl(210 18% 56%)" }}>
+              <p className="font-body text-[13px] leading-relaxed text-body">
                 {pain.text}
               </p>
-
-              {/* Glow de fundo no hover */}
-              <div className="absolute inset-0 pointer-events-none transition-opacity duration-500"
-                style={{
-                  opacity: activeCard === i ? 1 : 0,
-                  background: "radial-gradient(ellipse at 50% 0%, hsl(220 79% 46% / 0.05) 0%, transparent 70%)",
-                }} />
             </div>
           ))}
         </div>
 
         {/* Strip CTA */}
-        <div className="mt-5 flex flex-col sm:flex-row items-center justify-between gap-4 px-6 py-5 rounded-xl reveal"
-          style={{ border: "1px solid hsl(218 40% 16%)", background: "hsl(218 50% 10% / 0.7)" }}>
-          <p className="font-body text-[13px] leading-snug"
-            style={{ color: "hsl(210 25% 62%)" }}>
+        <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 px-6 py-5 rounded-xl reveal border border-divider bg-surface">
+          <p className="font-body text-[13px] leading-snug text-body">
             Se mais de um desses soa verdadeiro, a BPOn pode ajudar.
           </p>
           <a href="#diagnostico"

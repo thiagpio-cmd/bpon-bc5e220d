@@ -1,48 +1,32 @@
-import { MessageCircle, ArrowRight } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import DiagnosticForm from "./DiagnosticForm";
 
 const CTASection = () => {
   return (
-    <section id="diagnostico" className="py-28 lg:py-36 relative overflow-hidden">
+    <section id="diagnostico" className="py-28 lg:py-36 relative overflow-hidden"
+      style={{ background: "hsl(222 38% 14%)" }}>
 
-      {/* Background premium — azul profundo com acento assimétrico */}
-      <div className="absolute inset-0 z-0">
-        {/* Base */}
+      {/* Background — azul médio, confortável */}
+      <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0"
-          style={{ background: "hsl(220 55% 6%)" }} />
+          style={{ background: "radial-gradient(ellipse 80% 60% at 20% 40%, hsl(214 70% 28% / 0.35) 0%, transparent 65%)" }} />
+        <div className="absolute inset-0"
+          style={{ background: "radial-gradient(ellipse 60% 60% at 85% 70%, hsl(214 80% 46% / 0.08) 0%, transparent 65%)" }} />
 
-        {/* Grande bloco de cor à esquerda — contraste de área */}
-        <div className="absolute inset-y-0 left-0 w-1/2 pointer-events-none"
-          style={{ background: "linear-gradient(to right, hsl(220 70% 9%) 0%, transparent 100%)" }} />
-
-        {/* Brilho central-superior */}
-        <div className="absolute -top-40 left-[20%] w-[700px] h-[600px] pointer-events-none"
-          style={{ background: "radial-gradient(ellipse at 40% 30%, hsl(220 79% 46% / 0.14) 0%, transparent 60%)" }} />
-
-        {/* Brilho inferior direito */}
-        <div className="absolute -bottom-20 right-[10%] w-[500px] h-[400px] pointer-events-none"
-          style={{ background: "radial-gradient(ellipse, hsl(220 79% 46% / 0.07) 0%, transparent 65%)" }} />
-
-        {/* Grade pontilhada sutil */}
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        {/* Grade pontilhada discreta */}
+        <div className="absolute inset-0 opacity-[0.025]"
           style={{
-            backgroundImage: "radial-gradient(circle, hsl(210 80% 72% / 1) 1px, transparent 0)",
+            backgroundImage: "radial-gradient(circle, hsl(210 80% 75% / 1) 1px, transparent 0)",
             backgroundSize: "44px 44px",
           }} />
 
-        {/* Linha diagonal decorativa */}
-        <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.04]" viewBox="0 0 1280 900" preserveAspectRatio="xMidYMid slice">
-          <line x1="0" y1="0" x2="1280" y2="900" stroke="hsl(220 79% 55%)" strokeWidth="1" />
-          <line x1="100" y1="0" x2="1280" y2="760" stroke="hsl(220 79% 55%)" strokeWidth="0.6" />
-        </svg>
+        {/* Linha topo */}
+        <div className="absolute top-0 left-0 w-full h-[1px]"
+          style={{ background: "linear-gradient(to right, transparent, hsl(214 60% 55% / 0.3), transparent)" }} />
 
-        {/* Linha vertical divisória central */}
-        <div className="absolute top-0 left-1/2 w-px h-full pointer-events-none opacity-[0.05] hidden lg:block"
-          style={{ background: "linear-gradient(to bottom, transparent, hsl(220 79% 55%), transparent)" }} />
-
-        {/* Barra horizontal topo */}
-        <div className="absolute top-0 left-0 w-full h-[2px]"
-          style={{ background: "linear-gradient(to right, hsl(220 79% 46%), hsl(220 79% 46% / 0.2), transparent)" }} />
+        {/* Formas decorativas */}
+        <div className="absolute top-24 right-32 w-20 h-20 border border-blue-400/10 rounded-2xl rotate-12 animate-float-slow pointer-events-none hidden lg:block" />
+        <div className="absolute bottom-28 left-20 w-3 h-3 rounded-full bg-blue-400/20 animate-pulse pointer-events-none hidden lg:block" />
       </div>
 
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
@@ -53,7 +37,7 @@ const CTASection = () => {
             <div>
               <span className="label-pill-dark">Próximo passo</span>
               <h2 className="font-display font-black text-[2.1rem] lg:text-[2.9rem] xl:text-[3.1rem] leading-[1.02] tracking-[-0.022em] mt-6"
-                style={{ color: "hsl(0 0% 96%)" }}>
+                style={{ color: "hsl(210 50% 95%)" }}>
                 Organizar o financeiro<br />
                 começa por uma<br />
                 <span className="text-shimmer">leitura certa.</span>
@@ -61,7 +45,7 @@ const CTASection = () => {
             </div>
 
             <p className="font-body text-[15px] leading-relaxed max-w-md"
-              style={{ color: "hsl(210 18% 58%)" }}>
+              style={{ color: "hsl(210 22% 62%)" }}>
               O primeiro passo é entender a operação atual — gargalos, estrutura existente e o
               nível de visibilidade que a liderança tem hoje. A partir daí, a BPOn organiza o
               que precisa ser estruturado.
@@ -77,41 +61,44 @@ const CTASection = () => {
               ].map((item) => (
                 <div key={item} className="flex items-center gap-3">
                   <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
-                    style={{ background: "hsl(220 79% 46% / 0.12)", border: "1px solid hsl(220 79% 46% / 0.28)" }}>
+                    style={{
+                      background: "hsl(214 80% 55% / 0.14)",
+                      border: "1px solid hsl(214 80% 55% / 0.30)",
+                    }}>
                     <svg width="9" height="9" viewBox="0 0 10 10" fill="none">
-                      <path d="M2 5l2.5 2.5L8 3" stroke="hsl(221,83%,65%)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M2 5l2.5 2.5L8 3" stroke="hsl(214,80%,68%)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </div>
                   <span className="font-body text-[13px]"
-                    style={{ color: "hsl(210 18% 65%)" }}>{item}</span>
+                    style={{ color: "hsl(210 22% 68%)" }}>{item}</span>
                 </div>
               ))}
             </div>
 
             {/* WhatsApp */}
             <div className="pt-4 flex items-center gap-4"
-              style={{ borderTop: "1px solid hsl(218 35% 15%)" }}>
+              style={{ borderTop: "1px solid hsl(214 28% 22%)" }}>
               <a
                 href="https://wa.me/5534992812444"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl font-body font-semibold text-sm hover:bg-white/[0.06] transition-all"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl font-body font-semibold text-sm transition-all hover:scale-[1.02]"
                 style={{
-                  border: "1px solid hsl(210 28% 22%)",
-                  background: "hsl(220 50% 9% / 0.6)",
-                  color: "hsl(210 28% 72%)",
+                  border: "1px solid hsl(214 28% 26%)",
+                  background: "hsl(214 40% 18%)",
+                  color: "hsl(210 30% 75%)",
                 }}>
                 <MessageCircle size={14} />
                 Falar no WhatsApp
               </a>
-              <span className="font-body text-xs" style={{ color: "hsl(210 15% 36%)" }}>(34) 99281-2444</span>
+              <span className="font-body text-xs" style={{ color: "hsl(210 15% 40%)" }}>(34) 99281-2444</span>
             </div>
           </div>
 
           {/* Direita — formulário */}
           <div className="reveal reveal-delay-2">
-            <div className="rounded-2xl overflow-hidden shadow-deep"
-              style={{ border: "1px solid hsl(218 35% 18%)", background: "hsl(0 0% 100%)" }}>
+            <div className="rounded-2xl overflow-hidden shadow-elevated"
+              style={{ border: "1px solid hsl(214 28% 24%)" }}>
               <div className="px-7 py-5 bg-background"
                 style={{ borderBottom: "1px solid hsl(var(--divider))" }}>
                 <p className="font-display font-bold text-[15px] text-headline">Solicitar diagnóstico financeiro</p>
