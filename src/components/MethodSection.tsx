@@ -15,8 +15,8 @@ const steps = [
   num: "02",
   icon: Settings,
   title: "Estruturação da rotina",
-  time: "Semana 3–4",
-  what_text: "Definimos processo, cadência, critérios de conferência e organização da base — com responsabilidades claras e padrão operacional documentado.",
+  time: "Semana 2-4",
+  what_text: "Definimos processo, cadência, critérios de conferência e organização da base: com responsabilidades claras e padrão operacional documentado.",
   deliverable: "Manual de rotina financeira e agenda recorrente",
   after_text: "Uma rotina financeira que funciona com método, não com esforço individual."
 },
