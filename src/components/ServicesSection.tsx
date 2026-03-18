@@ -1,4 +1,4 @@
-import { Check } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
 import { useState } from "react";
 
 const blocks = [
@@ -74,11 +74,11 @@ const ServicesSection = () => {
               onMouseEnter={() => setHoveredBlock(i)}
               onMouseLeave={() => setHoveredBlock(null)}
             >
-              {/* Top accent - animated */}
+              {/* Top accent */}
               <div className="absolute top-0 left-0 right-0 h-[2px] bg-primary transition-transform duration-500 origin-left"
                 style={{ transform: hoveredBlock === i ? "scaleX(1)" : "scaleX(0)" }} />
 
-              {/* Number — watermark grande with animation */}
+              {/* Number watermark */}
               <span className="font-display font-black text-[4rem] leading-none select-none mb-5 transition-all duration-500"
                 style={{
                   color: hoveredBlock === i ? "hsl(var(--primary) / 0.12)" : "hsl(var(--primary) / 0.06)",
@@ -123,9 +123,20 @@ const ServicesSection = () => {
           ))}
         </div>
 
-        <p className="mt-6 text-center font-body text-[12px] text-muted-foreground reveal reveal-delay-4">
-          A BPOn atua de forma integrada com a contabilidade, o ERP e a liderança da empresa.
-        </p>
+        {/* CTA strip */}
+        <div className="mt-8 reveal reveal-delay-4 flex flex-col sm:flex-row items-center justify-between gap-4 px-6 py-5 rounded-xl border border-divider bg-surface">
+          <p className="font-body text-[13px] text-body text-center sm:text-left">
+            A BPOn atua de forma integrada com a contabilidade, o ERP e a liderança da empresa.
+          </p>
+          <a
+            href="#diagnostico"
+            className="group inline-flex items-center gap-2 px-6 py-2.5 rounded-lg bg-primary text-primary-foreground font-body font-semibold text-[13px] shadow-blue hover:opacity-90 hover:scale-[1.02] transition-all duration-300 whitespace-nowrap flex-shrink-0"
+          >
+            Quero estruturar meu financeiro
+            <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-300" />
+          </a>
+        </div>
+
       </div>
     </section>
   );

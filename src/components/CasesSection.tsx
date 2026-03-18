@@ -1,4 +1,4 @@
-import { Briefcase, HeartPulse, ShoppingCart } from "lucide-react";
+import { Briefcase, HeartPulse, ShoppingCart, ArrowRight } from "lucide-react";
 
 const cases = [
   {
@@ -81,6 +81,26 @@ const CasesSection = () => {
         <p className="mt-6 font-body text-[11px] text-muted-foreground reveal reveal-delay-4">
           Os perfis representam tipos de situações atendidas. Dados omitidos por sigilo comercial.
         </p>
+
+        {/* CTA centralizado */}
+        <div className="mt-10 reveal reveal-delay-5 flex flex-col items-center text-center gap-4 px-6 py-8 rounded-2xl border border-divider bg-surface">
+          <div>
+            <p className="font-display font-bold text-[17px] text-headline mb-1.5">
+              Sua empresa tem um perfil parecido?
+            </p>
+            <p className="font-body text-[13px] text-body max-w-sm">
+              Faz sentido começar com um diagnóstico da operação financeira — sem custo e sem compromisso.
+            </p>
+          </div>
+          <a
+            href="#diagnostico"
+            className="group inline-flex items-center gap-2 px-7 py-3 rounded-lg bg-primary text-primary-foreground font-body font-semibold text-[13px] shadow-blue hover:opacity-90 hover:scale-[1.02] transition-all duration-300"
+          >
+            Iniciar diagnóstico
+            <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-300" />
+          </a>
+        </div>
+
       </div>
     </section>
   );

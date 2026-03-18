@@ -1,40 +1,29 @@
 import { useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 
-const fields = [
+const HeroSection_essentialFields = [
   { id: "nome", label: "Nome completo", type: "text", placeholder: "Seu nome", required: true, fullWidth: true },
   { id: "empresa", label: "Empresa", type: "text", placeholder: "Nome da empresa", required: true },
   { id: "whatsapp", label: "WhatsApp", type: "tel", placeholder: "(34) 99999-9999", required: true },
   { id: "email", label: "E-mail", type: "email", placeholder: "voce@empresa.com.br", required: true },
-  { id: "cidade", label: "Cidade / UF", type: "text", placeholder: "Uberlândia / MG", required: false },
 ];
 
-const selectFields = [
-  {
-    id: "faturamento",
-    label: "Faixa de faturamento mensal",
-    options: ["Até R$ 100 mil", "R$ 100 mil – R$ 500 mil", "R$ 500 mil – R$ 2 mi", "Acima de R$ 2 mi", "Prefiro não informar"],
-  },
-  {
-    id: "segmento",
-    label: "Segmento",
-    options: ["Serviços", "Comércio", "Indústria", "Construção", "Tecnologia", "Saúde", "Outro"],
-  },
-  {
-    id: "pessoas",
-    label: "Quantas pessoas cuidam do financeiro hoje?",
-    options: ["Somente eu", "1 pessoa dedicada", "2 a 3 pessoas", "4 ou mais"],
-  },
-  {
-    id: "ferramenta",
-    label: "Usa ERP ou planilhas?",
-    options: ["Planilhas Excel / Google Sheets", "ERP (Omie, Bling, Totvs, SAP...)", "Sistema próprio", "Nenhum sistema estruturado"],
-  },
+const faturamentoOptions = ["Até R$ 100 mil", "R$ 100 mil – R$ 500 mil", "R$ 500 mil – R$ 2 mi", "Acima de R$ 2 mi", "Prefiro não informar"];
+
+const extraFields = [
+  { id: "cidade", label: "Cidade / UF", type: "text", placeholder: "Uberlândia / MG" },
+];
+
+const extraSelectFields = [
+  { id: "segmento", label: "Segmento", options: ["Serviços", "Comércio", "Indústria", "Construção", "Tecnologia", "Saúde", "Outro"] },
+  { id: "pessoas", label: "Quantas pessoas no financeiro?", options: ["Somente eu", "1 pessoa dedicada", "2 a 3 pessoas", "4 ou mais"] },
+  { id: "ferramenta", label: "Usa ERP ou planilhas?", options: ["Planilhas Excel / Google Sheets", "ERP (Omie, Bling, Totvs, SAP...)", "Sistema próprio", "Nenhum sistema estruturado"] },
 ];
 
 const DiagnosticForm = () => {
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState<Record<string, string>>({});
+  const [showExtra, setShowExtra] = useState(false);
 
   const handleChange = (id: string, value: string) => {
     setForm((prev) => ({ ...prev, [id]: value }));
@@ -65,15 +54,15 @@ const DiagnosticForm = () => {
     );
   }
 
+  const inputClass = "px-4 py-3 rounded-lg border border-divider bg-surface font-body text-sm text-headline placeholder:text-body/50 focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-all duration-200";
+
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-      {/* Text fields grid */}
+
+      {/* Essential fields — 2 col grid */}
       <div className="grid sm:grid-cols-2 gap-4">
-        {fields.map((field) => (
-          <div
-            key={field.id}
-            className={`flex flex-col gap-1.5 ${field.fullWidth ? "sm:col-span-2" : ""}`}
-          >
+        {HeroSection_essentialFields.map((field) => (
+          <div key={field.id} className={`flex flex-col gap-1.5 ${field.fullWidth ? "sm:col-span-2" : ""}`}>
             <label htmlFor={field.id} className="font-body text-xs font-medium text-headline">
               {field.label}
               {field.required && <span className="text-primary ml-0.5">*</span>}
@@ -85,66 +74,104 @@ const DiagnosticForm = () => {
               required={field.required}
               value={form[field.id] || ""}
               onChange={(e) => handleChange(field.id, e.target.value)}
-              className="px-4 py-3 rounded-lg border border-divider bg-surface font-body text-sm text-headline placeholder:text-body/50 focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-all duration-200"
+              className={inputClass}
             />
           </div>
         ))}
       </div>
 
-      {/* Select fields */}
-      <div className="grid sm:grid-cols-2 gap-4">
-        {selectFields.map((field) => (
-          <div key={field.id} className="flex flex-col gap-1.5">
-            <label htmlFor={field.id} className="font-body text-xs font-medium text-headline">
-              {field.label}
-            </label>
-            <select
-              id={field.id}
-              value={form[field.id] || ""}
-              onChange={(e) => handleChange(field.id, e.target.value)}
-              className="px-4 py-3 rounded-lg border border-divider bg-surface font-body text-sm text-headline focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-all duration-200 appearance-none cursor-pointer"
-            >
-              <option value="" disabled>Selecionar...</option>
-              {field.options.map((opt) => (
-                <option key={opt} value={opt}>{opt}</option>
-              ))}
-            </select>
-          </div>
-        ))}
+      {/* Faturamento */}
+      <div className="flex flex-col gap-1.5">
+        <label htmlFor="faturamento" className="font-body text-xs font-medium text-headline">
+          Faixa de faturamento mensal <span className="text-primary">*</span>
+        </label>
+        <select
+          id="faturamento"
+          required
+          value={form["faturamento"] || ""}
+          onChange={(e) => handleChange("faturamento", e.target.value)}
+          className={`${inputClass} appearance-none cursor-pointer`}
+        >
+          <option value="" disabled>Selecionar...</option>
+          {faturamentoOptions.map((opt) => (
+            <option key={opt} value={opt}>{opt}</option>
+          ))}
+        </select>
       </div>
 
-      {/* Desafio */}
+      {/* Desafio principal */}
       <div className="flex flex-col gap-1.5">
         <label htmlFor="desafio" className="font-body text-xs font-medium text-headline">
-          Qual o principal desafio financeiro hoje?
+          Qual o principal desafio financeiro hoje? <span className="text-primary">*</span>
         </label>
         <textarea
           id="desafio"
           rows={3}
+          required
           placeholder="Descreva brevemente o contexto atual..."
           value={form["desafio"] || ""}
           onChange={(e) => handleChange("desafio", e.target.value)}
-          className="px-4 py-3 rounded-lg border border-divider bg-surface font-body text-sm text-headline placeholder:text-body/50 focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-all duration-200 resize-none"
+          className={`${inputClass} resize-none`}
         />
       </div>
 
-      {/* Mensagem complementar */}
-      <div className="flex flex-col gap-1.5">
-        <label htmlFor="mensagem" className="font-body text-xs font-medium text-headline">
-          Mensagem complementar
-          <span className="text-body ml-1 font-normal">(opcional)</span>
-        </label>
-        <textarea
-          id="mensagem"
-          rows={2}
-          placeholder="Alguma informação adicional que queira compartilhar..."
-          value={form["mensagem"] || ""}
-          onChange={(e) => handleChange("mensagem", e.target.value)}
-          className="px-4 py-3 rounded-lg border border-divider bg-surface font-body text-sm text-headline placeholder:text-body/50 focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-all duration-200 resize-none"
-        />
+      {/* Accordion — Informações complementares */}
+      <div className="rounded-lg border border-divider overflow-hidden">
+        <button
+          type="button"
+          onClick={() => setShowExtra((v) => !v)}
+          className="w-full flex items-center justify-between px-4 py-3 bg-surface hover:bg-surface-tint transition-colors duration-200 group"
+        >
+          <span className="font-body text-xs font-medium text-body group-hover:text-headline transition-colors duration-200">
+            + Informações complementares <span className="text-body/50 font-normal">(opcional)</span>
+          </span>
+          <ChevronDown
+            size={14}
+            className="text-muted-foreground transition-transform duration-300"
+            style={{ transform: showExtra ? "rotate(180deg)" : "rotate(0deg)" }}
+          />
+        </button>
+
+        {showExtra && (
+          <div className="px-4 pb-4 pt-3 flex flex-col gap-4 border-t border-divider bg-surface/50">
+            {/* Cidade */}
+            {extraFields.map((field) => (
+              <div key={field.id} className="flex flex-col gap-1.5">
+                <label htmlFor={field.id} className="font-body text-xs font-medium text-headline">{field.label}</label>
+                <input
+                  id={field.id}
+                  type={field.type}
+                  placeholder={field.placeholder}
+                  value={form[field.id] || ""}
+                  onChange={(e) => handleChange(field.id, e.target.value)}
+                  className={inputClass}
+                />
+              </div>
+            ))}
+            {/* Extra selects */}
+            <div className="grid sm:grid-cols-2 gap-4">
+              {extraSelectFields.map((field) => (
+                <div key={field.id} className="flex flex-col gap-1.5">
+                  <label htmlFor={field.id} className="font-body text-xs font-medium text-headline">{field.label}</label>
+                  <select
+                    id={field.id}
+                    value={form[field.id] || ""}
+                    onChange={(e) => handleChange(field.id, e.target.value)}
+                    className={`${inputClass} appearance-none cursor-pointer`}
+                  >
+                    <option value="" disabled>Selecionar...</option>
+                    {field.options.map((opt) => (
+                      <option key={opt} value={opt}>{opt}</option>
+                    ))}
+                  </select>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
-      {/* Privacy note */}
+      {/* Privacy */}
       <p className="font-body text-xs text-body/60">
         Seus dados serão usados apenas para contato consultivo da equipe BPOn. Nenhuma informação é compartilhada com terceiros.
       </p>

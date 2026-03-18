@@ -1,4 +1,4 @@
-import { Calendar, Users, FileText, Link } from "lucide-react";
+import { Calendar, Users, FileText, Link, ArrowRight, Check } from "lucide-react";
 import { useState } from "react";
 
 const workingModel = [
@@ -23,6 +23,121 @@ const workingModel = [
     text: "Trabalha integrada com o contador, ERP e processos internos — sem sobreposição e sem lacuna.",
   },
 ];
+
+const checklistItems = [
+  { label: "Conciliação bancária realizada", done: true },
+  { label: "Contas a pagar quitadas", done: true },
+  { label: "Fluxo de caixa atualizado", done: true },
+  { label: "Indicadores de desempenho", done: true },
+  { label: "Reporte à liderança", done: false },
+];
+
+const RoutineMockup = () => {
+  const done = checklistItems.filter((i) => i.done).length;
+  const total = checklistItems.length;
+  const pct = Math.round((done / total) * 100);
+
+  return (
+    <div
+      className="relative rounded-2xl overflow-hidden shadow-elevated select-none"
+      style={{
+        background: "hsl(var(--surface-tint))",
+        border: "1px solid hsl(var(--primary) / 0.12)",
+      }}
+    >
+      {/* Top accent */}
+      <div className="h-[3px] w-full"
+        style={{ background: "linear-gradient(to right, hsl(var(--primary)), hsl(214 80% 65%), transparent)" }} />
+
+      <div className="p-8 lg:p-10 flex flex-col gap-6">
+
+        {/* Header */}
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <p className="font-body text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground mb-1">
+              Agenda Mensal
+            </p>
+            <h3 className="font-display font-black text-[17px] text-headline leading-snug">
+              Rotina Financeira<br />
+              <span className="text-gradient-primary">Março / 2025</span>
+            </h3>
+          </div>
+          <div className="flex flex-col items-center justify-center w-14 h-14 rounded-xl flex-shrink-0"
+            style={{ background: "hsl(var(--primary) / 0.08)", border: "1px solid hsl(var(--primary) / 0.15)" }}>
+            <span className="font-display font-black text-[18px] text-gradient-primary leading-none">{pct}%</span>
+            <span className="font-body text-[8px] text-muted-foreground uppercase tracking-wide mt-0.5">Concluído</span>
+          </div>
+        </div>
+
+        {/* Progress bar */}
+        <div className="w-full h-[6px] rounded-full overflow-hidden" style={{ background: "hsl(var(--divider))" }}>
+          <div
+            className="h-full rounded-full transition-all duration-1000"
+            style={{
+              width: `${pct}%`,
+              background: "linear-gradient(to right, hsl(var(--primary)), hsl(214 80% 65%))",
+              boxShadow: "0 0 10px hsl(var(--primary) / 0.4)",
+            }}
+          />
+        </div>
+
+        {/* Checklist */}
+        <div className="flex flex-col gap-2.5">
+          {checklistItems.map((item, i) => (
+            <div
+              key={item.label}
+              className="flex items-center gap-3 group cursor-default"
+              style={{ opacity: item.done ? 1 : 0.6 }}
+            >
+              <div
+                className="w-5 h-5 rounded-md flex items-center justify-center flex-shrink-0 transition-all duration-300"
+                style={{
+                  background: item.done ? "hsl(var(--primary) / 0.15)" : "hsl(var(--surface))",
+                  border: `1px solid ${item.done ? "hsl(var(--primary) / 0.35)" : "hsl(var(--divider))"}`,
+                }}
+              >
+                {item.done && <Check size={10} className="text-primary" strokeWidth={3} />}
+              </div>
+              <span className={`font-body text-[13px] leading-snug ${item.done ? "text-body" : "text-muted-foreground"}`}>
+                {item.label}
+              </span>
+              {!item.done && i === checklistItems.findIndex((x) => !x.done) && (
+                <span className="ml-auto px-2 py-0.5 rounded-full text-[9px] font-semibold font-body"
+                  style={{ background: "hsl(38 90% 55% / 0.12)", border: "1px solid hsl(38 90% 55% / 0.25)", color: "hsl(38 90% 55%)" }}>
+                  Em andamento
+                </span>
+              )}
+            </div>
+          ))}
+        </div>
+
+        <div className="w-full h-px bg-divider" />
+
+        {/* Badge institucional */}
+        <div className="flex items-center gap-3 p-3 rounded-xl"
+          style={{ background: "hsl(var(--primary) / 0.05)", border: "1px solid hsl(var(--primary) / 0.1)" }}>
+          <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
+            style={{ background: "hsl(var(--primary) / 0.12)", border: "1px solid hsl(var(--primary) / 0.2)" }}>
+            <span className="font-display font-black text-[11px] text-primary">+20</span>
+          </div>
+          <div>
+            <p className="font-display font-bold text-[12px] text-headline">Grupo Ubercentral</p>
+            <p className="font-body text-[11px] text-muted-foreground">Anos de base institucional · Uberlândia, MG</p>
+          </div>
+        </div>
+
+        {/* CTA */}
+        <a
+          href="#diagnostico"
+          className="group flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-primary text-primary-foreground font-display font-semibold text-[13px] hover:opacity-90 hover:scale-[1.02] transition-all duration-300 shadow-blue"
+        >
+          Solicitar diagnóstico
+          <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-300" />
+        </a>
+      </div>
+    </div>
+  );
+};
 
 const HumanSection = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
@@ -62,14 +177,12 @@ const HumanSection = () => {
                     onMouseEnter={() => setHoveredCard(i)}
                     onMouseLeave={() => setHoveredCard(null)}
                   >
-                    {/* Left accent */}
                     <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-primary rounded-r-full transition-all duration-300"
                       style={{
                         opacity: hoveredCard === i ? 1 : 0,
                         transform: hoveredCard === i ? "scaleY(1)" : "scaleY(0)",
                         transformOrigin: "center",
                       }} />
-
                     <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-300"
                       style={{
                         background: hoveredCard === i ? "hsl(var(--primary) / 0.14)" : "hsl(var(--primary) / 0.07)",
@@ -88,77 +201,11 @@ const HumanSection = () => {
             </div>
           </div>
 
-          {/* Direita — bloco de destaque claro */}
+          {/* Direita — Routine mockup */}
           <div className="reveal reveal-delay-2">
-            <div className="relative rounded-2xl overflow-hidden shadow-elevated"
-              style={{
-                background: "hsl(var(--surface-tint))",
-                border: "1px solid hsl(var(--primary) / 0.12)",
-              }}>
-
-              {/* Linha de acento topo */}
-              <div className="h-1 w-full"
-                style={{ background: "linear-gradient(to right, hsl(var(--primary)), hsl(214 80% 65%), transparent)" }} />
-
-              <div className="p-10 lg:p-12 flex flex-col gap-8">
-
-                {/* Stat principal */}
-                <div className="flex items-end gap-4">
-                  <div>
-                    <p className="font-display font-black leading-none text-gradient-primary mb-1"
-                      style={{ fontSize: "clamp(3rem, 6vw, 4.5rem)" }}>
-                      +20
-                    </p>
-                    <p className="font-body text-[13px] text-body">
-                      anos de base institucional
-                    </p>
-                  </div>
-                  {/* Decoração */}
-                  <div className="mb-2 flex flex-col gap-1.5 opacity-20">
-                    {[0, 1, 2, 3].map((r) => (
-                      <div key={r} className="flex gap-1.5">
-                        {[0, 1, 2, 3].map((c) => (
-                          <div key={c} className="w-1.5 h-1.5 rounded-full bg-primary" />
-                        ))}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="w-full h-px bg-divider" />
-
-                {/* Quote */}
-                <blockquote className="relative pl-5"
-                  style={{ borderLeft: "3px solid hsl(var(--primary) / 0.35)" }}>
-                  <p className="font-display font-semibold text-[15px] leading-[1.55] text-headline">
-                    "A BPOn mantém a rotina ativa e apresenta os resultados para quem decide — sem intermediários e sem ruído."
-                  </p>
-                </blockquote>
-
-                <div className="w-full h-px bg-divider" />
-
-                {/* Bullets */}
-                <div className="flex flex-col gap-2">
-                  {[
-                    "Grupo Ubercentral · Uberlândia, MG",
-                    "Base contábil integrada ao BPO",
-                    "Operação financeira recorrente",
-                  ].map((item) => (
-                    <div key={item} className="flex items-center gap-2.5 group cursor-default">
-                      <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 bg-primary/50 group-hover:bg-primary group-hover:scale-125 transition-all duration-300" />
-                      <span className="font-body text-[12px] text-body group-hover:text-headline transition-colors duration-300">{item}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* CTA */}
-                <a href="#diagnostico"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-display font-semibold text-[13px] hover:opacity-90 hover:scale-[1.02] transition-all duration-300 shadow-blue">
-                  Solicitar diagnóstico
-                </a>
-              </div>
-            </div>
+            <RoutineMockup />
           </div>
+
         </div>
       </div>
     </section>
