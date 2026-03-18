@@ -40,7 +40,7 @@ const FAQSection = () => {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-20 lg:py-28 bg-surface">
+    <section id="faq" className="py-20 lg:py-28 section-alt section-divide-top">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
 
