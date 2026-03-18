@@ -225,7 +225,7 @@
   .section-divide-top {
     border-top: 1px solid hsl(var(--divider));
   }
-  /* Soft shadow edge when coming out of a dark section */
+  /* Soft inset shadow when coming out of a dark section */
   .section-edge-light {
     box-shadow: inset 0 6px 24px -12px hsl(218 55% 9% / 0.06);
   }
@@ -235,5 +235,19 @@
   }
   .section-alt-2 {
     background: hsl(210 22% 97%);
+  }
+
+  /* ── Dark→Light transition: soft gradient top edge ── */
+  .section-from-dark {
+    position: relative;
+  }
+  .section-from-dark::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 80px;
+    background: linear-gradient(to bottom, hsl(220 38% 20% / 0.06), transparent);
+    pointer-events: none;
+    z-index: 0;
   }
 }
