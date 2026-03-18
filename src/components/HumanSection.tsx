@@ -1,4 +1,5 @@
 import { Calendar, Users, FileText, Link } from "lucide-react";
+import { useState } from "react";
 
 const workingModel = [
   {
@@ -24,6 +25,8 @@ const workingModel = [
 ];
 
 const HumanSection = () => {
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+
   return (
     <section id="relacao" className="py-24 lg:py-32 bg-surface">
       <div className="container mx-auto px-6 lg:px-8">
@@ -45,13 +48,33 @@ const HumanSection = () => {
             </div>
 
             <div className="grid grid-cols-1 gap-3">
-              {workingModel.map((item) => {
+              {workingModel.map((item, i) => {
                 const Icon = item.icon;
                 return (
                   <div key={item.title}
-                    className="group flex items-start gap-4 p-4 rounded-xl border border-divider bg-background hover:bg-surface-tint transition-colors">
-                    <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-primary/14 transition-colors"
-                      style={{ background: "hsl(var(--primary) / 0.07)", border: "1px solid hsl(var(--primary) / 0.14)" }}>
+                    className="group flex items-start gap-4 p-4 rounded-xl border border-divider bg-background relative overflow-hidden cursor-default"
+                    style={{
+                      background: hoveredCard === i ? "hsl(var(--surface-tint))" : undefined,
+                      transition: "all 0.3s ease",
+                      transform: hoveredCard === i ? "translateX(4px)" : "translateX(0)",
+                    }}
+                    onMouseEnter={() => setHoveredCard(i)}
+                    onMouseLeave={() => setHoveredCard(null)}
+                  >
+                    {/* Left accent */}
+                    <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-primary transition-all duration-400"
+                      style={{
+                        opacity: hoveredCard === i ? 1 : 0,
+                        transform: hoveredCard === i ? "scaleY(1)" : "scaleY(0)",
+                        transformOrigin: "top",
+                      }} />
+
+                    <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-300"
+                      style={{
+                        background: hoveredCard === i ? "hsl(var(--primary) / 0.14)" : "hsl(var(--primary) / 0.07)",
+                        border: "1px solid hsl(var(--primary) / 0.14)",
+                        transform: hoveredCard === i ? "scale(1.1)" : "scale(1)",
+                      }}>
                       <Icon size={14} className="text-primary" strokeWidth={1.8} />
                     </div>
                     <div>
@@ -64,7 +87,7 @@ const HumanSection = () => {
             </div>
           </div>
 
-          {/* Direita — bloco institucional no lugar da foto */}
+          {/* Direita — bloco institucional */}
           <div className="reveal reveal-delay-2">
             <div className="relative rounded-2xl p-10 lg:p-12 overflow-hidden shadow-elevated flex flex-col justify-between min-h-[440px]"
               style={{
@@ -78,6 +101,12 @@ const HumanSection = () => {
                   backgroundImage: "radial-gradient(circle, hsl(210 80% 72% / 1) 1px, transparent 0)",
                   backgroundSize: "32px 32px",
                 }} />
+
+              {/* Floating shapes */}
+              <div className="absolute top-8 right-8 w-12 h-12 border border-primary/15 rounded-lg rotate-12 animate-float pointer-events-none" />
+              <div className="absolute bottom-12 right-16 w-6 h-6 border border-primary/10 rounded-md -rotate-6 animate-float-slow pointer-events-none" />
+              <div className="absolute top-[40%] right-[15%] w-2 h-2 rounded-full bg-primary/30 animate-pulse pointer-events-none" />
+
               {/* Brilho azul superior */}
               <div className="absolute -top-20 -right-20 w-64 h-64 pointer-events-none"
                 style={{ background: "radial-gradient(ellipse, hsl(220 79% 46% / 0.18) 0%, transparent 65%)" }} />
@@ -87,7 +116,7 @@ const HumanSection = () => {
 
               {/* Conteúdo */}
               <div className="relative z-10 flex flex-col gap-8">
-                {/* Stat principal */}
+                {/* Stat principal com counter */}
                 <div>
                   <p className="font-display font-black leading-none mb-1"
                     style={{ fontSize: "clamp(3rem, 6vw, 4.5rem)", color: "hsl(220 79% 62%)" }}>
@@ -98,10 +127,8 @@ const HumanSection = () => {
                   </p>
                 </div>
 
-                {/* Separador */}
                 <div className="w-full h-px" style={{ background: "hsl(218 35% 18%)" }} />
 
-                {/* Citação */}
                 <blockquote>
                   <p className="font-display font-semibold text-[16px] leading-[1.5]"
                     style={{ color: "hsl(210 40% 85%)" }}>
@@ -109,20 +136,18 @@ const HumanSection = () => {
                   </p>
                 </blockquote>
 
-                {/* Separador */}
                 <div className="w-full h-px" style={{ background: "hsl(218 35% 18%)" }} />
 
-                {/* Dados institucionais */}
                 <div className="flex flex-col gap-1.5">
                   {[
                     "Grupo Ubercentral · Uberlândia, MG",
                     "Base contábil integrada",
                     "Operação financeira recorrente",
                   ].map((item) => (
-                    <div key={item} className="flex items-center gap-2">
-                      <span className="w-1 h-1 rounded-full flex-shrink-0"
+                    <div key={item} className="flex items-center gap-2 group cursor-default">
+                      <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 transition-all duration-300 group-hover:scale-150"
                         style={{ background: "hsl(220 79% 52%)" }} />
-                      <span className="font-body text-[12px]"
+                      <span className="font-body text-[12px] transition-colors duration-300 group-hover:text-primary/80"
                         style={{ color: "hsl(210 15% 48%)" }}>{item}</span>
                     </div>
                   ))}
