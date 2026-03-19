@@ -1,64 +1,32 @@
 import { ArrowRight, ChevronDown, TrendingUp, CheckCircle2, AlertCircle } from "lucide-react";
 
 const barData = [
-{ month: "Out", h: 52, active: false },
-{ month: "Nov", h: 68, active: false },
-{ month: "Dez", h: 45, active: false },
-{ month: "Jan", h: 74, active: false },
-{ month: "Fev", h: 61, active: false },
-{ month: "Mar", h: 88, active: true }];
-
-
-const DashboardMockup = () =>
-<div
-  className="relative w-full max-w-[480px] rounded-2xl overflow-hidden select-none"
-  style={{
-    background: "hsl(222 42% 11%)",
-    border: "1px solid hsl(214 30% 22%)",
-    boxShadow: "0 40px 100px hsl(214 80% 8% / 0.75), 0 0 0 1px hsl(214 50% 30% / 0.12), inset 0 1px 0 hsl(214 60% 32% / 0.15)"
-  }}>
-  
-    {/* Top accent bar */}
-    <div className="h-[3px] w-full" style={{ background: "linear-gradient(to right, hsl(var(--primary)), hsl(214 80% 65%), transparent)" }} />
-
-    {/* Header */}
-    <div className="flex items-center justify-between px-6 py-5" style={{ borderBottom: "1px solid hsl(214 28% 16%)" }}>
-      <div>
-        <p className="font-display font-bold text-[11px] tracking-[0.09em] uppercase mb-0.5" style={{ color: "hsl(210 22% 46%)" }}>Relatório Gerencial</p>
-        <p className="font-display font-black text-[15px]" style={{ color: "hsl(210 50% 93%)" }}>Mês | Ano        </p>
-      </div>
-      <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] font-semibold font-body"
-    style={{ background: "hsl(142 60% 40% / 0.15)", border: "1px solid hsl(142 60% 40% / 0.25)", color: "hsl(142 65% 55%)" }}>
-        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-        Fechado
-      </span>
-    </div>
-
-    {/* KPI row */}
-    <div className="grid grid-cols-3 divide-x" style={{ borderBottom: "1px solid hsl(214 28% 16%)", borderColor: "hsl(214 28% 16%)" }}>
-      {[
-    { label: "Receita", value: "R$ 847k", up: true },
-    { label: "Despesa", value: "R$ 612k", up: false },
-    { label: "Resultado", value: "R$ 235k", up: true }].
-    map((kpi) =>
-    <div key={kpi.label} className="flex flex-col items-center justify-center py-5 px-3 gap-1.5">
-          <p className="font-body text-[10px] uppercase tracking-[0.1em]" style={{ color: "hsl(210 18% 40%)" }}>{kpi.label}</p>
-          <p className="font-display font-black text-[15px]" style={{ color: kpi.up ? "hsl(210 50% 90%)" : "hsl(210 35% 72%)" }}>{kpi.value}</p>
-          <span className="flex items-center gap-0.5 text-[10px] font-semibold font-body" style={{ color: kpi.up ? "hsl(142 65% 52%)" : "hsl(0 65% 60%)" }}>
-            <TrendingUp size={9} />
-            {kpi.up ? "+12%" : "-3%"}
-          </span>
-        </div>
-    )}
-    </div>
+{ month: "Out", h: 52, active: false, value: "682k", pct: "+4%" },
+{ month: "Nov", h: 68, active: false, value: "731k", pct: "+7%" },
+{ month: "Dez", h: 45, active: false, value: "598k", pct: "-18%" },
+{ month: "Jan", h: 74, active: false, value: "763k", pct: "+11%" },
+{ month: "Fev", h: 61, active: false, value: "694k", pct: "-9%" },
+{ month: "Mar", h: 88, active: true,  value: "847k", pct: "+22%" }];
 
     {/* Bar chart */}
     <div className="px-6 pt-5 pb-5">
-      <p className="font-body text-[10px] uppercase tracking-[0.1em] mb-4" style={{ color: "hsl(210 18% 38%)" }}>Receita — últimos 6 meses</p>
-      <div className="flex items-end gap-2.5" style={{ height: "96px" }}>
+      <div className="flex items-center justify-between mb-4">
+        <p className="font-body text-[10px] uppercase tracking-[0.1em]" style={{ color: "hsl(210 18% 38%)" }}>Receita — últimos 6 meses</p>
+        <span className="flex items-center gap-1 font-body text-[10px] font-semibold px-2 py-0.5 rounded-full"
+          style={{ background: "hsl(142 60% 40% / 0.12)", border: "1px solid hsl(142 60% 40% / 0.22)", color: "hsl(142 65% 55%)" }}>
+          <TrendingUp size={8} />
+          +22% vs Fev
+        </span>
+      </div>
+      <div className="flex items-end gap-2.5" style={{ height: "110px" }}>
         {barData.map((b) =>
-      <div key={b.month} className="flex flex-col items-center gap-1.5 flex-1" style={{ height: "100%" }}>
-            <div className="w-full rounded-t-[4px] transition-all duration-700 flex-1"
+      <div key={b.month} className="flex flex-col items-center gap-1 flex-1" style={{ height: "100%" }}>
+            {/* Valor acima da barra */}
+            <span className="font-display font-bold text-[8px] leading-none shrink-0"
+              style={{ color: b.active ? "hsl(214 80% 70%)" : "hsl(210 18% 32%)" }}>
+              {b.value}
+            </span>
+            <div className="w-full rounded-t-[4px] transition-all duration-700 relative"
         style={{
           height: `${b.h}px`,
           maxHeight: `${b.h}px`,
@@ -67,7 +35,15 @@ const DashboardMockup = () =>
           "linear-gradient(to top, hsl(var(--primary)), hsl(214 80% 65%))" :
           "hsl(214 40% 20%)",
           boxShadow: b.active ? "0 0 16px hsl(var(--primary) / 0.45)" : "none"
-        }} />
+        }}>
+              {/* % badge no topo da barra ativa */}
+              {b.active && (
+                <span className="absolute -top-5 left-1/2 -translate-x-1/2 font-body font-black text-[9px] whitespace-nowrap"
+                  style={{ color: "hsl(142 65% 58%)" }}>
+                  {b.pct}
+                </span>
+              )}
+            </div>
             <span className="font-body text-[9px] shrink-0" style={{ color: b.active ? "hsl(214 75% 62%)" : "hsl(210 18% 36%)" }}>{b.month}</span>
           </div>
       )}
