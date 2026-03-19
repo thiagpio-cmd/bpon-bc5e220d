@@ -110,9 +110,10 @@ const DashboardMockup = () => (
                 style={{ fontSize: "8px", color: b.active ? "hsl(214 75% 62%)" : "hsl(210 18% 36%)" }}
               >
                 {b.month}
-            </span>
-          </div>
-        ))}
+              </span>
+            </div>
+          );
+        })}
       </div>
     </div>
 
