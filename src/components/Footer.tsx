@@ -22,7 +22,7 @@ const Footer = () => {
 
           {/* Brand */}
           <div className="lg:col-span-1 flex flex-col gap-5">
-            <BPOnLogo height={36} />
+            <BPOnLogo height={100} />
             <div className="flex flex-col gap-1.5">
               <p className="font-body text-xs font-semibold text-headline">Uma Empresa Ubercentral</p>
               <p className="font-body text-xs text-body leading-relaxed max-w-xs">
