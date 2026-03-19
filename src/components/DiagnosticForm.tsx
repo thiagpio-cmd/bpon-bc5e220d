@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ArrowRight, ChevronDown, ChevronRight } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 const faturamentoOptions = [
   "Até R$ 100 mil/mês",
