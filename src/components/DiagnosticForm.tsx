@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ArrowRight, ChevronDown, ChevronRight } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 const faturamentoOptions = [
   "Até R$ 100 mil/mês",
@@ -18,6 +19,7 @@ const extraSelectFields = [
 const DiagnosticForm = () => {
   const [step, setStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [form, setForm] = useState<Record<string, string>>({});
   const [showExtra, setShowExtra] = useState(false);
   const [lgpdAccepted, setLgpdAccepted] = useState(false);
@@ -28,10 +30,31 @@ const DiagnosticForm = () => {
 
   const step1Valid = form["nome"] && (form["whatsapp"] || form["email"]) && form["empresa"];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!lgpdAccepted) return;
-    setSubmitted(true);
+    setLoading(true);
+    try {
+      await supabase.functions.invoke("send-lead-email", {
+        body: {
+          nome: form["nome"],
+          empresa: form["empresa"],
+          email: form["email"] || null,
+          whatsapp: form["whatsapp"] || null,
+          faturamento: form["faturamento"] || null,
+          desafio: form["desafio"] || null,
+          cidade: form["cidade"] || null,
+          segmento: form["segmento"] || null,
+          pessoas: form["pessoas"] || null,
+          ferramenta: form["ferramenta"] || null,
+        },
+      });
+    } catch (err) {
+      console.error("Erro ao enviar formulário:", err);
+    } finally {
+      setLoading(false);
+      setSubmitted(true);
+    }
   };
 
   if (submitted) {
@@ -247,10 +270,10 @@ const DiagnosticForm = () => {
               Voltar
             </button>
             <button type="submit"
-              disabled={!lgpdAccepted || !form["faturamento"] || !form["desafio"]}
+              disabled={!lgpdAccepted || !form["faturamento"] || !form["desafio"] || loading}
               className="group flex-1 flex items-center justify-center gap-2 py-3.5 rounded-lg bg-primary text-primary-foreground font-body font-semibold text-sm hover:bg-primary/90 transition-all duration-200 shadow-blue disabled:opacity-50 disabled:cursor-not-allowed">
-              Solicitar diagnóstico
-              <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+              {loading ? "Enviando..." : "Solicitar diagnóstico"}
+              {!loading && <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />}
             </button>
           </div>
         </div>
