@@ -72,49 +72,48 @@ const DashboardMockup = () => (
         </span>
       </div>
 
-      {/* Bars */}
-      <div className="flex items-end gap-2" style={{ height: "110px" }}>
-        {barData.map((b) => (
-          <div key={b.month} className="flex flex-col items-center gap-1 flex-1 h-full justify-end">
-            {/* Value label */}
-            <span
-              className="font-display font-bold text-[8px] leading-none shrink-0"
-              style={{ color: b.active ? "hsl(214 80% 70%)" : "hsl(210 18% 30%)" }}
-            >
-              {b.value}
-            </span>
-
-            {/* Bar */}
-            <div
-              className="w-full rounded-t-[4px] relative"
-              style={{
-                height: `${b.h}px`,
-                background: b.active
-                  ? "linear-gradient(to top, hsl(var(--primary)), hsl(214 80% 65%))"
-                  : "hsl(214 40% 20%)",
-                boxShadow: b.active ? "0 0 16px hsl(var(--primary) / 0.45)" : "none",
-              }}
-            >
-              {/* % badge floating above active bar */}
-              {b.active && (
-                <span
-                  className="absolute -top-5 left-1/2 -translate-x-1/2 font-body font-black text-[9px] whitespace-nowrap"
-                  style={{ color: "hsl(142 65% 58%)" }}
-                >
-                  {b.pct}
-                </span>
-              )}
+      {/* Bars — referência fixa de 96px para a altura máxima */}
+      <div className="relative flex items-end gap-2" style={{ height: "96px" }}>
+        {barData.map((b) => {
+          const maxH = 88; // altura da maior barra (Mar)
+          const barH = Math.round((b.h / maxH) * 80); // escala proporcional até 80px
+          return (
+            <div key={b.month} className="flex flex-col items-center gap-1 flex-1">
+              {/* Valor */}
+              <span
+                className="font-display font-bold leading-none"
+                style={{ fontSize: "7px", color: b.active ? "hsl(214 80% 70%)" : "hsl(210 18% 30%)" }}
+              >
+                {b.value}
+              </span>
+              {/* % sobre a barra ativa */}
+              <span
+                className="font-body font-black leading-none"
+                style={{ fontSize: "8px", color: b.active ? "hsl(142 65% 58%)" : "transparent" }}
+              >
+                {b.pct}
+              </span>
+              {/* Barra */}
+              <div
+                className="w-full rounded-t-[3px]"
+                style={{
+                  height: `${barH}px`,
+                  background: b.active
+                    ? "linear-gradient(to top, hsl(var(--primary)), hsl(214 80% 65%))"
+                    : "hsl(214 40% 20%)",
+                  boxShadow: b.active ? "0 0 14px hsl(var(--primary) / 0.4)" : "none",
+                }}
+              />
+              {/* Mês */}
+              <span
+                className="font-body shrink-0"
+                style={{ fontSize: "8px", color: b.active ? "hsl(214 75% 62%)" : "hsl(210 18% 36%)" }}
+              >
+                {b.month}
+              </span>
             </div>
-
-            {/* Month label */}
-            <span
-              className="font-body text-[9px] shrink-0"
-              style={{ color: b.active ? "hsl(214 75% 62%)" : "hsl(210 18% 36%)" }}
-            >
-              {b.month}
-            </span>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
 
