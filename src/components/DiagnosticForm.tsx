@@ -270,10 +270,10 @@ const DiagnosticForm = () => {
               Voltar
             </button>
             <button type="submit"
-              disabled={!lgpdAccepted || !form["faturamento"] || !form["desafio"]}
+              disabled={!lgpdAccepted || !form["faturamento"] || !form["desafio"] || loading}
               className="group flex-1 flex items-center justify-center gap-2 py-3.5 rounded-lg bg-primary text-primary-foreground font-body font-semibold text-sm hover:bg-primary/90 transition-all duration-200 shadow-blue disabled:opacity-50 disabled:cursor-not-allowed">
-              Solicitar diagnóstico
-              <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+              {loading ? "Enviando..." : "Solicitar diagnóstico"}
+              {!loading && <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />}
             </button>
           </div>
         </div>
