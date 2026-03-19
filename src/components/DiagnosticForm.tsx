@@ -19,6 +19,7 @@ const extraSelectFields = [
 const DiagnosticForm = () => {
   const [step, setStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [form, setForm] = useState<Record<string, string>>({});
   const [showExtra, setShowExtra] = useState(false);
   const [lgpdAccepted, setLgpdAccepted] = useState(false);
@@ -29,10 +30,31 @@ const DiagnosticForm = () => {
 
   const step1Valid = form["nome"] && (form["whatsapp"] || form["email"]) && form["empresa"];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!lgpdAccepted) return;
-    setSubmitted(true);
+    setLoading(true);
+    try {
+      await supabase.functions.invoke("send-lead-email", {
+        body: {
+          nome: form["nome"],
+          empresa: form["empresa"],
+          email: form["email"] || null,
+          whatsapp: form["whatsapp"] || null,
+          faturamento: form["faturamento"] || null,
+          desafio: form["desafio"] || null,
+          cidade: form["cidade"] || null,
+          segmento: form["segmento"] || null,
+          pessoas: form["pessoas"] || null,
+          ferramenta: form["ferramenta"] || null,
+        },
+      });
+    } catch (err) {
+      console.error("Erro ao enviar formulário:", err);
+    } finally {
+      setLoading(false);
+      setSubmitted(true);
+    }
   };
 
   if (submitted) {
