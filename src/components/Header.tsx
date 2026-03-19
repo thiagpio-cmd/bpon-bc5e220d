@@ -88,7 +88,7 @@ const Header = () => {
 
           {/* Logo */}
           <a href="#inicio" className="flex-shrink-0 flex items-center gap-3">
-            <BPOnLogo height={120} />
+            <BPOnLogo height={100} />
             <span className={`hidden lg:block font-body text-[11px] text-muted-foreground border-l border-divider pl-3 leading-tight transition-all duration-300 ${
               scrolled ? "opacity-0 w-0 overflow-hidden pl-0 border-l-0" : "opacity-100"
             }`}>
