@@ -6,7 +6,7 @@ const barData = [
 { month: "Dez", h: 45, active: false, value: "598k", pct: "-18%" },
 { month: "Jan", h: 74, active: false, value: "763k", pct: "+11%" },
 { month: "Fev", h: 61, active: false, value: "694k", pct: "-9%" },
-{ month: "Mar", h: 88, active: true, value: "847k", pct: "+22%" }];
+{ month: "Mar", h: 88, active: true, value: "847k", pct: "" }];
 
 
 const DashboardMockup = () =>
