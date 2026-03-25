@@ -35,7 +35,7 @@ const Footer = () => {
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                 WhatsApp
               </a>
-              <a href="mailto:comercial@ubercentral.com.br"
+              <a href="mailto:comercial@bpon.com.br"
               className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-divider text-body font-body text-xs font-medium hover:text-headline hover:border-primary/20 transition-colors">
                 <Mail size={11} className="text-primary/60" />
                 E-mail
