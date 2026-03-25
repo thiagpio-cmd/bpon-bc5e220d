@@ -34,24 +34,34 @@ serve(async (req) => {
       ferramenta: ferramenta || null,
     });
 
-    // Build email content
-    const contato = [
-      whatsapp ? `Telefone: ${whatsapp}` : null,
-      email ? `E-mail: ${email}` : null,
-    ].filter(Boolean).join("\n");
+    // Build email content following the required pattern
+    const emailLines = [
+      `Nome: ${nome}`,
+      `Empresa: ${empresa}`,
+      `E-mail: ${email || "Não informado"}`,
+      `Telefone: ${whatsapp || "Não informado"}`,
+      ``,
+      `Faixa de faturamento: ${faturamento || "Não informado"}`,
+      `Principal desafio: ${desafio || "Não informado"}`,
+    ];
 
-    const extraInfo = [
-      faturamento ? `Faturamento mensal: ${faturamento}` : null,
-      desafio ? `Principal desafio: ${desafio}` : null,
+    const complementares = [
       cidade ? `Cidade/UF: ${cidade}` : null,
       segmento ? `Segmento: ${segmento}` : null,
       pessoas ? `Pessoas no financeiro: ${pessoas}` : null,
       ferramenta ? `Ferramenta principal: ${ferramenta}` : null,
-    ].filter(Boolean).join("\n");
+    ].filter(Boolean);
 
-    const emailBody =
-      `Nome: ${nome}\nEmpresa: ${empresa}\n${contato}` +
-      (extraInfo ? `\n\n---\n${extraInfo}` : "");
+    if (complementares.length > 0) {
+      emailLines.push(``);
+      emailLines.push(`Informações complementares:`);
+      emailLines.push(...complementares as string[]);
+    }
+
+    const emailText = emailLines.join("\n");
+    const emailHtml = emailLines
+      .map((line) => (line === "" ? "<br>" : `<span>${line}</span><br>`))
+      .join("\n");
 
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) {
@@ -72,8 +82,8 @@ serve(async (req) => {
         body: JSON.stringify({
           to: "comercial@bpon.com.br",
           subject: `Novo lead - ${nome}`,
-          text: emailBody,
-          html: emailBody.replace(/\n/g, "<br>"),
+          text: emailText,
+          html: emailHtml,
         }),
       }
     );
