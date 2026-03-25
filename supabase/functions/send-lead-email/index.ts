@@ -70,7 +70,7 @@ serve(async (req) => {
           "X-Project-Id": projectId,
         },
         body: JSON.stringify({
-          to: "comercial@ubercentral.com.br",
+          to: "comercial@bpon.com.br",
           subject: `Novo lead - ${nome}`,
           text: emailBody,
           html: emailBody.replace(/\n/g, "<br>"),
