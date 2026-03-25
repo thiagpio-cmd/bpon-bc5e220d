@@ -39,55 +39,43 @@ const PainPointsSection = () => {
 
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
 
-        {/* Header */}
-        <div className="mb-12 lg:mb-14 reveal max-w-lg">
-          <span className="label-pill mb-4 inline-block">Diagnóstico</span>
-          <h2 className="font-display font-black text-[2rem] lg:text-[2.6rem] leading-[1.06] tracking-[-0.024em] mt-3 mb-4 text-headline">
-            Esses sintomas<br />
-            <span className="text-gradient-primary">são familiares?</span>
+        {/* Header — tipografia editorial, sem label-pill */}
+        <div className="mb-12 lg:mb-16 reveal">
+          <p className="font-body text-[11px] font-semibold uppercase tracking-[0.14em] text-primary mb-5">
+            Diagnóstico
+          </p>
+          <h2 className="font-display font-black leading-[1.03] tracking-[-0.03em] text-headline"
+            style={{ fontSize: "clamp(2rem, 5vw, 3.6rem)" }}>
+            Esses sintomas
+            <br />
+            são familiares?
           </h2>
-          <p className="font-body text-[13.5px] leading-relaxed text-body">
+          <p className="font-body text-[13.5px] leading-relaxed text-body mt-5 max-w-md">
             São os mais comuns que a BPOn encontra antes de estruturar uma operação.
           </p>
         </div>
 
-        {/* Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+        {/* Grid — sem números decorativos, linhas horizontais como separadores */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-divider rounded-2xl overflow-hidden border border-divider">
           {painPoints.map((pain, i) => (
             <div
               key={pain.title}
-              className={`reveal reveal-delay-${Math.min(i + 1, 6)} flex flex-col gap-3 p-6 relative rounded-xl border cursor-default transition-all duration-300`}
+              className={`reveal reveal-delay-${Math.min(i + 1, 6)} flex flex-col gap-3 p-6 lg:p-7 cursor-default transition-all duration-250`}
               style={{
                 background: activeCard === i ? "hsl(var(--surface-tint))" : "hsl(var(--surface))",
-                borderColor: activeCard === i ? "hsl(var(--primary) / 0.22)" : "hsl(var(--divider))",
-                transform: activeCard === i ? "translateY(-3px)" : "translateY(0)",
-                boxShadow: activeCard === i
-                  ? "0 8px 28px hsl(var(--primary) / 0.09), 0 2px 8px hsl(218 55% 9% / 0.04)"
-                  : "0 1px 3px hsl(218 55% 9% / 0.04)",
               }}
               onMouseEnter={() => setActiveCard(i)}
               onMouseLeave={() => setActiveCard(null)}
             >
-              <div className="absolute top-0 left-4 right-4 h-[2px] rounded-b-full transition-all duration-500"
+              {/* Accent line */}
+              <div className="h-px w-8 transition-all duration-400"
                 style={{
                   background: "hsl(var(--primary))",
-                  transform: activeCard === i ? "scaleX(1)" : "scaleX(0)",
-                  transformOrigin: "left",
+                  width: activeCard === i ? "48px" : "24px",
+                  opacity: activeCard === i ? 1 : 0.4,
                 }} />
 
-              <span className="font-display font-black text-[2.4rem] leading-none select-none absolute top-3.5 right-4 tabular-nums transition-all duration-300"
-                style={{ color: activeCard === i ? "hsl(var(--primary) / 0.09)" : "hsl(var(--primary) / 0.05)" }}>
-                {String(i + 1).padStart(2, "0")}
-              </span>
-
-              <div className="h-[2px] rounded-full transition-all duration-300 mt-1"
-                style={{
-                  background: "hsl(var(--primary))",
-                  width: activeCard === i ? "36px" : "18px",
-                  opacity: activeCard === i ? 1 : 0.35,
-                }} />
-
-              <h3 className="font-display font-bold text-[13.5px] leading-snug pr-10 text-headline">
+              <h3 className="font-display font-bold text-[14px] leading-snug text-headline">
                 {pain.title}
               </h3>
               <p className="font-body text-[12.5px] leading-relaxed" style={{ color: "hsl(var(--body))" }}>

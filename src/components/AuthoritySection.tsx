@@ -1,4 +1,4 @@
-import { Building2, Users2, Award, TrendingUp, Star, MessageSquare } from "lucide-react";
+import { Building2, Users2, Award, TrendingUp, Star } from "lucide-react";
 import { useCountUp } from "@/hooks/use-count-up";
 
 const metrics = [
@@ -52,7 +52,7 @@ const CountUpMetric = ({ target, suffix, unit }: { target: number; suffix?: stri
   const { count, ref } = useCountUp(target, 1800);
   return (
     <p ref={ref as React.RefObject<HTMLParagraphElement>}
-      className="font-display font-black text-[26px] leading-none mb-1 text-gradient-primary">
+      className="font-display font-black text-[2.2rem] leading-none mb-1 text-headline">
       {suffix}{count} <span className="text-[13px] font-semibold text-body">{unit}</span>
     </p>
   );
@@ -62,69 +62,68 @@ const AuthoritySection = () => {
   return (
     <section id="autoridade" className="py-20 lg:py-28 relative overflow-hidden section-alt section-divide-top">
 
-      <div className="absolute top-0 left-0 w-[480px] h-[360px] pointer-events-none"
-        style={{ background: "radial-gradient(ellipse, hsl(var(--primary) / 0.04) 0%, transparent 70%)" }} />
-
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
 
-        {/* Header */}
-        <div className="reveal mb-12 lg:mb-14 max-w-xl">
-          <span className="label-pill mb-4 inline-block">Credibilidade</span>
-          <h2 className="font-display font-black text-[2rem] lg:text-[2.7rem] leading-[1.06] tracking-[-0.024em] mb-3 mt-3 text-headline">
-            Estrutura de quem já{" "}
-            <span className="text-gradient-primary">opera há décadas.</span>
-          </h2>
-          <p className="font-body text-[13.5px] leading-relaxed text-body">
-            A BPOn não nasceu como startup. É parte de um grupo com base contábil e
-            empresarial construída ao longo de mais de 20 anos em Uberlândia, com CRC
-            registrado e estrutura que sustenta operação real.
+        {/* Header — minimalista, força pelo texto */}
+        <div className="reveal mb-16 flex flex-col lg:flex-row gap-8 lg:items-end lg:justify-between">
+          <div>
+            <p className="font-body text-[11px] font-semibold uppercase tracking-[0.14em] text-primary mb-5">
+              Credibilidade
+            </p>
+            <h2 className="font-display font-black text-headline leading-[1.04] tracking-[-0.028em]"
+              style={{ fontSize: "clamp(1.9rem, 4vw, 3rem)" }}>
+              Estrutura de quem já<br />
+              opera há décadas.
+            </h2>
+          </div>
+          <p className="font-body text-[13.5px] leading-relaxed text-body lg:max-w-xs">
+            A BPOn é parte de um grupo com base contábil e empresarial construída ao longo de mais de 20 anos
+            em Uberlândia — com CRC registrado e estrutura que sustenta operação real.
           </p>
         </div>
 
-        {/* 4 cards — prova institucional */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 mb-10">
+        {/* Métricas — linha horizontal sem cards */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-0 border border-divider rounded-2xl overflow-hidden mb-12 reveal">
           {metrics.map((metric, i) => {
             const Icon = metric.icon;
             return (
               <div
                 key={metric.label}
-                className={`reveal reveal-delay-${i + 1} group p-6 flex flex-col gap-4 relative overflow-hidden cursor-default rounded-xl border border-divider bg-surface card-hover`}
+                className={`reveal-delay-${i + 1} group flex flex-col gap-3 px-6 py-7 bg-surface hover:bg-surface-tint transition-colors duration-200 cursor-default
+                  ${i < metrics.length - 1 ? "border-r border-divider" : ""}
+                `}
               >
-                <div className="absolute top-0 left-0 right-0 h-[2px] rounded-t-xl bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="icon-sm icon-bg transition-all duration-300 group-hover:scale-105">
-                  <Icon size={15} strokeWidth={1.8} className="text-primary" />
-                </div>
+                <Icon size={16} strokeWidth={1.6} className="text-primary opacity-70" />
                 <div>
                   {metric.value > 0 ? (
                     <CountUpMetric target={metric.value} suffix={metric.suffix} unit={metric.unit} />
                   ) : (
-                    <p className="font-display font-bold text-[14.5px] mb-1 text-headline">{metric.displayText}</p>
+                    <p className="font-display font-bold text-[1.05rem] mb-0.5 text-headline leading-snug">{metric.displayText}</p>
                   )}
-                  <p className="font-body font-semibold text-[10px] uppercase tracking-[0.09em] mb-1.5 text-primary/65">{metric.label}</p>
-                  <p className="font-body text-[12px] leading-relaxed text-body">{metric.detail}</p>
+                  <p className="font-body text-[11px] text-body mt-1">{metric.detail}</p>
                 </div>
               </div>
             );
           })}
         </div>
 
-        {/* Depoimentos */}
-        <div className="reveal reveal-delay-5 mb-10">
-          <div className="flex items-center gap-3 mb-5">
-            <MessageSquare size={14} className="text-primary" />
-            <p className="font-body text-[11px] font-semibold uppercase tracking-[0.1em] text-primary/70">O que dizem os clientes</p>
-          </div>
-          <div className="grid md:grid-cols-2 gap-3.5">
+        {/* Depoimentos — aspas grandes como elemento visual */}
+        <div className="reveal reveal-delay-5 mb-12">
+          <p className="font-body text-[11px] font-semibold uppercase tracking-[0.14em] text-body/50 mb-6">
+            O que dizem os clientes
+          </p>
+          <div className="grid md:grid-cols-2 gap-6">
             {testimonials.map((t) => (
-              <div key={t.name} className="p-6 rounded-xl border border-divider bg-surface card-hover flex flex-col gap-4">
-                <div className="flex gap-0.5">
+              <div key={t.name} className="flex flex-col gap-4 relative pl-6"
+                style={{ borderLeft: "2px solid hsl(var(--primary) / 0.20)" }}>
+                <div className="flex gap-0.5 mb-1">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={12} className="text-amber-400 fill-amber-400" />
+                    <Star key={i} size={11} className="text-amber-400 fill-amber-400" />
                   ))}
                 </div>
                 <p className="font-body text-[13px] text-body leading-relaxed flex-1">"{t.quote}"</p>
-                <div className="flex items-center gap-3 pt-2 border-t border-divider">
-                  <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-display font-black text-[11px] text-primary-foreground"
+                <div className="flex items-center gap-3">
+                  <div className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 font-display font-black text-[10px] text-primary-foreground"
                     style={{ background: "hsl(var(--primary))" }}>
                     {t.initials}
                   </div>
