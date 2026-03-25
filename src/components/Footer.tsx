@@ -70,10 +70,10 @@ const Footer = () => {
                 <Phone size={13} className="flex-shrink-0 mt-0.5 text-emerald-500" />
                 (34) 99281-2444 <span className="text-emerald-600 text-xs">(WhatsApp)</span>
               </a>
-              <a href="mailto:comercial@ubercentral.com.br"
+              <a href="mailto:comercial@bpon.com.br"
               className="inline-flex items-start gap-2 font-body text-sm text-body hover:text-headline transition-colors">
                 <Mail size={13} className="flex-shrink-0 mt-0.5 text-primary/60" />
-                comercial@ubercentral.com.br
+                comercial@bpon.com.br
               </a>
               <a href="mailto:sac@ubercentral.com.br"
               className="inline-flex items-start gap-2 font-body text-sm text-body hover:text-headline transition-colors">

@@ -55,8 +55,10 @@ const FAQSection = () => {
           {/* Left */}
           <div className="lg:col-span-2 flex flex-col gap-5 reveal">
             <div>
-              <div className="label-pill w-fit mb-4">Perguntas frequentes</div>
-              <h2 className="font-display font-black text-[1.9rem] lg:text-[2.2rem] text-headline leading-[1.08] tracking-[-0.022em] mt-3">
+              <p className="font-body text-[11px] font-semibold uppercase tracking-[0.14em] text-primary mb-5">
+                Perguntas frequentes
+              </p>
+              <h2 className="font-display font-black text-[1.9rem] lg:text-[2.2rem] text-headline leading-[1.04] tracking-[-0.022em]">
                 Respostas para quem está avaliando a BPOn.
               </h2>
             </div>
