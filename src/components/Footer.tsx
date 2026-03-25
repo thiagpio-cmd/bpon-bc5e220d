@@ -35,7 +35,7 @@ const Footer = () => {
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                 WhatsApp
               </a>
-              <a href="mailto:comercial@bpon.com.br"
+              <a href="mailto:comercial@ubercentral.com.br"
               className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-divider text-body font-body text-xs font-medium hover:text-headline hover:border-primary/20 transition-colors">
                 <Mail size={11} className="text-primary/60" />
                 E-mail
@@ -70,10 +70,10 @@ const Footer = () => {
                 <Phone size={13} className="flex-shrink-0 mt-0.5 text-emerald-500" />
                 (34) 99281-2444 <span className="text-emerald-600 text-xs">(WhatsApp)</span>
               </a>
-              <a href="mailto:comercial@bpon.com.br"
+              <a href="mailto:comercial@ubercentral.com.br"
               className="inline-flex items-start gap-2 font-body text-sm text-body hover:text-headline transition-colors">
                 <Mail size={13} className="flex-shrink-0 mt-0.5 text-primary/60" />
-                comercial@bpon.com.br
+                comercial@ubercentral.com.br
               </a>
               <a href="mailto:sac@ubercentral.com.br"
               className="inline-flex items-start gap-2 font-body text-sm text-body hover:text-headline transition-colors">

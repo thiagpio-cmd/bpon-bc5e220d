@@ -3,8 +3,8 @@ import { useState } from "react";
 
 const blocks = [
   {
-    tag: "Estrutura",
-    title: "Rotina financeira",
+    number: "01",
+    title: "Estruturação da rotina financeira",
     description: "O ponto de partida. Sem processo definido, qualquer operação é frágil.",
     items: [
       "Desenho e documentação do processo financeiro",
@@ -12,10 +12,11 @@ const blocks = [
       "Organização do fluxo de aprovações e conferências",
       "Padronização de controles e critérios de lançamento",
     ],
+    completion: 33,
   },
   {
-    tag: "Operação",
-    title: "Execução recorrente",
+    number: "02",
+    title: "Operação financeira recorrente",
     description: "Rotina financeira executada com critério, cadência e rastreabilidade.",
     items: [
       "Contas a pagar e receber com controle de vencimentos",
@@ -23,10 +24,11 @@ const blocks = [
       "Atualização de fluxo de caixa e posição disponível",
       "Acompanhamento de cobrança e execução financeira",
     ],
+    completion: 66,
   },
   {
-    tag: "Gestão",
-    title: "Leitura executiva",
+    number: "03",
+    title: "Gestão e leitura executiva",
     description: "Fechamento mensal e indicadores para quem precisa decidir com clareza.",
     items: [
       "Fechamento gerencial mensal consolidado",
@@ -34,6 +36,7 @@ const blocks = [
       "Análise de resultado e variações relevantes",
       "Reporte executivo direto para a liderança decidir",
     ],
+    completion: 100,
   },
 ];
 
@@ -44,64 +47,77 @@ const ServicesSection = () => {
     <section id="servicos" className="py-20 lg:py-28 section-alt-2 section-divide-top">
       <div className="container mx-auto px-6 lg:px-8">
 
-        {/* Header — duas colunas com contraste de peso */}
-        <div className="mb-12 lg:mb-16 reveal flex flex-col lg:flex-row gap-8 lg:items-end lg:justify-between">
+        {/* Header */}
+        <div className="mb-12 lg:mb-14 reveal grid lg:grid-cols-2 gap-8 items-end">
           <div>
-            <p className="font-body text-[11px] font-semibold uppercase tracking-[0.14em] text-primary mb-5">
-              O que a BPOn entrega
-            </p>
-            <h2 className="font-display font-black text-headline leading-[1.04] tracking-[-0.028em]"
-              style={{ fontSize: "clamp(1.9rem, 4vw, 3rem)" }}>
+            <span className="label-pill mb-4 inline-block">O que a BPOn entrega</span>
+            <h2 className="font-display font-black text-[2rem] lg:text-[2.7rem] text-headline leading-[1.05] tracking-[-0.024em] mt-3">
               Três frentes integradas.<br />
-              Uma operação completa.
+              <span className="text-gradient-primary">Uma operação completa.</span>
             </h2>
           </div>
-          <p className="font-body text-[13.5px] text-body leading-relaxed lg:max-w-xs lg:text-right">
+          <p className="font-body text-[13.5px] text-body leading-relaxed lg:max-w-sm lg:text-right lg:self-end">
             Não é uma lista de tarefas avulsas. É uma estrutura integrada — da operação
             diária ao fechamento que orienta a gestão.
           </p>
         </div>
 
-        {/* 3 blocos — tipografia grande como âncora, sem border-top animation, sem numeros */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+        {/* 3 blocks */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 border border-divider rounded-2xl overflow-hidden shadow-card">
           {blocks.map((block, i) => (
             <div
-              key={block.tag}
-              className={`reveal reveal-delay-${i + 1} flex flex-col p-7 lg:p-8 rounded-2xl border transition-all duration-300 cursor-default`}
+              key={block.number}
+              className={`reveal reveal-delay-${i + 1} flex flex-col p-7 lg:p-8 bg-surface relative
+                ${i < blocks.length - 1 ? "border-b lg:border-b-0 lg:border-r border-divider" : ""}
+              `}
               style={{
                 background: hoveredBlock === i ? "hsl(var(--surface-tint))" : "hsl(var(--surface))",
-                borderColor: hoveredBlock === i ? "hsl(var(--primary) / 0.22)" : "hsl(var(--divider))",
-                boxShadow: hoveredBlock === i ? "0 8px 32px hsl(var(--primary) / 0.07)" : "none",
-                transform: hoveredBlock === i ? "translateY(-3px)" : "translateY(0)",
+                transition: "background 0.25s ease",
               }}
               onMouseEnter={() => setHoveredBlock(i)}
               onMouseLeave={() => setHoveredBlock(null)}
             >
-              {/* Tag textual — sem pill colorida */}
-              <p className="font-body text-[10px] font-semibold uppercase tracking-[0.14em] text-primary mb-4">
-                {block.tag}
-              </p>
+              {/* Top accent */}
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-primary transition-transform duration-400 origin-left"
+                style={{ transform: hoveredBlock === i ? "scaleX(1)" : "scaleX(0)" }} />
 
-              {/* Título grande */}
-              <h3 className="font-display font-black text-[1.6rem] leading-[1.1] tracking-[-0.02em] text-headline mb-2">
+              {/* Number */}
+              <span className="font-display font-black text-[3.2rem] leading-none select-none mb-4 transition-all duration-300"
+                style={{
+                  color: hoveredBlock === i ? "hsl(var(--primary) / 0.11)" : "hsl(var(--primary) / 0.06)",
+                  transform: hoveredBlock === i ? "translateX(3px)" : "translateX(0)",
+                }}>
+                {block.number}
+              </span>
+
+              <h3 className="font-display font-bold text-[15px] text-headline mb-2 leading-snug">
                 {block.title}
               </h3>
-              <p className="font-body text-[12.5px] text-body leading-relaxed mb-6">
+              <p className="font-body text-[12.5px] text-body leading-relaxed mb-5">
                 {block.description}
               </p>
 
-              {/* Divider */}
-              <div className="w-full h-px bg-divider mb-6" />
+              {/* Progress bar */}
+              <div className="w-full h-[3px] rounded-full mb-5 overflow-hidden" style={{ background: "hsl(var(--divider))" }}>
+                <div className="h-full bg-primary rounded-full transition-all duration-700 ease-out"
+                  style={{ width: hoveredBlock === i ? `${block.completion}%` : "0%" }} />
+              </div>
 
-              <ul className="mt-auto flex flex-col gap-3">
+              <ul className="mt-auto flex flex-col gap-2.5 pt-5 border-t border-divider">
                 {block.items.map((item, j) => (
                   <li key={item} className="flex items-start gap-2.5"
                     style={{
-                      opacity: hoveredBlock === i ? 1 : 0.78,
-                      transform: hoveredBlock === i ? "translateX(2px)" : "translateX(0)",
-                      transition: `all 0.22s ease ${j * 0.04}s`,
+                      opacity: hoveredBlock === i ? 1 : 0.75,
+                      transform: hoveredBlock === i ? "translateX(3px)" : "translateX(0)",
+                      transition: `all 0.25s ease ${j * 0.05}s`,
                     }}>
-                    <Check size={13} className="text-primary flex-shrink-0 mt-0.5" strokeWidth={2.5} />
+                    <span className="w-[17px] h-[17px] rounded-md flex items-center justify-center flex-shrink-0 mt-[1px]"
+                      style={{
+                        background: hoveredBlock === i ? "hsl(var(--primary) / 0.13)" : "hsl(var(--primary) / 0.07)",
+                        border: "1px solid hsl(var(--primary) / 0.16)",
+                      }}>
+                      <Check size={9} className="text-primary" strokeWidth={3} />
+                    </span>
                     <span className="font-body text-[12.5px] text-body leading-snug">{item}</span>
                   </li>
                 ))}
@@ -111,7 +127,7 @@ const ServicesSection = () => {
         </div>
 
         {/* CTA strip */}
-        <div className="mt-6 reveal reveal-delay-4 cta-strip">
+        <div className="mt-5 reveal reveal-delay-4 cta-strip">
           <p className="font-body text-[13px] text-body text-center sm:text-left">
             A BPOn atua integrada com a contabilidade, ERP e a liderança da empresa.
           </p>

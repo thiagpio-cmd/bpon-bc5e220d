@@ -207,9 +207,10 @@ const HeroSection = () => {
             <div className="mt-7 animate-fade-up" style={{ animationDelay: "0.15s" }}>
               <h1 className="font-display font-black leading-[1.02] tracking-[-0.025em]"
               style={{ fontSize: "clamp(2.1rem, 4.8vw, 4.2rem)", color: "hsl(210 50% 96%)" }}>
-                BPO Financeiro para empresas que precisam de rotina, controle{" "}
+                BPO Financeiro para empresas que precisam de rotina,{" "}
+                <span style={{ color: "hsl(214 65% 60%)" }}>controle</span>{" "}
                 e{" "}
-                <span style={{ color: "hsl(214 65% 68%)" }}>leitura gerencial.</span>
+                <span className="text-shimmer">leitura gerencial.</span>
               </h1>
             </div>
 
