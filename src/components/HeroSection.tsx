@@ -57,7 +57,7 @@ const HeroSection = () => {
           </div>
 
           <div className="flex flex-col justify-end md:items-end gap-6">
-            <a href="#diagnostico" className="btn-brutal-primary w-full md:w-auto">
+            <a href="#diagnostico" className="group btn-brutal-primary w-full md:w-auto">
               <span className="relative z-10">Solicitar diagnóstico financeiro</span>
               <span className="absolute right-4 top-1/2 -translate-y-1/2 translate-x-8 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all">
                 →
