@@ -158,7 +158,7 @@
 
   /* ── Brutal button (primary CTA with hover sliding arrow) ── */
   .btn-brutal-primary {
-    @apply group relative overflow-hidden bg-primary text-primary-foreground px-7 py-5 text-xs font-bold uppercase inline-flex items-center justify-center transition-all;
+    @apply relative overflow-hidden bg-primary text-primary-foreground px-7 py-5 text-xs font-bold uppercase inline-flex items-center justify-center transition-all;
     letter-spacing: 0.22em;
   }
   .btn-brutal-primary:hover { padding-right: 3rem; }
