@@ -64,21 +64,18 @@ const DiagnosticForm = () => {
 
   if (submitted) {
     return (
-      <div className="flex flex-col items-center justify-center py-10 px-4 text-center gap-5">
-        <div className="w-12 h-12 border border-primary/60 flex items-center justify-center">
+      <div className="flex flex-col items-center justify-center py-10 px-4 text-center gap-4">
+        <div className="w-12 h-12 rounded-full bg-primary-soft flex items-center justify-center">
           <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
-            <path d="M4 10l4 4 8-8" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinecap="square" />
+            <path d="M4 10l4 4 8-8" stroke="hsl(var(--primary))" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>
         <div>
-          <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary font-bold mb-3">
-            Diagnóstico recebido
-          </p>
-          <h3 className="font-display font-bold text-[20px] text-white mb-3">
+          <h3 className="font-display font-bold text-[19px] text-headline mb-2">
             Recebemos suas informações.
           </h3>
-          <p className="font-body text-[13.5px] text-white/60 max-w-md leading-relaxed">
-            A equipe da Fintex BPO vai analisar seu cenário e entrar em contato para o próximo passo.
+          <p className="font-body text-[14px] text-body max-w-md leading-relaxed">
+            A equipe da Fintex BPO vai analisar seu cenário e entrar em contato em até 1 dia útil.
           </p>
         </div>
       </div>
@@ -86,13 +83,13 @@ const DiagnosticForm = () => {
   }
 
   const inputCls =
-    "w-full px-4 py-3 bg-transparent border border-primary/25 font-body text-[14px] text-white placeholder:text-white/35 focus:outline-none focus:border-primary focus:bg-primary/[0.04] transition-all";
+    "w-full px-3.5 py-2.5 rounded-lg bg-background border border-border font-body text-[14px] text-headline placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15 transition-all";
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
       <div className="grid sm:grid-cols-2 gap-3">
         <div className="flex flex-col gap-1.5">
-          <label className="font-body text-[11px] font-semibold text-headline uppercase tracking-wide">Nome</label>
+          <label className="font-body text-[12.5px] font-medium text-headline">Nome</label>
           <input
             required
             value={form.nome || ""}
@@ -102,7 +99,7 @@ const DiagnosticForm = () => {
           />
         </div>
         <div className="flex flex-col gap-1.5">
-          <label className="font-body text-[11px] font-semibold text-headline uppercase tracking-wide">Empresa</label>
+          <label className="font-body text-[12.5px] font-medium text-headline">Empresa</label>
           <input
             required
             value={form.empresa || ""}
@@ -115,7 +112,7 @@ const DiagnosticForm = () => {
 
       <div className="grid sm:grid-cols-2 gap-3">
         <div className="flex flex-col gap-1.5">
-          <label className="font-body text-[11px] font-semibold text-headline uppercase tracking-wide">WhatsApp</label>
+          <label className="font-body text-[12.5px] font-medium text-headline">WhatsApp</label>
           <input
             required
             inputMode="numeric"
@@ -127,7 +124,7 @@ const DiagnosticForm = () => {
           />
         </div>
         <div className="flex flex-col gap-1.5">
-          <label className="font-body text-[11px] font-semibold text-headline uppercase tracking-wide">E-mail</label>
+          <label className="font-body text-[12.5px] font-medium text-headline">E-mail</label>
           <input
             required
             type="email"
@@ -140,7 +137,7 @@ const DiagnosticForm = () => {
       </div>
 
       <div className="flex flex-col gap-1.5">
-        <label className="font-body text-[11px] font-semibold text-headline uppercase tracking-wide">Faturamento mensal</label>
+        <label className="font-body text-[12.5px] font-medium text-headline">Faturamento mensal</label>
         <select
           required
           value={form.faturamento || ""}
@@ -153,7 +150,7 @@ const DiagnosticForm = () => {
       </div>
 
       <div className="flex flex-col gap-1.5">
-        <label className="font-body text-[11px] font-semibold text-headline uppercase tracking-wide">Principal desafio financeiro</label>
+        <label className="font-body text-[12.5px] font-medium text-headline">Principal desafio financeiro</label>
         <input
           required
           value={form.desafio || ""}
@@ -164,7 +161,7 @@ const DiagnosticForm = () => {
       </div>
 
       <div className="flex flex-col gap-1.5">
-        <label className="font-body text-[11px] font-semibold text-headline uppercase tracking-wide">Mensagem <span className="text-body/45 font-normal normal-case tracking-normal">(opcional)</span></label>
+        <label className="font-body text-[12.5px] font-medium text-headline">Mensagem <span className="text-muted-foreground font-normal">(opcional)</span></label>
         <textarea
           rows={3}
           value={form.mensagem || ""}
@@ -177,13 +174,13 @@ const DiagnosticForm = () => {
       <button
         type="submit"
         disabled={!valid || loading}
-        className="group mt-1 flex items-center justify-center gap-2 w-full py-3.5 rounded-lg bg-primary text-primary-foreground font-body font-semibold text-sm hover:bg-primary/90 transition-all shadow-blue disabled:opacity-50 disabled:cursor-not-allowed"
+        className="btn-primary group mt-2 w-full disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
       >
         {loading ? "Enviando..." : "Solicitar diagnóstico financeiro"}
         {!loading && <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />}
       </button>
 
-      <p className="font-body text-[11px] text-body/55 leading-relaxed text-center">
+      <p className="font-body text-[12px] text-muted-foreground leading-relaxed text-center">
         Os dados são usados exclusivamente para contato consultivo da Fintex BPO.
       </p>
     </form>

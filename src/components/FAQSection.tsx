@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Plus } from "lucide-react";
 
 const faqs = [
   {
@@ -18,48 +19,34 @@ const faqs = [
 const FAQSection = () => {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section id="faq" className="section-py bg-background relative overflow-hidden">
-      <div className="container mx-auto px-6 lg:px-12 relative z-10">
-        <div className="grid grid-cols-12 gap-8 mb-16 reveal">
-          <div className="col-span-12 lg:col-span-3">
-            <span className="eyebrow-num">06 / FAQ</span>
-          </div>
-          <div className="col-span-12 lg:col-span-9">
-            <h2 className="font-display font-bold text-headline text-[2rem] md:text-[3rem] lg:text-[4rem] leading-[0.95] tracking-[-0.04em]">
-              Perguntas <span className="text-primary italic">frequentes.</span>
-            </h2>
-          </div>
+    <section id="faq" className="section-py bg-background">
+      <div className="container mx-auto px-6 lg:px-10">
+        <div className="max-w-3xl mx-auto text-center mb-12 reveal">
+          <span className="eyebrow">FAQ</span>
+          <h2 className="font-display font-bold text-headline text-[2rem] md:text-[2.75rem] lg:text-[3.25rem] leading-[1.08] tracking-[-0.03em] mt-4">
+            Perguntas <span className="text-primary">frequentes</span>.
+          </h2>
         </div>
 
-        <div className="border-t border-primary/20 reveal reveal-delay-2">
+        <div className="max-w-3xl mx-auto reveal reveal-delay-2 space-y-3">
           {faqs.map((f, i) => {
             const isOpen = open === i;
             return (
-              <div key={i} className="border-b border-primary/20">
+              <div key={i} className={`card-soft transition-all ${isOpen ? "ring-1 ring-primary/20" : ""}`}>
                 <button
-                  className="w-full grid grid-cols-12 gap-6 items-center py-7 text-left group"
+                  className="w-full flex items-center justify-between gap-4 text-left px-6 py-5"
                   onClick={() => setOpen(isOpen ? null : i)}
                 >
-                  <span className="col-span-2 md:col-span-1 font-mono text-[11px] text-primary font-bold tracking-widest">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="col-span-9 md:col-span-10 font-display font-medium text-headline text-[18px] md:text-[22px] tracking-tight">
+                  <span className="font-display font-semibold text-headline text-[16.5px] md:text-[17.5px]">
                     {f.q}
                   </span>
-                  <span
-                    className={`col-span-1 text-right font-display text-2xl text-primary transition-transform ${
-                      isOpen ? "rotate-45" : ""
-                    }`}
-                  >
-                    +
+                  <span className={`w-8 h-8 rounded-full bg-primary-soft flex items-center justify-center text-primary transition-transform ${isOpen ? "rotate-45" : ""}`}>
+                    <Plus size={16} />
                   </span>
                 </button>
                 {isOpen && (
-                  <div className="grid grid-cols-12 gap-6 pb-7 animate-fade-in">
-                    <div className="col-span-2 md:col-span-1" />
-                    <p className="col-span-10 font-body text-[15px] text-body leading-relaxed max-w-3xl">
-                      {f.a}
-                    </p>
+                  <div className="px-6 pb-6 animate-fade-in">
+                    <p className="font-body text-[14.5px] text-body leading-relaxed">{f.a}</p>
                   </div>
                 )}
               </div>
