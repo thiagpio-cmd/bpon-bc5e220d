@@ -1,20 +1,24 @@
+import { ArrowUp } from "lucide-react";
+import { useEffect, useState } from "react";
+
 const FloatingXMark = () => {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setShow(window.scrollY > 600);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <a
       href="#inicio"
       aria-label="Voltar ao topo"
-      className="fixed bottom-8 right-8 z-40 w-12 h-12 hidden md:flex items-center justify-center group"
+      className={`fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full bg-card border border-border shadow-md hidden md:flex items-center justify-center text-headline hover:text-primary hover:border-primary/40 transition-all ${
+        show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3 pointer-events-none"
+      }`}
     >
-      <span className="absolute inset-0 border border-primary/40 group-hover:border-primary transition-colors" />
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="relative">
-        <path
-          d="M3 3 L17 17 M17 3 L3 17"
-          stroke="hsl(var(--primary))"
-          strokeWidth="1.5"
-          strokeLinecap="square"
-          className="opacity-70 group-hover:opacity-100 transition-opacity"
-        />
-      </svg>
+      <ArrowUp size={16} />
     </a>
   );
 };
