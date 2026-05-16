@@ -1,83 +1,68 @@
-## Rebrand completo: BPOn → Fintex BPO
+## Rebuild visual: Brutalismo Estrutural
 
-Transformar o site atual em uma landing page premium, enxuta e focada em conversão, com nova identidade visual e marca **Fintex BPO**.
+Aplicar a direção escolhida (v3) em toda a landing — não só no hero. Manter copy, marca, formulário e backend; trocar a linguagem visual.
 
-### 1. Identidade visual (design system)
+### Princípios da nova linguagem
 
-Atualizar `src/index.css` e `tailwind.config.ts` com a nova paleta em HSL:
-- Preto profundo `#0B0D0D` — background principal
-- Branco gelo `#F5F7FA` — surface clara
-- Azul elétrico `#1677FF` — primary / CTA
-- Grafite `#1A1D23` — surfaces escuras
-- Azul petróleo `#0F2A3A` — accent escuro
-- Cinza neutro `#E6EBE8` — divider / muted
+- **Grid 12 colunas visível**: bordas finas `#1677FF/20` formando malhas (sem cards macios).
+- **X estrutural**: duas linhas diagonais finas atravessando o viewport como ossatura, não decoração.
+- **Tipografia editorial extrema**: Space Grotesk display (até 8xl/9xl), Inter body. Italic azul em palavras-chave.
+- **Numeração executiva**: cada bloco prefixado `01 /`, `02 /`...
+- **Marquee de fundo**: "FINTEX FINTEX FINTEX" em 20vw com opacity 0.03 como textura.
+- **Pílulas de label** sólidas em `#1677FF` (`BPO FINANCEIRO`, `MÉTODO`, etc.).
+- **Hover states geométricos**: preenchimento azul 5%, sem sombras/blur.
+- **Floating X** fixo no canto inferior direito como assinatura.
+- **Barra azul** de 1px no rodapé absoluto.
 
-Tipografia: **Satoshi** (títulos, via Fontshare) + **Inter** (corpo). Carregar via `<link>` no `index.html`.
+### Mudanças por arquivo
 
-Elemento visual proprietário: símbolo **X** (SVG inline) usado discretamente como fundo do hero e detalhe nos cards, em baixa opacidade.
+**`src/index.css`**
+- Adicionar fonte `Space Grotesk` (300/400/700) via `@import`, manter Inter.
+- Trocar `font-display` para Space Grotesk + Inter 900 como fallback de impacto.
+- Substituir `.shadow-card`/`shadow-blue` por utilidades novas: `.edge-grid` (border `#1677FF/20`), `.x-cross` (pseudo-elementos com as 2 diagonais), `.marquee-bg`.
+- Remover `.x-bg` antigo e `card-hover` macio; criar `.brutal-hover` (apenas background tint).
 
-### 2. Estrutura da landing page (10 seções)
+**`tailwind.config.ts`**
+- Adicionar `fontFamily.display: ["Space Grotesk", ...]`.
+- Adicionar cor utilitária `electric` = primary alias para legibilidade do código.
 
-Reescrever `src/pages/Index.tsx` para conter apenas:
+**`src/components/Header.tsx`**
+- Substituir por barra superior com meta-info: à esquerda `FINTEX BPO © 2026 / FINANCIAL INTELLIGENCE UNIT`, à direita nav uppercase tracking-widest com numeração `01 / Serviços`, etc. Borda inferior azul/20. Sem sombra ao rolar — só inverte cor de fundo.
 
-```
-Header  →  Hero  →  Problema  →  Solução  →  Serviços
-       →  Como funciona  →  Para quem  →  CTA final + Form
-       →  FAQ (3 perguntas)  →  Footer
-```
+**`src/components/HeroSection.tsx`**
+- Reescrever com layout 12-col + diagonais X + marquee textual de fundo.
+- Pílula sólida azul "BPO FINANCEIRO".
+- H1 editorial preservando copy oficial: "BPO Financeiro para empresas que precisam de **rotina, caixa e** *previsibilidade*." — última palavra em italic azul.
+- CTA primário com hover expandindo a seta; CTA secundário fantasma com borda.
+- Linha de tag "// Escale sem fricção".
 
-Componentes a recriar/substituir (manter nomes ou trocar conforme conveniência):
-- `Header.tsx` — fixo escuro, logo Fintex à esquerda, links + botão "Solicitar diagnóstico"
-- `HeroSection.tsx` — H1, sub, 2 CTAs, microcopy, indicadores; X grande de fundo
-- `ProblemSection.tsx` (novo) — 5 cards curtos de dores
-- `SolutionSection.tsx` (novo) — 3 cards principais
-- `ServicesSection.tsx` — grid 4 colunas com 8 itens, sem textos longos
-- `MethodSection.tsx` — 4 etapas numeradas (timeline)
-- `ForWhomSection.tsx` — critérios de ICP
-- `CTASection.tsx` + `DiagnosticForm.tsx` — formulário com novos campos/opções e nova mensagem de confirmação
-- `FAQSection.tsx` — apenas 3 perguntas
-- `Footer.tsx` — logo, tagline, links curtos, copyright Fintex
+**`src/components/ProblemSection.tsx`** e demais seções (`Solution`, `Services`, `Method`, `ForWhom`, `FAQ`)
+- Padrão único: header de seção com `00 / TÍTULO` em uppercase + linha azul + headline editorial gigante.
+- Conteúdo em grid com bordas (sem cards arredondados). Cada célula numerada `01`, `02`...
+- Remover `bg-surface rounded-lg`; usar `border border-[#1677FF]/20` + hover `bg-[#1677FF]/5`.
+- `MethodSection`: 4 etapas em fila horizontal full-bleed, numeração massiva (text-7xl) à esquerda de cada passo.
+- `ServicesSection`: grid 4 colunas com bordas conectadas (sem gap), número grande no topo.
 
-Componentes a **remover** da árvore (não deletar arquivos necessariamente, só não importar): `TrustBar`, `PainPointsSection` (substituído), `HumanSection`, `AuthoritySection`, `CasesSection`, `BeforeAfterSection`, `CFOVisionSection`, `InstagramSection`, `PositioningSection`, `TeamSection`, `WhatsAppButton` (manter ou remover — remover para enxugar).
+**`src/components/CTASection.tsx`**
+- Headline editorial em coluna esquerda + form em coluna direita dentro de borda azul fina (sem card branco arredondado). Manter `DiagnosticForm` intacto.
+- Trocar fundo para `#0B0D0D` puro com X estrutural.
 
-### 3. Logo e favicon
+**`src/components/FAQSection.tsx`**
+- Lista vertical sem accordion macio: bordas top/bottom azul/20, número à esquerda, pergunta editorial, resposta em coluna recuada.
 
-Como não há arquivos da nova marca enviados, gerar via `imagegen`:
-- `src/assets/logo-fintex.png` — wordmark "fintex bpo" branco para header/footer
-- `public/favicon.png` — símbolo X em azul elétrico sobre fundo escuro
-- Atualizar `BPOnLogo.tsx` → `FintexLogo.tsx` (ou reusar arquivo, trocando asset)
-- Atualizar `<link rel="icon">` no `index.html` e remover `favicon.ico` antigo
+**`src/components/Footer.tsx`**
+- Layout brutalista: grid 12-col com meta "FINTEX BPO © 2026" + nav + barra azul 1px no fundo + floating X marker.
 
-### 4. SEO
+**Novo componente `src/components/FloatingXMark.tsx`**
+- Fixed bottom-right, duas linhas SVG cruzadas, hover passa pra azul. Renderizado uma vez em `Index.tsx`.
 
-Atualizar `index.html`:
-- `<title>`: "Fintex BPO | BPO Financeiro para Empresas"
-- `<meta name="description">`: conforme briefing
-- `<link rel="canonical">`: https://bpon.lovable.app/ (manter domínio atual)
-- OG tags e JSON-LD Organization com nome "Fintex BPO"
-- H1 único na hero conforme briefing
+**`src/components/DiagnosticForm.tsx`**
+- Apenas restyling: inputs sem border-radius (rounded-none), borda fina azul/30, foco azul sólido, label uppercase tracking-widest. Lógica intacta.
 
-### 5. Formulário de diagnóstico
+### Fora de escopo
+- Sem mudanças no `supabase/functions/send-lead-email`, schema, edge functions, roteamento, SEO ou DNS.
+- Sem alteração de copy oficial além das pílulas/labels brutalistas adicionadas.
+- Sem mudança na logo nem na paleta — apenas peso visual.
 
-Atualizar `DiagnosticForm.tsx`:
-- Campos: Nome, Empresa, WhatsApp, E-mail, Faturamento (select com 5 faixas novas), Principal desafio, Mensagem
-- Mensagem de sucesso conforme briefing
-- Manter integração com edge function `send-lead-email` (apenas atualizar copy "Fintex BPO" nos e-mails)
-
-### 6. Conteúdo
-
-Aplicar todos os textos exatos do briefing nas respectivas seções. Tom: direto, consultivo, premium. Tagline "Menos ruído. Mais lógica financeira." no hero (secundário) e footer.
-
-### Detalhes técnicos
-
-- Manter React + Vite + Tailwind + shadcn — nenhuma mudança de stack.
-- Tokens semânticos no `index.css`; nenhum hex hardcoded em componentes.
-- Responsivo mobile-first; CTA visível acima da dobra no mobile.
-- Edge function `supabase/functions/send-lead-email/index.ts`: atualizar assunto e remetente para "Fintex BPO" (manter envio para `comercial@bpon.com.br` salvo orientação contrária).
-- Sobre "Resete toda a parte de DNS": DNS é gerenciado fora do código (painel do Lovable + KingHost). Não há nada a alterar no repositório para isso — orientarei separadamente caso queira refazer a configuração no painel.
-
-### Não-objetivos
-
-- Não criar páginas extras.
-- Não preservar seções antigas (TrustBar, Cases, Authority, Human, Team, etc.).
-- Não alterar stack, roteamento ou backend além do copy do e-mail.
+### Resultado esperado
+Landing com identidade editorial-brutalista forte, grid azul visível, tipografia massiva, zero "cards confortáveis", mantendo legibilidade B2B e o formulário convertendo igual.
