@@ -30,7 +30,7 @@ const Header = () => {
         <div className={`flex items-center justify-between transition-all ${scrolled ? "h-14" : "h-16 lg:h-[72px]"}`}>
           {/* Logo */}
           <a href="#inicio" className="flex-shrink-0">
-            <FintexLogo variant="light" size={28} />
+            <FintexLogo variant="light" height={scrolled ? 28 : 34} />
           </a>
 
           {/* Desktop nav */}

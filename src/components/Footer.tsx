@@ -16,7 +16,7 @@ const Footer = () => {
       <div className="container mx-auto px-6 lg:px-8 py-14">
         <div className="grid md:grid-cols-2 gap-10 mb-10">
           <div>
-            <FintexLogo variant="light" size={28} />
+            <FintexLogo variant="light" height={36} />
             <p className="font-body text-[13px] text-white/45 italic mt-5">
               Menos ruído. Mais lógica financeira.
             </p>
