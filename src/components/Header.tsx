@@ -23,7 +23,7 @@ const Header = () => {
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300 surface-deep ${
-        scrolled ? "border-b border-white/5 shadow-deep" : "border-b border-transparent"
+        scrolled ? "border-b border-white/10" : "border-b border-transparent"
       }`}
     >
       <div className="container mx-auto px-6 lg:px-8">
@@ -50,7 +50,7 @@ const Header = () => {
           <div className="hidden md:flex items-center">
             <a
               href="#diagnostico"
-              className="group inline-flex items-center gap-2 font-body font-semibold text-[13px] px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all shadow-blue"
+              className="group inline-flex items-center gap-2 font-body font-medium text-[13px] px-4 py-2 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
             >
               Solicitar diagnóstico
               <ArrowRight size={12} className="group-hover:translate-x-0.5 transition-transform" />
@@ -83,7 +83,7 @@ const Header = () => {
               ))}
               <a
                 href="#diagnostico"
-                className="font-body text-sm font-semibold px-4 py-3 rounded-lg bg-primary text-primary-foreground text-center mt-2 shadow-blue"
+                className="font-body text-sm font-medium px-4 py-3 rounded-md bg-primary text-primary-foreground text-center mt-2"
                 onClick={() => setMobileOpen(false)}
               >
                 Solicitar diagnóstico
