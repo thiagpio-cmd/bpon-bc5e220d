@@ -11,27 +11,32 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <section id="servicos" className="section-py bg-background">
-      <div className="container mx-auto px-6 lg:px-8">
-        <div className="max-w-2xl mb-12 reveal">
-          <p className="eyebrow mb-5">Serviços</p>
-          <h2 className="font-display font-bold text-headline text-[1.8rem] lg:text-[2.4rem] leading-[1.1] tracking-tight">
-            O que a Fintex BPO pode assumir.
-          </h2>
+    <section id="servicos" className="section-py bg-background relative overflow-hidden">
+      <div className="container mx-auto px-6 lg:px-12 relative z-10">
+        <div className="grid grid-cols-12 gap-8 mb-16 reveal">
+          <div className="col-span-12 lg:col-span-3">
+            <span className="eyebrow-num">02 / Serviços</span>
+          </div>
+          <div className="col-span-12 lg:col-span-9">
+            <h2 className="font-display font-bold text-headline text-[2rem] md:text-[3rem] lg:text-[4rem] leading-[0.95] tracking-[-0.04em]">
+              O que a Fintex BPO <span className="text-primary italic">pode assumir.</span>
+            </h2>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 reveal reveal-delay-2">
+        <div className="grid grid-cols-2 md:grid-cols-4 brutal-grid-light reveal reveal-delay-2">
           {services.map((s, i) => (
-            <div
-              key={s}
-              className="card-hover bg-surface border border-divider rounded-lg p-5 flex items-center gap-4"
-            >
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="flex-shrink-0">
-                <path d="M2 2 L12 12 M12 2 L2 12" stroke="hsl(214 100% 54%)" strokeWidth="2" strokeLinecap="square" />
-              </svg>
-              <span className="font-body text-[14px] font-medium text-headline">{s}</span>
-              <span className="ml-auto font-body text-[11px] text-body/40 tabular-nums">
-                {String(i + 1).padStart(2, "0")}
+            <div key={s} className="brutal-cell-light p-7 min-h-[180px] flex flex-col justify-between group">
+              <div className="flex items-start justify-between">
+                <span className="font-mono text-[10px] text-primary font-bold tracking-widest">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="opacity-40 group-hover:opacity-100 transition-opacity">
+                  <path d="M2 2 L12 12 M12 2 L2 12" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinecap="square" />
+                </svg>
+              </div>
+              <span className="font-display font-bold text-headline text-[17px] uppercase tracking-tight leading-tight">
+                {s}
               </span>
             </div>
           ))}

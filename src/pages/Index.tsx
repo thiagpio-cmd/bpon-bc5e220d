@@ -9,6 +9,7 @@ import ForWhomSection from "@/components/ForWhomSection";
 import CTASection from "@/components/CTASection";
 import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
+import FloatingXMark from "@/components/FloatingXMark";
 
 const Index = () => {
   useScrollReveal();
@@ -27,6 +28,7 @@ const Index = () => {
         <FAQSection />
       </main>
       <Footer />
+      <FloatingXMark />
     </div>
   );
 };

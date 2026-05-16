@@ -8,33 +8,42 @@ const criteria = [
 
 const ForWhomSection = () => {
   return (
-    <section id="para-quem" className="section-py bg-background">
-      <div className="container mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-          <div className="reveal">
-            <p className="eyebrow mb-5">Para quem é</p>
-            <h2 className="font-display font-bold text-headline text-[1.8rem] lg:text-[2.4rem] leading-[1.1] tracking-tight">
-              Para empresas que cresceram e já não podem tratar o financeiro no improviso.
+    <section id="para-quem" className="section-py bg-background relative overflow-hidden">
+      <div className="container mx-auto px-6 lg:px-12 relative z-10">
+        <div className="grid grid-cols-12 gap-8 mb-16 reveal">
+          <div className="col-span-12 lg:col-span-3">
+            <span className="eyebrow-num">04 / Para quem</span>
+          </div>
+          <div className="col-span-12 lg:col-span-9">
+            <h2 className="font-display font-bold text-headline text-[2rem] md:text-[3rem] lg:text-[4rem] leading-[0.95] tracking-[-0.04em]">
+              Para empresas que não podem mais tratar o financeiro no{" "}
+              <span className="text-primary italic">improviso.</span>
             </h2>
-            <p className="font-body text-[15px] text-body leading-relaxed mt-5">
-              A Fintex BPO atende empresas de serviços, tecnologia, consultorias, clínicas,
-              indústrias leves e operações comerciais que precisam de uma rotina financeira mais
-              confiável para crescer com controle.
+            <p className="font-body text-base lg:text-lg text-body leading-relaxed mt-6 max-w-2xl">
+              Atendemos empresas de serviços, tecnologia, consultorias, clínicas, indústrias leves
+              e operações comerciais que precisam de uma rotina financeira mais confiável para
+              crescer com controle.
             </p>
           </div>
+        </div>
 
-          <div className="reveal reveal-delay-2">
-            <ul className="flex flex-col gap-px bg-divider border border-divider rounded-xl overflow-hidden">
-              {criteria.map((c, i) => (
-                <li key={c} className="bg-surface px-6 py-4 flex items-start gap-4">
-                  <span className="font-display font-bold text-[12px] text-primary tabular-nums pt-0.5">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="font-body text-[14px] text-headline leading-snug">{c}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="brutal-grid-light reveal reveal-delay-2">
+          {criteria.map((c, i) => (
+            <div
+              key={c}
+              className="brutal-cell-light grid grid-cols-12 gap-6 items-center py-6 px-6 group hover:bg-primary/[0.03]"
+            >
+              <span className="col-span-2 md:col-span-1 font-mono text-[11px] text-primary font-bold tracking-widest">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <span className="col-span-9 md:col-span-10 font-display font-medium text-headline text-[17px] md:text-[20px] tracking-tight leading-snug">
+                {c}
+              </span>
+              <span className="col-span-1 text-right font-mono text-primary text-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                →
+              </span>
+            </div>
+          ))}
         </div>
       </div>
     </section>

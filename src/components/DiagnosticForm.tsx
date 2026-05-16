@@ -65,16 +65,19 @@ const DiagnosticForm = () => {
   if (submitted) {
     return (
       <div className="flex flex-col items-center justify-center py-10 px-4 text-center gap-5">
-        <div className="w-12 h-12 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path d="M4 10l4 4 8-8" stroke="hsl(214 100% 54%)" strokeWidth="2" strokeLinecap="square" />
+        <div className="w-12 h-12 border border-primary/60 flex items-center justify-center">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+            <path d="M4 10l4 4 8-8" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinecap="square" />
           </svg>
         </div>
         <div>
-          <h3 className="font-display font-bold text-lg text-headline mb-2">
+          <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-primary font-bold mb-3">
+            Diagnóstico recebido
+          </p>
+          <h3 className="font-display font-bold text-[20px] text-white mb-3">
             Recebemos suas informações.
           </h3>
-          <p className="font-body text-[13px] text-body max-w-md leading-relaxed">
+          <p className="font-body text-[13.5px] text-white/60 max-w-md leading-relaxed">
             A equipe da Fintex BPO vai analisar seu cenário e entrar em contato para o próximo passo.
           </p>
         </div>
@@ -83,7 +86,7 @@ const DiagnosticForm = () => {
   }
 
   const inputCls =
-    "w-full px-3.5 py-3 rounded-lg border border-divider bg-white font-body text-[13.5px] text-headline placeholder:text-body/45 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15 transition-all";
+    "w-full px-4 py-3 bg-transparent border border-primary/25 font-body text-[14px] text-white placeholder:text-white/35 focus:outline-none focus:border-primary focus:bg-primary/[0.04] transition-all";
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4">

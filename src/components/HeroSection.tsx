@@ -1,6 +1,4 @@
-import { ArrowRight } from "lucide-react";
-
-const indicators = [
+const rotinas = [
   "Contas a pagar",
   "Contas a receber",
   "Conciliação",
@@ -10,81 +8,94 @@ const indicators = [
 
 const HeroSection = () => {
   return (
-    <section id="inicio" className="relative surface-deep overflow-hidden">
-      {/* Giant X mark in background */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 pointer-events-none flex items-center justify-end opacity-[0.04] select-none"
-      >
-        <svg viewBox="0 0 100 100" className="h-[140%] w-auto translate-x-[15%]" fill="none">
-          <path d="M15 15 L85 85 M85 15 L15 85" stroke="hsl(214 100% 60%)" strokeWidth="4" strokeLinecap="square" />
-        </svg>
-      </div>
+    <section id="inicio" className="relative surface-deep overflow-hidden x-cross">
+      {/* Marquee background text */}
+      <div className="marquee-bg">FINTEX FINTEX FINTEX FINTEX</div>
 
-      {/* Subtle radial glow */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 60% 50% at 20% 30%, hsl(214 100% 30% / 0.18) 0%, transparent 70%)",
-        }}
-      />
-
-      <div className="container mx-auto px-6 lg:px-8 relative z-10">
-        <div className="max-w-3xl py-20 lg:py-32">
-          <p className="eyebrow eyebrow-light mb-6">BPO Financeiro</p>
-
-          <h1 className="font-display font-black text-white text-[2.25rem] sm:text-[2.8rem] lg:text-[3.6rem] leading-[1.05] tracking-tight">
-            BPO Financeiro para empresas que precisam de{" "}
-            <span className="text-primary">rotina, caixa e previsibilidade.</span>
-          </h1>
-
-          <p className="font-body text-[15px] lg:text-[17px] text-white/65 mt-6 leading-relaxed max-w-2xl">
-            A Fintex BPO assume contas a pagar, contas a receber, conciliação, cobranças e relatórios
-            para sua empresa operar com mais controle.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-3 mt-9">
-            <a
-              href="#diagnostico"
-              className="group inline-flex items-center justify-center gap-2 font-body font-semibold text-sm px-6 py-3.5 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all shadow-blue"
-            >
-              Solicitar diagnóstico financeiro
-              <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
-            </a>
-            <a
-              href="#metodo"
-              className="inline-flex items-center justify-center gap-2 font-body font-medium text-sm px-6 py-3.5 rounded-lg border border-white/15 text-white/85 hover:bg-white/5 hover:border-white/25 transition-all"
-            >
-              Ver como funciona
-            </a>
+      <div className="container mx-auto px-6 lg:px-12 relative z-10 pt-16 lg:pt-20 pb-24 lg:pb-32">
+        {/* Meta row */}
+        <div className="flex justify-between items-end border-b border-primary/30 pb-4 mb-12 reveal">
+          <div className="flex flex-col gap-1">
+            <span className="font-mono text-[10px] uppercase tracking-[0.36em] text-primary font-bold">
+              Fintex BPO © 2026
+            </span>
+            <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/40">
+              BPO Financeiro / São Paulo · Brasil
+            </span>
           </div>
+          <div className="hidden md:flex gap-6 font-mono text-[10px] uppercase tracking-[0.22em] font-bold">
+            <span className="text-white/35">01 / Rotina</span>
+            <span className="text-white/35">02 / Caixa</span>
+            <span className="text-primary">03 / Previsibilidade</span>
+          </div>
+        </div>
 
-          <p className="font-body text-[12.5px] text-white/45 mt-5 max-w-xl leading-relaxed">
-            Para empresas em crescimento que precisam profissionalizar o financeiro sem montar uma
-            estrutura interna pesada.
-          </p>
+        {/* Headline */}
+        <div className="grid grid-cols-12 gap-y-10 reveal reveal-delay-1">
+          <div className="col-span-12 lg:col-span-10 xl:col-span-9">
+            <span className="pill-blue mb-6">BPO Financeiro de alto impacto</span>
+            <h1 className="font-display font-bold text-white text-[2.6rem] sm:text-[3.6rem] lg:text-[5.6rem] xl:text-[6.4rem] leading-[0.9] tracking-[-0.04em] mt-2">
+              BPO Financeiro para empresas que precisam de rotina, caixa e{" "}
+              <span className="text-primary italic font-bold">previsibilidade.</span>
+            </h1>
+          </div>
+        </div>
 
-          {/* Indicators */}
-          <div className="mt-12 pt-8 border-t border-white/10">
-            <p className="font-body text-[11px] uppercase tracking-[0.14em] text-white/35 mb-4">
-              Rotinas que assumimos
+        {/* Sub + CTA */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-16 reveal reveal-delay-2">
+          <div>
+            <p className="font-body text-lg md:text-xl text-white/75 leading-relaxed max-w-md font-light">
+              A Fintex BPO assume contas a pagar, contas a receber, conciliação, cobranças e
+              relatórios para sua empresa operar com precisão executiva.
             </p>
-            <div className="flex flex-wrap gap-x-6 gap-y-2.5">
-              {indicators.map((item) => (
-                <span key={item} className="inline-flex items-center gap-2 font-body text-[13px] text-white/70">
-                  <span className="w-1 h-1 rounded-full bg-primary" />
-                  {item}
-                </span>
-              ))}
+            <div className="flex items-center gap-3 mt-8">
+              <div className="h-px w-10 bg-primary" />
+              <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-white/55">
+                Escale sem fricção
+              </span>
             </div>
           </div>
 
-          <p className="font-body text-[12px] text-white/40 mt-10 italic">
-            Menos ruído. Mais lógica financeira.
-          </p>
+          <div className="flex flex-col justify-end md:items-end gap-6">
+            <a href="#diagnostico" className="btn-brutal-primary w-full md:w-auto">
+              <span className="relative z-10">Solicitar diagnóstico financeiro</span>
+              <span className="absolute right-4 top-1/2 -translate-y-1/2 translate-x-8 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all">
+                →
+              </span>
+            </a>
+            <a href="#metodo" className="btn-brutal-ghost w-full md:w-auto">
+              Ver como funciona
+            </a>
+          </div>
         </div>
+
+        {/* Rotinas brutal grid */}
+        <div className="mt-24 reveal reveal-delay-3">
+          <div className="flex items-end justify-between mb-6">
+            <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-white/45">
+              Rotinas que assumimos
+            </span>
+            <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary">
+              05 áreas
+            </span>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-5 brutal-grid">
+            {rotinas.map((r, i) => (
+              <div key={r} className="brutal-cell p-6 min-h-[110px] flex flex-col justify-between">
+                <span className="font-mono text-[10px] text-primary font-bold tracking-widest">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="font-display font-bold text-white text-[15px] uppercase tracking-tight leading-tight">
+                  {r}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <p className="font-mono text-[10px] uppercase tracking-[0.36em] text-white/30 mt-16 italic">
+          // Menos ruído. Mais lógica financeira.
+        </p>
       </div>
     </section>
   );
