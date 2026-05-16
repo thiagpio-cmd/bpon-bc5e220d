@@ -1,55 +1,75 @@
 import FintexLogo from "./FintexLogo";
 
 const links = [
-  { label: "Serviços", href: "#servicos" },
-  { label: "Como funciona", href: "#metodo" },
-  { label: "Para quem é", href: "#para-quem" },
-  { label: "Diagnóstico financeiro", href: "#diagnostico" },
-  { label: "Contato", href: "#diagnostico" },
-  { label: "Política de privacidade", href: "#" },
+  { n: "01", label: "Serviços", href: "#servicos" },
+  { n: "02", label: "Método", href: "#metodo" },
+  { n: "03", label: "Para quem", href: "#para-quem" },
+  { n: "04", label: "Diagnóstico", href: "#diagnostico" },
 ];
 
 const Footer = () => {
   const year = new Date().getFullYear();
   return (
-    <footer className="surface-deep border-t border-white/5">
-      <div className="container mx-auto px-6 lg:px-8 py-14">
-        <div className="grid md:grid-cols-2 gap-10 mb-10">
-          <div>
-            <FintexLogo variant="light" height={36} />
-            <p className="font-body text-[13px] text-white/45 italic mt-5">
-              Menos ruído. Mais lógica financeira.
+    <footer className="surface-deep relative overflow-hidden border-t border-primary/30">
+      <div className="container mx-auto px-6 lg:px-12 py-16 lg:py-20 relative z-10">
+        <div className="grid grid-cols-12 gap-8 mb-12">
+          <div className="col-span-12 md:col-span-6">
+            <FintexLogo variant="light" height={32} />
+            <p className="font-display font-bold text-white text-[1.8rem] md:text-[2.4rem] leading-[1] tracking-[-0.03em] mt-8 max-w-md">
+              Menos ruído. <span className="text-primary italic">Mais lógica financeira.</span>
             </p>
-            <p className="font-body text-[13.5px] text-white/65 mt-4 max-w-md leading-relaxed">
-              BPO Financeiro para empresas que precisam organizar a rotina, controlar o caixa e
-              tomar decisões com mais previsibilidade.
+            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-white/40 mt-6">
+              Financial Intelligence Unit · BPO Financeiro
             </p>
           </div>
 
-          <div className="md:justify-self-end">
-            <p className="font-body text-[11px] uppercase tracking-[0.14em] text-white/35 mb-4">
+          <div className="col-span-6 md:col-span-3">
+            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-primary font-bold mb-6">
               Navegação
             </p>
-            <nav className="flex flex-col gap-2.5">
+            <nav className="flex flex-col gap-3">
               {links.map((l) => (
                 <a
                   key={l.label}
                   href={l.href}
-                  className="font-body text-[13.5px] text-white/70 hover:text-white transition-colors"
+                  className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/65 hover:text-white transition-colors"
                 >
-                  {l.label}
+                  <span className="text-primary mr-2">{l.n}</span>/ {l.label}
                 </a>
               ))}
             </nav>
           </div>
+
+          <div className="col-span-6 md:col-span-3">
+            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-primary font-bold mb-6">
+              Contato
+            </p>
+            <a
+              href="mailto:comercial@bpon.com.br"
+              className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/65 hover:text-white block mb-3"
+            >
+              comercial@bpon.com.br
+            </a>
+            <a
+              href="#diagnostico"
+              className="inline-block mt-4 bg-primary text-primary-foreground px-4 py-3 font-mono text-[10px] font-bold uppercase tracking-[0.22em] hover:bg-primary/85 transition-colors"
+            >
+              Diagnóstico →
+            </a>
+          </div>
         </div>
 
-        <div className="pt-6 border-t border-white/5">
-          <p className="font-body text-[12px] text-white/40">
+        <div className="border-t border-primary/20 pt-6 flex flex-col md:flex-row justify-between gap-3">
+          <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/35">
             © {year} Fintex BPO. Todos os direitos reservados.
+          </p>
+          <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/35">
+            São Paulo · Brasil
           </p>
         </div>
       </div>
+
+      <div className="absolute bottom-0 left-0 w-full h-[2px] bg-primary/60" />
     </footer>
   );
 };

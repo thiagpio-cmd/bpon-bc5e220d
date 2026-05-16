@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
 
 const faqs = [
   {
@@ -19,41 +18,53 @@ const faqs = [
 const FAQSection = () => {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section id="faq" className="section-py bg-background">
-      <div className="container mx-auto px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto">
-          <div className="mb-10 reveal">
-            <p className="eyebrow mb-5">FAQ</p>
-            <h2 className="font-display font-bold text-headline text-[1.8rem] lg:text-[2.2rem] leading-[1.1] tracking-tight">
-              Perguntas frequentes.
+    <section id="faq" className="section-py bg-background relative overflow-hidden">
+      <div className="container mx-auto px-6 lg:px-12 relative z-10">
+        <div className="grid grid-cols-12 gap-8 mb-16 reveal">
+          <div className="col-span-12 lg:col-span-3">
+            <span className="eyebrow-num">06 / FAQ</span>
+          </div>
+          <div className="col-span-12 lg:col-span-9">
+            <h2 className="font-display font-bold text-headline text-[2rem] md:text-[3rem] lg:text-[4rem] leading-[0.95] tracking-[-0.04em]">
+              Perguntas <span className="text-primary italic">frequentes.</span>
             </h2>
           </div>
+        </div>
 
-          <div className="flex flex-col gap-2 reveal reveal-delay-2">
-            {faqs.map((f, i) => (
-              <div
-                key={i}
-                className="border border-divider rounded-xl bg-surface overflow-hidden transition-all"
-                style={{ borderColor: open === i ? "hsl(var(--primary) / 0.3)" : undefined }}
-              >
+        <div className="border-t border-primary/20 reveal reveal-delay-2">
+          {faqs.map((f, i) => {
+            const isOpen = open === i;
+            return (
+              <div key={i} className="border-b border-primary/20">
                 <button
-                  className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left"
-                  onClick={() => setOpen(open === i ? null : i)}
+                  className="w-full grid grid-cols-12 gap-6 items-center py-7 text-left group"
+                  onClick={() => setOpen(isOpen ? null : i)}
                 >
-                  <span className="font-display font-semibold text-[14.5px] text-headline">{f.q}</span>
-                  <ChevronDown
-                    size={16}
-                    className={`flex-shrink-0 transition-transform ${open === i ? "rotate-180 text-primary" : "text-body/50"}`}
-                  />
+                  <span className="col-span-2 md:col-span-1 font-mono text-[11px] text-primary font-bold tracking-widest">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="col-span-9 md:col-span-10 font-display font-medium text-headline text-[18px] md:text-[22px] tracking-tight">
+                    {f.q}
+                  </span>
+                  <span
+                    className={`col-span-1 text-right font-display text-2xl text-primary transition-transform ${
+                      isOpen ? "rotate-45" : ""
+                    }`}
+                  >
+                    +
+                  </span>
                 </button>
-                {open === i && (
-                  <div className="px-5 pb-5 border-t border-divider/60">
-                    <p className="font-body text-[13.5px] text-body leading-relaxed pt-3">{f.a}</p>
+                {isOpen && (
+                  <div className="grid grid-cols-12 gap-6 pb-7 animate-fade-in">
+                    <div className="col-span-2 md:col-span-1" />
+                    <p className="col-span-10 font-body text-[15px] text-body leading-relaxed max-w-3xl">
+                      {f.a}
+                    </p>
                   </div>
                 )}
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
       </div>
     </section>

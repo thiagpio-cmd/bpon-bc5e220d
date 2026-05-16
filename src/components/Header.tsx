@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import FintexLogo from "./FintexLogo";
 
 const navLinks = [
-  { label: "Serviços", href: "#servicos" },
-  { label: "Como funciona", href: "#metodo" },
-  { label: "Para quem é", href: "#para-quem" },
-  { label: "Diagnóstico", href: "#diagnostico" },
+  { n: "01", label: "Serviços", href: "#servicos" },
+  { n: "02", label: "Método", href: "#metodo" },
+  { n: "03", label: "Para quem", href: "#para-quem" },
+  { n: "04", label: "Diagnóstico", href: "#diagnostico" },
 ];
 
 const Header = () => {
@@ -22,42 +22,42 @@ const Header = () => {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 surface-deep ${
-        scrolled ? "border-b border-white/5 shadow-deep" : "border-b border-transparent"
+      className={`sticky top-0 z-50 transition-colors duration-300 surface-deep border-b ${
+        scrolled ? "border-primary/30" : "border-primary/10"
       }`}
     >
-      <div className="container mx-auto px-6 lg:px-8">
-        <div className={`flex items-center justify-between transition-all ${scrolled ? "h-14" : "h-16 lg:h-[72px]"}`}>
-          {/* Logo */}
-          <a href="#inicio" className="flex-shrink-0">
-            <FintexLogo variant="light" height={scrolled ? 28 : 34} />
+      <div className="container mx-auto px-6 lg:px-12">
+        <div className="flex items-center justify-between h-16 lg:h-20">
+          <a href="#inicio" className="flex items-center gap-4">
+            <FintexLogo variant="light" height={26} />
+            <span className="hidden lg:inline-block h-3 w-px bg-primary/40" />
+            <span className="hidden lg:inline-block font-mono text-[9px] uppercase tracking-[0.32em] text-white/45">
+              Financial Intelligence Unit
+            </span>
           </a>
 
-          {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="font-body text-[13px] text-white/70 hover:text-white px-3 py-1.5 rounded-md transition-colors"
+                className="group font-mono text-[10px] uppercase tracking-[0.24em] text-white/55 hover:text-white transition-colors"
               >
-                {link.label}
+                <span className="text-primary mr-1.5">{link.n}</span>
+                <span>/ {link.label}</span>
               </a>
             ))}
           </nav>
 
-          {/* CTA */}
           <div className="hidden md:flex items-center">
             <a
               href="#diagnostico"
-              className="group inline-flex items-center gap-2 font-body font-semibold text-[13px] px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all shadow-blue"
+              className="bg-primary text-primary-foreground px-5 py-2.5 font-mono text-[10px] font-bold uppercase tracking-[0.22em] hover:bg-primary/85 transition-colors"
             >
-              Solicitar diagnóstico
-              <ArrowRight size={12} className="group-hover:translate-x-0.5 transition-transform" />
+              Diagnóstico →
             </a>
           </div>
 
-          {/* Mobile toggle */}
           <button
             className="md:hidden text-white/80 hover:text-white p-1"
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -67,26 +67,25 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Mobile menu */}
         {mobileOpen && (
-          <div className="md:hidden border-t border-white/5 py-4 animate-fade-in">
+          <div className="md:hidden border-t border-primary/20 py-6 animate-fade-in">
             <nav className="flex flex-col gap-1">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="font-body text-sm text-white/75 hover:text-white py-2.5 px-3 rounded-lg hover:bg-white/5 transition-colors"
+                  className="font-mono text-[11px] uppercase tracking-[0.22em] text-white/70 hover:text-white py-3 px-2 border-b border-primary/10"
                   onClick={() => setMobileOpen(false)}
                 >
-                  {link.label}
+                  <span className="text-primary mr-2">{link.n}</span>/ {link.label}
                 </a>
               ))}
               <a
                 href="#diagnostico"
-                className="font-body text-sm font-semibold px-4 py-3 rounded-lg bg-primary text-primary-foreground text-center mt-2 shadow-blue"
+                className="bg-primary text-primary-foreground px-5 py-4 font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-center mt-4"
                 onClick={() => setMobileOpen(false)}
               >
-                Solicitar diagnóstico
+                Solicitar diagnóstico →
               </a>
             </nav>
           </div>

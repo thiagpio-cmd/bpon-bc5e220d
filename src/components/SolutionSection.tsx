@@ -15,30 +15,38 @@ const cards = [
 
 const SolutionSection = () => {
   return (
-    <section id="solucao" className="section-py surface-graphite">
-      <div className="container mx-auto px-6 lg:px-8">
-        <div className="max-w-2xl mb-14 reveal">
-          <p className="eyebrow eyebrow-light mb-5">Solução</p>
-          <h2 className="font-display font-bold text-white text-[1.8rem] lg:text-[2.4rem] leading-[1.1] tracking-tight">
-            A Fintex BPO organiza a rotina financeira e entrega visão gerencial.
-          </h2>
-          <p className="font-body text-[15px] text-white/65 leading-relaxed mt-5">
-            Assumimos a operação financeira do dia a dia para que sua empresa tenha mais
-            previsibilidade, controle e leitura dos números.
-          </p>
+    <section id="solucao" className="section-py surface-graphite relative overflow-hidden x-cross">
+      <div className="container mx-auto px-6 lg:px-12 relative z-10">
+        <div className="grid grid-cols-12 gap-8 mb-16 reveal">
+          <div className="col-span-12 lg:col-span-3">
+            <span className="eyebrow-num">01 / Solução</span>
+          </div>
+          <div className="col-span-12 lg:col-span-9">
+            <h2 className="font-display font-bold text-white text-[2rem] md:text-[3rem] lg:text-[4rem] leading-[0.95] tracking-[-0.04em]">
+              A Fintex BPO organiza a rotina e entrega <span className="text-primary italic">visão gerencial</span>.
+            </h2>
+            <p className="font-body text-base lg:text-lg text-white/70 leading-relaxed mt-6 max-w-2xl font-light">
+              Assumimos a operação financeira do dia a dia para que sua empresa tenha mais
+              previsibilidade, controle e leitura dos números.
+            </p>
+          </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-4 reveal reveal-delay-2">
+        <div className="grid grid-cols-1 md:grid-cols-3 brutal-grid reveal reveal-delay-2">
           {cards.map((c, i) => (
-            <div
-              key={c.title}
-              className="relative bg-white/[0.03] border border-white/10 rounded-xl p-7 transition-all hover:border-primary/40 hover:bg-white/[0.05]"
-            >
-              <span className="absolute top-5 right-5 font-display font-bold text-[12px] text-primary/70">
-                0{i + 1}
-              </span>
-              <h3 className="font-display font-bold text-white text-[18px] mb-3">{c.title}</h3>
-              <p className="font-body text-[13.5px] text-white/65 leading-relaxed">{c.desc}</p>
+            <div key={c.title} className="brutal-cell p-8 min-h-[260px] flex flex-col">
+              <div className="flex items-center justify-between mb-8">
+                <span className="font-mono text-[10px] text-primary font-bold tracking-widest">
+                  {String(i + 1).padStart(2, "0")} / 03
+                </span>
+                <span className="h-px w-12 bg-primary/40" />
+              </div>
+              <h3 className="font-display font-bold text-white text-[22px] uppercase tracking-tight mb-4 leading-tight">
+                {c.title}
+              </h3>
+              <p className="font-body text-[14px] text-white/65 leading-relaxed mt-auto">
+                {c.desc}
+              </p>
             </div>
           ))}
         </div>

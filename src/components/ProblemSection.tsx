@@ -8,29 +8,33 @@ const pains = [
 
 const ProblemSection = () => {
   return (
-    <section id="problema" className="section-py bg-background">
-      <div className="container mx-auto px-6 lg:px-8">
-        <div className="max-w-2xl mb-12 reveal">
-          <p className="eyebrow mb-5">Problema</p>
-          <h2 className="font-display font-bold text-headline text-[1.8rem] lg:text-[2.4rem] leading-[1.1] tracking-tight">
-            Seu financeiro está consumindo tempo demais da gestão?
-          </h2>
-          <p className="font-body text-[15px] text-body leading-relaxed mt-5">
-            Quando pagamentos, cobranças, conciliações e relatórios ficam espalhados, a empresa
-            perde clareza sobre caixa, prazos e decisões.
-          </p>
+    <section id="problema" className="section-py bg-background relative overflow-hidden">
+      <div className="container mx-auto px-6 lg:px-12 relative z-10">
+        <div className="grid grid-cols-12 gap-8 mb-16 reveal">
+          <div className="col-span-12 lg:col-span-3">
+            <span className="eyebrow-num">00 / Problema</span>
+          </div>
+          <div className="col-span-12 lg:col-span-9">
+            <h2 className="font-display font-bold text-headline text-[2rem] md:text-[3rem] lg:text-[4rem] leading-[0.95] tracking-[-0.04em]">
+              Seu financeiro está consumindo{" "}
+              <span className="text-primary italic">tempo demais</span> da gestão?
+            </h2>
+            <p className="font-body text-base lg:text-lg text-body leading-relaxed mt-6 max-w-2xl">
+              Quando pagamentos, cobranças, conciliações e relatórios ficam espalhados, a empresa
+              perde clareza sobre caixa, prazos e decisões.
+            </p>
+          </div>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-3 reveal reveal-delay-2">
+        <div className="grid grid-cols-2 md:grid-cols-5 brutal-grid-light reveal reveal-delay-2">
           {pains.map((pain, i) => (
-            <div
-              key={pain}
-              className="card-hover bg-surface border border-divider rounded-lg p-5 flex flex-col gap-3"
-            >
-              <span className="font-display font-bold text-[13px] text-primary">
+            <div key={pain} className="brutal-cell-light p-6 min-h-[160px] flex flex-col justify-between">
+              <span className="font-mono text-[10px] text-primary font-bold tracking-widest">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <p className="font-body text-[13.5px] text-headline leading-snug">{pain}</p>
+              <p className="font-display font-bold text-headline text-[15px] leading-tight uppercase tracking-tight">
+                {pain}
+              </p>
             </div>
           ))}
         </div>

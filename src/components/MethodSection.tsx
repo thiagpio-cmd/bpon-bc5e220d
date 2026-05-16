@@ -7,30 +7,32 @@ const steps = [
 
 const MethodSection = () => {
   return (
-    <section id="metodo" className="section-py surface-deep relative overflow-hidden">
-      <div
-        aria-hidden="true"
-        className="absolute -right-32 -bottom-32 w-[480px] h-[480px] opacity-[0.03] pointer-events-none"
-      >
-        <svg viewBox="0 0 100 100" fill="none">
-          <path d="M15 15 L85 85 M85 15 L15 85" stroke="hsl(214 100% 60%)" strokeWidth="4" strokeLinecap="square" />
-        </svg>
-      </div>
-
-      <div className="container mx-auto px-6 lg:px-8 relative z-10">
-        <div className="max-w-2xl mb-14 reveal">
-          <p className="eyebrow eyebrow-light mb-5">Como funciona</p>
-          <h2 className="font-display font-bold text-white text-[1.8rem] lg:text-[2.4rem] leading-[1.1] tracking-tight">
-            Um processo simples para tirar o financeiro do improviso.
-          </h2>
+    <section id="metodo" className="section-py surface-deep relative overflow-hidden x-cross">
+      <div className="container mx-auto px-6 lg:px-12 relative z-10">
+        <div className="grid grid-cols-12 gap-8 mb-16 reveal">
+          <div className="col-span-12 lg:col-span-3">
+            <span className="eyebrow-num">03 / Método</span>
+          </div>
+          <div className="col-span-12 lg:col-span-9">
+            <h2 className="font-display font-bold text-white text-[2rem] md:text-[3rem] lg:text-[4rem] leading-[0.95] tracking-[-0.04em]">
+              Um processo para tirar o financeiro do <span className="text-primary italic">improviso.</span>
+            </h2>
+          </div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 border border-white/10 rounded-xl overflow-hidden reveal reveal-delay-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 brutal-grid reveal reveal-delay-2">
           {steps.map((s) => (
-            <div key={s.n} className="surface-deep p-7 flex flex-col gap-4 min-h-[180px]">
-              <span className="font-display font-black text-primary text-[2.5rem] leading-none">{s.n}</span>
-              <h3 className="font-display font-bold text-white text-[16px]">{s.title}</h3>
-              <p className="font-body text-[13px] text-white/60 leading-relaxed">{s.desc}</p>
+            <div key={s.n} className="brutal-cell p-8 min-h-[280px] flex flex-col">
+              <span className="font-display font-bold text-primary text-[5rem] leading-[0.85] tracking-tighter">
+                {s.n}
+              </span>
+              <div className="h-px w-full bg-primary/30 my-6" />
+              <h3 className="font-display font-bold text-white text-[20px] uppercase tracking-tight mb-3">
+                {s.title}
+              </h3>
+              <p className="font-body text-[13.5px] text-white/65 leading-relaxed mt-auto">
+                {s.desc}
+              </p>
             </div>
           ))}
         </div>
