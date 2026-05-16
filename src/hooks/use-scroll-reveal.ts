@@ -6,7 +6,6 @@ import { useEffect, useRef } from "react";
  */
 export const useScrollReveal = () => {
   useEffect(() => {
-    document.documentElement.classList.add("js-reveal");
     const els = document.querySelectorAll(".reveal");
 
     const observer = new IntersectionObserver(
@@ -18,13 +17,10 @@ export const useScrollReveal = () => {
           }
         });
       },
-      { threshold: 0.05, rootMargin: "0px 0px -10% 0px" }
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
     );
 
     els.forEach((el) => observer.observe(el));
-    return () => {
-      observer.disconnect();
-      document.documentElement.classList.remove("js-reveal");
-    };
+    return () => observer.disconnect();
   }, []);
 };
