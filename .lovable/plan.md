@@ -1,29 +1,83 @@
+## Rebrand completo: BPOn → Fintex BPO
 
+Transformar o site atual em uma landing page premium, enxuta e focada em conversão, com nova identidade visual e marca **Fintex BPO**.
 
-## Configuração de Domínio Personalizado no Lovable
+### 1. Identidade visual (design system)
 
-Sim, o fluxo está correto. O Lovable hospeda o site e você só precisa apontar o DNS. Não há necessidade de GitHub Actions, `npm ci`, ou build externo.
+Atualizar `src/index.css` e `tailwind.config.ts` com a nova paleta em HSL:
+- Preto profundo `#0B0D0D` — background principal
+- Branco gelo `#F5F7FA` — surface clara
+- Azul elétrico `#1677FF` — primary / CTA
+- Grafite `#1A1D23` — surfaces escuras
+- Azul petróleo `#0F2A3A` — accent escuro
+- Cinza neutro `#E6EBE8` — divider / muted
 
-### Passos
+Tipografia: **Satoshi** (títulos, via Fontshare) + **Inter** (corpo). Carregar via `<link>` no `index.html`.
 
-1. **Publicar o projeto** — Clique em "Publish" no canto superior direito do editor.
+Elemento visual proprietário: símbolo **X** (SVG inline) usado discretamente como fundo do hero e detalhe nos cards, em baixa opacidade.
 
-2. **Conectar o domínio** — Vá em **Settings → Domains → Connect Domain** e digite seu domínio (ex: `bpon.com.br`).
+### 2. Estrutura da landing page (10 seções)
 
-3. **Configurar DNS na KingHost** — O Lovable vai pedir que você adicione estes registros:
-   - **A** → Nome: `@` → Valor: `185.158.133.1`
-   - **A** → Nome: `www` → Valor: `185.158.133.1`
-   - **TXT** → Nome: `_lovable` → Valor: será fornecido pelo Lovable (para verificação)
+Reescrever `src/pages/Index.tsx` para conter apenas:
 
-4. **Aguardar propagação** — Entre 15 min e 72h. O SSL é provisionado automaticamente.
+```
+Header  →  Hero  →  Problema  →  Solução  →  Serviços
+       →  Como funciona  →  Para quem  →  CTA final + Form
+       →  FAQ (3 perguntas)  →  Footer
+```
 
-5. **Adicionar `www` também** — Lembre-se de adicionar tanto `bpon.com.br` quanto `www.bpon.com.br` no Lovable e escolher um como primário.
+Componentes a recriar/substituir (manter nomes ou trocar conforme conveniência):
+- `Header.tsx` — fixo escuro, logo Fintex à esquerda, links + botão "Solicitar diagnóstico"
+- `HeroSection.tsx` — H1, sub, 2 CTAs, microcopy, indicadores; X grande de fundo
+- `ProblemSection.tsx` (novo) — 5 cards curtos de dores
+- `SolutionSection.tsx` (novo) — 3 cards principais
+- `ServicesSection.tsx` — grid 4 colunas com 8 itens, sem textos longos
+- `MethodSection.tsx` — 4 etapas numeradas (timeline)
+- `ForWhomSection.tsx` — critérios de ICP
+- `CTASection.tsx` + `DiagnosticForm.tsx` — formulário com novos campos/opções e nova mensagem de confirmação
+- `FAQSection.tsx` — apenas 3 perguntas
+- `Footer.tsx` — logo, tagline, links curtos, copyright Fintex
 
-### Sobre o GitHub Actions
+Componentes a **remover** da árvore (não deletar arquivos necessariamente, só não importar): `TrustBar`, `PainPointsSection` (substituído), `HumanSection`, `AuthoritySection`, `CasesSection`, `BeforeAfterSection`, `CFOVisionSection`, `InstagramSection`, `PositioningSection`, `TeamSection`, `WhatsAppButton` (manter ou remover — remover para enxugar).
 
-O arquivo `.github/workflows/lovable-deploy.yml` que existe no projeto é desnecessário para esse fluxo e é a causa do erro de `npm ci`. Ele pode ser removido com segurança.
+### 3. Logo e favicon
 
-### Nota
+Como não há arquivos da nova marca enviados, gerar via `imagegen`:
+- `src/assets/logo-fintex.png` — wordmark "fintex bpo" branco para header/footer
+- `public/favicon.png` — símbolo X em azul elétrico sobre fundo escuro
+- Atualizar `BPOnLogo.tsx` → `FintexLogo.tsx` (ou reusar arquivo, trocando asset)
+- Atualizar `<link rel="icon">` no `index.html` e remover `favicon.ico` antigo
 
-Não é necessária nenhuma alteração de código. Basta configurar o domínio via interface do Lovable e ajustar o DNS na KingHost.
+### 4. SEO
 
+Atualizar `index.html`:
+- `<title>`: "Fintex BPO | BPO Financeiro para Empresas"
+- `<meta name="description">`: conforme briefing
+- `<link rel="canonical">`: https://bpon.lovable.app/ (manter domínio atual)
+- OG tags e JSON-LD Organization com nome "Fintex BPO"
+- H1 único na hero conforme briefing
+
+### 5. Formulário de diagnóstico
+
+Atualizar `DiagnosticForm.tsx`:
+- Campos: Nome, Empresa, WhatsApp, E-mail, Faturamento (select com 5 faixas novas), Principal desafio, Mensagem
+- Mensagem de sucesso conforme briefing
+- Manter integração com edge function `send-lead-email` (apenas atualizar copy "Fintex BPO" nos e-mails)
+
+### 6. Conteúdo
+
+Aplicar todos os textos exatos do briefing nas respectivas seções. Tom: direto, consultivo, premium. Tagline "Menos ruído. Mais lógica financeira." no hero (secundário) e footer.
+
+### Detalhes técnicos
+
+- Manter React + Vite + Tailwind + shadcn — nenhuma mudança de stack.
+- Tokens semânticos no `index.css`; nenhum hex hardcoded em componentes.
+- Responsivo mobile-first; CTA visível acima da dobra no mobile.
+- Edge function `supabase/functions/send-lead-email/index.ts`: atualizar assunto e remetente para "Fintex BPO" (manter envio para `comercial@bpon.com.br` salvo orientação contrária).
+- Sobre "Resete toda a parte de DNS": DNS é gerenciado fora do código (painel do Lovable + KingHost). Não há nada a alterar no repositório para isso — orientarei separadamente caso queira refazer a configuração no painel.
+
+### Não-objetivos
+
+- Não criar páginas extras.
+- Não preservar seções antigas (TrustBar, Cases, Authority, Human, Team, etc.).
+- Não alterar stack, roteamento ou backend além do copy do e-mail.
