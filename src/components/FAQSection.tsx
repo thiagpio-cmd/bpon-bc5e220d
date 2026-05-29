@@ -1,57 +1,117 @@
 import { useState } from "react";
-import { Plus } from "lucide-react";
+import { ChevronDown, ArrowRight, MessageCircle } from "lucide-react";
 
 const faqs = [
   {
-    q: "O que é BPO Financeiro?",
-    a: "BPO Financeiro é a terceirização das rotinas financeiras de uma empresa, como contas a pagar, contas a receber, conciliação bancária, fluxo de caixa, cobranças e relatórios.",
+    q: "Já tenho contador. Onde a Fintex BPO entra?",
+    a: "Contador e BPO financeiro são funções distintas. O contador cuida do fiscal, tributário e obrigações acessórias. A Fintex BPO cuida da rotina operacional financeira: contas a pagar e receber, conciliação, fluxo de caixa e fechamento gerencial. As duas frentes se complementam — sem sobreposição e sem lacuna.",
+    open: true,
   },
   {
-    q: "A Fintex BPO substitui a contabilidade?",
-    a: "Não. A Fintex BPO atua na rotina financeira e gerencial. A contabilidade cuida das obrigações fiscais, contábeis e tributárias.",
+    q: "Em quanto tempo a operação começa a rodar com previsibilidade?",
+    a: "As primeiras semanas já entregam rotina organizada, controles funcionando e base mais confiável de dados. O fechamento gerencial consistente e os indicadores se consolidam ao longo dos primeiros meses, conforme a operação amadurece. Em geral, o cliente já sente diferença concreta no primeiro mês.",
+    open: false,
   },
   {
-    q: "Minha empresa precisa trocar de sistema?",
-    a: "Não necessariamente. Primeiro avaliamos o sistema atual, os processos e o nível de controle da empresa. A troca só faz sentido quando melhora a rotina e a gestão.",
+    q: "Como funciona a implantação na prática?",
+    a: "A implantação começa com um diagnóstico da operação atual: como o financeiro funciona hoje, quais controles existem, quem é responsável por cada frente e onde estão os gargalos. A partir daí, estruturamos a rotina, definimos a cadência e iniciamos a operação de forma assistida — sem ruptura brusca.",
+    open: false,
+  },
+  {
+    q: "A Fintex BPO substitui meu ERP?",
+    a: "Não. A Fintex BPO trabalha com o ERP, plataforma ou planilha já em uso. Não exigimos troca de ferramenta. ERP é ferramenta. Processo é outra coisa. A maioria das empresas tem sistema e continua com financeiro desorganizado porque falta quem opere com critério e cadência. Se houver necessidade de ajuste ou migração, isso é avaliado no diagnóstico com transparência.",
+    open: false,
+  },
+  {
+    q: "Como vocês se integram com meu contador e equipe interna?",
+    a: "A Fintex BPO opera em conjunto com o contador — sem sobreposição de funções. Alinhamos fluxo de informações, prazos e responsabilidades entre as partes. Com a equipe interna, definimos um modelo claro de comunicação e cadência, respeitando o que já funciona e organizando o que está fragmentado.",
+    open: false,
+  },
+  {
+    q: "Qual o nível de envolvimento da liderança?",
+    a: "Baixo no operacional, alto no gerencial. A liderança não precisa acompanhar cada lançamento. O que muda é que, mensalmente, recebe um fechamento claro, com indicadores e análise — para tomar decisões com base em dados reais, não estimativas.",
+    open: false,
+  },
+  {
+    q: "O diagnóstico é realmente sem compromisso?",
+    a: "Sim. O diagnóstico inicial é uma análise real da operação financeira da empresa, sem custo e sem compromisso de contratação. A partir daí, se houver aderência dos dois lados, apresentamos uma proposta. A decisão é inteiramente sua.",
+    open: false,
+  },
+  {
+    q: "Vocês atendem empresa com mais de uma unidade?",
+    a: "Sim. A Fintex BPO tem estrutura para atender empresas com múltiplas unidades operacionais, filiais ou centros de custo. A organização do processo financeiro nesse contexto é especialmente relevante — e exatamente o tipo de desafio para o qual o diagnóstico serve.",
+    open: false,
   },
 ];
 
 const FAQSection = () => {
   const [open, setOpen] = useState<number | null>(0);
-  return (
-    <section id="faq" className="section-py bg-background">
-      <div className="container mx-auto px-6 lg:px-10">
-        <div className="max-w-3xl mx-auto text-center mb-12 reveal">
-          <span className="eyebrow">FAQ</span>
-          <h2 className="font-display font-bold text-headline text-[2rem] md:text-[2.75rem] lg:text-[3.25rem] leading-[1.08] tracking-[-0.03em] mt-4">
-            Perguntas <span className="text-primary">frequentes</span>.
-          </h2>
-        </div>
 
-        <div className="max-w-3xl mx-auto reveal reveal-delay-2 space-y-3">
-          {faqs.map((f, i) => {
-            const isOpen = open === i;
-            return (
-              <div key={i} className={`card-soft transition-all ${isOpen ? "ring-1 ring-primary/20" : ""}`}>
+  return (
+    <section id="faq" className="py-20 lg:py-28 section-alt section-divide-top">
+      <div className="container mx-auto px-6 lg:px-8">
+        <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
+
+          {/* Left */}
+          <div className="lg:col-span-2 flex flex-col gap-5 reveal">
+            <div>
+              <div className="label-pill w-fit mb-4">Perguntas frequentes</div>
+              <h2 className="font-display font-black text-[1.9rem] lg:text-[2.2rem] text-headline leading-[1.08] tracking-[-0.022em] mt-3">
+                Respostas para quem está avaliando a Fintex BPO.
+              </h2>
+            </div>
+            <p className="font-body text-[13.5px] text-body leading-relaxed">
+              Dúvidas comuns antes de avançar. Se a sua não está aqui,
+              o diagnóstico é o melhor caminho para uma resposta precisa.
+            </p>
+            <div className="flex flex-col gap-2.5 pt-2">
+              <a href="#diagnostico"
+                className="inline-flex w-fit items-center gap-2 px-6 py-2.5 rounded-lg bg-primary text-primary-foreground font-body font-semibold text-[13px] hover:bg-primary/90 transition-all duration-200 shadow-blue group">
+                Solicitar diagnóstico
+                <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform duration-200" />
+              </a>
+              <a href="https://wa.me/5534992812444"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-fit items-center gap-2 px-5 py-2 rounded-lg border border-divider bg-surface font-body text-[13px] text-body hover:text-headline hover:border-primary/20 transition-all duration-200 group">
+                <MessageCircle size={13} className="text-emerald-500" />
+                Falar no WhatsApp
+              </a>
+            </div>
+          </div>
+
+          {/* Right — accordion */}
+          <div className="lg:col-span-3 flex flex-col gap-2 reveal reveal-delay-2">
+            {faqs.map((faq, i) => (
+              <div key={i} className="border border-divider rounded-xl overflow-hidden transition-all duration-200"
+                style={{
+                  borderColor: open === i ? "hsl(var(--primary) / 0.22)" : "hsl(var(--divider))",
+                  background: open === i ? "hsl(var(--surface-tint))" : "hsl(var(--surface))",
+                }}>
                 <button
-                  className="w-full flex items-center justify-between gap-4 text-left px-6 py-5"
-                  onClick={() => setOpen(isOpen ? null : i)}
+                  className="w-full flex items-start justify-between gap-4 px-5 py-4 text-left transition-colors duration-150"
+                  onClick={() => setOpen(open === i ? null : i)}
                 >
-                  <span className="font-display font-semibold text-headline text-[16.5px] md:text-[17.5px]">
-                    {f.q}
+                  <span className="font-display font-semibold text-[13.5px] leading-snug"
+                    style={{ color: open === i ? "hsl(var(--headline))" : "hsl(var(--headline) / 0.85)" }}>
+                    {faq.q}
                   </span>
-                  <span className={`w-8 h-8 rounded-full bg-primary-soft flex items-center justify-center text-primary transition-transform ${isOpen ? "rotate-45" : ""}`}>
-                    <Plus size={16} />
-                  </span>
+                  <ChevronDown
+                    size={15}
+                    className={`flex-shrink-0 mt-0.5 transition-transform duration-200 ${
+                      open === i ? "rotate-180 text-primary" : "text-body/60"
+                    }`}
+                  />
                 </button>
-                {isOpen && (
-                  <div className="px-6 pb-6 animate-fade-in">
-                    <p className="font-body text-[14.5px] text-body leading-relaxed">{f.a}</p>
+                {open === i && (
+                  <div className="px-5 pb-5 border-t border-divider/60">
+                    <p className="font-body text-[13px] text-body leading-relaxed pt-3">{faq.a}</p>
                   </div>
                 )}
               </div>
-            );
-          })}
+            ))}
+          </div>
+
         </div>
       </div>
     </section>

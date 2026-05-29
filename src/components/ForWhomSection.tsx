@@ -1,45 +1,86 @@
-import { Check } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
-const criteria = [
-  "Faturamento mensal a partir de R$ 120 mil",
-  "Volume recorrente de pagamentos e recebimentos",
-  "Necessidade de previsibilidade de caixa",
-  "Sócios ainda muito envolvidos na rotina financeira",
-  "Desejo de profissionalizar a gestão sem montar equipe interna completa",
+const profiles = [
+  {
+    num: "01",
+    title: "Empresa em crescimento com financeiro desorganizado",
+    text: "Receita crescendo, controles fragmentados e rotina operada no improviso. A estrutura não acompanhou o volume.",
+  },
+  {
+    num: "02",
+    title: "Gestão que precisa de caixa legível e previsível",
+    text: "Liderança decidindo sem base financeira consolidada. Sem fluxo confiável, sem fechamento mensal, sem visão do resultado.",
+  },
+  {
+    num: "03",
+    title: "Operação dependente de uma única pessoa",
+    text: "Risco de concentração, sem processo documentado e sem continuidade se essa pessoa sair ou faltar.",
+  },
+  {
+    num: "04",
+    title: "ERP ou planilha sem processo real por trás",
+    text: "Ferramenta existe, mas falta quem opere com critério, cadência e responsabilidade sobre os dados gerados.",
+  },
 ];
 
 const ForWhomSection = () => {
   return (
-    <section id="para-quem" className="section-py surface-tint relative">
-      <div className="container mx-auto px-6 lg:px-10">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-          <div className="lg:col-span-5 reveal">
-            <span className="eyebrow">Para quem</span>
-            <h2 className="font-display font-bold text-headline text-[2rem] md:text-[2.75rem] lg:text-[3.25rem] leading-[1.08] tracking-[-0.03em] mt-4">
-              Para empresas que não podem mais tratar o financeiro no <span className="text-primary">improviso</span>.
-            </h2>
-            <p className="font-body text-[16px] text-body leading-relaxed mt-5">
-              Atendemos empresas de serviços, tecnologia, consultorias, clínicas, indústrias leves
-              e operações comerciais que precisam de uma rotina financeira mais confiável para
-              crescer com controle.
-            </p>
-          </div>
+    <section id="para-quem" className="py-20 lg:py-28 section-alt section-divide-top section-from-dark">
+      <div className="container mx-auto px-6 lg:px-8">
 
-          <div className="lg:col-span-7 reveal reveal-delay-2">
-            <div className="card-soft p-2">
-              <ul className="divide-y divide-border">
-                {criteria.map((c) => (
-                  <li key={c} className="flex items-start gap-4 px-5 py-5">
-                    <span className="w-7 h-7 rounded-full bg-primary-soft flex items-center justify-center shrink-0 mt-0.5">
-                      <Check size={14} className="text-primary" />
-                    </span>
-                    <span className="font-body text-[15.5px] text-headline leading-snug">{c}</span>
-                  </li>
-                ))}
-              </ul>
+        {/* Header */}
+        <div className="mb-12 lg:mb-14 reveal grid lg:grid-cols-2 gap-10 items-end">
+          <div>
+            <div className="label-pill mb-4">Para quem é</div>
+            <h2 className="font-display font-black text-[2rem] lg:text-[2.7rem] text-headline leading-[1.06] tracking-[-0.024em] mt-3">
+              A Fintex BPO funciona melhor<br />
+              <span className="text-gradient-primary">para quem já opera.</span>
+            </h2>
+          </div>
+          <div className="flex flex-col gap-4 lg:self-end">
+            <p className="font-body text-[13.5px] text-body leading-relaxed">
+              A Fintex BPO funciona melhor para empresas com operação em andamento, volume financeiro real e necessidade concreta de organizar rotina, caixa e gestão.
+            </p>
+            <div className="p-4 rounded-xl"
+              style={{ border: "1px solid hsl(var(--primary) / 0.12)", background: "hsl(var(--surface-tint))" }}>
+              <p className="font-body text-[12.5px] text-body leading-relaxed">
+                <span className="font-semibold text-headline">Fit ideal:</span>{" "}
+                empresa ativa, volume financeiro real e necessidade de processo contínuo: não demandas pontuais.
+              </p>
             </div>
           </div>
         </div>
+
+        {/* 4 cards 2×2 */}
+        <div className="grid sm:grid-cols-2 gap-3.5">
+          {profiles.map((profile, i) => (
+            <div
+              key={profile.num}
+              className={`reveal reveal-delay-${Math.min(i + 1, 4)} flex gap-4 p-6 rounded-xl border border-divider bg-surface card-hover`}
+            >
+              <span className="font-display font-black text-[2rem] leading-none select-none flex-shrink-0 self-start mt-0.5"
+                style={{ color: "hsl(var(--primary) / 0.11)" }}>
+                {profile.num}
+              </span>
+              <div>
+                <h3 className="font-display font-bold text-[13.5px] text-headline mb-1.5 leading-snug">
+                  {profile.title}
+                </h3>
+                <p className="font-body text-[12.5px] text-body leading-relaxed">{profile.text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div className="mt-8 flex justify-center reveal">
+          <a href="#diagnostico"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-body font-semibold text-[13px] hover:opacity-90 transition-all duration-200 shadow-blue group">
+            Ver se a Fintex BPO é para minha empresa
+            <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform" />
+          </a>
+        </div>
+
       </div>
     </section>
   );
