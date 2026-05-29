@@ -14,7 +14,7 @@ const TeamSection = () => {
             </div>
             <div className="space-y-4 font-body text-base text-body leading-relaxed">
               <p>
-                O diagnóstico inicial é conduzido por alguém que entende a diferença entre financeiro desorganizado e financeiro estruturado — e que já viu esse cenário em empresas reais.
+                O diagnóstico inicial é conduzido por alguém que entende a diferença entre financeiro desorganizado e financeiro estruturado, e que já viu esse cenário em empresas reais.
               </p>
               <p>
                 Não é uma triagem de vendas. É uma conversa técnica sobre a operação, os gargalos existentes e o que pode ser organizado com método.
