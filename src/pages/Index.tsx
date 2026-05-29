@@ -34,6 +34,7 @@ const Index = () => {
           {/* ── Bloco 3: Âncora escura — método ── */}
           <MethodSection />
 
+          <CFOVisionSection />
           <ForWhomSection />
           <HumanSection />
           
