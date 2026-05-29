@@ -32,6 +32,13 @@ const checklistItems = [
   { label: "Reporte à liderança", done: false },
 ];
 
+const getCurrentMonthYear = () => {
+  const date = new Date();
+  const month = date.toLocaleDateString('pt-BR', { month: 'long' });
+  const year = date.getFullYear();
+  return `${month.charAt(0).toUpperCase() + month.slice(1)} / ${year}`;
+};
+
 const RoutineMockup = () => {
   const done = checklistItems.filter((i) => i.done).length;
   const total = checklistItems.length;
@@ -48,7 +55,7 @@ const RoutineMockup = () => {
             <p className="font-body text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground mb-1">Agenda Mensal</p>
             <h3 className="font-display font-black text-[17px] text-headline leading-snug">
               Rotina Financeira<br />
-              <span className="text-gradient-primary">Março / 2025</span>
+              <span className="text-gradient-primary">{getCurrentMonthYear()}</span>
             </h3>
           </div>
           <div className="flex flex-col items-center justify-center w-14 h-14 rounded-xl flex-shrink-0"
