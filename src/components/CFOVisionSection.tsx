@@ -21,17 +21,17 @@ const CFOVisionSection = () => {
           <div className="lg:col-span-2 flex flex-col gap-7 reveal">
             <div>
               <div className="label-pill w-fit mb-5" style={{ background: "hsl(221 83% 53% / 0.12)", borderColor: "hsl(221 83% 53% / 0.25)", color: "hsl(221 83% 72%)" }}>
-                Visão gerencial aplicada
+                CFO as a Service
               </div>
               <h2 className="font-display font-black text-3xl lg:text-[2.2rem] text-deep-foreground leading-[1.12] tracking-tight">
-                Disciplina operacional com visão de gestão.
+                Visão de CFO ao lado da liderança, sem o custo de um executivo interno.
               </h2>
             </div>
             <p className="font-body text-base text-deep-foreground/60 leading-relaxed">
-              A Fintex BPO estrutura a operação com disciplina e acompanha o financeiro com visão gerencial próxima da liderança, criando base para decisão, priorização e planejamento.
+              Mais que executar a rotina: a Fintex BPO acompanha indicadores, conduz a reunião gerencial mensal e apoia decisões de caixa, margem e prioridades com leitura próxima da diretoria.
             </p>
             <a href="#diagnostico" className="inline-flex w-fit items-center gap-2 px-6 py-3 rounded-xl bg-white/10 border border-white/20 text-deep-foreground font-body font-semibold text-sm hover:bg-white/15 transition-all duration-200">
-              Solicitar diagnóstico
+              Quero leitura gerencial assim
             </a>
           </div>
 

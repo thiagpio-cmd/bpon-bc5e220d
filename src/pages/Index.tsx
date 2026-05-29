@@ -6,6 +6,7 @@ import PainPointsSection from "@/components/PainPointsSection";
 import ServicesSection from "@/components/ServicesSection";
 import MethodSection from "@/components/MethodSection";
 import ForWhomSection from "@/components/ForWhomSection";
+import CFOVisionSection from "@/components/CFOVisionSection";
 import HumanSection from "@/components/HumanSection";
 
 import CasesSection from "@/components/CasesSection";
@@ -33,6 +34,7 @@ const Index = () => {
           {/* ── Bloco 3: Âncora escura — método ── */}
           <MethodSection />
 
+          <CFOVisionSection />
           <ForWhomSection />
           <HumanSection />
           

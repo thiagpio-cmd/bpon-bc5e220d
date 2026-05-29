@@ -176,7 +176,7 @@ const MethodSection = () => {
           </div>
           <a href="#diagnostico"
           className="group inline-flex items-center gap-2.5 px-7 py-3 rounded-lg bg-primary text-primary-foreground font-body font-semibold text-[13px] shadow-blue hover:opacity-90 hover:scale-[1.02] transition-all duration-300 whitespace-nowrap flex-shrink-0">
-            Solicitar diagnóstico
+            Falar com um especialista
             <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-300" />
           </a>
         </div>

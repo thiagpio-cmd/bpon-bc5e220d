@@ -1,10 +1,10 @@
-import { Shield, Clock, Globe2, Users2 } from "lucide-react";
+import { CalendarClock, ClipboardCheck, LineChart, Timer } from "lucide-react";
 
 const items = [
-  { icon: Shield, label: "Operação 100% remota", sub: "Atendimento em todo o Brasil" },
-  { icon: Globe2, label: "Estrutura digital integrada", sub: "Conexão com seu ERP e equipe" },
-  { icon: Users2, label: "Operação financeira + gerencial", sub: "Da rotina ao fechamento mensal" },
-  { icon: Clock, label: "Resposta em até 1 dia útil", sub: "Diagnóstico sem compromisso" },
+  { icon: Timer, label: "Diagnóstico em 1 dia útil", sub: "Retorno comercial sem compromisso" },
+  { icon: ClipboardCheck, label: "Onboarding em até 15 dias", sub: "Operação plugada com método" },
+  { icon: CalendarClock, label: "Fechamento até o 5º dia útil", sub: "Cadência mensal previsível" },
+  { icon: LineChart, label: "Reunião gerencial mensal", sub: "Leitura do resultado com a liderança" },
 ];
 
 const TrustBar = () => (

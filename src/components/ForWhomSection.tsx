@@ -1,4 +1,13 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Stethoscope, Factory, Briefcase, Store, Cpu, HardHat } from "lucide-react";
+
+const sectors = [
+  { icon: Stethoscope, label: "Clínicas e consultórios" },
+  { icon: Factory, label: "Indústrias e atacadistas" },
+  { icon: Briefcase, label: "Agências e serviços" },
+  { icon: Store, label: "Comércio e varejo" },
+  { icon: Cpu, label: "Tecnologia e SaaS" },
+  { icon: HardHat, label: "Construção e engenharia" },
+];
 
 const profiles = [
   {
@@ -70,6 +79,25 @@ const ForWhomSection = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Sectors */}
+        <div className="mt-10 reveal">
+          <p className="font-body text-[12px] uppercase tracking-[0.14em] text-body/70 text-center mb-5">
+            Setores atendidos
+          </p>
+          <div className="flex flex-wrap justify-center gap-2.5">
+            {sectors.map((sector) => {
+              const Icon = sector.icon;
+              return (
+                <div key={sector.label}
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-divider bg-surface hover:border-primary/30 hover:bg-surface-tint transition-all duration-200">
+                  <Icon size={14} className="text-primary" strokeWidth={1.8} />
+                  <span className="font-body text-[12.5px] text-headline font-medium">{sector.label}</span>
+                </div>
+              );
+            })}
+          </div>
         </div>
 
         {/* CTA */}

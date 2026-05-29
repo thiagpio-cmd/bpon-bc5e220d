@@ -97,7 +97,7 @@ const RoutineMockup = () => {
         </div>
         <a href="#diagnostico"
           className="group flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-primary text-primary-foreground font-display font-semibold text-[13px] hover:opacity-90 hover:scale-[1.02] transition-all duration-300 shadow-blue">
-          Solicitar diagnóstico
+          Conversar com a equipe
           <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-300" />
         </a>
       </div>
