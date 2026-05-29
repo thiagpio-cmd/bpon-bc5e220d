@@ -325,7 +325,7 @@ const DiagnosticForm = () => {
                   <input
                     id="cidade"
                     type="text"
-                    placeholder="Uberlândia / MG"
+                    placeholder="Sua cidade / UF"
                     autoComplete="address-level2"
                     value={form["cidade"] || ""}
                     onChange={(e) => handleChange("cidade", e.target.value)}

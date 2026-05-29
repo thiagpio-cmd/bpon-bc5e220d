@@ -1,8 +1,8 @@
-import { Shield, Clock, Link2, Users2 } from "lucide-react";
+import { Shield, Clock, Globe2, Users2 } from "lucide-react";
 
 const items = [
-  { icon: Shield, label: "Base institucional consolidada", sub: "Operação consultiva desde 2002" },
-  { icon: Link2, label: "Estrutura contábil integrada", sub: "Contador + BPO sem lacuna" },
+  { icon: Shield, label: "Operação 100% remota", sub: "Atendimento em todo o Brasil" },
+  { icon: Globe2, label: "Estrutura digital integrada", sub: "Conexão com seu ERP e equipe" },
   { icon: Users2, label: "Operação financeira + gerencial", sub: "Da rotina ao fechamento mensal" },
   { icon: Clock, label: "Resposta em até 1 dia útil", sub: "Diagnóstico sem compromisso" },
 ];

@@ -129,7 +129,7 @@ const ServicesSection = () => {
         {/* CTA strip */}
         <div className="mt-5 reveal reveal-delay-4 cta-strip">
           <p className="font-body text-[13px] text-body text-center sm:text-left">
-            A Fintex BPO atua integrada com a contabilidade, ERP e a liderança da empresa.
+            A Fintex BPO atua integrada com o ERP e a liderança da empresa.
           </p>
           <a href="#diagnostico"
             className="group inline-flex items-center gap-2 px-6 py-2.5 rounded-lg bg-primary text-primary-foreground font-body font-semibold text-[13px] shadow-blue hover:opacity-90 hover:scale-[1.02] transition-all duration-300 whitespace-nowrap flex-shrink-0">
