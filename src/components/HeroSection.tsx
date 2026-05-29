@@ -255,7 +255,7 @@ const HeroSection = () => {
             <div className="flex flex-wrap gap-x-6 gap-y-2 mt-9 pt-6 animate-fade-up"
             style={{ borderTop: "1px solid hsl(214 35% 22%)", animationDelay: "0.58s" }}>
               {[
-              { num: "Desde 2002", label: "Base institucional" },
+              { num: "100% Remota", label: "Atuação nacional" },
               { num: "BPO +", label: "operação recorrente" },
               { num: "CFO as a Service", label: "leitura gerencial" }].
               map((p) =>
