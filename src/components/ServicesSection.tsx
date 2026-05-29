@@ -57,7 +57,7 @@ const ServicesSection = () => {
             </h2>
           </div>
           <p className="font-body text-[13.5px] text-body leading-relaxed lg:max-w-sm lg:text-right lg:self-end">
-            Não é uma lista de tarefas avulsas. É uma estrutura integrada — da operação
+            Não é uma lista de tarefas avulsas. É uma estrutura integrada, da operação
             diária ao fechamento que orienta a gestão.
           </p>
         </div>
