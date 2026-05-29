@@ -4,8 +4,8 @@ import { supabase } from "@/integrations/supabase/client";
 
 const faturamentoOptions = [
   "Até R$ 100 mil/mês",
-  "R$ 100 mil – R$ 500 mil/mês",
-  "R$ 500 mil – R$ 2 mi/mês",
+  "R$ 100 mil a R$ 500 mil/mês",
+  "R$ 500 mil a R$ 2 mi/mês",
   "Acima de R$ 2 mi/mês",
   "Prefiro não informar",
 ];
