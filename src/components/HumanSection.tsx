@@ -91,8 +91,8 @@ const RoutineMockup = () => {
             <span className="font-display font-black text-[11px] text-primary">+20</span>
           </div>
           <div>
-            <p className="font-display font-bold text-[12px] text-headline">Grupo Ubercentral</p>
-            <p className="font-body text-[11px] text-muted-foreground">Anos de base institucional · Uberlândia, MG</p>
+            <p className="font-display font-bold text-[12px] text-headline">Base institucional consolidada</p>
+            <p className="font-body text-[11px] text-muted-foreground">Operação consultiva desde 2002 · Uberlândia, MG</p>
           </div>
         </div>
         <a href="#diagnostico"
