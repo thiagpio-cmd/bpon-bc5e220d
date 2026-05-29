@@ -35,8 +35,8 @@ const PositioningSection = () => {
               },
               {
                 num: "2002",
-                title: "Grupo Ubercentral",
-                text: "Base empresarial e contábil consolidada por mais de duas décadas.",
+                title: "Base institucional",
+                text: "Operação consolidada por mais de duas décadas em gestão financeira empresarial.",
               },
             ].map((item) => (
               <div key={item.num} className="group flex items-start gap-5 p-5 rounded-2xl border border-divider bg-surface card-hover">
