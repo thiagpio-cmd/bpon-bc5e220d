@@ -122,10 +122,10 @@ const Footer = () => {
         <div className="py-5 border-t border-divider flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <div className="flex flex-col gap-0.5">
             <p className="font-body text-xs text-body/70">
-              © {year} Fintex BPO Consultoria Financeira — Empresa do Grupo Ubercentral
+              © {year} Fintex BPO Consultoria Financeira
             </p>
             <p className="font-body text-xs text-body/45">
-              Ubercentral Contabilidade Ltda · CNPJ 09.281.566/0001-03 · CRC MG-012100/O
+              CRC MG-012100/O
             </p>
           </div>
           <p className="font-body text-xs text-body/35 italic">
