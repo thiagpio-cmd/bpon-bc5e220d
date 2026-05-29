@@ -1,4 +1,4 @@
-import { MapPin, Phone, Clock, Mail, ExternalLink } from "lucide-react";
+import { Globe2, Phone, Clock, Mail, ExternalLink } from "lucide-react";
 import FintexLogo from "./FintexLogo";
 
 const navLinks = [
@@ -82,23 +82,22 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Address & Hours */}
+          {/* Atuação & Horários */}
           <div>
-            <p className="font-display font-semibold text-xs text-headline uppercase tracking-widest mb-5">Localização</p>
+            <p className="font-display font-semibold text-xs text-headline uppercase tracking-widest mb-5">Atuação</p>
             <div className="flex flex-col gap-3">
               <div className="flex items-start gap-2 font-body text-sm text-body">
-                <MapPin size={13} className="flex-shrink-0 mt-0.5 text-primary/60" />
+                <Globe2 size={13} className="flex-shrink-0 mt-0.5 text-primary/60" />
                 <span className="leading-relaxed">
-                  Av. dos Vinhedos, 71 – Sala 1001<br />
-                  Edifício Torre Sul — Jardim Sul<br />
-                  Uberlândia/MG — 38411-848
+                  Operação 100% remota<br />
+                  Atendemos empresas em todo o Brasil
                 </span>
               </div>
               <div className="flex items-start gap-2 font-body text-sm text-body">
                 <Clock size={13} className="flex-shrink-0 mt-0.5 text-primary/60" />
                 <span className="leading-relaxed">
                   Segunda a sexta<br />
-                  8h às 17h
+                  8h às 18h
                 </span>
               </div>
             </div>
