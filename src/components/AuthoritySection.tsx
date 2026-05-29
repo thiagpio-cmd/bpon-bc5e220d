@@ -41,7 +41,7 @@ const testimonials = [
     initials: "DF",
   },
   {
-    quote: "A BPOn organizou o que a gente nunca conseguiu fazer internamente. Processo, cadência, controles. Agora tudo está funcionando sem depender de uma única pessoa.",
+    quote: "A Fintex BPO organizou o que a gente nunca conseguiu fazer internamente. Processo, cadência, controles. Agora tudo está funcionando sem depender de uma única pessoa.",
     name: "Sócio-Gestor",
     role: "Empresa Comercial · Triângulo Mineiro",
     initials: "SG",
@@ -75,7 +75,7 @@ const AuthoritySection = () => {
             <span className="text-gradient-primary">opera há décadas.</span>
           </h2>
           <p className="font-body text-[13.5px] leading-relaxed text-body">
-            A BPOn não nasceu como startup. É parte de um grupo com base contábil e
+            A Fintex BPO não nasceu como startup. É parte de um grupo com base contábil e
             empresarial construída ao longo de mais de 20 anos em Uberlândia, com CRC
             registrado e estrutura que sustenta operação real.
           </p>

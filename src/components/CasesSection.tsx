@@ -40,10 +40,10 @@ const CasesSection = () => {
           <div className="label-pill mb-4">Situações reais</div>
           <h2 className="font-display font-black text-[2rem] lg:text-[2.6rem] text-headline leading-[1.06] tracking-[-0.024em] mt-3 mb-3">
             Padrões de operação<br />
-            <span className="text-gradient-primary">que a BPOn estrutura.</span>
+            <span className="text-gradient-primary">que a Fintex BPO estrutura.</span>
           </h2>
           <p className="font-body text-[13.5px] text-body leading-relaxed">
-            Perfis de empresas com desafios concretos — e como a estrutura da BPOn
+            Perfis de empresas com desafios concretos — e como a estrutura da Fintex BPO
             foi aplicada para cada situação.
           </p>
         </div>

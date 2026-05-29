@@ -42,7 +42,7 @@ const TeamSection = () => {
               <div className="rounded-3xl overflow-hidden aspect-[3/4] shadow-elevated relative">
                 <img
                   src="https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?w=700&q=85&auto=format&fit=crop&crop=top"
-                  alt="Especialista em consultoria financeira BPOn"
+                  alt="Especialista em consultoria financeira Fintex BPO"
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />
@@ -58,7 +58,7 @@ const TeamSection = () => {
                     <span className="font-body text-xs text-emerald-700 font-semibold">Disponível para diagnóstico</span>
                   </div>
                 </div>
-                <p className="font-display font-bold text-sm text-headline mt-2">Equipe BPOn</p>
+                <p className="font-display font-bold text-sm text-headline mt-2">Equipe Fintex BPO</p>
                 <p className="font-body text-xs text-body mt-0.5">Consultoria Financeira · Grupo Ubercentral</p>
                 <a
                   href="#diagnostico"

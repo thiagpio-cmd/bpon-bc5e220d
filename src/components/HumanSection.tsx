@@ -123,7 +123,7 @@ const HumanSection = () => {
                 e acompanhamento recorrente.
               </h2>
               <p className="font-body text-[14px] text-body leading-relaxed">
-                A BPOn mantém a rotina financeira ativa e apresenta os resultados
+                A Fintex BPO mantém a rotina financeira ativa e apresenta os resultados
                 diretamente para quem decide. Acompanhamento próximo, comunicação
                 clara, responsabilidades bem definidas.
               </p>

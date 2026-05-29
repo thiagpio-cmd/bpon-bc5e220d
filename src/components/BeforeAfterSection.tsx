@@ -60,7 +60,7 @@ const BeforeAfterSection = () => {
               <div className="w-8 h-8 rounded-full bg-primary/12 border border-primary/30 flex items-center justify-center">
                 <Check size={14} className="text-primary" strokeWidth={2.5} />
               </div>
-              <span className="font-display font-bold text-sm text-primary uppercase tracking-widest">Com a BPOn</span>
+              <span className="font-display font-bold text-sm text-primary uppercase tracking-widest">Com a Fintex BPO</span>
             </div>
             <div className="space-y-0 relative">
               {after.map((item) => (
