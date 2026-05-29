@@ -24,7 +24,6 @@ const Footer = () => {
           <div className="lg:col-span-1 flex flex-col gap-5">
             <FintexLogo variant="dark" height={36} />
             <div className="flex flex-col gap-1.5">
-              <p className="font-body text-xs font-semibold text-headline">Uma Empresa Ubercentral</p>
               <p className="font-body text-xs text-body leading-relaxed max-w-xs">
                 BPO Financeiro com base operacional forte e leitura gerencial para empresas que precisam de processo e clareza.
               </p>
