@@ -1,5 +1,12 @@
 import { ArrowRight, ChevronDown, TrendingUp, CheckCircle2 } from "lucide-react";
 
+const getCurrentMonthYear = () => {
+  const now = new Date();
+  const month = now.toLocaleDateString("pt-BR", { month: "long" }).charAt(0).toUpperCase() +
+    now.toLocaleDateString("pt-BR", { month: "long" }).slice(1);
+  return `${month} / ${now.getFullYear()}`;
+};
+
 const barData = [
 { month: "Out", h: 52, active: false, value: "682k", pct: "+4%" },
 { month: "Nov", h: 68, active: false, value: "731k", pct: "+7%" },
