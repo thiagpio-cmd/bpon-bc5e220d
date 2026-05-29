@@ -1,5 +1,12 @@
 import { ArrowRight, ChevronDown, TrendingUp, CheckCircle2 } from "lucide-react";
 
+const getCurrentMonthYear = () => {
+  const now = new Date();
+  const month = now.toLocaleDateString("pt-BR", { month: "long" }).charAt(0).toUpperCase() +
+    now.toLocaleDateString("pt-BR", { month: "long" }).slice(1);
+  return `${month} / ${now.getFullYear()}`;
+};
+
 const barData = [
 { month: "Out", h: 52, active: false, value: "682k", pct: "+4%" },
 { month: "Nov", h: 68, active: false, value: "731k", pct: "+7%" },
@@ -25,7 +32,7 @@ const DashboardMockup = () =>
     <div className="flex items-center justify-between px-6 py-5" style={{ borderBottom: "1px solid hsl(214 28% 16%)" }}>
       <div>
         <p className="font-display font-bold text-[11px] tracking-[0.09em] uppercase mb-0.5" style={{ color: "hsl(210 22% 46%)" }}>Relatório Gerencial</p>
-        <p className="font-display font-black text-[15px]" style={{ color: "hsl(210 50% 93%)" }}>Mês | Ano</p>
+        <p className="font-display font-black text-[15px]" style={{ color: "hsl(210 50% 93%)" }}>{getCurrentMonthYear()}</p>
       </div>
       <span
       className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] font-semibold font-body"
