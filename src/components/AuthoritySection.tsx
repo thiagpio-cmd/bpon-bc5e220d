@@ -76,8 +76,8 @@ const AuthoritySection = () => {
           </h2>
           <p className="font-body text-[13.5px] leading-relaxed text-body">
             A Fintex BPO não nasceu como startup. É parte de um grupo com base contábil e
-            empresarial construída ao longo de mais de 20 anos em Uberlândia, com CRC
-            registrado e estrutura que sustenta operação real.
+            empresarial construída ao longo de mais de 20 anos em Uberlândia, com estrutura 
+            que sustenta operação real.
           </p>
         </div>
 
@@ -141,7 +141,7 @@ const AuthoritySection = () => {
         {/* Rodapé institucional */}
         <div className="reveal reveal-delay-6 pt-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-divider">
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
-            {["Uberlândia — MG", "CRC MG-012100/O"].map((item, i, arr) => (
+            {["Uberlândia — MG", "CNPJ XX.XXX.XXX/XXXX-XX"].map((item, i, arr) => (
               <span key={item} className="flex items-center gap-3">
                 <span className="font-body text-[11px]" style={{ color: "hsl(var(--body) / 0.55)" }}>{item}</span>
                 {i < arr.length - 1 && <span className="font-body text-[11px]" style={{ color: "hsl(var(--body) / 0.2)" }}>·</span>}

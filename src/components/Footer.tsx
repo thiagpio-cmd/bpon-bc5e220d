@@ -122,10 +122,10 @@ const Footer = () => {
         <div className="py-5 border-t border-divider flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <div className="flex flex-col gap-0.5">
             <p className="font-body text-xs text-body/70">
-              © {year} Fintex BPO Consultoria Financeira
+              © {year} Fintex BPO Financeiro
             </p>
             <p className="font-body text-xs text-body/45">
-              CRC MG-012100/O
+              CNPJ XX.XXX.XXX/XXXX-XX
             </p>
           </div>
           <p className="font-body text-xs text-body/35 italic">
