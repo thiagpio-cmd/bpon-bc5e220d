@@ -47,7 +47,7 @@ const PainPointsSection = () => {
             <span className="text-gradient-primary">são familiares?</span>
           </h2>
           <p className="font-body text-[13.5px] leading-relaxed text-body">
-            São os mais comuns que a BPOn encontra antes de estruturar uma operação.
+            São os mais comuns que a Fintex BPO encontra antes de estruturar uma operação.
           </p>
         </div>
 

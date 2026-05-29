@@ -6,7 +6,7 @@ const contentSuggestions = [
   "Fluxo de caixa não é planilha bonita, é gestão",
   "O que um BPO financeiro precisa controlar toda semana",
   "3 erros que travam a leitura real do negócio",
-  "Como funciona o diagnóstico financeiro da BPOn",
+  "Como funciona o diagnóstico financeiro da Fintex BPO",
 ];
 
 const InstagramSection = () => {
@@ -25,7 +25,7 @@ const InstagramSection = () => {
               <span className="text-gradient-primary">autoridade</span> com a mesma base do serviço.
             </h2>
             <p className="font-body text-base text-body leading-relaxed mb-8">
-              A BPOn não deve parecer uma página genérica de finanças. O conteúdo precisa refletir operação, critério e leitura financeira empresarial. O tom é consultivo, direto e técnico na medida certa.
+              A Fintex BPO não deve parecer uma página genérica de finanças. O conteúdo precisa refletir operação, critério e leitura financeira empresarial. O tom é consultivo, direto e técnico na medida certa.
             </p>
 
             <a

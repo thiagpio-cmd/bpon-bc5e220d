@@ -13,7 +13,7 @@ const PositioningSection = () => {
               e critério de gestão.
             </h2>
             <p className="font-body text-base lg:text-lg text-body leading-relaxed max-w-lg">
-              A BPOn não executa apenas tarefas financeiras. Ela organiza a rotina, reduz risco operacional, melhora a leitura do caixa e cria base confiável para decisão.
+              A Fintex BPO não executa apenas tarefas financeiras. Ela organiza a rotina, reduz risco operacional, melhora a leitura do caixa e cria base confiável para decisão.
             </p>
             <a href="#diagnostico" className="inline-flex w-fit items-center gap-2 px-6 py-3 rounded-xl bg-headline text-deep-foreground font-body font-semibold text-sm hover:bg-headline/90 transition-all duration-200">
               Solicitar diagnóstico
