@@ -61,7 +61,7 @@ const DashboardMockup = () =>
     <div className="px-6 pt-5 pb-5">
       <div className="flex items-center justify-between mb-3">
         <p className="font-body text-[10px] uppercase tracking-[0.1em]" style={{ color: "hsl(210 18% 38%)" }}>
-          Receita — últimos 6 meses
+          Receita: últimos 6 meses
         </p>
         
 
