@@ -48,17 +48,13 @@ const CFOVisionSection = () => {
 
           {/* Left: Featured panel */}
           <div className="lg:col-span-5 reveal">
-            <div className="relative h-full p-8 lg:p-10 rounded-3xl bg-secondary text-secondary-foreground shadow-elevated overflow-hidden">
-              {/* Subtle texture */}
-              <div
-                className="absolute inset-0 opacity-[0.07] pointer-events-none"
-                style={{ backgroundImage: "radial-gradient(circle at 80% 10%, white 0%, transparent 50%)" }}
-              />
+            <div className="relative h-full p-8 lg:p-10 rounded-2xl border border-primary/25 bg-surface-tint overflow-hidden">
+              <div className="absolute top-0 right-0 w-40 h-40 rounded-full bg-primary/8 blur-3xl pointer-events-none" />
 
               <div className="relative flex flex-col h-full gap-8">
                 <div>
-                  <div className="label-pill-dark w-fit mb-5">O que entra no escopo</div>
-                  <h3 className="font-display font-bold text-2xl lg:text-[1.65rem] leading-tight tracking-tight">
+                  <div className="label-pill w-fit mb-5">O que entra no escopo</div>
+                  <h3 className="font-display font-bold text-2xl lg:text-[1.65rem] text-headline leading-tight tracking-tight">
                     Da rotina financeira à mesa de decisão.
                   </h3>
                 </div>
@@ -66,18 +62,18 @@ const CFOVisionSection = () => {
                 <ul className="flex flex-col gap-3.5">
                   {deliverables.map((item) => (
                     <li key={item} className="flex items-start gap-3">
-                      <div className="flex-shrink-0 w-5 h-5 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center mt-0.5">
-                        <Check size={11} className="text-primary-foreground" strokeWidth={3} />
+                      <div className="flex-shrink-0 w-5 h-5 rounded-full border border-primary/35 bg-primary/12 flex items-center justify-center mt-0.5">
+                        <Check size={11} className="text-primary" strokeWidth={3} />
                       </div>
-                      <span className="font-body text-sm text-secondary-foreground/85 leading-relaxed">{item}</span>
+                      <span className="font-body text-sm text-body leading-relaxed">{item}</span>
                     </li>
                   ))}
                 </ul>
 
-                <div className="mt-auto pt-6 border-t border-white/10">
+                <div className="mt-auto pt-6 border-t border-divider">
                   <a
                     href="#diagnostico"
-                    className="group inline-flex items-center gap-2 font-body font-semibold text-sm text-secondary-foreground hover:text-primary-foreground transition-colors"
+                    className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-primary-foreground font-body font-semibold text-[13px] shadow-blue hover:opacity-90 hover:scale-[1.02] transition-all duration-300"
                   >
                     Quero leitura gerencial assim
                     <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
