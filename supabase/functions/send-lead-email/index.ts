@@ -14,7 +14,7 @@ serve(async (req) => {
 
   try {
     const body = await req.json();
-    const { nome, empresa, email, whatsapp, faturamento, desafio, mensagem, cidade, segmento, pessoas, ferramenta } = body;
+    const { nome, empresa, email, whatsapp, faturamento, desafio, cidade, segmento, pessoas, ferramenta } = body;
 
     // Save to database
     const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
@@ -46,7 +46,6 @@ serve(async (req) => {
     ];
 
     const complementares = [
-      mensagem ? `Mensagem: ${mensagem}` : null,
       cidade ? `Cidade/UF: ${cidade}` : null,
       segmento ? `Segmento: ${segmento}` : null,
       pessoas ? `Pessoas no financeiro: ${pessoas}` : null,
@@ -82,7 +81,7 @@ serve(async (req) => {
         },
         body: JSON.stringify({
           to: "comercial@bpon.com.br",
-          subject: `Fintex BPO — Novo lead de diagnóstico: ${nome}`,
+          subject: `Novo lead - ${nome}`,
           text: emailText,
           html: emailHtml,
         }),

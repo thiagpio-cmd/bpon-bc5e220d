@@ -11,7 +11,7 @@ const BPOnLogo = ({ className = "", variant = "default", height = 36 }: BPOnLogo
   return (
     <img
       src={logoBpon}
-      alt="BPOn Consultoria Financeira"
+      alt="Fintex BPO Consultoria Financeira"
       height={height}
       style={{ height: `${height}px`, width: "auto" }}
       className={`object-contain flex-shrink-0 ${variant === "light" ? "brightness-0 invert" : ""} ${className}`}
