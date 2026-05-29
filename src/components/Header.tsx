@@ -68,18 +68,6 @@ const Header = () => {
         />
       </div>
 
-      {/* Topbar institucional */}
-      <div className={`bg-deep text-deep-foreground/80 text-center overflow-hidden transition-all duration-300 ${
-        scrolled ? "max-h-0 opacity-0 py-0" : "max-h-9 opacity-100 py-1.5"
-      }`}>
-        <p className="font-body text-[11px] tracking-wide px-4">
-          <span className="font-semibold text-deep-foreground">Fintex BPO</span>
-          {" "}— Empresa do{" "}
-          <span className="font-semibold text-deep-foreground">Grupo Ubercentral</span>
-          <span className="hidden sm:inline text-deep-foreground/35 mx-2">·</span>
-          <span className="hidden sm:inline text-deep-foreground/55">Base empresarial e contábil desde 2002</span>
-        </p>
-      </div>
 
       <div className="container mx-auto px-6 lg:px-8">
         <div className={`flex items-center justify-between transition-all duration-300 ${
