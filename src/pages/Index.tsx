@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
@@ -10,7 +11,7 @@ import CFOVisionSection from "@/components/CFOVisionSection";
 import HumanSection from "@/components/HumanSection";
 
 import CasesSection from "@/components/CasesSection";
-import FAQSection from "@/components/FAQSection";
+import FAQSection, { faqs } from "@/components/FAQSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -18,8 +19,34 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 const Index = () => {
   useScrollReveal();
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+      <Helmet>
+        <title>Fintex BPO | BPO Financeiro com Leitura Gerencial</title>
+        <meta
+          name="description"
+          content="Organize o financeiro da sua empresa com processo, rotina, fluxo de caixa, conciliação e fechamento gerencial. Solicite um diagnóstico com a Fintex BPO."
+        />
+        <link rel="canonical" href="https://fintexbpo.lovable.app/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://fintexbpo.lovable.app/" />
+        <meta property="og:title" content="Fintex BPO | BPO Financeiro com Leitura Gerencial" />
+        <meta
+          property="og:description"
+          content="BPO Financeiro com leitura gerencial: rotina, fluxo de caixa, conciliação e fechamento mensal para PMEs no Brasil."
+        />
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+      </Helmet>
       <Header />
       <main>
         {/* ── Bloco 1: Âncora escura — proposta de valor ── */}
