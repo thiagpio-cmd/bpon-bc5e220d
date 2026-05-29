@@ -1,5 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 
 const NotFound = () => {
   const location = useLocation();
@@ -9,15 +10,33 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-muted">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">404</h1>
-        <p className="mb-4 text-xl text-muted-foreground">Oops! Page not found</p>
-        <a href="/" className="text-primary underline hover:text-primary/90">
-          Return to Home
-        </a>
+    <>
+      <Helmet>
+        <title>Página não encontrada (404) | Fintex BPO</title>
+        <meta
+          name="description"
+          content="A página que você procura não existe. Volte para o site da Fintex BPO e conheça nosso BPO Financeiro."
+        />
+        <meta name="robots" content="noindex, follow" />
+        <link rel="canonical" href="https://fintexbpo.lovable.app/404" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Página não encontrada (404) | Fintex BPO" />
+        <meta
+          property="og:description"
+          content="A página que você procura não existe. Volte para o site da Fintex BPO."
+        />
+        <meta property="og:url" content="https://fintexbpo.lovable.app/404" />
+      </Helmet>
+      <div className="flex min-h-screen items-center justify-center bg-muted">
+        <div className="text-center">
+          <h1 className="mb-4 text-4xl font-bold text-foreground">404</h1>
+          <p className="mb-4 text-xl text-foreground">Página não encontrada</p>
+          <a href="/" className="text-primary underline hover:text-primary/90">
+            Voltar para o início
+          </a>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
