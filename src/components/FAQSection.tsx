@@ -39,7 +39,7 @@ const faqs = [
   },
   {
     q: "Vocês atendem empresa com mais de uma unidade?",
-    a: "Sim. A Fintex BPO tem estrutura para atender empresas com múltiplas unidades operacionais, filiais ou centros de custo. A organização do processo financeiro nesse contexto é especialmente relevante — e exatamente o tipo de desafio para o qual o diagnóstico serve.",
+    a: "Sim. A Fintex BPO tem estrutura para atender empresas com múltiplas unidades operacionais, filiais ou centros de custo. A organização do processo financeiro nesse contexto é especialmente relevante e exatamente o tipo de desafio para o qual o diagnóstico serve.",
     open: false,
   },
 ];
