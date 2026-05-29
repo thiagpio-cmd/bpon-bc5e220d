@@ -82,7 +82,7 @@ const CTASection = () => {
                 <MessageCircle size={14} />
                 Falar no WhatsApp
               </a>
-              <span className="font-body text-[12px]" style={{ color: "hsl(210 15% 38%)" }}>(31) 98118-4086</span>
+              <span className="font-body text-[12px]" style={{ color: "hsl(210 15% 38%)" }}>{"\n"}</span>
             </div>
           </div>
 
