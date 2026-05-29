@@ -20,7 +20,7 @@ const workingModel = [
   {
     icon: Link,
     title: "Integração com ERP e operação",
-    text: "Trabalha integrada ao ERP, plataformas e processos internos da empresa — sem sobreposição e sem lacuna.",
+    text: "Trabalha integrada ao ERP, plataformas e processos internos da empresa, sem sobreposição e sem lacuna.",
   },
 ];
 
