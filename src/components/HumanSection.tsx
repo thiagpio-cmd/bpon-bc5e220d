@@ -15,7 +15,7 @@ const workingModel = [
   {
     icon: FileText,
     title: "Fechamento e reporte mensal",
-    text: "Consolidação completa com leitura executiva — apresentada para quem precisa decidir com clareza.",
+    text: "Consolidação completa com leitura executiva, apresentada para quem precisa decidir com clareza.",
   },
   {
     icon: Link,
