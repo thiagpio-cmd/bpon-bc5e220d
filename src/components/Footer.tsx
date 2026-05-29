@@ -67,7 +67,7 @@ const Footer = () => {
               <a href="https://wa.me/5531981184086" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-start gap-2 font-body text-sm text-body hover:text-headline transition-colors">
                 <Phone size={13} className="flex-shrink-0 mt-0.5 text-emerald-500" />
-                (31) 98118-4086 <span className="text-emerald-600 text-xs">(WhatsApp)</span>
+                {"\n"} <span className="text-emerald-600 text-xs">(WhatsApp)</span>
               </a>
               <a href="mailto:contato@fintexbpo.com.br"
               className="inline-flex items-start gap-2 font-body text-sm text-body hover:text-headline transition-colors">
