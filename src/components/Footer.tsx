@@ -24,7 +24,6 @@ const Footer = () => {
           <div className="lg:col-span-1 flex flex-col gap-5">
             <FintexLogo variant="dark" height={36} />
             <div className="flex flex-col gap-1.5">
-              <p className="font-body text-xs font-semibold text-headline">Uma Empresa Ubercentral</p>
               <p className="font-body text-xs text-body leading-relaxed max-w-xs">
                 BPO Financeiro com base operacional forte e leitura gerencial para empresas que precisam de processo e clareza.
               </p>
@@ -35,7 +34,7 @@ const Footer = () => {
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                 WhatsApp
               </a>
-              <a href="mailto:comercial@ubercentral.com.br"
+              <a href="mailto:comercial@bpon.com.br"
               className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-divider text-body font-body text-xs font-medium hover:text-headline hover:border-primary/20 transition-colors">
                 <Mail size={11} className="text-primary/60" />
                 E-mail
@@ -70,15 +69,15 @@ const Footer = () => {
                 <Phone size={13} className="flex-shrink-0 mt-0.5 text-emerald-500" />
                 (34) 99281-2444 <span className="text-emerald-600 text-xs">(WhatsApp)</span>
               </a>
-              <a href="mailto:comercial@ubercentral.com.br"
+              <a href="mailto:comercial@bpon.com.br"
               className="inline-flex items-start gap-2 font-body text-sm text-body hover:text-headline transition-colors">
                 <Mail size={13} className="flex-shrink-0 mt-0.5 text-primary/60" />
-                comercial@ubercentral.com.br
+                comercial@bpon.com.br
               </a>
-              <a href="mailto:sac@ubercentral.com.br"
+              <a href="mailto:sac@bpon.com.br"
               className="inline-flex items-start gap-2 font-body text-sm text-body hover:text-headline transition-colors">
                 <Mail size={13} className="flex-shrink-0 mt-0.5 text-primary/60" />
-                sac@ubercentral.com.br
+                sac@bpon.com.br
               </a>
             </div>
           </div>
@@ -123,10 +122,10 @@ const Footer = () => {
         <div className="py-5 border-t border-divider flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <div className="flex flex-col gap-0.5">
             <p className="font-body text-xs text-body/70">
-              © {year} Fintex BPO Consultoria Financeira — Empresa do Grupo Ubercentral
+              © {year} Fintex BPO Consultoria Financeira
             </p>
             <p className="font-body text-xs text-body/45">
-              Ubercentral Contabilidade Ltda · CNPJ 09.281.566/0001-03 · CRC MG-012100/O
+              CRC MG-012100/O
             </p>
           </div>
           <p className="font-body text-xs text-body/35 italic">

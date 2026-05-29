@@ -8,7 +8,7 @@ const metrics = [
     suffix: "+",
     unit: "anos",
     label: "Base institucional",
-    detail: "Grupo Ubercentral atuando desde 2002 em Uberlândia",
+    detail: "Operação consolidada desde 2002 em Uberlândia",
   },
   {
     icon: Users2,
@@ -141,7 +141,7 @@ const AuthoritySection = () => {
         {/* Rodapé institucional */}
         <div className="reveal reveal-delay-6 pt-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-divider">
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
-            {["Grupo Ubercentral", "Uberlândia — MG", "CNPJ 09.281.566/0001-03", "CRC MG-012100/O"].map((item, i, arr) => (
+            {["Uberlândia — MG", "CRC MG-012100/O"].map((item, i, arr) => (
               <span key={item} className="flex items-center gap-3">
                 <span className="font-body text-[11px]" style={{ color: "hsl(var(--body) / 0.55)" }}>{item}</span>
                 {i < arr.length - 1 && <span className="font-body text-[11px]" style={{ color: "hsl(var(--body) / 0.2)" }}>·</span>}

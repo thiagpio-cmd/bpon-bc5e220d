@@ -68,18 +68,6 @@ const Header = () => {
         />
       </div>
 
-      {/* Topbar institucional */}
-      <div className={`bg-deep text-deep-foreground/80 text-center overflow-hidden transition-all duration-300 ${
-        scrolled ? "max-h-0 opacity-0 py-0" : "max-h-9 opacity-100 py-1.5"
-      }`}>
-        <p className="font-body text-[11px] tracking-wide px-4">
-          <span className="font-semibold text-deep-foreground">Fintex BPO</span>
-          {" "}— Empresa do{" "}
-          <span className="font-semibold text-deep-foreground">Grupo Ubercentral</span>
-          <span className="hidden sm:inline text-deep-foreground/35 mx-2">·</span>
-          <span className="hidden sm:inline text-deep-foreground/55">Base empresarial e contábil desde 2002</span>
-        </p>
-      </div>
 
       <div className="container mx-auto px-6 lg:px-8">
         <div className={`flex items-center justify-between transition-all duration-300 ${
@@ -89,11 +77,6 @@ const Header = () => {
           {/* Logo */}
           <a href="#inicio" className="flex-shrink-0 flex items-center gap-3">
             <FintexLogo variant="dark" height={40} />
-            <span className={`hidden lg:block font-body text-[11px] text-muted-foreground border-l border-divider pl-3 leading-tight transition-all duration-300 ${
-              scrolled ? "opacity-0 w-0 overflow-hidden pl-0 border-l-0" : "opacity-100"
-            }`}>
-              Uma Empresa<br />Ubercentral
-            </span>
           </a>
 
           {/* Desktop Nav */}

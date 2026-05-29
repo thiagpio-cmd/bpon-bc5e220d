@@ -1,7 +1,7 @@
 import { Shield, Clock, Link2, Users2 } from "lucide-react";
 
 const items = [
-  { icon: Shield, label: "Empresa do Grupo Ubercentral", sub: "Base institucional desde 2002" },
+  { icon: Shield, label: "Base institucional consolidada", sub: "Operação consultiva desde 2002" },
   { icon: Link2, label: "Estrutura contábil integrada", sub: "Contador + BPO sem lacuna" },
   { icon: Users2, label: "Operação financeira + gerencial", sub: "Da rotina ao fechamento mensal" },
   { icon: Clock, label: "Resposta em até 1 dia útil", sub: "Diagnóstico sem compromisso" },
