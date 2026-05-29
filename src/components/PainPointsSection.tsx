@@ -24,7 +24,7 @@ const painPoints = [
   },
   {
     title: "Crescimento sem estrutura financeira por trás",
-    text: "A operação escala, mas o financeiro não acompanha — e o risco cresce invisível.",
+    text: "A operação escala, mas o financeiro não acompanha, e o risco cresce invisível.",
   },
 ];
 

@@ -3,7 +3,7 @@ import { Banknote, TrendingUp, CalendarCheck, Activity } from "lucide-react";
 const pillars = [
   { icon: Banknote, title: "Caixa", text: "Visibilidade real sobre posição, compromissos e disponível. A liderança para de operar na estimativa." },
   { icon: TrendingUp, title: "Margem", text: "Base organizada para entender o que entra, o que sai e o que efetivamente sobra na operação." },
-  { icon: CalendarCheck, title: "Compromissos", text: "Todos os compromissos financeiros sob controle — programados, conferidos e acompanhados com critério." },
+  { icon: CalendarCheck, title: "Compromissos", text: "Todos os compromissos financeiros sob controle: programados, conferidos e acompanhados com critério." },
   { icon: Activity, title: "Ritmo operacional", text: "Cadência financeira definida: rotinas que rodam com previsibilidade, sem depender de improviso." },
 ];
 
@@ -28,7 +28,7 @@ const CFOVisionSection = () => {
               </h2>
             </div>
             <p className="font-body text-base text-deep-foreground/60 leading-relaxed">
-              A Fintex BPO estrutura a operação com disciplina e acompanha o financeiro com visão gerencial próxima da liderança — criando base para decisão, priorização e planejamento.
+              A Fintex BPO estrutura a operação com disciplina e acompanha o financeiro com visão gerencial próxima da liderança, criando base para decisão, priorização e planejamento.
             </p>
             <a href="#diagnostico" className="inline-flex w-fit items-center gap-2 px-6 py-3 rounded-xl bg-white/10 border border-white/20 text-deep-foreground font-body font-semibold text-sm hover:bg-white/15 transition-all duration-200">
               Solicitar diagnóstico

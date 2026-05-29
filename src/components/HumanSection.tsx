@@ -5,7 +5,7 @@ const workingModel = [
   {
     icon: Users,
     title: "Ponto de contato definido",
-    text: "Equipe responsável com nome, agenda e responsabilidades claras — não atendimento rotativo ou sistema.",
+    text: "Equipe responsável com nome, agenda e responsabilidades claras, não atendimento rotativo ou sistema.",
   },
   {
     icon: Calendar,
@@ -15,12 +15,12 @@ const workingModel = [
   {
     icon: FileText,
     title: "Fechamento e reporte mensal",
-    text: "Consolidação completa com leitura executiva — apresentada para quem precisa decidir com clareza.",
+    text: "Consolidação completa com leitura executiva, apresentada para quem precisa decidir com clareza.",
   },
   {
     icon: Link,
     title: "Integração com ERP e operação",
-    text: "Trabalha integrada ao ERP, plataformas e processos internos da empresa — sem sobreposição e sem lacuna.",
+    text: "Trabalha integrada ao ERP, plataformas e processos internos da empresa, sem sobreposição e sem lacuna.",
   },
 ];
 

@@ -9,7 +9,7 @@ const faqs = [
   },
   {
     q: "Como funciona a implantação na prática?",
-    a: "A implantação começa com um diagnóstico da operação atual: como o financeiro funciona hoje, quais controles existem, quem é responsável por cada frente e onde estão os gargalos. A partir daí, estruturamos a rotina, definimos a cadência e iniciamos a operação de forma assistida — sem ruptura brusca.",
+    a: "A implantação começa com um diagnóstico da operação atual: como o financeiro funciona hoje, quais controles existem, quem é responsável por cada frente e onde estão os gargalos. A partir daí, estruturamos a rotina, definimos a cadência e iniciamos a operação de forma assistida, sem ruptura brusca.",
     open: false,
   },
   {
@@ -19,17 +19,17 @@ const faqs = [
   },
   {
     q: "Como vocês se integram com minha equipe interna?",
-    a: "Definimos um modelo claro de comunicação e cadência com a equipe interna, respeitando o que já funciona e organizando o que está fragmentado. Alinhamos fluxo de informações, prazos e responsabilidades — sem sobreposição de funções.",
+    a: "Definimos um modelo claro de comunicação e cadência com a equipe interna, respeitando o que já funciona e organizando o que está fragmentado. Alinhamos fluxo de informações, prazos e responsabilidades, sem sobreposição de funções.",
     open: false,
   },
   {
     q: "Qual o nível de envolvimento da liderança?",
-    a: "Baixo no operacional, alto no gerencial. A liderança não precisa acompanhar cada lançamento. O que muda é que, mensalmente, recebe um fechamento claro, com indicadores e análise — para tomar decisões com base em dados reais, não estimativas.",
+    a: "Baixo no operacional, alto no gerencial. A liderança não precisa acompanhar cada lançamento. O que muda é que, mensalmente, recebe um fechamento claro, com indicadores e análise, para tomar decisões com base em dados reais, não estimativas.",
     open: false,
   },
   {
     q: "O atendimento é 100% remoto?",
-    a: "Sim. A Fintex BPO opera de forma 100% online, atendendo empresas em todo o Brasil. Reuniões por vídeo, integração com seu ERP, comunicação por canais oficiais e cadência clara — sem necessidade de presença física.",
+    a: "Sim. A Fintex BPO opera de forma 100% online, atendendo empresas em todo o Brasil. Reuniões por vídeo, integração com seu ERP, comunicação por canais oficiais e cadência clara, sem necessidade de presença física.",
     open: false,
   },
   {
@@ -39,7 +39,7 @@ const faqs = [
   },
   {
     q: "Vocês atendem empresa com mais de uma unidade?",
-    a: "Sim. A Fintex BPO tem estrutura para atender empresas com múltiplas unidades operacionais, filiais ou centros de custo. A organização do processo financeiro nesse contexto é especialmente relevante — e exatamente o tipo de desafio para o qual o diagnóstico serve.",
+    a: "Sim. A Fintex BPO tem estrutura para atender empresas com múltiplas unidades operacionais, filiais ou centros de custo. A organização do processo financeiro nesse contexto é especialmente relevante e exatamente o tipo de desafio para o qual o diagnóstico serve.",
     open: false,
   },
 ];

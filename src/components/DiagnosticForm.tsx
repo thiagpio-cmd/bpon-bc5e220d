@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ArrowRight, ChevronDown, ChevronRight } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
 const faturamentoOptions = [
   "Até R$ 100 mil/mês",
-  "R$ 100 mil – R$ 500 mil/mês",
-  "R$ 500 mil – R$ 2 mi/mês",
+  "R$ 100 mil a R$ 500 mil/mês",
+  "R$ 500 mil a R$ 2 mi/mês",
   "Acima de R$ 2 mi/mês",
   "Prefiro não informar",
 ];
@@ -104,28 +104,62 @@ const DiagnosticForm = () => {
     }
   };
 
+  const WHATSAPP_NUMBER = "5531981184086";
+  const whatsappMessage = encodeURIComponent(
+    `Olá! Sou ${form["nome"] || ""}${form["empresa"] ? ` da ${form["empresa"]}` : ""}. Acabei de solicitar um diagnóstico no site da Fintex BPO.`
+  );
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMessage}`;
+
+  useEffect(() => {
+    if (!submitted) return;
+    const t = setTimeout(() => {
+      window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+    }, 1500);
+    return () => clearTimeout(t);
+  }, [submitted, whatsappUrl]);
+
   if (submitted) {
     return (
-      <div className="flex flex-col items-center justify-center py-14 px-6 text-center gap-6">
-        <div className="w-16 h-16 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center">
-          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-            <path
-              d="M6 14l6 6 10-10"
-              stroke="#10b981"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </div>
-        <div>
-          <h3 className="font-display font-bold text-xl text-headline mb-2">
-            Diagnóstico solicitado com sucesso.
-          </h3>
-          <p className="font-body text-sm text-body max-w-md leading-relaxed">
-            A equipe da Fintex BPO vai analisar as informações e entrar em contato. Em geral respondemos
-            em até 1 dia útil.
-          </p>
+      <div className="fixed inset-0 z-[100] flex items-center justify-center px-4 animate-fade-in">
+        <div className="absolute inset-0 bg-headline/70 backdrop-blur-sm" />
+        <div className="relative w-full max-w-md bg-white rounded-2xl shadow-elevated p-8 flex flex-col items-center text-center gap-5">
+          <div className="w-14 h-14 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center">
+            <svg width="26" height="26" viewBox="0 0 28 28" fill="none">
+              <path d="M6 14l6 6 10-10" stroke="#10b981" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </div>
+          <div>
+            <h3 className="font-display font-bold text-xl text-headline mb-2">
+              Diagnóstico solicitado com sucesso.
+            </h3>
+            <p className="font-body text-sm text-body leading-relaxed">
+              Redirecionando você para o WhatsApp da Fintex BPO para iniciar a conversa agora.
+            </p>
+          </div>
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full flex items-center justify-center gap-2.5 py-3.5 rounded-lg bg-[#25D366] hover:bg-[#1ebe5d] text-white font-body font-semibold text-sm transition-all duration-200 shadow-elevated"
+          >
+            <svg width="18" height="18" viewBox="0 0 48 48" fill="none">
+              <path fillRule="evenodd" clipRule="evenodd" d="M24 6.4C14.3 6.4 6.4 14.3 6.4 24c0 3.4.95 6.6 2.6 9.3l.4.7-1.7 6.2 6.4-1.7.7.4A17.46 17.46 0 0 0 24 41.6c9.7 0 17.6-7.9 17.6-17.6S33.7 6.4 24 6.4zM17.3 15.2c.3 0 .6 0 .9.01.3 0 .6.01.9.7.35.8 1.15 2.8 1.25 3.0.1.2.15.45.02.7-.13.25-.2.4-.4.62-.2.22-.42.48-.6.65-.2.18-.4.37-.18.73.23.36 1.0 1.65 2.15 2.67 1.48 1.32 2.73 1.73 3.1 1.92.37.2.59.17.81-.1.22-.27.93-1.08 1.18-1.45.25-.37.5-.31.84-.18.34.12 2.17 1.02 2.54 1.21.37.18.62.28.71.43.1.15.1.87-.2 1.71-.3.84-1.74 1.6-2.4 1.7-.64.1-1.25.14-4.1-1.08-3.46-1.44-5.65-4.95-5.82-5.18-.17-.22-1.4-1.86-1.4-3.54 0-1.68.88-2.5 1.2-2.84.3-.35.67-.44.9-.44z" fill="white"/>
+            </svg>
+            Falar agora no WhatsApp
+          </a>
+          <button
+            type="button"
+            onClick={() => {
+              setSubmitted(false);
+              setForm({});
+              setStep(1);
+              setLgpdAccepted(false);
+              setShowExtra(false);
+            }}
+            className="font-body text-xs text-body/60 hover:text-headline transition-colors"
+          >
+            Fechar
+          </button>
         </div>
       </div>
     );
