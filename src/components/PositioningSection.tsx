@@ -34,9 +34,9 @@ const PositioningSection = () => {
                 text: "Indicadores, relatórios e acompanhamento para a liderança decidir com base.",
               },
               {
-                num: "2002",
-                title: "Base institucional",
-                text: "Operação consolidada por mais de duas décadas em gestão financeira empresarial.",
+                num: "BR",
+                title: "Operação 100% remota",
+                text: "Atendimento consultivo em todo o Brasil, com processo digital e comunicação estruturada.",
               },
             ].map((item) => (
               <div key={item.num} className="group flex items-start gap-5 p-5 rounded-2xl border border-divider bg-surface card-hover">
