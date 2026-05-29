@@ -59,7 +59,7 @@ const TeamSection = () => {
                   </div>
                 </div>
                 <p className="font-display font-bold text-sm text-headline mt-2">Equipe Fintex BPO</p>
-                <p className="font-body text-xs text-body mt-0.5">Consultoria Financeira · Grupo Ubercentral</p>
+                <p className="font-body text-xs text-body mt-0.5">Consultoria Financeira</p>
                 <a
                   href="#diagnostico"
                   className="mt-3 w-full text-center block font-body text-xs font-bold px-4 py-2.5 rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200 shadow-blue"

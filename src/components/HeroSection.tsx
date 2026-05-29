@@ -199,7 +199,7 @@ const HeroSection = () => {
             <div className="animate-fade-up" style={{ animationDelay: "0.05s" }}>
               <span className="label-pill-dark">
                 <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
-                BPO Financeiro · Grupo Ubercentral
+                BPO Financeiro · Operação consultiva
               </span>
             </div>
 
@@ -255,7 +255,7 @@ const HeroSection = () => {
             <div className="flex flex-wrap gap-x-6 gap-y-2 mt-9 pt-6 animate-fade-up"
             style={{ borderTop: "1px solid hsl(214 35% 22%)", animationDelay: "0.58s" }}>
               {[
-              { num: "Desde 2002", label: "Grupo Ubercentral" },
+              { num: "Desde 2002", label: "Base institucional" },
               { num: "BPO +", label: "operação recorrente" },
               { num: "CFO as a Service", label: "leitura gerencial" }].
               map((p) =>
