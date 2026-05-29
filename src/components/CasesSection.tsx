@@ -43,7 +43,7 @@ const CasesSection = () => {
             <span className="text-gradient-primary">que a Fintex BPO estrutura.</span>
           </h2>
           <p className="font-body text-[13.5px] text-body leading-relaxed">
-            Perfis de empresas com desafios concretos — e como a estrutura da Fintex BPO
+            Perfis de empresas com desafios concretos e como a estrutura da Fintex BPO
             foi aplicada para cada situação.
           </p>
         </div>
