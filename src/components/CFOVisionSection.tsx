@@ -33,7 +33,7 @@ const CFOVisionSection = () => {
           <div className="flex items-center gap-3 mb-5">
             <div className="label-pill">CFO as a Service</div>
             <div className="h-px w-12 bg-divider" />
-            <span className="font-body text-xs uppercase tracking-[0.18em] text-body/70">Camada estratégica</span>
+            <span className="font-body text-xs uppercase tracking-[0.18em] text-body/70">{"\n"}</span>
           </div>
           <h2 className="font-display font-black text-3xl lg:text-[2.6rem] text-headline leading-[1.1] tracking-tight mb-5">
             Visão de CFO ao lado da liderança,{" "}
