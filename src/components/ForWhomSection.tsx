@@ -1,4 +1,13 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Stethoscope, Factory, Briefcase, Store, Cpu, HardHat } from "lucide-react";
+
+const sectors = [
+  { icon: Stethoscope, label: "Clínicas e consultórios" },
+  { icon: Factory, label: "Indústrias e atacadistas" },
+  { icon: Briefcase, label: "Agências e serviços" },
+  { icon: Store, label: "Comércio e varejo" },
+  { icon: Cpu, label: "Tecnologia e SaaS" },
+  { icon: HardHat, label: "Construção e engenharia" },
+];
 
 const profiles = [
   {
