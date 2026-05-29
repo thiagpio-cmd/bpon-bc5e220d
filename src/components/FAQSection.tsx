@@ -70,7 +70,7 @@ const FAQSection = () => {
                 Solicitar diagnóstico
                 <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform duration-200" />
               </a>
-              <a href="https://wa.me/5534992812444"
+              <a href="https://wa.me/5531981184086"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex w-fit items-center gap-2 px-5 py-2 rounded-lg border border-divider bg-surface font-body text-[13px] text-body hover:text-headline hover:border-primary/20 transition-all duration-200 group">

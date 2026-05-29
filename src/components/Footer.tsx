@@ -29,12 +29,12 @@ const Footer = () => {
               </p>
             </div>
             <div className="flex gap-2.5 flex-wrap pt-1">
-              <a href="https://wa.me/5534992812444" target="_blank" rel="noopener noreferrer"
+              <a href="https://wa.me/5531981184086" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-700 font-body text-xs font-semibold hover:bg-emerald-100 transition-colors">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                 WhatsApp
               </a>
-              <a href="mailto:comercial@bpon.com.br"
+              <a href="mailto:contato@fintexbpo.com.br"
               className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-divider text-body font-body text-xs font-medium hover:text-headline hover:border-primary/20 transition-colors">
                 <Mail size={11} className="text-primary/60" />
                 E-mail
@@ -59,25 +59,25 @@ const Footer = () => {
           <div>
             <p className="font-display font-semibold text-xs text-headline uppercase tracking-widest mb-5">Contato</p>
             <div className="flex flex-col gap-3">
-              <a href="tel:+553432292008"
+              <a href="tel:+5531981184086"
               className="inline-flex items-start gap-2 font-body text-sm text-body hover:text-headline transition-colors">
                 <Phone size={13} className="flex-shrink-0 mt-0.5 text-primary/60" />
-                (34) 3229-2008
+                (31) 98118-4086
               </a>
-              <a href="https://wa.me/5534992812444" target="_blank" rel="noopener noreferrer"
+              <a href="https://wa.me/5531981184086" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-start gap-2 font-body text-sm text-body hover:text-headline transition-colors">
                 <Phone size={13} className="flex-shrink-0 mt-0.5 text-emerald-500" />
-                (34) 99281-2444 <span className="text-emerald-600 text-xs">(WhatsApp)</span>
+                (31) 98118-4086 <span className="text-emerald-600 text-xs">(WhatsApp)</span>
               </a>
-              <a href="mailto:comercial@bpon.com.br"
+              <a href="mailto:contato@fintexbpo.com.br"
               className="inline-flex items-start gap-2 font-body text-sm text-body hover:text-headline transition-colors">
                 <Mail size={13} className="flex-shrink-0 mt-0.5 text-primary/60" />
-                comercial@bpon.com.br
+                contato@fintexbpo.com.br
               </a>
-              <a href="mailto:sac@bpon.com.br"
+              <a href="mailto:contato@fintexbpo.com.br"
               className="inline-flex items-start gap-2 font-body text-sm text-body hover:text-headline transition-colors">
                 <Mail size={13} className="flex-shrink-0 mt-0.5 text-primary/60" />
-                sac@bpon.com.br
+                contato@fintexbpo.com.br
               </a>
             </div>
           </div>

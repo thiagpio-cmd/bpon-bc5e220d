@@ -80,7 +80,7 @@ serve(async (req) => {
           "X-Project-Id": projectId,
         },
         body: JSON.stringify({
-          to: "comercial@bpon.com.br",
+          to: "contato@fintexbpo.com.br",
           subject: `Novo lead - ${nome}`,
           text: emailText,
           html: emailHtml,

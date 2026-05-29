@@ -99,12 +99,12 @@ const Header = () => {
           {/* CTA */}
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="https://wa.me/5534992812444"
+              href="https://wa.me/5531981184086"
               target="_blank"
               rel="noopener noreferrer"
               className="font-body text-[12px] text-body hover:text-headline transition-colors duration-200 hidden lg:block"
             >
-              (34) 99281-2444
+              (31) 98118-4086
             </a>
             <a
               href="#diagnostico"
@@ -154,13 +154,13 @@ const Header = () => {
                 <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform" />
               </a>
               <a
-                href="https://wa.me/5534992812444"
+                href="https://wa.me/5531981184086"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-body text-[13px] text-body text-center mt-1.5 py-2"
                 onClick={() => setMobileOpen(false)}
               >
-                (34) 99281-2444
+                (31) 98118-4086
               </a>
             </nav>
           </div>

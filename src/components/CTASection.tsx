@@ -70,7 +70,7 @@ const CTASection = () => {
             <div className="pt-5 flex items-center gap-4"
             style={{ borderTop: "1px solid hsl(214 28% 22%)" }}>
               <a
-                href="https://wa.me/5534992812444"
+                href="https://wa.me/5531981184086"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-body font-semibold text-[13px] transition-all hover:scale-[1.02]"
@@ -82,7 +82,7 @@ const CTASection = () => {
                 <MessageCircle size={14} />
                 Falar no WhatsApp
               </a>
-              <span className="font-body text-[12px]" style={{ color: "hsl(210 15% 38%)" }}>(34) 99281-2444</span>
+              <span className="font-body text-[12px]" style={{ color: "hsl(210 15% 38%)" }}>(31) 98118-4086</span>
             </div>
           </div>
 
