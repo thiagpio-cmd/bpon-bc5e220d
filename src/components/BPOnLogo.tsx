@@ -1,13 +1,13 @@
 import logoBpon from "@/assets/logo-bpon.png";
 
-interface BPOnLogoProps {
+interface FintexLogoProps {
   className?: string;
   /** Use "light" on dark backgrounds to apply brightness filter */
   variant?: "default" | "light";
   height?: number;
 }
 
-const BPOnLogo = ({ className = "", variant = "default", height = 36 }: BPOnLogoProps) => {
+const FintexLogo = ({ className = "", variant = "default", height = 36 }: FintexLogoProps) => {
   return (
     <img
       src={logoBpon}
@@ -19,4 +19,4 @@ const BPOnLogo = ({ className = "", variant = "default", height = 36 }: BPOnLogo
   );
 };
 
-export default BPOnLogo;
+export default FintexLogo;
