@@ -62,7 +62,7 @@ const Footer = () => {
               <a href="tel:+5531981184086"
               className="inline-flex items-start gap-2 font-body text-sm text-body hover:text-headline transition-colors">
                 <Phone size={13} className="flex-shrink-0 mt-0.5 text-primary/60" />
-                (31) 98118-4086
+                {"\n"}
               </a>
               <a href="https://wa.me/5531981184086" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-start gap-2 font-body text-sm text-body hover:text-headline transition-colors">
