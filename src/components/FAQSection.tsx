@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ChevronDown, ArrowRight, MessageCircle } from "lucide-react";
 
-const faqs = [
+export const faqs = [
   {
     q: "Em quanto tempo a operação começa a rodar com previsibilidade?",
     a: "As primeiras semanas já entregam rotina organizada, controles funcionando e base mais confiável de dados. O fechamento gerencial consistente e os indicadores se consolidam ao longo dos primeiros meses, conforme a operação amadurece. Em geral, o cliente já sente diferença concreta no primeiro mês.",
