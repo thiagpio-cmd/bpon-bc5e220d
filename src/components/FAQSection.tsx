@@ -67,7 +67,7 @@ const FAQSection = () => {
             <div className="flex flex-col gap-2.5 pt-2">
               <a href="#diagnostico"
                 className="inline-flex w-fit items-center gap-2 px-6 py-2.5 rounded-lg bg-primary text-primary-foreground font-body font-semibold text-[13px] hover:bg-primary/90 transition-all duration-200 shadow-blue group">
-                Solicitar diagnóstico
+                Tirar minha dúvida no diagnóstico
                 <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform duration-200" />
               </a>
               <a href="https://wa.me/5531981184086"
