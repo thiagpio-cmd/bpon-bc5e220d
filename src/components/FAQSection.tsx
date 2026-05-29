@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     q: "O atendimento é 100% remoto?",
-    a: "Sim. A Fintex BPO opera de forma 100% online, atendendo empresas em todo o Brasil. Reuniões por vídeo, integração com seu ERP, comunicação por canais oficiais e cadência clara — sem necessidade de presença física.",
+    a: "Sim. A Fintex BPO opera de forma 100% online, atendendo empresas em todo o Brasil. Reuniões por vídeo, integração com seu ERP, comunicação por canais oficiais e cadência clara, sem necessidade de presença física.",
     open: false,
   },
   {
