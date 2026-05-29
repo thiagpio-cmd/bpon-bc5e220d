@@ -32,6 +32,13 @@ const checklistItems = [
   { label: "Reporte à liderança", done: false },
 ];
 
+const getCurrentMonthYear = () => {
+  const date = new Date();
+  const month = date.toLocaleDateString('pt-BR', { month: 'long' });
+  const year = date.getFullYear();
+  return `${month.charAt(0).toUpperCase() + month.slice(1)} / ${year}`;
+};
+
 const RoutineMockup = () => {
   const done = checklistItems.filter((i) => i.done).length;
   const total = checklistItems.length;
