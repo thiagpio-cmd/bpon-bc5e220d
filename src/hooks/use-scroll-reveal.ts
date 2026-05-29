@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 
 /**
  * Attach scroll-reveal to elements with class "reveal".
@@ -6,7 +6,7 @@ import { useEffect, useRef } from "react";
  */
 export const useScrollReveal = () => {
   useEffect(() => {
-    const els = document.querySelectorAll(".reveal");
+    const observed = new WeakSet<Element>();
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -20,7 +20,51 @@ export const useScrollReveal = () => {
       { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
     );
 
-    els.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+    const revealImmediatelyIfNeeded = (el: Element) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 40) {
+        el.classList.add("visible");
+        observer.unobserve(el);
+        return true;
+      }
+
+      return false;
+    };
+
+    const observeRevealElement = (el: Element) => {
+      if (observed.has(el)) return;
+      observed.add(el);
+
+      if (!revealImmediatelyIfNeeded(el)) {
+        observer.observe(el);
+      }
+    };
+
+    const scanRevealElements = (root: ParentNode = document) => {
+      root.querySelectorAll?.(".reveal").forEach(observeRevealElement);
+    };
+
+    scanRevealElements();
+
+    const mutationObserver = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        mutation.addedNodes.forEach((node) => {
+          if (!(node instanceof Element)) return;
+
+          if (node.classList.contains("reveal")) {
+            observeRevealElement(node);
+          }
+
+          scanRevealElements(node);
+        });
+      });
+    });
+
+    mutationObserver.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      observer.disconnect();
+      mutationObserver.disconnect();
+    };
   }, []);
 };
