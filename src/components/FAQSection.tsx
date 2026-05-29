@@ -3,14 +3,9 @@ import { ChevronDown, ArrowRight, MessageCircle } from "lucide-react";
 
 const faqs = [
   {
-    q: "Já tenho contador. Onde a Fintex BPO entra?",
-    a: "Contador e BPO financeiro são funções distintas. O contador cuida do fiscal, tributário e obrigações acessórias. A Fintex BPO cuida da rotina operacional financeira: contas a pagar e receber, conciliação, fluxo de caixa e fechamento gerencial. As duas frentes se complementam — sem sobreposição e sem lacuna.",
-    open: true,
-  },
-  {
     q: "Em quanto tempo a operação começa a rodar com previsibilidade?",
     a: "As primeiras semanas já entregam rotina organizada, controles funcionando e base mais confiável de dados. O fechamento gerencial consistente e os indicadores se consolidam ao longo dos primeiros meses, conforme a operação amadurece. Em geral, o cliente já sente diferença concreta no primeiro mês.",
-    open: false,
+    open: true,
   },
   {
     q: "Como funciona a implantação na prática?",
@@ -23,13 +18,18 @@ const faqs = [
     open: false,
   },
   {
-    q: "Como vocês se integram com meu contador e equipe interna?",
-    a: "A Fintex BPO opera em conjunto com o contador — sem sobreposição de funções. Alinhamos fluxo de informações, prazos e responsabilidades entre as partes. Com a equipe interna, definimos um modelo claro de comunicação e cadência, respeitando o que já funciona e organizando o que está fragmentado.",
+    q: "Como vocês se integram com minha equipe interna?",
+    a: "Definimos um modelo claro de comunicação e cadência com a equipe interna, respeitando o que já funciona e organizando o que está fragmentado. Alinhamos fluxo de informações, prazos e responsabilidades — sem sobreposição de funções.",
     open: false,
   },
   {
     q: "Qual o nível de envolvimento da liderança?",
     a: "Baixo no operacional, alto no gerencial. A liderança não precisa acompanhar cada lançamento. O que muda é que, mensalmente, recebe um fechamento claro, com indicadores e análise — para tomar decisões com base em dados reais, não estimativas.",
+    open: false,
+  },
+  {
+    q: "O atendimento é 100% remoto?",
+    a: "Sim. A Fintex BPO opera de forma 100% online, atendendo empresas em todo o Brasil. Reuniões por vídeo, integração com seu ERP, comunicação por canais oficiais e cadência clara — sem necessidade de presença física.",
     open: false,
   },
   {
@@ -70,7 +70,7 @@ const FAQSection = () => {
                 Solicitar diagnóstico
                 <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform duration-200" />
               </a>
-              <a href="https://wa.me/5534992812444"
+              <a href="https://wa.me/5531981184086"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex w-fit items-center gap-2 px-5 py-2 rounded-lg border border-divider bg-surface font-body text-[13px] text-body hover:text-headline hover:border-primary/20 transition-all duration-200 group">

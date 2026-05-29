@@ -19,8 +19,8 @@ const workingModel = [
   },
   {
     icon: Link,
-    title: "Integração com contabilidade e operação",
-    text: "Trabalha integrada com o contador, ERP e processos internos — sem sobreposição e sem lacuna.",
+    title: "Integração com ERP e operação",
+    text: "Trabalha integrada ao ERP, plataformas e processos internos da empresa — sem sobreposição e sem lacuna.",
   },
 ];
 
@@ -88,11 +88,11 @@ const RoutineMockup = () => {
           style={{ background: "hsl(var(--primary) / 0.05)", border: "1px solid hsl(var(--primary) / 0.1)" }}>
           <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
             style={{ background: "hsl(var(--primary) / 0.12)", border: "1px solid hsl(var(--primary) / 0.2)" }}>
-            <span className="font-display font-black text-[11px] text-primary">+20</span>
+            <span className="font-display font-black text-[11px] text-primary">BR</span>
           </div>
           <div>
-            <p className="font-display font-bold text-[12px] text-headline">Base institucional consolidada</p>
-            <p className="font-body text-[11px] text-muted-foreground">Operação consultiva desde 2002 · Uberlândia, MG</p>
+            <p className="font-display font-bold text-[12px] text-headline">Operação 100% remota</p>
+            <p className="font-body text-[11px] text-muted-foreground">Atendimento consultivo em todo o Brasil</p>
           </div>
         </div>
         <a href="#diagnostico"
