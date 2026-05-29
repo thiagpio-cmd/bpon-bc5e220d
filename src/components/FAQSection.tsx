@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     q: "Como vocês se integram com minha equipe interna?",
-    a: "Definimos um modelo claro de comunicação e cadência com a equipe interna, respeitando o que já funciona e organizando o que está fragmentado. Alinhamos fluxo de informações, prazos e responsabilidades — sem sobreposição de funções.",
+    a: "Definimos um modelo claro de comunicação e cadência com a equipe interna, respeitando o que já funciona e organizando o que está fragmentado. Alinhamos fluxo de informações, prazos e responsabilidades, sem sobreposição de funções.",
     open: false,
   },
   {
