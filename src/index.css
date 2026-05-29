@@ -237,6 +237,12 @@
     background: hsl(210 22% 97%);
   }
 
+  /* ── Dark section: deep blue gradient ── */
+  .gradient-section-blue {
+    background: linear-gradient(170deg, hsl(222 42% 11%) 0%, hsl(222 38% 14%) 40%, hsl(220 40% 18%) 100%);
+    color: hsl(var(--deep-foreground));
+  }
+
   /* ── Dark→Light transition: soft gradient top edge ── */
   .section-from-dark {
     position: relative;
