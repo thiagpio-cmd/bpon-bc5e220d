@@ -24,7 +24,7 @@ const faqs = [
   },
   {
     q: "Qual o nível de envolvimento da liderança?",
-    a: "Baixo no operacional, alto no gerencial. A liderança não precisa acompanhar cada lançamento. O que muda é que, mensalmente, recebe um fechamento claro, com indicadores e análise — para tomar decisões com base em dados reais, não estimativas.",
+    a: "Baixo no operacional, alto no gerencial. A liderança não precisa acompanhar cada lançamento. O que muda é que, mensalmente, recebe um fechamento claro, com indicadores e análise, para tomar decisões com base em dados reais, não estimativas.",
     open: false,
   },
   {
