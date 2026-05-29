@@ -3,7 +3,7 @@ import { Banknote, TrendingUp, CalendarCheck, Activity } from "lucide-react";
 const pillars = [
   { icon: Banknote, title: "Caixa", text: "Visibilidade real sobre posição, compromissos e disponível. A liderança para de operar na estimativa." },
   { icon: TrendingUp, title: "Margem", text: "Base organizada para entender o que entra, o que sai e o que efetivamente sobra na operação." },
-  { icon: CalendarCheck, title: "Compromissos", text: "Todos os compromissos financeiros sob controle — programados, conferidos e acompanhados com critério." },
+  { icon: CalendarCheck, title: "Compromissos", text: "Todos os compromissos financeiros sob controle: programados, conferidos e acompanhados com critério." },
   { icon: Activity, title: "Ritmo operacional", text: "Cadência financeira definida: rotinas que rodam com previsibilidade, sem depender de improviso." },
 ];
 
