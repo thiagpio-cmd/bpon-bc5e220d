@@ -50,13 +50,6 @@ const ForWhomSection = () => {
             <p className="font-body text-[13.5px] text-body leading-relaxed">
               A Fintex BPO funciona melhor para empresas com operação em andamento, volume financeiro real e necessidade concreta de organizar rotina, caixa e gestão.
             </p>
-            <div className="p-4 rounded-xl"
-              style={{ border: "1px solid hsl(var(--primary) / 0.12)", background: "hsl(var(--surface-tint))" }}>
-              <p className="font-body text-[12.5px] text-body leading-relaxed">
-                <span className="font-semibold text-headline">Fit ideal:</span>{" "}
-                empresa ativa, volume financeiro real e necessidade de processo contínuo: não demandas pontuais.
-              </p>
-            </div>
           </div>
         </div>
 
