@@ -1,24 +1,49 @@
 ## Objetivo
-Tirar o fundo azul escuro da seção `CFOVisionSection` e reconstruí-la na paleta clara da página (off-white + navy), mantendo o ar premium e a posição como âncora institucional.
 
-## Mudanças em `src/components/CFOVisionSection.tsx`
+Atualizar o SEO do site e trocar a imagem de compartilhamento (og:image / twitter:image) pelo logotipo atual da Fintex BPO.
 
-- Trocar `gradient-section-blue` por fundo claro `bg-surface` com tint sutil (`--surface-tint`) em uma faixa decorativa.
-- Remover o radial azul de baixa opacidade; substituir por um detalhe geométrico discreto (linha divisora `divider-primary` + um bloco sutil de `--surface-tint` ao fundo do lado direito).
-- Label pill: usar `.label-pill` padrão (azul sobre azul claro) em vez do estilo dark customizado.
-- Headline (`h2`): cor `text-headline`, mesma tipografia/tracking.
-- Parágrafo: `text-body`.
-- CTA "Quero leitura gerencial assim": botão sólido `bg-primary text-primary-foreground` com `shadow-blue`, hover sutil — alinhado aos outros CTAs primários da página.
-- Cards dos 4 pilares (Caixa, Margem, Compromissos, Ritmo operacional):
-  - Fundo `bg-surface` com `border-divider`, `shadow-card`, `card-hover`.
-  - Ícone em container `icon-md icon-bg` com `text-primary`.
-  - Título `text-headline`, texto `text-body`.
-- Manter grid `lg:grid-cols-5` (2 + 3), mesmas reveals e delays.
+## O que será feito
 
-## Não muda
-- Conteúdo textual e ordem dos pilares.
-- Estrutura/posição da seção em `Index.tsx`.
-- `index.css`: a classe `.gradient-section-blue` permanece (pode ser usada em outro lugar no futuro), apenas deixa de ser aplicada aqui.
+### 1. Trocar imagem de compartilhamento social
 
-## Resultado
-Seção coerente com o restante da landing (off-white + navy), com hierarquia tipográfica forte, CTA primário consistente e cards limpos no padrão das demais seções claras.
+Hoje o `index.html` aponta `og:image` e `twitter:image` para uma URL antiga (logotipo "BPON" hospedado no storage do GPT Engineer).
+
+- Copiar `src/assets/logo-fintex.png` para `public/og-image.png` (assets em `src/` não são servidos publicamente; precisam estar em `public/` para os crawlers do LinkedIn, WhatsApp, Facebook, etc. acessarem).
+- Atualizar `og:image` e `twitter:image` no `index.html` para `https://fintexbpo.lovable.app/og-image.png`.
+- Adicionar `og:image:alt` ("Fintex BPO — BPO Financeiro").
+
+Observação: o logo atual tem proporção quadrada/horizontal. O ideal para preview social é 1200×630. Se quiser, em uma próxima iteração posso gerar uma imagem dedicada de compartilhamento (1200×630) com o logo sobre fundo navy da marca — para esta etapa, vou usar o logo direto conforme pedido.
+
+### 2. Refinar SEO on-page
+
+Ajustes no `<head>` do `index.html`:
+
+- Encurtar o `<title>` (hoje tem 88 chars; ideal < 60): "Fintex BPO | BPO Financeiro com Leitura Gerencial".
+- Alinhar `og:title` e `twitter:title` ao novo título.
+- Manter `description` (já está em ~157 chars, dentro do limite).
+- Adicionar `<meta name="theme-color">` com o navy da marca.
+- Adicionar `<html lang="pt-BR">` favicon link explícito para o logo (já existe `lang`).
+
+### 3. Enriquecer Schema.org (JSON-LD)
+
+No bloco `ProfessionalService` existente:
+
+- Adicionar `logo` apontando para `/og-image.png`.
+- Adicionar `image` (mesma URL).
+- Adicionar `address` (`PostalAddress` com cidade/UF — pegar do memory `institutional-data` se já houver, senão deixar apenas `addressCountry: BR`).
+- Adicionar `sameAs` se houver perfis sociais conhecidos (caso contrário, omitir).
+
+### 4. Rodar review de SEO
+
+Após as alterações, disparar `seo_chat--trigger_scan` para revalidar e listar findings remanescentes no painel de SEO.
+
+## Arquivos afetados
+
+- `index.html` (editado)
+- `public/og-image.png` (novo, cópia de `src/assets/logo-fintex.png`)
+
+## Fora do escopo
+
+- Geração de uma imagem social 1200×630 customizada (pode ser feita depois).
+- Criação de `sitemap.xml` / `robots.txt` (não solicitado).
+- Mudanças em rotas ou conteúdo das seções.
