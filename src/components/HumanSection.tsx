@@ -5,7 +5,7 @@ const workingModel = [
   {
     icon: Users,
     title: "Ponto de contato definido",
-    text: "Equipe responsável com nome, agenda e responsabilidades claras — não atendimento rotativo ou sistema.",
+    text: "Equipe responsável com nome, agenda e responsabilidades claras, não atendimento rotativo ou sistema.",
   },
   {
     icon: Calendar,
