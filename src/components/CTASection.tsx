@@ -1,4 +1,4 @@
-import { MessageCircle, Check } from "lucide-react";
+import { Check } from "lucide-react";
 import DiagnosticForm from "./DiagnosticForm";
 
 const CTASection = () => {
