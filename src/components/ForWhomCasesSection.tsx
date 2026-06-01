@@ -69,39 +69,20 @@ const ForWhomCasesSection = () => {
           ))}
         </div>
 
-        {/* Setores */}
-        <div className="mt-10 reveal">
-          <p className="font-body text-[12px] uppercase tracking-[0.14em] text-body/70 text-center mb-5">
-            Setores atendidos
-          </p>
-          <div className="flex flex-wrap justify-center gap-2.5">
-            {sectors.map((sector) => {
-              const Icon = sector.icon;
-              return (
-                <div key={sector.label}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-divider bg-surface hover:border-primary/30 hover:bg-surface-tint transition-all duration-200">
-                  <Icon size={14} className="text-primary" strokeWidth={1.8} />
-                  <span className="font-body text-[12.5px] text-headline font-medium">{sector.label}</span>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
         {/* Casos representativos */}
         <div className="mt-16 lg:mt-20 reveal">
           <div className="mb-8 lg:mb-10 max-w-xl">
-            <div className="label-pill mb-4">Situações reais</div>
+            <div className="label-pill mb-4">Situação real</div>
             <h3 className="font-display font-black text-[1.5rem] lg:text-[2rem] text-headline leading-[1.08] tracking-[-0.022em] mt-3 mb-3">
-              Padrões de operação<br />
+              Padrão de operação<br />
               <span className="text-gradient-primary">que a Fintex BPO estrutura.</span>
             </h3>
             <p className="font-body text-[13.5px] text-body leading-relaxed">
-              Dois exemplos representativos: problema inicial, o que foi estruturado e o resultado gerado.
+              Exemplo representativo: problema inicial, o que foi estruturado e o resultado gerado.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3.5">
+          <div className="grid grid-cols-1 gap-3.5">
             {cases.map((c, i) => {
               const Icon = c.icon;
               return (
