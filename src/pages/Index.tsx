@@ -6,11 +6,8 @@ import TrustBar from "@/components/TrustBar";
 import PainPointsSection from "@/components/PainPointsSection";
 import ServicesSection from "@/components/ServicesSection";
 import MethodSection from "@/components/MethodSection";
-import ForWhomSection from "@/components/ForWhomSection";
-import CFOVisionSection from "@/components/CFOVisionSection";
-import HumanSection from "@/components/HumanSection";
+import ForWhomCasesSection from "@/components/ForWhomCasesSection";
 
-import CasesSection from "@/components/CasesSection";
 import FAQSection, { faqs } from "@/components/FAQSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
