@@ -1,13 +1,4 @@
-import { Stethoscope, Factory, Briefcase as BriefcaseIcon, Store, Cpu, HardHat, Briefcase, HeartPulse } from "lucide-react";
-
-const sectors = [
-  { icon: Stethoscope, label: "Clínicas e consultórios" },
-  { icon: Factory, label: "Indústrias e atacadistas" },
-  { icon: BriefcaseIcon, label: "Agências e serviços" },
-  { icon: Store, label: "Comércio e varejo" },
-  { icon: Cpu, label: "Tecnologia e SaaS" },
-  { icon: HardHat, label: "Construção e engenharia" },
-];
+import { Briefcase } from "lucide-react";
 
 const profiles = [
   {
@@ -25,11 +16,6 @@ const profiles = [
     title: "Operação dependente de uma única pessoa",
     text: "Risco de concentração, sem processo documentado e sem continuidade se essa pessoa sair ou faltar.",
   },
-  {
-    num: "04",
-    title: "ERP ou planilha sem processo real por trás",
-    text: "Ferramenta existe, mas falta quem opere com critério, cadência e responsabilidade sobre os dados gerados.",
-  },
 ];
 
 const cases = [
@@ -40,14 +26,6 @@ const cases = [
     context: "Financeiro operado em planilhas por uma única pessoa, sem fechamento mensal e sem previsibilidade de caixa.",
     action: "Estruturação da rotina financeira, implantação de controles e criação de fechamento gerencial mensal.",
     outcome: "Visibilidade de caixa, rotina previsível e leitura mensal que passou a apoiar as decisões da liderança.",
-  },
-  {
-    icon: HeartPulse,
-    segment: "Clínica de Saúde",
-    profile: "Receita recorrente · Múltiplos convênios",
-    context: "Receita recorrente, mas sem conciliação entre sistema, banco e operação. Decisões sem base financeira real.",
-    action: "Implantação de conciliação financeira, organização do fluxo de caixa e indicadores de desempenho mensais.",
-    outcome: "Fechamento mensal confiável, redução de inconsistências e clareza sobre a saúde financeira da operação.",
   },
 ];
 
