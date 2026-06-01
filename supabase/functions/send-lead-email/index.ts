@@ -7,11 +7,6 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
 };
 
-const escapeHtml = (s: string): string =>
-  s.replace(/[&<>"']/g, (c) =>
-    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]!)
-  );
-
 const isString = (v: unknown): v is string => typeof v === "string";
 
 const trimOrNull = (v: unknown, max: number): string | null => {
@@ -39,7 +34,6 @@ serve(async (req) => {
       );
     }
 
-    // Required
     const nome = trimOrNull(body.nome, 200);
     const empresa = trimOrNull(body.empresa, 200);
     if (!nome || !empresa) {
@@ -49,7 +43,6 @@ serve(async (req) => {
       );
     }
 
-    // Optional
     const emailRaw = trimOrNull(body.email, 255);
     if (emailRaw && !EMAIL_RE.test(emailRaw)) {
       return new Response(
@@ -67,75 +60,62 @@ serve(async (req) => {
     const ferramenta = trimOrNull(body.ferramenta, 100);
 
     const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
-    const supabaseKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
-    const supabase = createClient(supabaseUrl, supabaseKey);
+    const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
+    const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
-    await supabase.from("lead_submissions").insert({
-      nome,
-      empresa,
-      email,
-      whatsapp,
-      faturamento,
-      desafio,
-      cidade,
-      segmento,
-      pessoas,
-      ferramenta,
-    });
+    const { data: inserted, error: insertError } = await supabase
+      .from("lead_submissions")
+      .insert({
+        nome,
+        empresa,
+        email,
+        whatsapp,
+        faturamento,
+        desafio,
+        cidade,
+        segmento,
+        pessoas,
+        ferramenta,
+      })
+      .select("id")
+      .single();
 
-    const emailLines = [
-      `Nome: ${nome}`,
-      `Empresa: ${empresa}`,
-      `E-mail: ${email || "Não informado"}`,
-      `Telefone: ${whatsapp || "Não informado"}`,
-      ``,
-      `Faixa de faturamento: ${faturamento || "Não informado"}`,
-      `Principal desafio: ${desafio || "Não informado"}`,
-    ];
-
-    const complementares = [
-      cidade ? `Cidade/UF: ${cidade}` : null,
-      segmento ? `Segmento: ${segmento}` : null,
-      pessoas ? `Pessoas no financeiro: ${pessoas}` : null,
-      ferramenta ? `Ferramenta principal: ${ferramenta}` : null,
-    ].filter(Boolean) as string[];
-
-    if (complementares.length > 0) {
-      emailLines.push(``);
-      emailLines.push(`Informações complementares:`);
-      emailLines.push(...complementares);
+    if (insertError) {
+      console.error("Erro ao gravar lead:", insertError);
+      return new Response(
+        JSON.stringify({ success: false, error: "Erro ao registrar lead." }),
+        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
     }
 
-    const emailText = emailLines.join("\n");
-    const emailHtml = emailLines
-      .map((line) => (line === "" ? "<br>" : `<span>${escapeHtml(line)}</span><br>`))
-      .join("\n");
+    const leadId = inserted?.id ?? crypto.randomUUID();
 
-    const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
-    if (!LOVABLE_API_KEY) {
-      throw new Error("LOVABLE_API_KEY não configurada");
-    }
+    // Dispara notificação por e-mail via pipeline transacional (fila + retry)
+    const { error: emailError } = await supabase.functions.invoke(
+      "send-transactional-email",
+      {
+        body: {
+          templateName: "lead-notification",
+          idempotencyKey: `lead-notification-${leadId}`,
+          templateData: {
+            nome,
+            empresa,
+            email: email ?? undefined,
+            whatsapp: whatsapp ?? undefined,
+            faturamento: faturamento ?? undefined,
+            desafio: desafio ?? undefined,
+            cidade: cidade ?? undefined,
+            segmento: segmento ?? undefined,
+            pessoas: pessoas ?? undefined,
+            ferramenta: ferramenta ?? undefined,
+          },
+        },
+      }
+    );
 
-    const projectId = Deno.env.get("SUPABASE_URL")?.split("//")[1]?.split(".")[0] ?? "";
-
-    const emailResponse = await fetch(`https://email-api.lovable.dev/v1/send`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${LOVABLE_API_KEY}`,
-        "X-Project-Id": projectId,
-      },
-      body: JSON.stringify({
-        to: "contato@fintexbpo.com.br",
-        subject: `Novo lead - ${nome}`,
-        text: emailText,
-        html: emailHtml,
-      }),
-    });
-
-    if (!emailResponse.ok) {
-      const errText = await emailResponse.text();
-      console.error("Erro ao enviar e-mail:", errText);
+    if (emailError) {
+      // Lead já está salvo — não falha o request por causa do e-mail.
+      console.error("Falha ao enfileirar e-mail de notificação:", emailError);
     }
 
     return new Response(JSON.stringify({ success: true }), {
