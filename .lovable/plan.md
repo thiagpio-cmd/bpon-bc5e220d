@@ -1,49 +1,73 @@
-## Objetivo
+# Plano: consolidação da home da Fintex BPO
 
-Atualizar o SEO do site e trocar a imagem de compartilhamento (og:image / twitter:image) pelo logotipo atual da Fintex BPO.
+Objetivo: reduzir redundância de seções e CTAs, mantendo PainPoints e TrustBar como âncoras de dor e credibilidade. Mudança apenas de estrutura e composição — sem alterar identidade visual, tokens ou tipografia.
 
-## O que será feito
+## Estrutura final (ordem na home)
 
-### 1. Trocar imagem de compartilhamento social
+```
+1. Hero & Proposta de Valor
+   ├─ HeroSection (mantida, CTAs principais)
+   └─ TrustBar (mantida — prova social logo abaixo)
 
-Hoje o `index.html` aponta `og:image` e `twitter:image` para uma URL antiga (logotipo "BPON" hospedado no storage do GPT Engineer).
+2. Dores → Solução
+   ├─ PainPointsSection (mantida)
+   └─ ServicesSection (expandida — ver §A)
 
-- Copiar `src/assets/logo-fintex.png` para `public/og-image.png` (assets em `src/` não são servidos publicamente; precisam estar em `public/` para os crawlers do LinkedIn, WhatsApp, Facebook, etc. acessarem).
-- Atualizar `og:image` e `twitter:image` no `index.html` para `https://fintexbpo.lovable.app/og-image.png`.
-- Adicionar `og:image:alt` ("Fintex BPO — BPO Financeiro").
+3. Como Funciona
+   └─ MethodSection (mantida, sem CTA interno — ver §C)
 
-Observação: o logo atual tem proporção quadrada/horizontal. O ideal para preview social é 1200×630. Se quiser, em uma próxima iteração posso gerar uma imagem dedicada de compartilhamento (1200×630) com o logo sobre fundo navy da marca — para esta etapa, vou usar o logo direto conforme pedido.
+4. Para Quem & Casos
+   └─ ForWhomSection + CasesSection fundidas em um único bloco (ver §B)
 
-### 2. Refinar SEO on-page
+5. FAQ & Conversão Final
+   ├─ FAQSection (mantida)
+   └─ CTASection (única âncora de conversão final, com formulário)
+```
 
-Ajustes no `<head>` do `index.html`:
+## §A — ServicesSection expandida
 
-- Encurtar o `<title>` (hoje tem 88 chars; ideal < 60): "Fintex BPO | BPO Financeiro com Leitura Gerencial".
-- Alinhar `og:title` e `twitter:title` ao novo título.
-- Manter `description` (já está em ~157 chars, dentro do limite).
-- Adicionar `<meta name="theme-color">` com o navy da marca.
-- Adicionar `<html lang="pt-BR">` favicon link explícito para o logo (já existe `lang`).
+Hoje ServicesSection mostra 3 frentes. CFOVisionSection e HumanSection trazem conteúdo correlato (visão estratégica + equipe dedicada) que se repete.
 
-### 3. Enriquecer Schema.org (JSON-LD)
+Ação:
+- Manter os 3 blocos atuais de ServicesSection.
+- Adicionar um 4º bloco "CFO as a Service" reaproveitando o copy-chave de CFOVisionSection (visão estratégica sem custo de executivo interno).
+- Adicionar uma faixa inferior compacta (1 linha) com o diferencial humano de HumanSection (equipe dedicada / ritmo operacional), em vez de seção própria.
+- Remover CFOVisionSection e HumanSection da home (componentes ficam no repositório, sem import em Index.tsx, caso queira reusar depois).
 
-No bloco `ProfessionalService` existente:
+## §B — Para Quem + Casos unificados
 
-- Adicionar `logo` apontando para `/og-image.png`.
-- Adicionar `image` (mesma URL).
-- Adicionar `address` (`PostalAddress` com cidade/UF — pegar do memory `institutional-data` se já houver, senão deixar apenas `addressCountry: BR`).
-- Adicionar `sameAs` se houver perfis sociais conhecidos (caso contrário, omitir).
+Hoje são duas seções consecutivas (ForWhom + Cases) com transição redundante.
 
-### 4. Rodar review de SEO
+Ação:
+- Criar `ForWhomCasesSection.tsx` que combina:
+  - Topo: perfil ideal (conteúdo atual de ForWhomSection, mantendo as regras de ICP da memória).
+  - Base: 1–2 cases mais representativos de CasesSection (mantendo a nota obrigatória de confidencialidade).
+- Substituir os dois imports em Index.tsx por esse único componente.
+- ForWhomSection e CasesSection originais permanecem como arquivos (sem import) para rollback fácil.
 
-Após as alterações, disparar `seo_chat--trigger_scan` para revalidar e listar findings remanescentes no painel de SEO.
+## §C — Consolidação de CTAs
 
-## Arquivos afetados
+Hoje há CTA no Hero, no fim de Services, no fim de Method e no CTASection final.
 
-- `index.html` (editado)
-- `public/og-image.png` (novo, cópia de `src/assets/logo-fintex.png`)
+Ação:
+- Manter CTAs em: Hero (primário) e CTASection (final, com formulário).
+- Remover blocos de CTA internos de MethodSection (bloco "Pronto para começar…") e ServicesSection (cta-strip do rodapé).
+- Os títulos das seções continuam linkáveis ao `#diagnostico` via âncora, mas sem botão visual repetido.
 
-## Fora do escopo
+## Arquivos alterados
 
-- Geração de uma imagem social 1200×630 customizada (pode ser feita depois).
-- Criação de `sitemap.xml` / `robots.txt` (não solicitado).
-- Mudanças em rotas ou conteúdo das seções.
+- `src/pages/Index.tsx` — nova ordem de imports e remoção de CFOVision, Human, ForWhom, Cases (substituídos por ForWhomCases).
+- `src/components/ServicesSection.tsx` — +1 bloco (CFO as a Service), +faixa humana, remoção do cta-strip.
+- `src/components/ForWhomCasesSection.tsx` — **novo**, funde ForWhom + Cases.
+- `src/components/MethodSection.tsx` — remoção do bloco CTA inferior.
+
+## Não muda
+
+- Tokens, paleta, tipografia, espaçamento `py-20`/`py-28`.
+- Hero, TrustBar, PainPoints, FAQ, CTASection, Footer, WhatsAppButton.
+- SEO, formulário de diagnóstico, edge functions, banco.
+- Componentes removidos da home permanecem no repo (sem deleção de arquivo).
+
+## Resultado
+
+De ~10 seções para 5 blocos lógicos. Menos repetição de CTA, leitura mais direta, identidade visual intacta.
