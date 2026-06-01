@@ -1,4 +1,4 @@
-import { Check, ArrowRight } from "lucide-react";
+import { Check, Users, Calendar, FileText, Link as LinkIcon } from "lucide-react";
 import { useState } from "react";
 
 const blocks = [
@@ -12,7 +12,7 @@ const blocks = [
       "Organização do fluxo de aprovações e conferências",
       "Padronização de controles e critérios de lançamento",
     ],
-    completion: 33,
+    completion: 25,
   },
   {
     number: "02",
@@ -24,7 +24,7 @@ const blocks = [
       "Atualização de fluxo de caixa e posição disponível",
       "Acompanhamento de cobrança e execução financeira",
     ],
-    completion: 66,
+    completion: 50,
   },
   {
     number: "03",
@@ -36,8 +36,27 @@ const blocks = [
       "Análise de resultado e variações relevantes",
       "Reporte executivo direto para a liderança decidir",
     ],
+    completion: 75,
+  },
+  {
+    number: "04",
+    title: "CFO as a Service",
+    description: "Visão estratégica ao lado da liderança, sem o custo de um executivo interno.",
+    items: [
+      "Reunião gerencial mensal com a diretoria",
+      "Acompanhamento de caixa, margem e indicadores-chave",
+      "Apoio em decisões de preço, custo e investimento",
+      "Leitura próxima da operação, ponto de contato definido",
+    ],
     completion: 100,
   },
+];
+
+const humanCommitments = [
+  { icon: Users, label: "Ponto de contato definido" },
+  { icon: Calendar, label: "Agenda recorrente com a liderança" },
+  { icon: FileText, label: "Fechamento e reporte mensal" },
+  { icon: LinkIcon, label: "Integração com ERP e operação" },
 ];
 
 const ServicesSection = () => {
@@ -62,13 +81,15 @@ const ServicesSection = () => {
           </p>
         </div>
 
-        {/* 3 blocks */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 border border-divider rounded-2xl overflow-hidden shadow-card">
+        {/* 4 blocks */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 border border-divider rounded-2xl overflow-hidden shadow-card">
           {blocks.map((block, i) => (
             <div
               key={block.number}
-              className={`reveal reveal-delay-${i + 1} flex flex-col p-7 lg:p-8 bg-surface relative
-                ${i < blocks.length - 1 ? "border-b lg:border-b-0 lg:border-r border-divider" : ""}
+              className={`reveal reveal-delay-${Math.min(i + 1, 4)} flex flex-col p-7 lg:p-8 bg-surface relative
+                ${i < blocks.length - 1 ? "border-b sm:border-b-0 lg:border-r border-divider" : ""}
+                ${i % 2 === 0 ? "sm:border-r lg:border-r" : ""}
+                ${i < 2 ? "sm:border-b lg:border-b-0" : ""}
               `}
               style={{
                 background: hoveredBlock === i ? "hsl(var(--surface-tint))" : "hsl(var(--surface))",
@@ -126,17 +147,24 @@ const ServicesSection = () => {
           ))}
         </div>
 
-        {/* CTA strip */}
-        <div className="mt-5 reveal reveal-delay-4 cta-strip">
-          <p className="font-body text-[13px] text-body text-center sm:text-left">
-            A Fintex BPO atua integrada com o ERP e a liderança da empresa.
+        {/* Faixa humana — compromissos da relação */}
+        <div className="mt-5 reveal reveal-delay-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 px-6 py-5 rounded-2xl border border-divider bg-surface">
+          <p className="font-body text-[12px] uppercase tracking-[0.14em] text-body/70 flex-shrink-0">
+            Como a relação funciona
           </p>
-          <a href="#diagnostico"
-            className="group inline-flex items-center gap-2 px-6 py-2.5 rounded-lg bg-primary text-primary-foreground font-body font-semibold text-[13px] shadow-blue hover:opacity-90 hover:scale-[1.02] transition-all duration-300 whitespace-nowrap flex-shrink-0">
-            Quero estruturar meu financeiro
-            <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform duration-300" />
-          </a>
+          <div className="flex flex-wrap gap-x-5 gap-y-2.5">
+            {humanCommitments.map((c) => {
+              const Icon = c.icon;
+              return (
+                <div key={c.label} className="inline-flex items-center gap-2">
+                  <Icon size={13} className="text-primary" strokeWidth={1.8} />
+                  <span className="font-body text-[12.5px] text-headline font-medium">{c.label}</span>
+                </div>
+              );
+            })}
+          </div>
         </div>
+
 
       </div>
     </section>

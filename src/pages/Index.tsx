@@ -6,11 +6,8 @@ import TrustBar from "@/components/TrustBar";
 import PainPointsSection from "@/components/PainPointsSection";
 import ServicesSection from "@/components/ServicesSection";
 import MethodSection from "@/components/MethodSection";
-import ForWhomSection from "@/components/ForWhomSection";
-import CFOVisionSection from "@/components/CFOVisionSection";
-import HumanSection from "@/components/HumanSection";
+import ForWhomCasesSection from "@/components/ForWhomCasesSection";
 
-import CasesSection from "@/components/CasesSection";
 import FAQSection, { faqs } from "@/components/FAQSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
@@ -53,7 +50,7 @@ const Index = () => {
         <HeroSection />
         <TrustBar />
 
-        {/* ── Bloco 2: Jornada de descoberta — seções claras alternadas ── */}
+        {/* ── Bloco 2: Dores → Solução ── */}
         <div className="relative">
           <PainPointsSection />
           <ServicesSection />
@@ -61,13 +58,13 @@ const Index = () => {
           {/* ── Bloco 3: Âncora escura — método ── */}
           <MethodSection />
 
-          <CFOVisionSection />
-          <ForWhomSection />
-          <HumanSection />
-          
-          <CasesSection />
+          {/* ── Bloco 4: Para quem + Casos ── */}
+          <ForWhomCasesSection />
+
+          {/* ── Bloco 5: FAQ ── */}
           <FAQSection />
         </div>
+
 
         {/* ── Bloco 4: Âncora escura — conversão ── */}
         <CTASection />
