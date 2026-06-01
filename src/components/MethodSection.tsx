@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FileText, Settings, Play, RefreshCw } from "lucide-react";
+import { FileText, Settings, Play, RefreshCw, ArrowRight } from "lucide-react";
 
 const steps = [
 {
@@ -163,6 +163,19 @@ const MethodSection = () => {
           })}
         </div>
 
+        {/* CTA */}
+        <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 px-6 py-5 rounded-2xl"
+          style={{ background: "hsl(222 38% 10% / 0.6)", border: "1px solid hsl(214 35% 22%)" }}>
+          <p className="font-body text-[13px] leading-snug" style={{ color: "hsl(210 30% 70%)" }}>
+            Pronto para começar pelo passo 1?{" "}
+            <span className="font-medium" style={{ color: "hsl(210 50% 92%)" }}>Solicite seu diagnóstico.</span>
+          </p>
+          <a href="#diagnostico"
+            className="group flex-shrink-0 inline-flex items-center gap-2 px-6 py-2.5 rounded-lg bg-primary text-primary-foreground font-body font-semibold text-[13px] hover:opacity-90 hover:scale-[1.02] transition-all duration-300 shadow-blue whitespace-nowrap">
+            Solicitar diagnóstico
+            <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform duration-200" />
+          </a>
+        </div>
 
       </div>
     </section>);

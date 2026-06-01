@@ -1,4 +1,4 @@
-import { Stethoscope, Factory, Briefcase as BriefcaseIcon, Store, Cpu, HardHat, Briefcase, HeartPulse } from "lucide-react";
+import { Stethoscope, Factory, Briefcase as BriefcaseIcon, Store, Cpu, HardHat, Briefcase, HeartPulse, ArrowRight } from "lucide-react";
 
 const sectors = [
   { icon: Stethoscope, label: "Clínicas e consultórios" },
@@ -163,6 +163,19 @@ const ForWhomCasesSection = () => {
           <p className="mt-4 font-body text-[11px] text-muted-foreground italic">
             Os exemplos representam padrões reais de operação atendidos, com informações ajustadas por confidencialidade.
           </p>
+        </div>
+
+        {/* Strip CTA */}
+        <div className="mt-8 cta-strip reveal">
+          <p className="font-body text-[13px] leading-snug text-body">
+            Seu perfil se parece com algum desses?{" "}
+            <span className="text-headline font-medium">Vamos conversar.</span>
+          </p>
+          <a href="#diagnostico"
+            className="group flex-shrink-0 inline-flex items-center gap-2 px-6 py-2.5 rounded-lg bg-primary text-primary-foreground font-body font-semibold text-[13px] hover:opacity-90 hover:scale-[1.02] transition-all duration-300 shadow-blue whitespace-nowrap">
+            Solicitar diagnóstico
+            <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform duration-200" />
+          </a>
         </div>
 
       </div>
