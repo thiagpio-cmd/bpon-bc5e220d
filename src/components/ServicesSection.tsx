@@ -166,6 +166,19 @@ const ServicesSection = () => {
         </div>
 
 
+        {/* Strip CTA */}
+        <div className="mt-5 cta-strip reveal">
+          <p className="font-body text-[13px] leading-snug text-body">
+            Quer essa estrutura rodando na sua empresa?{" "}
+            <span className="text-headline font-medium">Comece pelo diagnóstico.</span>
+          </p>
+          <a href="#diagnostico"
+            className="group flex-shrink-0 inline-flex items-center gap-2 px-6 py-2.5 rounded-lg bg-primary text-primary-foreground font-body font-semibold text-[13px] hover:opacity-90 hover:scale-[1.02] transition-all duration-300 shadow-blue whitespace-nowrap">
+            Solicitar diagnóstico
+            <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform duration-200" />
+          </a>
+        </div>
+
       </div>
     </section>
   );
