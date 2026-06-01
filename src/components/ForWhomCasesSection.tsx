@@ -1,4 +1,13 @@
-import { Briefcase } from "lucide-react";
+import { Stethoscope, Factory, Briefcase as BriefcaseIcon, Store, Cpu, HardHat, Briefcase, HeartPulse } from "lucide-react";
+
+const sectors = [
+  { icon: Stethoscope, label: "Clínicas e consultórios" },
+  { icon: Factory, label: "Indústrias e atacadistas" },
+  { icon: BriefcaseIcon, label: "Agências e serviços" },
+  { icon: Store, label: "Comércio e varejo" },
+  { icon: Cpu, label: "Tecnologia e SaaS" },
+  { icon: HardHat, label: "Construção e engenharia" },
+];
 
 const profiles = [
   {
@@ -16,6 +25,11 @@ const profiles = [
     title: "Operação dependente de uma única pessoa",
     text: "Risco de concentração, sem processo documentado e sem continuidade se essa pessoa sair ou faltar.",
   },
+  {
+    num: "04",
+    title: "ERP ou planilha sem processo real por trás",
+    text: "Ferramenta existe, mas falta quem opere com critério, cadência e responsabilidade sobre os dados gerados.",
+  },
 ];
 
 const cases = [
@@ -26,6 +40,14 @@ const cases = [
     context: "Financeiro operado em planilhas por uma única pessoa, sem fechamento mensal e sem previsibilidade de caixa.",
     action: "Estruturação da rotina financeira, implantação de controles e criação de fechamento gerencial mensal.",
     outcome: "Visibilidade de caixa, rotina previsível e leitura mensal que passou a apoiar as decisões da liderança.",
+  },
+  {
+    icon: HeartPulse,
+    segment: "Clínica de Saúde",
+    profile: "Receita recorrente · Múltiplos convênios",
+    context: "Receita recorrente, mas sem conciliação entre sistema, banco e operação. Decisões sem base financeira real.",
+    action: "Implantação de conciliação financeira, organização do fluxo de caixa e indicadores de desempenho mensais.",
+    outcome: "Fechamento mensal confiável, redução de inconsistências e clareza sobre a saúde financeira da operação.",
   },
 ];
 
@@ -69,20 +91,39 @@ const ForWhomCasesSection = () => {
           ))}
         </div>
 
+        {/* Setores */}
+        <div className="mt-10 reveal">
+          <p className="font-body text-[12px] uppercase tracking-[0.14em] text-body/70 text-center mb-5">
+            Setores atendidos
+          </p>
+          <div className="flex flex-wrap justify-center gap-2.5">
+            {sectors.map((sector) => {
+              const Icon = sector.icon;
+              return (
+                <div key={sector.label}
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-divider bg-surface hover:border-primary/30 hover:bg-surface-tint transition-all duration-200">
+                  <Icon size={14} className="text-primary" strokeWidth={1.8} />
+                  <span className="font-body text-[12.5px] text-headline font-medium">{sector.label}</span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
         {/* Casos representativos */}
         <div className="mt-16 lg:mt-20 reveal">
           <div className="mb-8 lg:mb-10 max-w-xl">
-            <div className="label-pill mb-4">Situação real</div>
+            <div className="label-pill mb-4">Situações reais</div>
             <h3 className="font-display font-black text-[1.5rem] lg:text-[2rem] text-headline leading-[1.08] tracking-[-0.022em] mt-3 mb-3">
-              Padrão de operação<br />
+              Padrões de operação<br />
               <span className="text-gradient-primary">que a Fintex BPO estrutura.</span>
             </h3>
             <p className="font-body text-[13.5px] text-body leading-relaxed">
-              Exemplo representativo: problema inicial, o que foi estruturado e o resultado gerado.
+              Dois exemplos representativos: problema inicial, o que foi estruturado e o resultado gerado.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-3.5">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3.5">
             {cases.map((c, i) => {
               const Icon = c.icon;
               return (

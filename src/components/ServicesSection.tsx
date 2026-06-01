@@ -1,4 +1,4 @@
-import { Check, ArrowRight } from "lucide-react";
+import { Check, Users, Calendar, FileText, Link as LinkIcon } from "lucide-react";
 import { useState } from "react";
 
 const blocks = [
@@ -52,6 +52,12 @@ const blocks = [
   },
 ];
 
+const humanCommitments = [
+  { icon: Users, label: "Ponto de contato definido" },
+  { icon: Calendar, label: "Agenda recorrente com a liderança" },
+  { icon: FileText, label: "Fechamento e reporte mensal" },
+  { icon: LinkIcon, label: "Integração com ERP e operação" },
+];
 
 const ServicesSection = () => {
   const [hoveredBlock, setHoveredBlock] = useState<number | null>(null);
@@ -141,14 +147,24 @@ const ServicesSection = () => {
           ))}
         </div>
 
-        {/* Mini-CTA inline */}
-        <div className="mt-8 reveal reveal-delay-4 flex justify-center">
-          <a href="#diagnostico"
-            className="group inline-flex items-center gap-2 px-6 py-2.5 rounded-lg bg-primary text-primary-foreground font-body font-semibold text-[13px] hover:opacity-90 hover:scale-[1.02] transition-all duration-300 shadow-blue">
-            Solicitar diagnóstico
-            <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform duration-200" />
-          </a>
+        {/* Faixa humana — compromissos da relação */}
+        <div className="mt-5 reveal reveal-delay-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 px-6 py-5 rounded-2xl border border-divider bg-surface">
+          <p className="font-body text-[12px] uppercase tracking-[0.14em] text-body/70 flex-shrink-0">
+            Como a relação funciona
+          </p>
+          <div className="flex flex-wrap gap-x-5 gap-y-2.5">
+            {humanCommitments.map((c) => {
+              const Icon = c.icon;
+              return (
+                <div key={c.label} className="inline-flex items-center gap-2">
+                  <Icon size={13} className="text-primary" strokeWidth={1.8} />
+                  <span className="font-body text-[12.5px] text-headline font-medium">{c.label}</span>
+                </div>
+              );
+            })}
+          </div>
         </div>
+
 
       </div>
     </section>

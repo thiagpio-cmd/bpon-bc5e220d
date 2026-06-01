@@ -15,8 +15,16 @@ const painPoints = [
     text: "Quando essa pessoa falta, a operação inteira fica exposta. Nenhum processo segura.",
   },
   {
+    title: "Falta de clareza sobre o que entra, sai e sobra",
+    text: "A empresa opera sem saber com precisão o que está comprometido e o que está disponível.",
+  },
+  {
     title: "Decisões tomadas sem base financeira consolidada",
     text: "Contratações, investimentos e negociações acontecem sem leitura gerencial confiável.",
+  },
+  {
+    title: "Crescimento sem estrutura financeira por trás",
+    text: "A operação escala, mas o financeiro não acompanha, e o risco cresce invisível.",
   },
 ];
 

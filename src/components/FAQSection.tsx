@@ -3,28 +3,43 @@ import { ChevronDown, ArrowRight, MessageCircle } from "lucide-react";
 
 export const faqs = [
   {
-    q: "O diagnóstico é realmente sem compromisso?",
-    a: "Sim. O diagnóstico inicial é uma análise real da operação financeira da empresa, sem custo e sem compromisso de contratação. A partir daí, se houver aderência dos dois lados, apresentamos uma proposta. A decisão é inteiramente sua.",
+    q: "Em quanto tempo a operação começa a rodar com previsibilidade?",
+    a: "As primeiras semanas já entregam rotina organizada, controles funcionando e base mais confiável de dados. O fechamento gerencial consistente e os indicadores se consolidam ao longo dos primeiros meses, conforme a operação amadurece. Em geral, o cliente já sente diferença concreta no primeiro mês.",
     open: true,
   },
   {
-    q: "Em quanto tempo a operação começa a rodar com previsibilidade?",
-    a: "As primeiras semanas já entregam rotina organizada, controles funcionando e base mais confiável de dados. O fechamento gerencial consistente e os indicadores se consolidam ao longo dos primeiros meses. Em geral, o cliente já sente diferença concreta no primeiro mês.",
+    q: "Como funciona a implantação na prática?",
+    a: "A implantação começa com um diagnóstico da operação atual: como o financeiro funciona hoje, quais controles existem, quem é responsável por cada frente e onde estão os gargalos. A partir daí, estruturamos a rotina, definimos a cadência e iniciamos a operação de forma assistida, sem ruptura brusca.",
     open: false,
   },
   {
     q: "A Fintex BPO substitui meu ERP?",
-    a: "Não. A Fintex BPO trabalha com o ERP, plataforma ou planilha já em uso. Não exigimos troca de ferramenta. ERP é ferramenta. Processo é outra coisa. A maioria das empresas tem sistema e continua com financeiro desorganizado porque falta quem opere com critério e cadência.",
+    a: "Não. A Fintex BPO trabalha com o ERP, plataforma ou planilha já em uso. Não exigimos troca de ferramenta. ERP é ferramenta. Processo é outra coisa. A maioria das empresas tem sistema e continua com financeiro desorganizado porque falta quem opere com critério e cadência. Se houver necessidade de ajuste ou migração, isso é avaliado no diagnóstico com transparência.",
     open: false,
   },
   {
-    q: "Como funciona a implantação na prática?",
-    a: "Começa com o diagnóstico da operação atual: como o financeiro funciona hoje, controles existentes, responsáveis e gargalos. A partir daí, estruturamos a rotina, definimos a cadência e iniciamos a operação de forma assistida, sem ruptura brusca.",
+    q: "Como vocês se integram com minha equipe interna?",
+    a: "Definimos um modelo claro de comunicação e cadência com a equipe interna, respeitando o que já funciona e organizando o que está fragmentado. Alinhamos fluxo de informações, prazos e responsabilidades, sem sobreposição de funções.",
     open: false,
   },
   {
     q: "Qual o nível de envolvimento da liderança?",
-    a: "Baixo no operacional, alto no gerencial. A liderança não acompanha cada lançamento. Mensalmente, recebe um fechamento claro, com indicadores e análise, para decidir com base em dados reais.",
+    a: "Baixo no operacional, alto no gerencial. A liderança não precisa acompanhar cada lançamento. O que muda é que, mensalmente, recebe um fechamento claro, com indicadores e análise, para tomar decisões com base em dados reais, não estimativas.",
+    open: false,
+  },
+  {
+    q: "O atendimento é 100% remoto?",
+    a: "Sim. A Fintex BPO opera de forma 100% online, atendendo empresas em todo o Brasil. Reuniões por vídeo, integração com seu ERP, comunicação por canais oficiais e cadência clara, sem necessidade de presença física.",
+    open: false,
+  },
+  {
+    q: "O diagnóstico é realmente sem compromisso?",
+    a: "Sim. O diagnóstico inicial é uma análise real da operação financeira da empresa, sem custo e sem compromisso de contratação. A partir daí, se houver aderência dos dois lados, apresentamos uma proposta. A decisão é inteiramente sua.",
+    open: false,
+  },
+  {
+    q: "Vocês atendem empresa com mais de uma unidade?",
+    a: "Sim. A Fintex BPO tem estrutura para atender empresas com múltiplas unidades operacionais, filiais ou centros de custo. A organização do processo financeiro nesse contexto é especialmente relevante e exatamente o tipo de desafio para o qual o diagnóstico serve.",
     open: false,
   },
 ];

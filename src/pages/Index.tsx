@@ -5,6 +5,7 @@ import HeroSection from "@/components/HeroSection";
 import TrustBar from "@/components/TrustBar";
 import PainPointsSection from "@/components/PainPointsSection";
 import ServicesSection from "@/components/ServicesSection";
+import MethodSection from "@/components/MethodSection";
 import ForWhomCasesSection from "@/components/ForWhomCasesSection";
 
 import FAQSection, { faqs } from "@/components/FAQSection";
@@ -54,7 +55,10 @@ const Index = () => {
           <PainPointsSection />
           <ServicesSection />
 
-          {/* ── Bloco 3: Para quem + Casos ── */}
+          {/* ── Bloco 3: Âncora escura — método ── */}
+          <MethodSection />
+
+          {/* ── Bloco 4: Para quem + Casos ── */}
           <ForWhomCasesSection />
 
           {/* ── Bloco 5: FAQ ── */}
