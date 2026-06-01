@@ -1,4 +1,4 @@
-import { Check, ArrowRight } from "lucide-react";
+import { Check, Users, Calendar, FileText, Link as LinkIcon } from "lucide-react";
 import { useState } from "react";
 
 const blocks = [
@@ -12,7 +12,7 @@ const blocks = [
       "Organização do fluxo de aprovações e conferências",
       "Padronização de controles e critérios de lançamento",
     ],
-    completion: 33,
+    completion: 25,
   },
   {
     number: "02",
@@ -24,7 +24,7 @@ const blocks = [
       "Atualização de fluxo de caixa e posição disponível",
       "Acompanhamento de cobrança e execução financeira",
     ],
-    completion: 66,
+    completion: 50,
   },
   {
     number: "03",
@@ -36,8 +36,27 @@ const blocks = [
       "Análise de resultado e variações relevantes",
       "Reporte executivo direto para a liderança decidir",
     ],
+    completion: 75,
+  },
+  {
+    number: "04",
+    title: "CFO as a Service",
+    description: "Visão estratégica ao lado da liderança, sem o custo de um executivo interno.",
+    items: [
+      "Reunião gerencial mensal com a diretoria",
+      "Acompanhamento de caixa, margem e indicadores-chave",
+      "Apoio em decisões de preço, custo e investimento",
+      "Leitura próxima da operação, ponto de contato definido",
+    ],
     completion: 100,
   },
+];
+
+const humanCommitments = [
+  { icon: Users, label: "Ponto de contato definido" },
+  { icon: Calendar, label: "Agenda recorrente com a liderança" },
+  { icon: FileText, label: "Fechamento e reporte mensal" },
+  { icon: LinkIcon, label: "Integração com ERP e operação" },
 ];
 
 const ServicesSection = () => {
