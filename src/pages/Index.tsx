@@ -34,9 +34,9 @@ const Index = () => {
           name="description"
           content="Organize o financeiro da sua empresa com processo, rotina, fluxo de caixa, conciliação e fechamento gerencial. Solicite um diagnóstico com a Fintex BPO."
         />
-        <link rel="canonical" href="https://fintexbpo.lovable.app/" />
+        <link rel="canonical" href="https://fintexbpo.com.br/" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://fintexbpo.lovable.app/" />
+        <meta property="og:url" content="https://fintexbpo.com.br/" />
         <meta property="og:title" content="Fintex BPO | BPO Financeiro com Leitura Gerencial" />
         <meta
           property="og:description"
