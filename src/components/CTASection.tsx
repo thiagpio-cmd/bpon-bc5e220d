@@ -66,24 +66,6 @@ const CTASection = () => {
               )}
             </div>
 
-            {/* WhatsApp */}
-            <div className="pt-5 flex items-center gap-4"
-            style={{ borderTop: "1px solid hsl(214 28% 22%)" }}>
-              <a
-                href="https://wa.me/5531981184086"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-body font-semibold text-[13px] transition-all hover:scale-[1.02]"
-                style={{
-                  border: "1px solid hsl(214 28% 26%)",
-                  background: "hsl(214 40% 18%)",
-                  color: "hsl(210 30% 72%)"
-                }}>
-                <MessageCircle size={14} />
-                Falar no WhatsApp
-              </a>
-              <span className="font-body text-[12px]" style={{ color: "hsl(210 15% 38%)" }}>{"\n"}</span>
-            </div>
           </div>
 
           {/* Direita — formulário */}
