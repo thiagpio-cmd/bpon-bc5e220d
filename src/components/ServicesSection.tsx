@@ -1,4 +1,4 @@
-import { Check, Users, Calendar, FileText, Link as LinkIcon } from "lucide-react";
+import { Check, Users, Calendar, FileText, Link as LinkIcon, ArrowRight } from "lucide-react";
 import { useState } from "react";
 
 const blocks = [
