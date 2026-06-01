@@ -104,7 +104,7 @@ const Header = () => {
               rel="noopener noreferrer"
               className="font-body text-[12px] text-body hover:text-headline transition-colors duration-200 hidden lg:block"
             >
-              (31) 98118-4086
+              {"\n\n"}
             </a>
             <a
               href="#diagnostico"
@@ -160,7 +160,7 @@ const Header = () => {
                 className="font-body text-[13px] text-body text-center mt-1.5 py-2"
                 onClick={() => setMobileOpen(false)}
               >
-                (31) 98118-4086
+                {"\n"}
               </a>
             </nav>
           </div>
