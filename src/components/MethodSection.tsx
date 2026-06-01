@@ -163,23 +163,6 @@ const MethodSection = () => {
           })}
         </div>
 
-        {/* CTA block */}
-        <div className="mt-10 reveal reveal-delay-5 flex flex-col sm:flex-row items-center justify-between gap-5 px-7 py-6 rounded-2xl"
-        style={{ background: "hsl(222 42% 11%)", border: "1px solid hsl(214 30% 22%)" }}>
-          <div>
-            <p className="font-display font-bold text-[15px]" style={{ color: "hsl(210 50% 92%)" }}>
-              Pronto para começar com um diagnóstico sem compromisso?
-            </p>
-            <p className="font-body text-[13px] mt-1" style={{ color: "hsl(210 18% 52%)" }}>
-              A equipe analisa a operação e retorna em até 1 dia útil.
-            </p>
-          </div>
-          <a href="#diagnostico"
-          className="group inline-flex items-center gap-2.5 px-7 py-3 rounded-lg bg-primary text-primary-foreground font-body font-semibold text-[13px] shadow-blue hover:opacity-90 hover:scale-[1.02] transition-all duration-300 whitespace-nowrap flex-shrink-0">
-            Falar com um especialista
-            <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-300" />
-          </a>
-        </div>
 
       </div>
     </section>);
