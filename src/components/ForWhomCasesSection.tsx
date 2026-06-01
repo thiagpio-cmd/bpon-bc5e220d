@@ -1,4 +1,4 @@
-import { Stethoscope, Factory, Briefcase as BriefcaseIcon, Store, Cpu, HardHat, Briefcase, HeartPulse } from "lucide-react";
+import { Stethoscope, Factory, Briefcase as BriefcaseIcon, Store, Cpu, HardHat, Briefcase, HeartPulse, ArrowRight } from "lucide-react";
 
 const sectors = [
   { icon: Stethoscope, label: "Clínicas e consultórios" },
