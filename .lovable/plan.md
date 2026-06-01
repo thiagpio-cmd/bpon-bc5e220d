@@ -1,73 +1,67 @@
-# Plano: consolidação da home da Fintex BPO
+# Plano: home agressiva, focada em conversão
 
-Objetivo: reduzir redundância de seções e CTAs, mantendo PainPoints e TrustBar como âncoras de dor e credibilidade. Mudança apenas de estrutura e composição — sem alterar identidade visual, tokens ou tipografia.
+Objetivo: reduzir a home ao mínimo necessário para o lead solicitar o diagnóstico. Cortar tudo que não move a decisão. Reforçar CTA em pontos estratégicos sem poluir.
 
-## Estrutura final (ordem na home)
+## Estrutura final (4 blocos)
 
 ```
-1. Hero & Proposta de Valor
-   ├─ HeroSection (mantida, CTAs principais)
-   └─ TrustBar (mantida — prova social logo abaixo)
+1. Hero + TrustBar
+   ├─ HeroSection (headline + 1 CTA primário "Solicitar diagnóstico" + 1 secundário "Como funciona")
+   └─ TrustBar (4 provas operacionais — mantida)
 
-2. Dores → Solução
-   ├─ PainPointsSection (mantida)
-   └─ ServicesSection (expandida — ver §A)
+2. Dor → Solução (fundidas visualmente)
+   ├─ PainPointsSection (enxuta: até 4 dores)
+   └─ ServicesSection (4 frentes, sem faixa humana extra)
+   + mini-CTA inline ao fim ("Solicitar diagnóstico")
 
-3. Como Funciona
-   └─ MethodSection (mantida, sem CTA interno — ver §C)
+3. Para Quem + Prova (1 bloco)
+   └─ ForWhomCasesSection já fundida — manter, mas reduzir:
+       - 4 perfis → 3
+       - 2 casos → 1 case representativo
+       - remover faixa de setores (ruído)
 
-4. Para Quem & Casos
-   └─ ForWhomSection + CasesSection fundidas em um único bloco (ver §B)
-
-5. FAQ & Conversão Final
-   ├─ FAQSection (mantida)
-   └─ CTASection (única âncora de conversão final, com formulário)
+4. Conversão final
+   ├─ FAQSection (reduzir para 5 perguntas mais decisivas)
+   └─ CTASection (formulário — âncora final)
 ```
 
-## §A — ServicesSection expandida
+## Cortes
 
-Hoje ServicesSection mostra 3 frentes. CFOVisionSection e HumanSection trazem conteúdo correlato (visão estratégica + equipe dedicada) que se repete.
+- **MethodSection**: remover da home. O "como funciona" vira 4 bullets curtos dentro do Hero/Services ou some — passo a passo não converte frio, atrasa decisão.
+- **Faixa "Como a relação funciona"** em ServicesSection: remover.
+- **Faixa de setores** em ForWhomCases: remover.
+- **1 dos 2 cases**: manter só o mais forte (Empresa de Serviços ou Clínica — a definir).
+- **1 dos 4 perfis** de ICP: remover o mais redundante.
+- **FAQ**: de N para 5 perguntas (objeções de compra: preço, prazo, troca de contador, LGPD, onboarding).
 
-Ação:
-- Manter os 3 blocos atuais de ServicesSection.
-- Adicionar um 4º bloco "CFO as a Service" reaproveitando o copy-chave de CFOVisionSection (visão estratégica sem custo de executivo interno).
-- Adicionar uma faixa inferior compacta (1 linha) com o diferencial humano de HumanSection (equipe dedicada / ritmo operacional), em vez de seção própria.
-- Remover CFOVisionSection e HumanSection da home (componentes ficam no repositório, sem import em Index.tsx, caso queira reusar depois).
+## CTAs (regra dura)
 
-## §B — Para Quem + Casos unificados
-
-Hoje são duas seções consecutivas (ForWhom + Cases) com transição redundante.
-
-Ação:
-- Criar `ForWhomCasesSection.tsx` que combina:
-  - Topo: perfil ideal (conteúdo atual de ForWhomSection, mantendo as regras de ICP da memória).
-  - Base: 1–2 cases mais representativos de CasesSection (mantendo a nota obrigatória de confidencialidade).
-- Substituir os dois imports em Index.tsx por esse único componente.
-- ForWhomSection e CasesSection originais permanecem como arquivos (sem import) para rollback fácil.
-
-## §C — Consolidação de CTAs
-
-Hoje há CTA no Hero, no fim de Services, no fim de Method e no CTASection final.
-
-Ação:
-- Manter CTAs em: Hero (primário) e CTASection (final, com formulário).
-- Remover blocos de CTA internos de MethodSection (bloco "Pronto para começar…") e ServicesSection (cta-strip do rodapé).
-- Os títulos das seções continuam linkáveis ao `#diagnostico` via âncora, mas sem botão visual repetido.
-
-## Arquivos alterados
-
-- `src/pages/Index.tsx` — nova ordem de imports e remoção de CFOVision, Human, ForWhom, Cases (substituídos por ForWhomCases).
-- `src/components/ServicesSection.tsx` — +1 bloco (CFO as a Service), +faixa humana, remoção do cta-strip.
-- `src/components/ForWhomCasesSection.tsx` — **novo**, funde ForWhom + Cases.
-- `src/components/MethodSection.tsx` — remoção do bloco CTA inferior.
+- Hero: 1 primário ("Solicitar diagnóstico") + 1 secundário (âncora `#servicos`).
+- Fim de ServicesSection: 1 mini-CTA inline (link + seta), não botão grande.
+- CTASection: formulário direto, sem botão duplicado de WhatsApp.
+- WhatsAppButton flutuante: mantido (já é o canal alternativo).
 
 ## Não muda
 
-- Tokens, paleta, tipografia, espaçamento `py-20`/`py-28`.
-- Hero, TrustBar, PainPoints, FAQ, CTASection, Footer, WhatsAppButton.
-- SEO, formulário de diagnóstico, edge functions, banco.
-- Componentes removidos da home permanecem no repo (sem deleção de arquivo).
+- Identidade visual, tokens, tipografia, ritmo `py-20`/`py-28`.
+- Header, Footer, DiagnosticForm, edge function, banco, SEO.
+- WhatsAppButton flutuante.
 
-## Resultado
+## Arquivos afetados
 
-De ~10 seções para 5 blocos lógicos. Menos repetição de CTA, leitura mais direta, identidade visual intacta.
+- `src/pages/Index.tsx` — remove import e render de `MethodSection`.
+- `src/components/ServicesSection.tsx` — remove faixa "Como a relação funciona", adiciona mini-CTA inline final.
+- `src/components/ForWhomCasesSection.tsx` — 3 perfis, 1 case, sem faixa de setores.
+- `src/components/PainPointsSection.tsx` — confirmar máx 4 dores (revisar conteúdo).
+- `src/components/FAQSection.tsx` — reduzir para 5 perguntas focadas em objeção.
+- `MethodSection.tsx` permanece no repo (sem import) para rollback.
+
+## Resultado esperado
+
+Página ~35% mais curta, 1 caminho claro do topo ao formulário, CTA presente em 3 momentos (Hero, fim de Services, CTASection final) sem repetição visual.
+
+## Confirmar antes de implementar
+
+- Manter qual case: **Empresa de Serviços** ou **Clínica de Saúde**?
+- Qual perfil de ICP cortar (01–04)?
+- Você quer que eu reescreva as 5 FAQs ou reaproveite as atuais mais decisivas?
