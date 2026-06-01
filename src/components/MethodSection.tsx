@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FileText, Settings, Play, RefreshCw } from "lucide-react";
+import { FileText, Settings, Play, RefreshCw, ArrowRight } from "lucide-react";
 
 const steps = [
 {
