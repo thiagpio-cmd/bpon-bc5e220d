@@ -94,7 +94,7 @@ serve(async (req) => {
     const leadId = inserted?.id ?? crypto.randomUUID();
 
     // Dispara notificação por e-mail via pipeline transacional (fila + retry)
-    const { error: emailError } = await supabase.functions.invoke(
+    const { error: emailError } = await supabaseInvoker.functions.invoke(
       "send-transactional-email",
       {
         body: {
