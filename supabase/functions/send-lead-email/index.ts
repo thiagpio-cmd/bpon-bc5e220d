@@ -61,7 +61,10 @@ serve(async (req) => {
 
     const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
     const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
+    const supabaseAnonKey = Deno.env.get("SUPABASE_ANON_KEY")!;
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
+    // Cliente separado para invocar funções com JWT válido (gateway exige JWT).
+    const supabaseInvoker = createClient(supabaseUrl, supabaseAnonKey);
 
     const { data: inserted, error: insertError } = await supabase
       .from("lead_submissions")
@@ -91,7 +94,7 @@ serve(async (req) => {
     const leadId = inserted?.id ?? crypto.randomUUID();
 
     // Dispara notificação por e-mail via pipeline transacional (fila + retry)
-    const { error: emailError } = await supabase.functions.invoke(
+    const { error: emailError } = await supabaseInvoker.functions.invoke(
       "send-transactional-email",
       {
         body: {
