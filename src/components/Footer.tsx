@@ -62,17 +62,12 @@ const Footer = () => {
               <a href="tel:+5531981184086"
               className="inline-flex items-start gap-2 font-body text-sm text-body hover:text-headline transition-colors">
                 <Phone size={13} className="flex-shrink-0 mt-0.5 text-primary/60" />
-                {"\n"}
+                (31) 98118-4086
               </a>
               <a href="https://wa.me/5531981184086" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-start gap-2 font-body text-sm text-body hover:text-headline transition-colors">
                 <Phone size={13} className="flex-shrink-0 mt-0.5 text-emerald-500" />
-                {"\n"} <span className="text-emerald-600 text-xs">(WhatsApp)</span>
-              </a>
-              <a href="mailto:contato@fintexbpo.com.br"
-              className="inline-flex items-start gap-2 font-body text-sm text-body hover:text-headline transition-colors">
-                <Mail size={13} className="flex-shrink-0 mt-0.5 text-primary/60" />
-                contato@fintexbpo.com.br
+                (31) 98118-4086
               </a>
               <a href="mailto:contato@fintexbpo.com.br"
               className="inline-flex items-start gap-2 font-body text-sm text-body hover:text-headline transition-colors">
@@ -124,7 +119,7 @@ const Footer = () => {
               © {year} Fintex BPO Financeiro
             </p>
             <p className="font-body text-xs text-body/45">
-              CNPJ XX.XXX.XXX/XXXX-XX
+              CNPJ 67.510.862/0001-35
             </p>
           </div>
           <p className="font-body text-xs text-body/35 italic">
