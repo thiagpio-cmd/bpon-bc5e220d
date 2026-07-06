@@ -1,4 +1,4 @@
-import { Globe2, Phone, Clock, Mail, ExternalLink } from "lucide-react";
+import { Globe2, Clock, Mail, ExternalLink } from "lucide-react";
 import FintexLogo from "./FintexLogo";
 
 const navLinks = [
@@ -59,16 +59,6 @@ const Footer = () => {
           <div>
             <p className="font-display font-semibold text-xs text-headline uppercase tracking-widest mb-5">Contato</p>
             <div className="flex flex-col gap-3">
-              <a href="tel:+5531981184086"
-              className="inline-flex items-start gap-2 font-body text-sm text-body hover:text-headline transition-colors">
-                <Phone size={13} className="flex-shrink-0 mt-0.5 text-primary/60" />
-                (31) 98118-4086
-              </a>
-              <a href="https://wa.me/5531981184086" target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-start gap-2 font-body text-sm text-body hover:text-headline transition-colors">
-                <Phone size={13} className="flex-shrink-0 mt-0.5 text-emerald-500" />
-                (31) 98118-4086
-              </a>
               <a href="mailto:contato@fintexbpo.com.br"
               className="inline-flex items-start gap-2 font-body text-sm text-body hover:text-headline transition-colors">
                 <Mail size={13} className="flex-shrink-0 mt-0.5 text-primary/60" />
